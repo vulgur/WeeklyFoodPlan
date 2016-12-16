@@ -13,6 +13,7 @@
 		D20E39181E03048700349F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D20E39171E03048700349F78 /* Assets.xcassets */; };
 		D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39191E03048700349F78 /* LaunchScreen.storyboard */; };
 		D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */; };
+		D20E39311E044EF700349F78 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39301E044EF700349F78 /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D20E39211E03048700349F78 /* WeeklyFoodPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeeklyFoodPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyFoodPlanTests.swift; sourceTree = "<group>"; };
 		D20E39271E03048700349F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D20E39301E044EF700349F78 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ingredient.swift; path = Models/Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D20E39171E03048700349F78 /* Assets.xcassets */,
 				D20E39191E03048700349F78 /* LaunchScreen.storyboard */,
 				D20E391C1E03048700349F78 /* Info.plist */,
+				D20E39321E044EFB00349F78 /* Models */,
 			);
 			path = WeeklyFoodPlan;
 			sourceTree = "<group>";
@@ -94,6 +97,14 @@
 				D20E39271E03048700349F78 /* Info.plist */,
 			);
 			path = WeeklyFoodPlanTests;
+			sourceTree = "<group>";
+		};
+		D20E39321E044EFB00349F78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D20E39301E044EF700349F78 /* Ingredient.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 			files = (
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
+				D20E39311E044EF700349F78 /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
