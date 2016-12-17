@@ -14,6 +14,7 @@
 		D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39191E03048700349F78 /* LaunchScreen.storyboard */; };
 		D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */; };
 		D20E39311E044EF700349F78 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39301E044EF700349F78 /* Ingredient.swift */; };
+		D20E39341E05B6EA00349F78 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39331E05B6EA00349F78 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyFoodPlanTests.swift; sourceTree = "<group>"; };
 		D20E39271E03048700349F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D20E39301E044EF700349F78 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ingredient.swift; path = Models/Ingredient.swift; sourceTree = "<group>"; };
+		D20E39331E05B6EA00349F78 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D20E39301E044EF700349F78 /* Ingredient.swift */,
+				D20E39331E05B6EA00349F78 /* Meal.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20E39341E05B6EA00349F78 /* Meal.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
 				D20E39311E044EF700349F78 /* Ingredient.swift in Sources */,
