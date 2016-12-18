@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Meal {
+struct Recipe {
     let name: String
     let tags: [String]
     let type: String
@@ -16,5 +16,5 @@ struct Meal {
     let photo: UIImage
     let cookCount: Int
     let isFavored: Bool
-    let recipe: [String]
+    let steps: [RecipeStep]
 }

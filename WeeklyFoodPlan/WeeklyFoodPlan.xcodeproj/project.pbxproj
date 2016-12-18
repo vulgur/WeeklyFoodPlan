@@ -14,7 +14,9 @@
 		D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39191E03048700349F78 /* LaunchScreen.storyboard */; };
 		D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */; };
 		D20E39311E044EF700349F78 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39301E044EF700349F78 /* Ingredient.swift */; };
-		D20E39341E05B6EA00349F78 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39331E05B6EA00349F78 /* Meal.swift */; };
+		D20E39341E05B6EA00349F78 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39331E05B6EA00349F78 /* Recipe.swift */; };
+		D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39351E06F2AD00349F78 /* RecipeStep.swift */; };
+		D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39371E06F2F700349F78 /* Nutrition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,9 @@
 		D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyFoodPlanTests.swift; sourceTree = "<group>"; };
 		D20E39271E03048700349F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D20E39301E044EF700349F78 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ingredient.swift; path = Models/Ingredient.swift; sourceTree = "<group>"; };
-		D20E39331E05B6EA00349F78 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
+		D20E39331E05B6EA00349F78 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Models/Recipe.swift; sourceTree = "<group>"; };
+		D20E39351E06F2AD00349F78 /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeStep.swift; path = Models/RecipeStep.swift; sourceTree = "<group>"; };
+		D20E39371E06F2F700349F78 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nutrition.swift; path = Models/Nutrition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				D20E39301E044EF700349F78 /* Ingredient.swift */,
-				D20E39331E05B6EA00349F78 /* Meal.swift */,
+				D20E39331E05B6EA00349F78 /* Recipe.swift */,
+				D20E39351E06F2AD00349F78 /* RecipeStep.swift */,
+				D20E39371E06F2F700349F78 /* Nutrition.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -215,9 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D20E39341E05B6EA00349F78 /* Meal.swift in Sources */,
+				D20E39341E05B6EA00349F78 /* Recipe.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
+				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
+				D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */,
 				D20E39311E044EF700349F78 /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

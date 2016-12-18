@@ -10,6 +10,6 @@ import UIKit
 
 struct Ingredient {
     let name: String
-    var nutritions: [String]
+    var nutritions: [Nutrition]
     var icon: UIImage?
 }
