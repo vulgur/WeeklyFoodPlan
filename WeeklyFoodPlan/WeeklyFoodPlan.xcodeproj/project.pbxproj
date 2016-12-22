@@ -17,6 +17,7 @@
 		D20E39341E05B6EA00349F78 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39331E05B6EA00349F78 /* Recipe.swift */; };
 		D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39351E06F2AD00349F78 /* RecipeStep.swift */; };
 		D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39371E06F2F700349F78 /* Nutrition.swift */; };
+		D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39391E0C27D300349F78 /* RecipeSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D20E39331E05B6EA00349F78 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Models/Recipe.swift; sourceTree = "<group>"; };
 		D20E39351E06F2AD00349F78 /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeStep.swift; path = Models/RecipeStep.swift; sourceTree = "<group>"; };
 		D20E39371E06F2F700349F78 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nutrition.swift; path = Models/Nutrition.swift; sourceTree = "<group>"; };
+		D20E39391E0C27D300349F78 /* RecipeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeSet.swift; path = Models/RecipeSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D20E39331E05B6EA00349F78 /* Recipe.swift */,
 				D20E39351E06F2AD00349F78 /* RecipeStep.swift */,
 				D20E39371E06F2F700349F78 /* Nutrition.swift */,
+				D20E39391E0C27D300349F78 /* RecipeSet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
 				D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */,
+				D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */,
 				D20E39311E044EF700349F78 /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
