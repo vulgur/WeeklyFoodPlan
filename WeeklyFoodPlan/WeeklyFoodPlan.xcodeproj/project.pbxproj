@@ -18,6 +18,8 @@
 		D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39351E06F2AD00349F78 /* RecipeStep.swift */; };
 		D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39371E06F2F700349F78 /* Nutrition.swift */; };
 		D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39391E0C27D300349F78 /* RecipeSet.swift */; };
+		D251005A1E0C3281009BAF1B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100591E0C3281009BAF1B /* ObjectMapper.framework */; };
+		D251005B1E0C3281009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100591E0C3281009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,20 @@
 			remoteInfo = WeeklyFoodPlan;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D251005C1E0C3281009BAF1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D251005B1E0C3281009BAF1B /* ObjectMapper.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D20E390D1E03048700349F78 /* WeeklyFoodPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeeklyFoodPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +62,7 @@
 		D20E39351E06F2AD00349F78 /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeStep.swift; path = Models/RecipeStep.swift; sourceTree = "<group>"; };
 		D20E39371E06F2F700349F78 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nutrition.swift; path = Models/Nutrition.swift; sourceTree = "<group>"; };
 		D20E39391E0C27D300349F78 /* RecipeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeSet.swift; path = Models/RecipeSet.swift; sourceTree = "<group>"; };
+		D25100591E0C3281009BAF1B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D251005A1E0C3281009BAF1B /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +87,7 @@
 		D20E39041E03048700349F78 = {
 			isa = PBXGroup;
 			children = (
+				D251005D1E0C3296009BAF1B /* Frameworks */,
 				D20E390F1E03048700349F78 /* WeeklyFoodPlan */,
 				D20E39241E03048700349F78 /* WeeklyFoodPlanTests */,
 				D20E390E1E03048700349F78 /* Products */,
@@ -119,6 +138,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		D251005D1E0C3296009BAF1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D25100591E0C3281009BAF1B /* ObjectMapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +156,7 @@
 				D20E39091E03048700349F78 /* Sources */,
 				D20E390A1E03048700349F78 /* Frameworks */,
 				D20E390B1E03048700349F78 /* Resources */,
+				D251005C1E0C3281009BAF1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -368,6 +396,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GZLZV8E4BV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mad.WeeklyFoodPlan;
@@ -381,6 +413,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GZLZV8E4BV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mad.WeeklyFoodPlan;
@@ -438,6 +474,7 @@
 				D20E392C1E03048700349F78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D20E392D1E03048700349F78 /* Build configuration list for PBXNativeTarget "WeeklyFoodPlanTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +483,7 @@
 				D20E392F1E03048700349F78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
