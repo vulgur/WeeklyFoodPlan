@@ -20,6 +20,7 @@
 		D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39391E0C27D300349F78 /* RecipeSet.swift */; };
 		D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
 		D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2671E142AC400277BD9 /* NutritionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D20E39371E06F2F700349F78 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nutrition.swift; path = Models/Nutrition.swift; sourceTree = "<group>"; };
 		D20E39391E0C27D300349F78 /* RecipeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeSet.swift; path = Models/RecipeSet.swift; sourceTree = "<group>"; };
 		D25100631E0C34BE009BAF1B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		D2CFA2671E142AC400277BD9 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionManager.swift; path = Models/NutritionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				D20E39351E06F2AD00349F78 /* RecipeStep.swift */,
 				D20E39371E06F2F700349F78 /* Nutrition.swift */,
 				D20E39391E0C27D300349F78 /* RecipeSet.swift */,
+				D2CFA2671E142AC400277BD9 /* NutritionManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */,
 				D20E39341E05B6EA00349F78 /* Recipe.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,

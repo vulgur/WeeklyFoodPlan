@@ -9,12 +9,12 @@
 import UIKit
 
 struct Recipe {
-    let name: String
-    let tags: [String]
-    let type: String
-    let ingredients: [Ingredient]
-    let photo: UIImage
-    let cookCount: Int
-    let isFavored: Bool
-    let steps: [RecipeStep]
+    var name: String
+    var tags: [String]
+    var type: String
+    var ingredients: [Ingredient]
+    var photo: UIImage
+    var cookCount: Int
+    var isFavored: Bool
+    var steps: [RecipeStep]
 }

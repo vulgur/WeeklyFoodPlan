@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import ObjectMapper
 
-struct Nutrition {
-    let name: String
-    let icon: UIImage
+struct Nutrition: Mappable {
+    var name: String?
+//    var icon: UIImage
+    init(name: String) {
+        self.name = name
+    }
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        name <- map["name"]
+    }
 }
