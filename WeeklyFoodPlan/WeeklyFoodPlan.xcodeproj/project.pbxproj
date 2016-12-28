@@ -424,10 +424,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-<<<<<<< HEAD
+
 					"$(PROJECT_DIR)",
-=======
->>>>>>> 676fda8f38395757c08b344d58f82df0a769389a
+
 				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -445,10 +444,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-<<<<<<< HEAD
+
 					"$(PROJECT_DIR)",
-=======
->>>>>>> 676fda8f38395757c08b344d58f82df0a769389a
+
 				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
