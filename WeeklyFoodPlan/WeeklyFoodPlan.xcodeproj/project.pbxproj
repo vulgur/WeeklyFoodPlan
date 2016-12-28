@@ -18,9 +18,11 @@
 		D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39351E06F2AD00349F78 /* RecipeStep.swift */; };
 		D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39371E06F2F700349F78 /* Nutrition.swift */; };
 		D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39391E0C27D300349F78 /* RecipeSet.swift */; };
+
 		D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
 		D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2671E142AC400277BD9 /* NutritionManager.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -422,7 +424,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+<<<<<<< HEAD
 					"$(PROJECT_DIR)",
+=======
+>>>>>>> 676fda8f38395757c08b344d58f82df0a769389a
 				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,7 +445,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+<<<<<<< HEAD
 					"$(PROJECT_DIR)",
+=======
+>>>>>>> 676fda8f38395757c08b344d58f82df0a769389a
 				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
