@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import ObjectMapper
 
 struct NutritionManager {
-    func nutritionList() -> [Nutrition] {
-        let vitaminA = Nutrition(name: "维他命A")
-        return [vitaminA]
+    static func nutritionList() -> [Nutrition] {
+        if let path = Bundle.main.path(forResource: "nutritions", ofType: "json") {
+            print(path)
+            if let jsonData = NSData(contentsOfFile: path) {
+                if let jsonString = String.init(data: jsonData as Data, encoding: .utf8) {
+                    let list = Mapper<Nutrition>().mapArray(JSONString: jsonString)
+                    return list!
+                }
+            }
+        }
+        
+        return []
     }
 }

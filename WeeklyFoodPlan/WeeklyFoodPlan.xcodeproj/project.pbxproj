@@ -18,11 +18,10 @@
 		D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39351E06F2AD00349F78 /* RecipeStep.swift */; };
 		D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39371E06F2F700349F78 /* Nutrition.swift */; };
 		D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39391E0C27D300349F78 /* RecipeSet.swift */; };
-
 		D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
 		D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2671E142AC400277BD9 /* NutritionManager.swift */; };
-
+		D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA26A1E1432BC00277BD9 /* nutritions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +66,7 @@
 		D20E39391E0C27D300349F78 /* RecipeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeSet.swift; path = Models/RecipeSet.swift; sourceTree = "<group>"; };
 		D25100631E0C34BE009BAF1B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		D2CFA2671E142AC400277BD9 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionManager.swift; path = Models/NutritionManager.swift; sourceTree = "<group>"; };
+		D2CFA26A1E1432BC00277BD9 /* nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nutritions.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +110,7 @@
 		D20E390F1E03048700349F78 /* WeeklyFoodPlan */ = {
 			isa = PBXGroup;
 			children = (
+				D2CFA2691E1432BC00277BD9 /* JSONData */,
 				D20E39101E03048700349F78 /* AppDelegate.swift */,
 				D20E39121E03048700349F78 /* ViewController.swift */,
 				D20E39141E03048700349F78 /* Main.storyboard */,
@@ -149,6 +150,14 @@
 				D25100631E0C34BE009BAF1B /* ObjectMapper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2CFA2691E1432BC00277BD9 /* JSONData */ = {
+			isa = PBXGroup;
+			children = (
+				D2CFA26A1E1432BC00277BD9 /* nutritions.json */,
+			);
+			path = JSONData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +249,7 @@
 			files = (
 				D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */,
 				D20E39181E03048700349F78 /* Assets.xcassets in Resources */,
+				D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */,
 				D20E39161E03048700349F78 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,9 +434,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-
 					"$(PROJECT_DIR)",
-
 				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -444,9 +452,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-
 					"$(PROJECT_DIR)",
-
 				);
 				INFOPLIST_FILE = WeeklyFoodPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
