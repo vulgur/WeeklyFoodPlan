@@ -10,8 +10,10 @@ import Foundation
 import ObjectMapper
 
 struct NutritionManager {
-    static func nutritionList() -> [Nutrition] {
-        if let path = Bundle.main.path(forResource: "nutritions", ofType: "json") {
+    static func nutritionList(fromData data: String? = nil) -> [Nutrition] {
+        let dataName = data ?? "nutritions"
+        
+        if let path = Bundle.main.path(forResource: dataName, ofType: "json") {
             print(path)
             if let jsonData = NSData(contentsOfFile: path) {
                 if let jsonString = String.init(data: jsonData as Data, encoding: .utf8) {

@@ -1,0 +1,17 @@
+{
+    "name" : "Apple",
+    "nutritions" : [
+                    {
+                    "name": "Fat"
+                    },
+                    {
+                    "name": "Water"
+                    },
+                    {
+                    "name": "Fiber"
+                    },
+                    {
+                    "name": "Vitamin-A"
+                    }
+                    ]
+}

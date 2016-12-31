@@ -22,6 +22,11 @@
 		D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2671E142AC400277BD9 /* NutritionManager.swift */; };
 		D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA26A1E1432BC00277BD9 /* nutritions.json */; };
+		D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */; };
+		D2CFA26E1E18226E00277BD9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
+		D2CFA2701E1823E100277BD9 /* IngredientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */; };
+		D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2711E18289300277BD9 /* apple_nutritions.json */; };
+		D2CFA2741E1828E000277BD9 /* apple_ingredient.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2731E1828E000277BD9 /* apple_ingredient.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,10 @@
 		D25100631E0C34BE009BAF1B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		D2CFA2671E142AC400277BD9 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionManager.swift; path = Models/NutritionManager.swift; sourceTree = "<group>"; };
 		D2CFA26A1E1432BC00277BD9 /* nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nutritions.json; sourceTree = "<group>"; };
+		D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
+		D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IngredientManager.swift; path = Models/IngredientManager.swift; sourceTree = "<group>"; };
+		D2CFA2711E18289300277BD9 /* apple_nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_nutritions.json; sourceTree = "<group>"; };
+		D2CFA2731E1828E000277BD9 /* apple_ingredient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_ingredient.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CFA26E1E18226E00277BD9 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +137,7 @@
 			children = (
 				D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */,
 				D20E39271E03048700349F78 /* Info.plist */,
+				D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */,
 			);
 			path = WeeklyFoodPlanTests;
 			sourceTree = "<group>";
@@ -140,6 +151,7 @@
 				D20E39371E06F2F700349F78 /* Nutrition.swift */,
 				D20E39391E0C27D300349F78 /* RecipeSet.swift */,
 				D2CFA2671E142AC400277BD9 /* NutritionManager.swift */,
+				D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -156,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				D2CFA26A1E1432BC00277BD9 /* nutritions.json */,
+				D2CFA2711E18289300277BD9 /* apple_nutritions.json */,
+				D2CFA2731E1828E000277BD9 /* apple_ingredient.json */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -249,8 +263,10 @@
 			files = (
 				D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */,
 				D20E39181E03048700349F78 /* Assets.xcassets in Resources */,
+				D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */,
 				D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */,
 				D20E39161E03048700349F78 /* Main.storyboard in Resources */,
+				D2CFA2741E1828E000277BD9 /* apple_ingredient.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +309,7 @@
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
 				D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */,
 				D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */,
+				D2CFA2701E1823E100277BD9 /* IngredientManager.swift in Sources */,
 				D20E39311E044EF700349F78 /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */,
 				D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +486,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GZLZV8E4BV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeeklyFoodPlanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mad.WeeklyFoodPlanTests;
@@ -483,6 +505,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GZLZV8E4BV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeeklyFoodPlanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mad.WeeklyFoodPlanTests;
