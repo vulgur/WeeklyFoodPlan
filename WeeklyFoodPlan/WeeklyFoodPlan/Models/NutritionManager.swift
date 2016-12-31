@@ -15,13 +15,12 @@ struct NutritionManager {
             print(path)
             if let jsonData = NSData(contentsOfFile: path) {
                 if let jsonString = String.init(data: jsonData as Data, encoding: .utf8) {
-                    if let list = Mapper<Nutrition>().mapArray(JSONString: jsonString) {
-                        return list
+                    if let nutritions = Mapper<Nutrition>().mapArray(JSONString: jsonString) {
+                        return nutritions
                     }
                 }
             }
         }
-        
         return []
     }
 }

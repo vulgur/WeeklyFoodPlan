@@ -9,9 +9,16 @@
 import UIKit
 
 struct Recipe {
+    
+    enum RecipeType {
+        case HomeCooking
+        case EatingOut
+        case TakeOut
+    }
+    
     var name: String
     var tags: [String]
-    var type: String
+    var type: RecipeType
     var ingredients: [Ingredient]
     var photo: UIImage
     var cookCount: Int
