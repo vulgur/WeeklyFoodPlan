@@ -42,6 +42,11 @@ struct Recipe: Mappable {
     var isFavored: Bool?
     var steps: [RecipeStep]?
     
+    init(name: String, type: RecipeType) {
+        self.name = name
+        self.type = type
+    }
+    
     init?(map: Map) {
         
     }
@@ -58,5 +63,5 @@ struct Recipe: Mappable {
 extension Recipe: Equatable {}
 
 func == (lhs: Recipe, rhs: Recipe) -> Bool {
-    return lhs.name == rhs.name
+    return lhs.name == rhs.name && lhs.type == rhs.type
 }

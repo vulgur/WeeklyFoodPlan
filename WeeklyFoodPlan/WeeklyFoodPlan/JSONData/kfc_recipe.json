@@ -1,0 +1,7 @@
+{
+    "name": "KFC",
+    "type": "TakeOut",
+    "tags": [
+        "fries", "chicken", "burger"
+    ]
+}
