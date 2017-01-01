@@ -54,3 +54,9 @@ struct Recipe: Mappable {
         // TODO: add properties to map
     }
 }
+
+extension Recipe: Equatable {}
+
+func == (lhs: Recipe, rhs: Recipe) -> Bool {
+    return lhs.name == rhs.name
+}
