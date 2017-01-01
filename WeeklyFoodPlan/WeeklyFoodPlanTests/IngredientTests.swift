@@ -30,7 +30,7 @@ class IngredientTests: XCTestCase {
     }
     
     func testInitFromJSON() {
-        let apple = IngredientManager.ingredientFromJSON(dataName: "apple_ingredient")!
+        let apple = IngredientManager.ingredientFromJSON(fileName: "apple_ingredient")!
         
         let appleNutritions = NutritionManager.nutritionList(fromData: "apple_nutritions")
         let anotherApple = Ingredient(name: "Apple", nutritions: appleNutritions)

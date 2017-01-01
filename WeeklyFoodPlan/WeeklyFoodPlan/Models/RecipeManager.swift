@@ -1,22 +1,22 @@
 //
-//  IngredientManager.swift
+//  RecipeManager.swift
 //  WeeklyFoodPlan
 //
-//  Created by vulgur on 2017/1/1.
+//  Created by vulgur on 2017/1/2.
 //  Copyright © 2017年 MAD. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-struct IngredientManager {
+struct RecipeManager {
     
-    static func ingredientFromJSON(fileName: String) -> Ingredient? {
+    static func recipeFromJSON(fileName: String) -> Recipe? {
         if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 if let jsonString = String(data: jsonData as Data, encoding: .utf8) {
-                    if let ingredient = Mapper<Ingredient>().map(JSONString: jsonString) {
-                        return ingredient
+                    if let recipe = Mapper<Recipe>().map(JSONString: jsonString) {
+                        return recipe
                     }
                 }
             }

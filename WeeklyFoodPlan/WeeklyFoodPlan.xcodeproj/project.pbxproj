@@ -27,6 +27,7 @@
 		D2CFA2701E1823E100277BD9 /* IngredientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */; };
 		D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2711E18289300277BD9 /* apple_nutritions.json */; };
 		D2CFA2741E1828E000277BD9 /* apple_ingredient.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2731E1828E000277BD9 /* apple_ingredient.json */; };
+		D2CFA2761E196C6C00277BD9 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2751E196C6C00277BD9 /* RecipeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IngredientManager.swift; path = Models/IngredientManager.swift; sourceTree = "<group>"; };
 		D2CFA2711E18289300277BD9 /* apple_nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_nutritions.json; sourceTree = "<group>"; };
 		D2CFA2731E1828E000277BD9 /* apple_ingredient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_ingredient.json; sourceTree = "<group>"; };
+		D2CFA2751E196C6C00277BD9 /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeManager.swift; path = Models/RecipeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				D20E39391E0C27D300349F78 /* RecipeSet.swift */,
 				D2CFA2671E142AC400277BD9 /* NutritionManager.swift */,
 				D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */,
+				D2CFA2751E196C6C00277BD9 /* RecipeManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */,
+				D2CFA2761E196C6C00277BD9 /* RecipeManager.swift in Sources */,
 				D20E39341E05B6EA00349F78 /* Recipe.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,
