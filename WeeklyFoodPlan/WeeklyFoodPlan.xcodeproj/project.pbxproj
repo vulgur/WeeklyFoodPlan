@@ -30,6 +30,7 @@
 		D2CFA2761E196C6C00277BD9 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2751E196C6C00277BD9 /* RecipeManager.swift */; };
 		D2CFA2781E196D5D00277BD9 /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */; };
 		D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2791E196F2400277BD9 /* kfc_recipe.json */; };
+		D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		D2CFA2751E196C6C00277BD9 /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeManager.swift; path = Models/RecipeManager.swift; sourceTree = "<group>"; };
 		D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
 		D2CFA2791E196F2400277BD9 /* kfc_recipe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kfc_recipe.json; sourceTree = "<group>"; };
+		D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyFoodListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		D20E390F1E03048700349F78 /* WeeklyFoodPlan */ = {
 			isa = PBXGroup;
 			children = (
+				D2CFA27B1E1AB80500277BD9 /* Views */,
 				D2CFA2691E1432BC00277BD9 /* JSONData */,
 				D20E39101E03048700349F78 /* AppDelegate.swift */,
 				D20E39121E03048700349F78 /* ViewController.swift */,
@@ -181,6 +184,14 @@
 				D2CFA2791E196F2400277BD9 /* kfc_recipe.json */,
 			);
 			path = JSONData;
+			sourceTree = "<group>";
+		};
+		D2CFA27B1E1AB80500277BD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +329,7 @@
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
+				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
 				D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */,
 				D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */,
 				D2CFA2701E1823E100277BD9 /* IngredientManager.swift in Sources */,

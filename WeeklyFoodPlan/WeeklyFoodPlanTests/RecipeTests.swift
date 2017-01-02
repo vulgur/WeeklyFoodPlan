@@ -23,7 +23,7 @@ class RecipeTests: XCTestCase {
     
     func testRecipeInitFromJSON() {
         let kfc = RecipeManager.recipeFromJSON(fileName: "kfc_recipe")
-        
+        print(kfc!)
         var kfc2 = Recipe(name: "KFC", type: Recipe.RecipeType.TakeOut)
         let tags = ["fries", "chicken", "burger"]
         kfc2.tags = tags
