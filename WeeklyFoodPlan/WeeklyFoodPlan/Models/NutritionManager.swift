@@ -7,22 +7,17 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct NutritionManager {
-    static func nutritionList(fromData data: String? = nil) -> [Nutrition] {
-        let dataName = data ?? "nutritions"
-        
-        if let path = Bundle.main.path(forResource: dataName, ofType: "json") {
-            print(path)
-            if let jsonData = NSData(contentsOfFile: path) {
-                if let jsonString = String.init(data: jsonData as Data, encoding: .utf8) {
-                    if let nutritions = Mapper<Nutrition>().mapArray(JSONString: jsonString) {
-                        return nutritions
-                    }
-                }
-            }
+class NutritionManager: BaseManager {
+    
+    class func save(nutrition: Nutrition) {
+        try! realm.write {
+            realm.add(nutrition)
         }
-        return []
+    }
+    
+    class func nutritionCount() -> Int {
+        let nutritions = realm.objects(Nutrition.self)
+        return nutritions.count
     }
 }

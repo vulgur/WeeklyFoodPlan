@@ -20,6 +20,7 @@
 		D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39391E0C27D300349F78 /* RecipeSet.swift */; };
 		D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
 		D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D29347201E1EA8B600C95C4C /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D293471F1E1EA8B600C95C4C /* BaseManager.swift */; };
 		D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2671E142AC400277BD9 /* NutritionManager.swift */; };
 		D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA26A1E1432BC00277BD9 /* nutritions.json */; };
 		D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */; };
@@ -31,6 +32,11 @@
 		D2CFA2781E196D5D00277BD9 /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */; };
 		D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2791E196F2400277BD9 /* kfc_recipe.json */; };
 		D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */; };
+		D2CFA2801E1C025900277BD9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27E1E1C025900277BD9 /* Realm.framework */; };
+		D2CFA2811E1C025900277BD9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27E1E1C025900277BD9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */; };
+		D2CFA2831E1C025900277BD9 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2CFA2861E1C06C100277BD9 /* NutritionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2851E1C06C100277BD9 /* NutritionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +56,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D2CFA2811E1C025900277BD9 /* Realm.framework in Embed Frameworks */,
 				D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */,
+				D2CFA2831E1C025900277BD9 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +82,7 @@
 		D20E39371E06F2F700349F78 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nutrition.swift; path = Models/Nutrition.swift; sourceTree = "<group>"; };
 		D20E39391E0C27D300349F78 /* RecipeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeSet.swift; path = Models/RecipeSet.swift; sourceTree = "<group>"; };
 		D25100631E0C34BE009BAF1B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		D293471F1E1EA8B600C95C4C /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseManager.swift; path = Models/BaseManager.swift; sourceTree = "<group>"; };
 		D2CFA2671E142AC400277BD9 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionManager.swift; path = Models/NutritionManager.swift; sourceTree = "<group>"; };
 		D2CFA26A1E1432BC00277BD9 /* nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nutritions.json; sourceTree = "<group>"; };
 		D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
@@ -84,6 +93,9 @@
 		D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
 		D2CFA2791E196F2400277BD9 /* kfc_recipe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kfc_recipe.json; sourceTree = "<group>"; };
 		D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyFoodListViewController.swift; sourceTree = "<group>"; };
+		D2CFA27E1E1C025900277BD9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		D2CFA2851E1C06C100277BD9 /* NutritionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +103,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CFA2801E1C025900277BD9 /* Realm.framework in Frameworks */,
 				D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */,
+				D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +162,7 @@
 				D20E39271E03048700349F78 /* Info.plist */,
 				D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */,
 				D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */,
+				D2CFA2851E1C06C100277BD9 /* NutritionTests.swift */,
 			);
 			path = WeeklyFoodPlanTests;
 			sourceTree = "<group>";
@@ -163,6 +178,7 @@
 				D2CFA2671E142AC400277BD9 /* NutritionManager.swift */,
 				D2CFA26F1E1823E100277BD9 /* IngredientManager.swift */,
 				D2CFA2751E196C6C00277BD9 /* RecipeManager.swift */,
+				D293471F1E1EA8B600C95C4C /* BaseManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -170,6 +186,8 @@
 		D251005D1E0C3296009BAF1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2CFA27E1E1C025900277BD9 /* Realm.framework */,
+				D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */,
 				D25100631E0C34BE009BAF1B /* ObjectMapper.framework */,
 			);
 			name = Frameworks;
@@ -206,6 +224,7 @@
 				D20E390B1E03048700349F78 /* Resources */,
 				D25100611E0C33C8009BAF1B /* Embed Frameworks */,
 				D25100621E0C33D8009BAF1B /* Carthage */,
+				D2CFA2841E1C028400277BD9 /* Realm */,
 			);
 			buildRules = (
 			);
@@ -316,6 +335,20 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		D2CFA2841E1C028400277BD9 /* Realm */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Realm;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,6 +362,7 @@
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
+				D29347201E1EA8B600C95C4C /* BaseManager.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
 				D20E39361E06F2AD00349F78 /* RecipeStep.swift in Sources */,
 				D20E393A1E0C27D300349F78 /* RecipeSet.swift in Sources */,
@@ -343,6 +377,7 @@
 			files = (
 				D2CFA2781E196D5D00277BD9 /* RecipeTests.swift in Sources */,
 				D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */,
+				D2CFA2861E1C06C100277BD9 /* NutritionTests.swift in Sources */,
 				D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +548,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/",
 				);
 				INFOPLIST_FILE = WeeklyFoodPlanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -532,6 +568,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/",
 				);
 				INFOPLIST_FILE = WeeklyFoodPlanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

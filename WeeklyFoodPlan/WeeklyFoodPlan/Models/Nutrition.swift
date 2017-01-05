@@ -7,20 +7,10 @@
 //
 
 import UIKit
-import ObjectMapper
+import RealmSwift
 
-struct Nutrition: Mappable {
-    var name: String?
-//    var icon: UIImage
-    init(name: String) {
-        self.name = name
-    }
+class Nutrition: Object {
     
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        name <- map["name"]
-    }
+    dynamic var name: String = ""
+
 }
