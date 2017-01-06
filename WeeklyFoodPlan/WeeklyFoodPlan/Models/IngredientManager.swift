@@ -7,20 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct IngredientManager {
+class IngredientManager {
     
-    static func ingredientFromJSON(fileName: String) -> Ingredient? {
-        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
-            if let jsonData = NSData(contentsOfFile: path) {
-                if let jsonString = String(data: jsonData as Data, encoding: .utf8) {
-                    if let ingredient = Mapper<Ingredient>().map(JSONString: jsonString) {
-                        return ingredient
-                    }
-                }
-            }
-        }
-        return nil
-    }
+    static let shared = IngredientManager()
 }

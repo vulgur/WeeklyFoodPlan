@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RealmSwift
 @testable import WeeklyFoodPlan
 
 class IngredientTests: XCTestCase {
@@ -22,18 +23,33 @@ class IngredientTests: XCTestCase {
     }
     
 //    func testInit() {
-//        let nutritionList = NutritionManager.nutritionList()
-//        let tomato = Ingredient(name: "Tomato", nutritions: nutritionList, icon: nil)
+//        let nutritionList = NutritionManager.shared.nutritionList()
+//        let tomato = Ingredient()
+//        tomato.name = "Tomato"
+//        tomato.nutritions = nutritionList
 //        
 //        XCTAssertNotNil(tomato)
 //    }
-//    
-//    func testInitFromJSON() {
-//        let apple = IngredientManager.ingredientFromJSON(fileName: "apple_ingredient")!
-//        
-//        let appleNutritions = NutritionManager.nutritionList(fromData: "apple_nutritions")
-//        let anotherApple = Ingredient(name: "Apple", nutritions: appleNutritions)
-//        
-//        XCTAssert(apple == anotherApple)
-//    }
+    
+    func testRealmSave() {
+        BaseManager.shared.deleteAll()
+        
+        let va = Nutrition(value: ["name": "Vitamin-A"])
+        let vb = Nutrition(value: ["name": "Vitamin-B"])
+        let vc = Nutrition(value: ["name": "Vitamin-C"])
+        
+        let apple = Ingredient()
+        apple.name = "Apple"
+        apple.nutritions.append(va)
+        apple.nutritions.append(vb)
+
+        let banana = Ingredient()
+        banana.name = "Banana"
+        banana.nutritions.append(vc)
+        
+        BaseManager.shared.save(object: apple)
+        BaseManager.shared.save(object: banana)
+        
+        XCTAssertEqual(BaseManager.shared.queryTotalCount(ofType: Ingredient.self), 2)
+    }
 }

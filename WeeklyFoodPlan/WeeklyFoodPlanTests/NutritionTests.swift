@@ -22,12 +22,12 @@ class NutritionTests: XCTestCase {
     }
     
     func testSave() {
-        NutritionManager.deleteAll()
+        BaseManager.shared.deleteAll()
         let nutA = Nutrition(value: ["name": "AAA"])
         let nutB = Nutrition(value: ["name": "BBB"])
-        NutritionManager.save(nutrition: nutA)
-        NutritionManager.save(nutrition: nutB)
-        let count = NutritionManager.nutritionCount()
+        BaseManager.shared.save(object: nutA)
+        BaseManager.shared.save(object: nutB)
+        let count = BaseManager.shared.queryTotalCount(ofType: Nutrition.self)
         
         XCTAssert(count == 2)
     }

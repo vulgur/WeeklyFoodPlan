@@ -8,16 +8,8 @@
 
 import Foundation
 
-class NutritionManager: BaseManager {
+class NutritionManager {
     
-    class func save(nutrition: Nutrition) {
-        try! realm.write {
-            realm.add(nutrition)
-        }
-    }
-    
-    class func nutritionCount() -> Int {
-        let nutritions = realm.objects(Nutrition.self)
-        return nutritions.count
-    }
+    static let shared = NutritionManager()
+
 }

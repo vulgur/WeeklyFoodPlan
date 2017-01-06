@@ -10,9 +10,26 @@ import Foundation
 import RealmSwift
 
 class BaseManager {
-    static let realm = try! Realm()
+    static let shared = BaseManager()
     
-    static func deleteAll() {
+    let realm = try! Realm()
+    
+    func save<T: Object>(object: T) {
+        do {
+            try realm.write {
+                realm.add(object)
+            }
+        } catch let error as NSError {
+            print("Error in saving", error)
+        }
+    }
+    
+    func queryTotalCount<T: Object>(ofType: T.Type) -> Int {
+        let results = realm.objects(T.self)
+        return results.count
+    }
+    
+    func deleteAll() {
         try! realm.write {
             realm.deleteAll()
         }

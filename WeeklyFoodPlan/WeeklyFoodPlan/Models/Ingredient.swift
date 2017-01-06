@@ -7,40 +7,30 @@
 //
 
 import UIKit
-import ObjectMapper
+import RealmSwift
 
-struct Ingredient: Mappable {
-    var name: String?
-    var nutritions: [Nutrition]?
+class Ingredient: Object {
+    dynamic var name: String = ""
+    let nutritions = List<Nutrition>()
     var icon: UIImage?
     
-    init(name: String, nutritions: [Nutrition], icon: UIImage? = nil) {
-        self.name = name
-        self.nutritions = nutritions
-        self.icon = icon
-    }
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        name <- map["name"]
-        nutritions <- map["nutritions"]
+    override static func ignoredProperties() -> [String] {
+        return ["icon"]
     }
 }
 
-extension Ingredient: Equatable {}
+extension Ingredient {
 
-func == (lhs: Ingredient, rhs: Ingredient) -> Bool {
-    if lhs.name != rhs.name {
-        return false
+    static func == (lhs: Ingredient, rhs: Ingredient) -> Bool {
+        if lhs.name != rhs.name {
+            return false
+        }
+        
+        // TODO: for now just compare the count of nutritions
+        if lhs.nutritions.count != rhs.nutritions.count {
+            return false
+        }
+        
+        return true
     }
-    
-    // TODO: for now just compare the count of nutritions
-    if lhs.nutritions?.count != rhs.nutritions?.count {
-        return false
-    }
-    
-    return true
 }
