@@ -14,4 +14,8 @@ class TakeOut: Object, Meal {
     dynamic var isFavored: Bool = false
     var tags = List<Tag>()
     dynamic var imagePath: String?
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }

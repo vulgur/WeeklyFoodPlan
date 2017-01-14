@@ -152,6 +152,7 @@
 		D20E390F1E03048700349F78 /* WeeklyFoodPlan */ = {
 			isa = PBXGroup;
 			children = (
+				D2750BD41E2AC52900048863 /* ViewControllers */,
 				D2CFA27B1E1AB80500277BD9 /* Views */,
 				D2CFA2691E1432BC00277BD9 /* JSONData */,
 				D20E39101E03048700349F78 /* AppDelegate.swift */,
@@ -206,6 +207,13 @@
 				D25100631E0C34BE009BAF1B /* ObjectMapper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2750BD41E2AC52900048863 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		D2CFA2691E1432BC00277BD9 /* JSONData */ = {

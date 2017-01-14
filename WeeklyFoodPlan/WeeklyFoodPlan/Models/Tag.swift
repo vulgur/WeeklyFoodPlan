@@ -11,4 +11,8 @@ import RealmSwift
 
 class Tag: Object {
     dynamic var name: String = ""
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }
