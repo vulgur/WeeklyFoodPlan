@@ -10,12 +10,14 @@ import Foundation
 import RealmSwift
 
 class EatingOut: Object, Meal {
+    dynamic var id = UUID().uuidString
     dynamic var name: String = ""
     dynamic var isFavored: Bool = false
-    var tags = List<Tag>()
     dynamic var imagePath: String?
+    dynamic var whenRaw: Int = When.other.rawValue
+    var tags = List<Tag>()
     
     override static func primaryKey() -> String? {
-        return "name"
+        return "id"
     }
 }

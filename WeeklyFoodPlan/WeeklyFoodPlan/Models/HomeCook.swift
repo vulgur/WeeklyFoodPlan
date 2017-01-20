@@ -1,15 +1,15 @@
 //
-//  TakeOut.swift
+//  HomeCook.swift
 //  WeeklyFoodPlan
 //
-//  Created by vulgur on 2017/1/15.
+//  Created by vulgur on 2017/1/21.
 //  Copyright © 2017年 MAD. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class TakeOut: Object, Meal {
+class HomeCook: Object, Meal {
     dynamic var id = UUID().uuidString
     dynamic var name: String = ""
     dynamic var isFavored: Bool = false

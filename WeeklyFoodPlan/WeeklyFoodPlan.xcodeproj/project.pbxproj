@@ -27,6 +27,7 @@
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
 		D2750BD81E2BDC0400048863 /* EatingOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD71E2BDC0400048863 /* EatingOut.swift */; };
 		D29347201E1EA8B600C95C4C /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D293471F1E1EA8B600C95C4C /* BaseManager.swift */; };
+		D29D7DCE1E326C4C004185DE /* HomeCook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29D7DCD1E326C4C004185DE /* HomeCook.swift */; };
 		D2CFA2681E142AC400277BD9 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2671E142AC400277BD9 /* NutritionManager.swift */; };
 		D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA26A1E1432BC00277BD9 /* nutritions.json */; };
 		D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */; };
@@ -95,6 +96,7 @@
 		D2750BD21E2AC20400048863 /* TagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTests.swift; sourceTree = "<group>"; };
 		D2750BD71E2BDC0400048863 /* EatingOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EatingOut.swift; path = Models/EatingOut.swift; sourceTree = "<group>"; };
 		D293471F1E1EA8B600C95C4C /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseManager.swift; path = Models/BaseManager.swift; sourceTree = "<group>"; };
+		D29D7DCD1E326C4C004185DE /* HomeCook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCook.swift; path = Models/HomeCook.swift; sourceTree = "<group>"; };
 		D2CFA2671E142AC400277BD9 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionManager.swift; path = Models/NutritionManager.swift; sourceTree = "<group>"; };
 		D2CFA26A1E1432BC00277BD9 /* nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nutritions.json; sourceTree = "<group>"; };
 		D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				D2750BCC1E2ABCCB00048863 /* TakeOut.swift */,
 				D2750BCE1E2ABF9E00048863 /* Tag.swift */,
 				D2750BD71E2BDC0400048863 /* EatingOut.swift */,
+				D29D7DCD1E326C4C004185DE /* HomeCook.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				D2CFA2761E196C6C00277BD9 /* RecipeManager.swift in Sources */,
 				D2750BCB1E2ABB1800048863 /* Meal.swift in Sources */,
 				D20E39341E05B6EA00349F78 /* Recipe.swift in Sources */,
+				D29D7DCE1E326C4C004185DE /* HomeCook.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D20E39381E06F2F700349F78 /* Nutrition.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
