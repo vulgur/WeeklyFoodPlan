@@ -1,0 +1,18 @@
+
+/* Class = "UITabBarItem"; title = "我的冰箱"; ObjectID = "5QW-lv-SHr"; */
+"5QW-lv-SHr.title" = "我的冰箱";
+
+/* Class = "UIViewController"; title = "WeeklyFoodList"; ObjectID = "IFC-I6-mEe"; */
+"IFC-I6-mEe.title" = "WeeklyFoodList";
+
+/* Class = "UITabBarItem"; title = "Weekly"; ObjectID = "R8g-QY-5rX"; */
+"R8g-QY-5rX.title" = "Weekly";
+
+/* Class = "UINavigationItem"; title = "我的冰箱"; ObjectID = "aV3-TX-xAm"; */
+"aV3-TX-xAm.title" = "我的冰箱";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "ebp-g8-ruZ"; */
+"ebp-g8-ruZ.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "美食清单"; ObjectID = "mm9-EY-8yE"; */
+"mm9-EY-8yE.title" = "美食清单";
