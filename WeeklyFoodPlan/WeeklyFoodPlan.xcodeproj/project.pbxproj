@@ -44,6 +44,8 @@
 		D2D290AB1E4453F900905D10 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909D1E4453F900905D10 /* RecipeStep.swift */; };
 		D2D290AC1E4453F900905D10 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909E1E4453F900905D10 /* Tag.swift */; };
 		D2D290AD1E4453F900905D10 /* TakeOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909F1E4453F900905D10 /* TakeOut.swift */; };
+		D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290AE1E446DF400905D10 /* FreezerViewController.swift */; };
+		D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290B01E44E0C900905D10 /* MealListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		D2D2909D1E4453F900905D10 /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeStep.swift; sourceTree = "<group>"; };
 		D2D2909E1E4453F900905D10 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		D2D2909F1E4453F900905D10 /* TakeOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOut.swift; sourceTree = "<group>"; };
+		D2D290AE1E446DF400905D10 /* FreezerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezerViewController.swift; sourceTree = "<group>"; };
+		D2D290B01E44E0C900905D10 /* MealListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */,
+				D2D290AE1E446DF400905D10 /* FreezerViewController.swift */,
+				D2D290B01E44E0C900905D10 /* MealListViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,9 +409,11 @@
 				D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */,
 				D2D290AD1E4453F900905D10 /* TakeOut.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
+				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D2D290A01E4453F900905D10 /* EatingOut.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
 				D2D290A91E4453F900905D10 /* Recipe.swift in Sources */,
+				D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */,
 				D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */,
 				D2D290AA1E4453F900905D10 /* RecipeSet.swift in Sources */,
 				D2D290AB1E4453F900905D10 /* RecipeStep.swift in Sources */,

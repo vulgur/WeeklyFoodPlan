@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Aa5-Jh-Qfi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Aa5-Jh-Qfi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,12 +26,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOc-EM-gyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1799" y="992"/>
+            <point key="canvasLocation" x="-1759" y="710"/>
         </scene>
-        <!--Freezer-->
+        <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">
             <objects>
-                <viewController id="VKh-Pz-GdO" sceneMemberID="viewController">
+                <viewController id="VKh-Pz-GdO" customClass="FreezerViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lvD-Yc-Gq3"/>
                         <viewControllerLayoutGuide type="bottom" id="M2c-29-PBt"/>
@@ -41,11 +41,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Freezer" id="5QW-lv-SHr"/>
+                    <navigationItem key="navigationItem" title="我的冰箱" id="aV3-TX-xAm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Dc-0u-pTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1799" y="236"/>
+            <point key="canvasLocation" x="-457" y="-917"/>
         </scene>
         <!--WeeklyFoodList-->
         <scene sceneID="sLZ-5A-wjW">
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1V-hI-Rv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1798" y="-484"/>
+            <point key="canvasLocation" x="-1754" y="-1604"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CpO-fu-dYr">
@@ -77,13 +77,52 @@
                     </tabBar>
                     <connections>
                         <segue destination="IFC-I6-mEe" kind="relationship" relationship="viewControllers" id="Vpn-3U-qah"/>
-                        <segue destination="VKh-Pz-GdO" kind="relationship" relationship="viewControllers" id="3Bo-A7-mIu"/>
+                        <segue destination="c4Y-Ra-jYN" kind="relationship" relationship="viewControllers" id="Brp-gk-YKi"/>
+                        <segue destination="iY0-On-eYQ" kind="relationship" relationship="viewControllers" id="3Bo-A7-mIu"/>
                         <segue destination="miy-ZU-eFb" kind="relationship" relationship="viewControllers" id="jDq-NY-Z9o"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vfd-IR-3sH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2746" y="-484"/>
+        </scene>
+        <!--美食清单-->
+        <scene sceneID="gMZ-Tr-UPF">
+            <objects>
+                <viewController id="c4Y-Ra-jYN" customClass="MealListViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wiD-RP-cEp"/>
+                        <viewControllerLayoutGuide type="bottom" id="XCx-of-tnv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bm8-4e-xBX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="美食清单" id="mm9-EY-8yE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvg-Bc-OLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1758" y="-151"/>
+        </scene>
+        <!--我的冰箱-->
+        <scene sceneID="zQa-S3-B4w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iY0-On-eYQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的冰箱" id="5QW-lv-SHr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lbd-HS-6Xi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VKh-Pz-GdO" kind="relationship" relationship="rootViewController" id="oUs-ar-XUm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jU7-nK-bze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1754" y="-917"/>
         </scene>
     </scenes>
 </document>
