@@ -32,7 +32,7 @@ class IngredientTests: XCTestCase {
 //    }
     
     func testRealmSave() {
-        BaseManager.shared.deleteAll()
+//        BaseManager.shared.deleteAll()
         
         let va = Nutrition(value: ["name": "Vitamin-A"])
         let vb = Nutrition(value: ["name": "Vitamin-B"])
@@ -48,6 +48,7 @@ class IngredientTests: XCTestCase {
         banana.nutritions.append(vc)
         
         BaseManager.shared.save(object: apple)
+        BaseManager.shared.save(object: banana)
         BaseManager.shared.save(object: banana)
         
         XCTAssertEqual(BaseManager.shared.queryTotalCount(ofType: Ingredient.self), 2)

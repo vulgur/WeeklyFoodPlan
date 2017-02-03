@@ -17,7 +17,7 @@ class BaseManager {
     func save<T: Object>(object: T) {
         do {
             try realm.write {
-                realm.add(object)
+                realm.add(object, update: true)
             }
         } catch let error as NSError {
             print("Error in saving", error)
