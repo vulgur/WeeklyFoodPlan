@@ -12,25 +12,26 @@ import RealmSwift
 class Ingredient: Object {
     dynamic var name: String = ""
     let nutritions = List<Nutrition>()
-    var icon: UIImage?
+    dynamic var imagePath: String?
     
-    override static func ignoredProperties() -> [String] {
-        return ["icon"]
+    override static func primaryKey() -> String? {
+        return "name"
     }
+    
 }
 
-extension Ingredient {
-
-    static func == (lhs: Ingredient, rhs: Ingredient) -> Bool {
-        if lhs.name != rhs.name {
-            return false
-        }
-        
-        // TODO: for now just compare the count of nutritions
-        if lhs.nutritions.count != rhs.nutritions.count {
-            return false
-        }
-        
-        return true
-    }
-}
+//extension Ingredient {
+//
+//    static func == (lhs: Ingredient, rhs: Ingredient) -> Bool {
+//        if lhs.name != rhs.name {
+//            return false
+//        }
+//        
+//        // TODO: for now just compare the count of nutritions
+//        if lhs.nutritions.count != rhs.nutritions.count {
+//            return false
+//        }
+//        
+//        return true
+//    }
+//}
