@@ -13,13 +13,16 @@
 		D20E39181E03048700349F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D20E39171E03048700349F78 /* Assets.xcassets */; };
 		D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39191E03048700349F78 /* LaunchScreen.storyboard */; };
 		D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */; };
-		D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
-		D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D26076F11E4B7F8900FB433A /* SelectionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F01E4B7F8900FB433A /* SelectionEditView.swift */; };
+		D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F51E4B9AF700FB433A /* String+Extension.swift */; };
+		D26076F81E4BA41500FB433A /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F71E4BA41500FB433A /* AddMealViewController.swift */; };
 		D2750BD11E2AC1F800048863 /* TakeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD01E2AC1F800048863 /* TakeOutTests.swift */; };
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
+		D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1F31C1E4B67A500E4B3ED /* EditView.swift */; };
+		D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; };
+		D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA26A1E1432BC00277BD9 /* nutritions.json */; };
 		D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */; };
-		D2CFA26E1E18226E00277BD9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25100631E0C34BE009BAF1B /* ObjectMapper.framework */; };
 		D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2711E18289300277BD9 /* apple_nutritions.json */; };
 		D2CFA2741E1828E000277BD9 /* apple_ingredient.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2731E1828E000277BD9 /* apple_ingredient.json */; };
 		D2CFA2781E196D5D00277BD9 /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */; };
@@ -65,8 +68,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */,
 				D2CFA2811E1C025900277BD9 /* Realm.framework in Embed Frameworks */,
-				D25100651E0C34BE009BAF1B /* ObjectMapper.framework in Embed Frameworks */,
 				D2CFA2831E1C025900277BD9 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -85,9 +88,13 @@
 		D20E39211E03048700349F78 /* WeeklyFoodPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeeklyFoodPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyFoodPlanTests.swift; sourceTree = "<group>"; };
 		D20E39271E03048700349F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D25100631E0C34BE009BAF1B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		D26076F01E4B7F8900FB433A /* SelectionEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionEditView.swift; sourceTree = "<group>"; };
+		D26076F51E4B9AF700FB433A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D26076F71E4BA41500FB433A /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		D2750BD01E2AC1F800048863 /* TakeOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutTests.swift; sourceTree = "<group>"; };
 		D2750BD21E2AC20400048863 /* TagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTests.swift; sourceTree = "<group>"; };
+		D2A1F31C1E4B67A500E4B3ED /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D2CFA26A1E1432BC00277BD9 /* nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nutritions.json; sourceTree = "<group>"; };
 		D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
 		D2CFA2711E18289300277BD9 /* apple_nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_nutritions.json; sourceTree = "<group>"; };
@@ -122,8 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */,
 				D2CFA2801E1C025900277BD9 /* Realm.framework in Frameworks */,
-				D25100641E0C34BE009BAF1B /* ObjectMapper.framework in Frameworks */,
 				D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +139,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CFA26E1E18226E00277BD9 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +167,7 @@
 		D20E390F1E03048700349F78 /* WeeklyFoodPlan */ = {
 			isa = PBXGroup;
 			children = (
+				D26076F41E4B9AE200FB433A /* Utils */,
 				D2D290901E4453F800905D10 /* Models */,
 				D2750BD41E2AC52900048863 /* ViewControllers */,
 				D2CFA27B1E1AB80500277BD9 /* Views */,
@@ -192,11 +199,19 @@
 		D251005D1E0C3296009BAF1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */,
 				D2CFA27E1E1C025900277BD9 /* Realm.framework */,
 				D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */,
-				D25100631E0C34BE009BAF1B /* ObjectMapper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D26076F41E4B9AE200FB433A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D26076F51E4B9AF700FB433A /* String+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		D2750BD41E2AC52900048863 /* ViewControllers */ = {
@@ -204,6 +219,15 @@
 			children = (
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D2A1F31B1E4B65F600E4B3ED /* EditView */ = {
+			isa = PBXGroup;
+			children = (
+				D2A1F31C1E4B67A500E4B3ED /* EditView.swift */,
+				D26076F01E4B7F8900FB433A /* SelectionEditView.swift */,
+			);
+			path = EditView;
 			sourceTree = "<group>";
 		};
 		D2CFA2691E1432BC00277BD9 /* JSONData */ = {
@@ -220,9 +244,11 @@
 		D2CFA27B1E1AB80500277BD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2A1F31B1E4B65F600E4B3ED /* EditView */,
 				D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */,
 				D2D290AE1E446DF400905D10 /* FreezerViewController.swift */,
 				D2D290B01E44E0C900905D10 /* MealListViewController.swift */,
+				D26076F71E4BA41500FB433A /* AddMealViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,11 +432,14 @@
 				D2D290A61E4453F900905D10 /* RecipeManager.swift in Sources */,
 				D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
+				D26076F11E4B7F8900FB433A /* SelectionEditView.swift in Sources */,
 				D2D290A21E4453F900905D10 /* Ingredient.swift in Sources */,
+				D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */,
 				D2D290A71E4453F900905D10 /* Meal.swift in Sources */,
 				D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */,
 				D2D290AD1E4453F900905D10 /* TakeOut.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
+				D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */,
 				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D2D290A01E4453F900905D10 /* EatingOut.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
@@ -418,6 +447,7 @@
 				D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */,
 				D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */,
 				D2D290AA1E4453F900905D10 /* RecipeSet.swift in Sources */,
+				D26076F81E4BA41500FB433A /* AddMealViewController.swift in Sources */,
 				D2D290AB1E4453F900905D10 /* RecipeStep.swift in Sources */,
 				D2D290A31E4453F900905D10 /* BaseManager.swift in Sources */,
 			);
