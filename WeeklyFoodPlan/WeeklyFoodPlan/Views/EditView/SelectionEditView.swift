@@ -44,22 +44,42 @@ class SelectionEditView: EditView {
         self.headerIconView.image = #imageLiteral(resourceName: "clock")
         self.headerButton.isHidden = true
     }
+    
+    private func toggleLabelState(index: Int, isSelected: Bool) {
+        var label = self.selectionLabels[index].0
+        if isSelected {
+            label.backgroundColor = UIColor.brown
+        } else {
+            label.backgroundColor = UIColor.green
+        }
+        self.selectionLabels[index].1 = isSelected
+    }
 
     @objc private func labelTapped(gesture: UITapGestureRecognizer) {
         if let selectedLabel = gesture.view as? UILabel {
-            print("Selected: ", selectedLabel.text ?? "unknown")
+            for (index, tuple) in self.selectionLabels.enumerated() {
+                if tuple.0 == selectedLabel {
+                    toggleLabelState(index: index, isSelected: !tuple.1)
+                    if tuple.1 {
+                        delegate?.didUnselect(index: index)
+                    } else {
+                        delegate?.didSelect(index: index)
+                    }
+                }
+            }
         }
     }
     
     func generate() {
         // generate labels
-        let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(gesture:)))
+        
         for title in self.selectionTitles {
             let label = UILabel()
             label.text = title
             label.backgroundColor = UIColor.green
             label.textAlignment = .center
             label.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(gesture:)))
             label.addGestureRecognizer(tap)
             self.selectionLabels.append((label, false))
         }
@@ -91,7 +111,7 @@ class SelectionEditView: EditView {
         }
         
         self.snp.updateConstraints { (make) in
-            make.height.equalTo(contentViewHeight + headerViewHeight + gap)
+            make.height.equalTo(contentViewHeight + headerViewHeight + verticalSpacing)
         }
         
         self.updateConstraints()

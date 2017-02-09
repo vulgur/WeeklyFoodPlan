@@ -157,7 +157,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                <rect key="frame" x="16" y="355" width="343" height="161"/>
+                                <rect key="frame" x="16" y="355" width="343" height="185"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

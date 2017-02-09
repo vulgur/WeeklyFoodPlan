@@ -12,6 +12,7 @@ import SnapKit
 class EditView: UIView {
 
     let headerViewHeight: CGFloat = 50
+    let verticalSpacing: CGFloat = 5
     
     var headerView: UIView
     var headerLabel: UILabel
@@ -85,7 +86,7 @@ class EditView: UIView {
 //            make.height.equalTo(100)
             make.width.equalToSuperview()
             make.left.equalToSuperview()
-            make.top.equalTo(headerView.snp.bottom).offset(3)
+            make.top.equalTo(headerView.snp.bottom).offset(verticalSpacing)
         }
     }
 }
