@@ -89,4 +89,18 @@ class TagEditView: EditView {
         
         self.updateConstraints()
     }
+    
+    // MARK: Touch
+    private var draggedTagView: TagView?
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self.contentView)
+            for tag in self.tagViews {
+                if tag.frame.contains(location) {
+                    draggedTagView = tag
+                    break
+                }
+            }
+        }
+    }
 }
