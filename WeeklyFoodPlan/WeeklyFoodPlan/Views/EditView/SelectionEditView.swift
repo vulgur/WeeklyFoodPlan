@@ -46,7 +46,7 @@ class SelectionEditView: EditView {
     }
     
     private func toggleLabelState(index: Int, isSelected: Bool) {
-        var label = self.selectionLabels[index].0
+        let label = self.selectionLabels[index].0
         if isSelected {
             label.backgroundColor = UIColor.brown
         } else {
@@ -69,6 +69,8 @@ class SelectionEditView: EditView {
             }
         }
     }
+    
+    // MARK: Public methods
     
     func generate() {
         // generate labels

@@ -54,7 +54,7 @@ class EditView: UIView {
         self.addSubview(headerView)
         self.addSubview(contentView)
         
-        headerView.backgroundColor = UIColor.blue
+        headerView.backgroundColor = UIColor.cyan
         headerView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.height.equalTo(50)
@@ -75,7 +75,6 @@ class EditView: UIView {
             make.left.equalTo(headerIconView.snp.right).offset(10)
         }
         
-        headerButton.setTitle("Click", for: .normal)
         headerButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.rightMargin.equalTo(-8)
@@ -83,6 +82,7 @@ class EditView: UIView {
         
         contentView.backgroundColor = UIColor.yellow
         contentView.snp.makeConstraints { (make) in
+            // leave to the subviews to set height
 //            make.height.equalTo(100)
             make.width.equalToSuperview()
             make.left.equalToSuperview()
