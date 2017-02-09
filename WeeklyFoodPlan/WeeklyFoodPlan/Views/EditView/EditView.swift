@@ -11,6 +11,8 @@ import SnapKit
 
 class EditView: UIView {
 
+    let headerViewHeight: CGFloat = 50
+    
     var headerView: UIView
     var headerLabel: UILabel
     var headerButton: UIButton
@@ -80,7 +82,7 @@ class EditView: UIView {
         
         contentView.backgroundColor = UIColor.yellow
         contentView.snp.makeConstraints { (make) in
-            make.height.equalTo(100)
+//            make.height.equalTo(100)
             make.width.equalToSuperview()
             make.left.equalToSuperview()
             make.top.equalTo(headerView.snp.bottom).offset(3)

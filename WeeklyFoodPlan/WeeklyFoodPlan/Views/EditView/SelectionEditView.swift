@@ -25,6 +25,7 @@ class SelectionEditView: EditView {
     private var selectionLabels = [(UILabel, Bool)]()
     var selectionTitles = [String]()
 
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -37,30 +38,32 @@ class SelectionEditView: EditView {
         commonInit()
     }
     
-    func commonInit() {
+    // MARK: Private methods
+    private func commonInit() {
         self.headerLabel.text = "When you want to enjoy?".localized()
         self.headerIconView.image = #imageLiteral(resourceName: "clock")
         self.headerButton.isHidden = true
     }
 
-    func labelTapped(gesture: UITapGestureRecognizer) {
+    @objc private func labelTapped(gesture: UITapGestureRecognizer) {
         if let selectedLabel = gesture.view as? UILabel {
             print("Selected: ", selectedLabel.text ?? "unknown")
         }
-        
     }
     
     func generate() {
+        // generate labels
         let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(gesture:)))
         for title in self.selectionTitles {
             let label = UILabel()
             label.text = title
             label.backgroundColor = UIColor.green
             label.textAlignment = .center
+            label.isUserInteractionEnabled = true
             label.addGestureRecognizer(tap)
             self.selectionLabels.append((label, false))
         }
-        
+        // add labels to superview
         let itemsCount = CGFloat(maxItemsInRow)
         let labelWidth = (self.bounds.width - gap * (itemsCount - 1) - margin * 2) / itemsCount
         let rows = self.selectionTitles.count / maxItemsInRow + 1
@@ -80,5 +83,17 @@ class SelectionEditView: EditView {
                 })
             }
         }
+        
+        let contentViewHeight = gap * CGFloat(rows + 1) + CGFloat(rows) * labelHeight
+        // change view height
+        self.contentView.snp.makeConstraints { (make) in
+            make.height.equalTo(contentViewHeight)
+        }
+        
+        self.snp.updateConstraints { (make) in
+            make.height.equalTo(contentViewHeight + headerViewHeight + gap)
+        }
+        
+        self.updateConstraints()
     }
 }

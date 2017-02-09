@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -135,33 +136,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="DDF-Da-rEQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="DDF-Da-rEQ">
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Wbt-eX-Z8f"/>
+                                    <constraint firstAttribute="height" constant="100" id="ggO-gc-xLv"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="美食名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-hG-4d1">
-                                <rect key="frame" x="124" y="103" width="180" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-hG-4d1">
+                                <rect key="frame" x="124" y="112" width="69.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-pi-Oml">
-                                <rect key="frame" x="324" y="137" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-pi-Oml">
+                                <rect key="frame" x="319" y="132" width="40" height="40"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xpp-re-3d1" customClass="EditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xpp-re-3d1" customClass="EditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
                                 <rect key="frame" x="16" y="206" width="343" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
                                 <rect key="frame" x="16" y="355" width="343" height="161"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ble-MV-zGm" firstAttribute="top" secondItem="Xpp-re-3d1" secondAttribute="bottom" constant="20" id="5FD-cj-6Oe"/>
+                            <constraint firstAttribute="bottom" secondItem="Xpp-re-3d1" secondAttribute="bottom" constant="332" id="9om-8W-Mvd"/>
+                            <constraint firstItem="BxU-hG-4d1" firstAttribute="leading" secondItem="DDF-Da-rEQ" secondAttribute="trailing" constant="8" id="FkF-27-2tS"/>
+                            <constraint firstItem="Xpp-re-3d1" firstAttribute="trailing" secondItem="oGc-pi-Oml" secondAttribute="trailing" id="KHk-2N-WnP"/>
+                            <constraint firstItem="Xpp-re-3d1" firstAttribute="leading" secondItem="DDF-Da-rEQ" secondAttribute="trailing" constant="-100" id="NBB-zh-jGN"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="DDF-Da-rEQ" secondAttribute="leading" id="S3K-CV-nxR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oGc-pi-Oml" secondAttribute="trailing" id="T5i-4E-xnL"/>
+                            <constraint firstItem="oGc-pi-Oml" firstAttribute="bottom" secondItem="DDF-Da-rEQ" secondAttribute="bottom" id="aMb-U0-IDa"/>
+                            <constraint firstItem="Xpp-re-3d1" firstAttribute="trailing" secondItem="Ble-MV-zGm" secondAttribute="trailing" id="bJa-9a-HQB"/>
+                            <constraint firstItem="Xpp-re-3d1" firstAttribute="top" secondItem="oGc-pi-Oml" secondAttribute="bottom" constant="34" id="hel-Cw-jiJ"/>
+                            <constraint firstItem="BxU-hG-4d1" firstAttribute="centerY" secondItem="DDF-Da-rEQ" secondAttribute="centerY" id="mq7-IV-0Da"/>
+                            <constraint firstItem="DDF-Da-rEQ" firstAttribute="top" secondItem="iKG-uI-OJO" secondAttribute="bottom" constant="8" id="pU9-Sd-H31"/>
+                            <constraint firstItem="Xpp-re-3d1" firstAttribute="leading" secondItem="Ble-MV-zGm" secondAttribute="leading" id="rTe-nl-PAf"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="添加美食" id="Hef-LJ-Slf">
