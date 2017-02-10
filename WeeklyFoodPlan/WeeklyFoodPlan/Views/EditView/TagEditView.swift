@@ -45,8 +45,20 @@ class TagEditView: EditView {
         self.headerButton.setBackgroundImage(#imageLiteral(resourceName: "add_button_highlight"), for: .highlighted)
     }
     
+    private func distanceBetween(pointA: CGPoint, pointB: CGPoint) -> Double {
+        let distanceX = Double(pointA.x - pointB.x)
+        let distanceY = Double(pointA.y - pointB.y)
+        return sqrt(distanceX * distanceX + distanceY * distanceY)
+    }
+    
     // MARK: Public methods
     public func generate() {
+        for view in self.tagViews {
+            view.removeFromSuperview()
+        }
+        
+        tagViews.removeAll()
+        
         for title in self.tagTitles {
             let tagView = TagView(title: title)
             self.contentView.addSubview(tagView)
@@ -63,7 +75,7 @@ class TagEditView: EditView {
                 currentMaxWidth = 0
             }
             
-            tag.snp.makeConstraints({ (make) in
+            tag.snp.remakeConstraints({ (make) in
                 make.width.equalTo(tagWidth)
                 make.height.equalTo(TagView.tagHeight)
                 make.left.equalToSuperview().offset(currentMaxWidth + margin)
@@ -116,17 +128,28 @@ class TagEditView: EditView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let originalTagView = originalTagView,
             let draggedTagView = draggedTagView {
-
-            UIView.animate(withDuration: 0.3, animations: {
-                let destCenter = self.contentView.convert(originalTagView.center, to: self)
-                draggedTagView.center = destCenter
-            }, completion: { (_) in
-                draggedTagView.removeFromSuperview()
-                originalTagView.alpha = 1
-            })
-
+            
+            if distanceBetween(pointA: draggedTagView.center, pointB: originalTagView.center) > 50 {
+                // remove tag and re-generate tag views
+                UIView.animate(withDuration: 0.3, animations: { 
+                    draggedTagView.alpha = 0
+                }, completion: { (_) in
+                    let title = draggedTagView.titleLabel.text!
+                    draggedTagView.removeFromSuperview()
+                    originalTagView.removeFromSuperview()
+                    self.tagTitles.remove(at: self.tagTitles.index(of: title)!)
+                    self.generate()
+                })
+            } else {
+                UIView.animate(withDuration: 0.3, animations: {
+                    let destCenter = self.contentView.convert(originalTagView.center, to: self)
+                    draggedTagView.center = destCenter
+                }, completion: { (_) in
+                    draggedTagView.removeFromSuperview()
+                    originalTagView.alpha = 1
+                })
+            }
         }
-
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
