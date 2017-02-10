@@ -20,6 +20,7 @@ class TagView: UIView {
         super.init(frame: CGRect.zero)
         setupSubviews()
         self.titleLabel.text = title
+        self.titleLabel.font = UIFont.systemFont(ofSize: TagView.tagFontSize)
     }
     
     override init(frame: CGRect) {
@@ -29,6 +30,15 @@ class TagView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func tagWidth() -> CGFloat {
+        var tagWidth: CGFloat = 0
+        let font = UIFont.systemFont(ofSize: TagView.tagFontSize)
+        if let title = self.titleLabel.text {
+            tagWidth = title.widthWithConstrainedHeight(height: TagView.tagHeight, font: font) + 15
+        }
+        return tagWidth
     }
     
     private func setupSubviews() {

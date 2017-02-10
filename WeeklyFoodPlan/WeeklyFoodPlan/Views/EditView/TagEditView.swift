@@ -49,7 +49,6 @@ class TagEditView: EditView {
     public func generate() {
         for title in self.tagTitles {
             let tagView = TagView(title: title)
-            tagView.titleLabel.font = UIFont.systemFont(ofSize: TagView.tagFontSize)
             self.contentView.addSubview(tagView)
             self.tagViews.append(tagView)
         }
@@ -58,8 +57,7 @@ class TagEditView: EditView {
         var row: CGFloat = 1
         var currentMaxWidth: CGFloat = 0
         for tag in self.tagViews {
-            let font = UIFont.systemFont(ofSize: TagView.tagFontSize)
-            let tagWidth = tag.titleLabel.text!.widthWithConstrainedHeight(height: TagView.tagHeight, font: font) + 15
+            let tagWidth = tag.tagWidth()
             if currentMaxWidth + tagWidth > maxWidth {
                 row += 1
                 currentMaxWidth = 0
@@ -92,15 +90,66 @@ class TagEditView: EditView {
     
     // MARK: Touch
     private var draggedTagView: TagView?
+    private var originalTagView: TagView?
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self.contentView)
             for tag in self.tagViews {
                 if tag.frame.contains(location) {
-                    draggedTagView = tag
+                    originalTagView = tag
+//                    tag.isHidden = true
+                    draggedTagView = TagView(title: (tag.titleLabel.text)!)
+                    self.addSubview(draggedTagView!)
+                    draggedTagView?.alpha = 0
+                    let tagWidth = tag.tagWidth()
+                    draggedTagView?.snp.makeConstraints({ (make) in
+                        make.width.equalTo(tagWidth)
+                        make.height.equalTo(TagView.tagHeight)
+                    })
                     break
                 }
             }
         }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let originalTagView = originalTagView,
+            let draggedTagView = draggedTagView {
+
+            UIView.animate(withDuration: 0.3, animations: {
+                let destCenter = self.contentView.convert(originalTagView.center, to: self)
+                draggedTagView.center = destCenter
+            }, completion: { (_) in
+                draggedTagView.removeFromSuperview()
+                originalTagView.alpha = 1
+            })
+
+        }
+
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let originalTagView = originalTagView {
+            if originalTagView.alpha > 0 {
+                UIView.animate(withDuration: 0.1) {
+                    originalTagView.alpha = 0
+                }
+            }
+        }
+        
+        if let draggedTagView = draggedTagView {
+            if draggedTagView.alpha < 1 {
+                UIView.animate(withDuration: 0.1, animations: { 
+                    draggedTagView.alpha = 1
+                })
+            }
+            if let touch = touches.first {
+                let location = touch.location(in: self)
+                draggedTagView.center = location
+            }
+        }
+
+        
     }
 }
