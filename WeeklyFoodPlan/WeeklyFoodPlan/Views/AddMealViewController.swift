@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMealViewController: UIViewController {
+class AddMealViewController: UIViewController, TagEditViewDelegate {
 
     @IBOutlet var selectionEditView: SelectionEditView!
     @IBOutlet var tagEditView: TagEditView!
@@ -18,7 +18,8 @@ class AddMealViewController: UIViewController {
 
         selectionEditView.selectionTitles = ["Breakfast", "Lunch", "Dinner", "Night", "Afternoon"]
         tagEditView.tagTitles = ["Best", "Coffee", "Veg", "Apple", "Fit", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
-        
+    
+        tagEditView.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -34,15 +35,20 @@ class AddMealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: TagEditViewDelegate
+    func addTagButtonTapped() {
+        let inputItemView = InputItemView(style: InputItemView.Style.AddTag)
+        self.view.addSubview(inputItemView)
+        inputItemView.show()
     }
-    */
-
+    
+    func didAddTag(title: String) {
+        // TODO: add the tag to list
+        print("Added tag:", title)
+    }
+    
+    func didRemoveTag(title: String) {
+        // TODO: remove the tag from list
+        print("Removed tag:", title)
+    }
 }

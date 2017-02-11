@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 protocol TagEditViewDelegate {
+    
+    func addTagButtonTapped()
     func didAddTag(title: String)
     func didRemoveTag(title: String)
 }
@@ -43,7 +45,13 @@ class TagEditView: EditView {
         self.headerIconView.image = #imageLiteral(resourceName: "hashtag")
         self.headerButton.setBackgroundImage(#imageLiteral(resourceName: "add_button"), for: .normal)
         self.headerButton.setBackgroundImage(#imageLiteral(resourceName: "add_button_highlight"), for: .highlighted)
+        self.headerButton.addTarget(self, action: #selector(headerButtonTapped), for: .touchUpInside)
     }
+    
+    @objc private func headerButtonTapped() {
+        delegate?.addTagButtonTapped()
+    }
+
     
     private func distanceBetween(pointA: CGPoint, pointB: CGPoint) -> Double {
         let distanceX = Double(pointA.x - pointB.x)
@@ -139,6 +147,7 @@ class TagEditView: EditView {
                     originalTagView.removeFromSuperview()
                     self.tagTitles.remove(at: self.tagTitles.index(of: title)!)
                     self.generate()
+                    self.delegate?.didRemoveTag(title: title)
                 })
             } else {
                 UIView.animate(withDuration: 0.3, animations: {
@@ -172,7 +181,5 @@ class TagEditView: EditView {
                 draggedTagView.center = location
             }
         }
-
-        
     }
 }

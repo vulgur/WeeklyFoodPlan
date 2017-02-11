@@ -45,7 +45,7 @@ class EditView: UIView {
         self.setupSubviews()
     }
     
-    func setupSubviews() {
+    private func setupSubviews() {
         self.backgroundColor = UIColor.lightGray
         
         self.headerView.addSubview(headerIconView)

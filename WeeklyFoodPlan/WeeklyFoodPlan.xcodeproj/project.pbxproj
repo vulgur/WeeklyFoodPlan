@@ -18,6 +18,7 @@
 		D26076F81E4BA41500FB433A /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F71E4BA41500FB433A /* AddMealViewController.swift */; };
 		D2750BD11E2AC1F800048863 /* TakeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD01E2AC1F800048863 /* TakeOutTests.swift */; };
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
+		D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298984E1E4EDEB800AAA1EC /* InputItemView.swift */; };
 		D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1F31C1E4B67A500E4B3ED /* EditView.swift */; };
 		D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; };
 		D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -95,6 +96,7 @@
 		D26076F71E4BA41500FB433A /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		D2750BD01E2AC1F800048863 /* TakeOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutTests.swift; sourceTree = "<group>"; };
 		D2750BD21E2AC20400048863 /* TagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTests.swift; sourceTree = "<group>"; };
+		D298984E1E4EDEB800AAA1EC /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
 		D2A1F31C1E4B67A500E4B3ED /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D2C3A3D21E4C348700055924 /* TagEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				D26076F01E4B7F8900FB433A /* SelectionEditView.swift */,
 				D2C3A3D21E4C348700055924 /* TagEditView.swift */,
 				D2C3A3D41E4C945500055924 /* TagView.swift */,
+				D298984E1E4EDEB800AAA1EC /* InputItemView.swift */,
 			);
 			path = EditView;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D2D290A01E4453F900905D10 /* EatingOut.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
+				D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */,
 				D2D290A91E4453F900905D10 /* Recipe.swift in Sources */,
 				D2C3A3D31E4C348700055924 /* TagEditView.swift in Sources */,
 				D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */,
