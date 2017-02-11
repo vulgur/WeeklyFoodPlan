@@ -42,7 +42,7 @@ class TagView: UIView {
     }
     
     private func setupSubviews() {
-        self.backgroundColor = UIColor.darkGray
+        
         self.addSubview(backgroundImageView)
         self.addSubview(titleLabel)
         
