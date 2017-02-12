@@ -10,29 +10,34 @@ import UIKit
 import SnapKit
 
 protocol SelectionEditViewDelegate {
-    func didSelect(index: Int)
-    func didUnselect(index: Int)
+    func didSelectItem(index: Int)
+    func didDeselectItem(index: Int)
 }
 
-class SelectionEditView: EditView {
+class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    let maxItemsInRow = 3
-    let margin:CGFloat = 8
-    let gap:CGFloat = 5
-    let labelHeight: CGFloat = 20
+    private let screenWidth = UIScreen.main.bounds.width
+    private let cellSpacing: CGFloat = 8
+    private let cellHeight: CGFloat = 30
+    private let cellIdentifier = "SelectionCell"
+    private let cellSelectedColor = UIColor.green
+    private let cellDeselectedColor = UIColor.yellow
+    
+    private var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var flowLayout = UICollectionViewFlowLayout()
     
     var delegate: SelectionEditViewDelegate?
-    private var selectionLabels = [(UILabel, Bool)]()
     var selectionTitles = [String]()
-
     // MARK: Init
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         
         commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
+        
         super.init(coder: aDecoder)
         
         commonInit()
@@ -43,79 +48,78 @@ class SelectionEditView: EditView {
         self.headerLabel.text = "When you want to enjoy?".localized()
         self.headerIconView.image = #imageLiteral(resourceName: "clock")
         self.headerButton.isHidden = true
+        
+        flowLayout.minimumLineSpacing = 8
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        self.contentView.addSubview(collectionView)
+        collectionView.register(UINib.init(nibName: "SelectionCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.backgroundColor = UIColor.white
+        collectionView.allowsMultipleSelection = true
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+
     }
     
-    private func toggleLabelState(index: Int, isSelected: Bool) {
-        let label = self.selectionLabels[index].0
-        if isSelected {
-            label.backgroundColor = UIColor.brown
+    private func resizeContentView() {
+        if self.selectionTitles.count > 0 {
+            let size = collectionView.collectionViewLayout.collectionViewContentSize
+            print("Collection content Size:", size)
+            contentView.snp.makeConstraints { (make) in
+                make.size.equalTo(size)
+            }
         } else {
-            label.backgroundColor = UIColor.green
-        }
-        self.selectionLabels[index].1 = isSelected
-    }
-
-    @objc private func labelTapped(gesture: UITapGestureRecognizer) {
-        if let selectedLabel = gesture.view as? UILabel {
-            for (index, tuple) in self.selectionLabels.enumerated() {
-                if tuple.0 == selectedLabel {
-                    toggleLabelState(index: index, isSelected: !tuple.1)
-                    if tuple.1 {
-                        delegate?.didUnselect(index: index)
-                    } else {
-                        delegate?.didSelect(index: index)
-                    }
-                }
+            let size = CGSize(width: self.headerView.frame.width, height: 100)
+            contentView.snp.makeConstraints { (make) in
+                make.size.equalTo(size)
             }
         }
+        self.updateConstraints()
     }
     
     // MARK: Public methods
+    func reloadData() {
+        collectionView.reloadData()
+        self.layoutIfNeeded()
+        resizeContentView()
+    }
     
-    func generate() {
-        // generate labels
-        
-        for title in self.selectionTitles {
-            let label = UILabel()
-            label.text = title
-            label.backgroundColor = UIColor.green
-            label.textAlignment = .center
-            label.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(gesture:)))
-            label.addGestureRecognizer(tap)
-            self.selectionLabels.append((label, false))
-        }
-        // add labels to superview
-        let itemsCount = CGFloat(maxItemsInRow)
-        let labelWidth = (self.bounds.width - gap * (itemsCount - 1) - margin * 2) / itemsCount
-        let rows = self.selectionTitles.count / maxItemsInRow + 1
-        for i in 0..<rows {
-            for j in 0..<maxItemsInRow {
-                if (i * maxItemsInRow + j) == selectionTitles.count {
-                    break
-                }
-                let label = selectionLabels[maxItemsInRow*i+j].0
-                self.contentView.addSubview(label)
-                label.snp.makeConstraints({ (make) in
-                    make.width.equalTo(labelWidth)
-                    make.height.equalTo(labelHeight)
-                    let index = CGFloat(j)
-                    make.left.equalToSuperview().offset(margin + index * labelWidth + index * gap)
-                    make.top.equalToSuperview().offset(gap * CGFloat(i+1) + labelHeight * CGFloat(i))
-                })
-            }
-        }
-        
-        let contentViewHeight = gap * CGFloat(rows + 1) + CGFloat(rows) * labelHeight
-        // change view height
-        self.contentView.snp.makeConstraints { (make) in
-            make.height.equalTo(contentViewHeight)
-        }
-        
-        self.snp.updateConstraints { (make) in
-            make.height.equalTo(contentViewHeight + headerViewHeight + verticalSpacing)
-        }
-        
-        self.updateConstraints()
+    // MARK: UICollectionViewDataSource
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.selectionTitles.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SelectionCell
+        cell.selectionTitle.text = self.selectionTitles[indexPath.row]
+        cell.selectionTitle.backgroundColor = cellDeselectedColor
+        return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! SelectionCell
+        cell.selectionTitle.backgroundColor = cellSelectedColor
+        delegate?.didSelectItem(index: indexPath.row)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! SelectionCell
+        cell.selectionTitle.backgroundColor = cellDeselectedColor
+        delegate?.didDeselectItem(index: indexPath.row)
+    }
+    // MARK: UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (screenWidth - 4 * cellSpacing) / 3
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 }

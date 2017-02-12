@@ -19,6 +19,8 @@
 		D2750BD11E2AC1F800048863 /* TakeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD01E2AC1F800048863 /* TakeOutTests.swift */; };
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
 		D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298984E1E4EDEB800AAA1EC /* InputItemView.swift */; };
+		D29898521E504BF400AAA1EC /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898501E504BF400AAA1EC /* SelectionCell.swift */; };
+		D29898531E504BF400AAA1EC /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29898511E504BF400AAA1EC /* SelectionCell.xib */; };
 		D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1F31C1E4B67A500E4B3ED /* EditView.swift */; };
 		D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; };
 		D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -97,6 +99,8 @@
 		D2750BD01E2AC1F800048863 /* TakeOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutTests.swift; sourceTree = "<group>"; };
 		D2750BD21E2AC20400048863 /* TagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTests.swift; sourceTree = "<group>"; };
 		D298984E1E4EDEB800AAA1EC /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
+		D29898501E504BF400AAA1EC /* SelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
+		D29898511E504BF400AAA1EC /* SelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionCell.xib; sourceTree = "<group>"; };
 		D2A1F31C1E4B67A500E4B3ED /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D2C3A3D21E4C348700055924 /* TagEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditView.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				D2C3A3D21E4C348700055924 /* TagEditView.swift */,
 				D2C3A3D41E4C945500055924 /* TagView.swift */,
 				D298984E1E4EDEB800AAA1EC /* InputItemView.swift */,
+				D29898501E504BF400AAA1EC /* SelectionCell.swift */,
+				D29898511E504BF400AAA1EC /* SelectionCell.xib */,
 			);
 			path = EditView;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29898531E504BF400AAA1EC /* SelectionCell.xib in Resources */,
 				D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */,
 				D20E39181E03048700349F78 /* Assets.xcassets in Resources */,
 				D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */,
@@ -456,6 +463,7 @@
 				D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */,
 				D2D290A91E4453F900905D10 /* Recipe.swift in Sources */,
 				D2C3A3D31E4C348700055924 /* TagEditView.swift in Sources */,
+				D29898521E504BF400AAA1EC /* SelectionCell.swift in Sources */,
 				D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */,
 				D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */,
 				D2D290AA1E4453F900905D10 /* RecipeSet.swift in Sources */,

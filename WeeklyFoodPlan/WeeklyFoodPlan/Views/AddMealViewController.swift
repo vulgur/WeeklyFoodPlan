@@ -8,25 +8,30 @@
 
 import UIKit
 
-class AddMealViewController: UIViewController, TagEditViewDelegate {
+class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEditViewDelegate {
 
     @IBOutlet var selectionEditView: SelectionEditView!
     @IBOutlet var tagEditView: TagEditView!
     
+    var selectionTitles = ["Breakfast", "Lunch", "Dinner", "Night", "Afternoon"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        selectionEditView.selectionTitles = ["Breakfast", "Lunch", "Dinner", "Night", "Afternoon"]
+        
+        selectionEditView.selectionTitles = self.selectionTitles
+        selectionEditView.reloadData()
+        
         tagEditView.tagTitles = ["Best", "Coffee", "Veg", "Apple", "Fit", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
-    
+
+        selectionEditView.delegate = self
         tagEditView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        selectionEditView.generate()
         tagEditView.generate()
     }
 
@@ -51,4 +56,14 @@ class AddMealViewController: UIViewController, TagEditViewDelegate {
         // TODO: remove the tag from list
         print("Removed tag:", title)
     }
+    
+    // MAKR: SelectionEditViewDelegate
+    func didSelectItem(index: Int) {
+        print("Did select index:", index)
+    }
+    
+    func didDeselectItem(index: Int) {
+        print("Did deselect index:", index)
+    }
+    
 }
