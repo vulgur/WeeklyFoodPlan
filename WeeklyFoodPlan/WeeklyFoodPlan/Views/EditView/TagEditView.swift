@@ -60,6 +60,9 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         collectionView.backgroundColor = UIColor.white
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanTag(gestureRecognizer:)))
+        collectionView.addGestureRecognizer(pan)
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -99,6 +102,88 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
         return tagWidth
     }
     
+    private var draggedTagView: UIView?
+    private var originalTagView: UIView?
+    private var indexPathOfRemovedTag: IndexPath?
+    
+    @objc private func handlePanTag(gestureRecognizer: UIPanGestureRecognizer) {
+        let location  = gestureRecognizer.location(in: self.collectionView)
+        let movingLocation = self.collectionView.convert(location, to: self)
+        if (gestureRecognizer.state == .began) {
+            if let indexPathOfRemovedTag = self.collectionView.indexPathForItem(at: location) {
+                print("drag start")
+                self.indexPathOfRemovedTag = indexPathOfRemovedTag
+                originalTagView = self.collectionView.cellForItem(at: indexPathOfRemovedTag)
+                let tagTitle = tagTitles[indexPathOfRemovedTag.row]
+                draggedTagView = TagView(title: tagTitle)
+                self.addSubview(draggedTagView!)
+                draggedTagView?.alpha = 0
+                
+                draggedTagView?.snp.makeConstraints({ (make) in
+                    make.size.equalTo(originalTagView!)
+                })
+
+            } else {
+                return
+            }
+        }
+        
+        if (gestureRecognizer.state == .changed) {
+            if let originalTagView = originalTagView {
+                if originalTagView.alpha > 0 {
+                    UIView.animate(withDuration: 0.1) {
+                        originalTagView.alpha = 0
+                    }
+                }
+            }
+            
+            if let draggedTagView = draggedTagView {
+                if draggedTagView.alpha < 1 {
+                    UIView.animate(withDuration: 0.1, animations: {
+                        draggedTagView.alpha = 1
+                    })
+                }
+                draggedTagView.center = movingLocation
+            }
+        }
+        
+        if (gestureRecognizer.state == .ended) {
+            
+            if let originalTagView = self.originalTagView,
+                let draggedTagView = self.draggedTagView {
+                print("drag ended")
+                if distanceBetween(pointA: draggedTagView.center, pointB: originalTagView.center) > 50 {
+                    // remove tag and re-generate tag views
+                    UIView.animate(withDuration: 0.3, animations: {
+                        draggedTagView.alpha = 0
+                    }, completion: { (_) in
+                        draggedTagView.removeFromSuperview()
+                        originalTagView.removeFromSuperview()
+                        if let indexPathOfRemovedTag = self.indexPathOfRemovedTag {
+                            let removedTagTitle = self.tagTitles[indexPathOfRemovedTag.row]
+                            self.tagTitles.remove(at: indexPathOfRemovedTag.row)
+                            self.delegate?.didRemoveTag(title: removedTagTitle)
+                            self.collectionView.deleteItems(at: [indexPathOfRemovedTag])
+                        }
+                        self.collectionView.reloadData()
+                        self.indexPathOfRemovedTag = nil
+                    })
+                } else {
+                    UIView.animate(withDuration: 0.3, animations: {
+                        let destCenter = self.contentView.convert(originalTagView.center, to: self)
+                        draggedTagView.center = destCenter
+                    }, completion: { (_) in
+                        draggedTagView.removeFromSuperview()
+                        originalTagView.alpha = 1
+                    })
+                }
+
+            } else {
+                return
+            }
+        }
+    }
+    
     // MARK: Public methods
     func reloadData() {
         collectionView.reloadData()
@@ -107,31 +192,34 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     // MARK: Touch
-    private var draggedTagView: TagView?
-    private var originalTagView: TagView?
+
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first {
-//            let location = touch.location(in: self.contentView)
-//            for tag in self.tagViews {
-//                if tag.frame.contains(location) {
-//                    originalTagView = tag
-////                    tag.isHidden = true
-//                    draggedTagView = TagView(title: (tag.titleLabel.text)!)
-//                    self.addSubview(draggedTagView!)
-//                    draggedTagView?.alpha = 0
-//                    let tagWidth = tag.tagWidth()
-//                    draggedTagView?.snp.makeConstraints({ (make) in
-//                        make.width.equalTo(tagWidth)
-//                        make.height.equalTo(TagView.tagHeight)
-//                    })
-//                    break
-//                }
-//            }
-//        }
+        if let touch = touches.first {
+            let location = touch.location(in: self.contentView)
+            print("Touch location:", location)
+            let visibleCells = self.collectionView.visibleCells
+            for cell in visibleCells {
+                if cell.frame.contains(location) {
+                    originalTagView = cell.contentView
+                    let indexPath = collectionView.indexPath(for: cell)!
+                    indexPathOfRemovedTag = indexPath
+                    let tagTitle = tagTitles[indexPathOfRemovedTag!.row]
+                    draggedTagView = TagView(title: tagTitle)
+                    self.addSubview(draggedTagView!)
+                    draggedTagView?.alpha = 0
+                    
+                    draggedTagView?.snp.makeConstraints({ (make) in
+                        make.size.equalTo(originalTagView!)
+                    })
+                    break
+                }
+            }
+        }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        if let originalTagView = originalTagView,
 //            let draggedTagView = draggedTagView {
 //            
@@ -140,12 +228,15 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
 //                UIView.animate(withDuration: 0.3, animations: { 
 //                    draggedTagView.alpha = 0
 //                }, completion: { (_) in
-//                    let title = draggedTagView.titleLabel.text!
 //                    draggedTagView.removeFromSuperview()
 //                    originalTagView.removeFromSuperview()
-//                    self.tagTitles.remove(at: self.tagTitles.index(of: title)!)
-//                    self.generate()
-//                    self.delegate?.didRemoveTag(title: title)
+//                    if let indexPathOfRemovedTag = self.indexPathOfRemovedTag {
+//                        let removedTagTitle = self.tagTitles[indexPathOfRemovedTag.row]
+//                        self.tagTitles.remove(at: indexPathOfRemovedTag.row)
+//                        self.delegate?.didRemoveTag(title: removedTagTitle)
+//                        self.collectionView.deleteItems(at: [indexPathOfRemovedTag])
+//                    }
+//                    self.collectionView.reloadData()
 //                })
 //            } else {
 //                UIView.animate(withDuration: 0.3, animations: {
@@ -157,9 +248,9 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
 //                })
 //            }
 //        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    }
+//    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        if let originalTagView = originalTagView {
 //            if originalTagView.alpha > 0 {
 //                UIView.animate(withDuration: 0.1) {
@@ -179,7 +270,7 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
 //                draggedTagView.center = location
 //            }
 //        }
-    }
+//    }
     
     // MARK: UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
