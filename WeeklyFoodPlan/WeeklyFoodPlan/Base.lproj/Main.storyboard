@@ -136,46 +136,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="DDF-Da-rEQ">
-                                <rect key="frame" x="16" y="72" width="100" height="100"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DvZ-0o-F3n">
+                                <rect key="frame" x="0.0" y="44" width="375" height="140"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="DDF-Da-rEQ">
+                                        <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Wbt-eX-Z8f"/>
+                                            <constraint firstAttribute="height" constant="100" id="ggO-gc-xLv"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-hG-4d1">
+                                        <rect key="frame" x="128" y="60" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-pi-Oml">
+                                        <rect key="frame" x="315" y="80" width="40" height="40"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Wbt-eX-Z8f"/>
-                                    <constraint firstAttribute="height" constant="100" id="ggO-gc-xLv"/>
+                                    <constraint firstItem="BxU-hG-4d1" firstAttribute="leading" secondItem="DDF-Da-rEQ" secondAttribute="trailing" constant="8" id="BhJ-To-gTx"/>
+                                    <constraint firstItem="oGc-pi-Oml" firstAttribute="bottom" secondItem="DDF-Da-rEQ" secondAttribute="bottom" id="Qtm-K6-tOB"/>
+                                    <constraint firstItem="DDF-Da-rEQ" firstAttribute="centerY" secondItem="DvZ-0o-F3n" secondAttribute="centerY" id="Rm4-Sb-oYD"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="oGc-pi-Oml" secondAttribute="trailing" constant="12" id="f5u-6Q-gXL"/>
+                                    <constraint firstItem="BxU-hG-4d1" firstAttribute="centerY" secondItem="DDF-Da-rEQ" secondAttribute="centerY" id="gva-ge-fMX"/>
+                                    <constraint firstAttribute="height" constant="140" id="tPJ-Du-H0q"/>
+                                    <constraint firstAttribute="leadingMargin" secondItem="DDF-Da-rEQ" secondAttribute="leading" constant="-12" id="xQW-ra-5ns"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-hG-4d1">
-                                <rect key="frame" x="124" y="112" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-pi-Oml">
-                                <rect key="frame" x="319" y="132" width="40" height="40"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="201" width="375" height="0.0"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199" width="375" height="186"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-KX-RJ4" customClass="TagEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="461" width="375" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-KX-RJ4" customClass="TagEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="400" width="375" height="223"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="ZrB-KX-RJ4" secondAttribute="bottom" constant="34" id="25F-h9-Jbr"/>
+                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="ZrB-KX-RJ4" secondAttribute="bottom" id="25F-h9-Jbr"/>
+                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="top" secondItem="r1T-VI-s49" secondAttribute="top" constant="400" id="2hX-oB-8W8"/>
                             <constraint firstItem="Ble-MV-zGm" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="5kd-aS-aul"/>
-                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="top" secondItem="Ble-MV-zGm" secondAttribute="bottom" constant="32" id="A3w-2Y-5FS"/>
-                            <constraint firstItem="BxU-hG-4d1" firstAttribute="leading" secondItem="DDF-Da-rEQ" secondAttribute="trailing" constant="8" id="FkF-27-2tS"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="DDF-Da-rEQ" secondAttribute="leading" id="S3K-CV-nxR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oGc-pi-Oml" secondAttribute="trailing" id="T5i-4E-xnL"/>
+                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="top" secondItem="Ble-MV-zGm" secondAttribute="bottom" constant="15" id="A3w-2Y-5FS"/>
+                            <constraint firstItem="DvZ-0o-F3n" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="LtA-NE-NJS"/>
                             <constraint firstItem="ZrB-KX-RJ4" firstAttribute="width" secondItem="Ble-MV-zGm" secondAttribute="width" id="U7L-NN-AHl"/>
-                            <constraint firstItem="oGc-pi-Oml" firstAttribute="bottom" secondItem="DDF-Da-rEQ" secondAttribute="bottom" id="aMb-U0-IDa"/>
+                            <constraint firstItem="Ble-MV-zGm" firstAttribute="top" secondItem="DvZ-0o-F3n" secondAttribute="bottom" constant="15" id="USb-b4-4FH"/>
                             <constraint firstItem="ZrB-KX-RJ4" firstAttribute="centerX" secondItem="Ble-MV-zGm" secondAttribute="centerX" id="c5Y-MQ-1ne"/>
-                            <constraint firstItem="BxU-hG-4d1" firstAttribute="centerY" secondItem="DDF-Da-rEQ" secondAttribute="centerY" id="mq7-IV-0Da"/>
-                            <constraint firstItem="Ble-MV-zGm" firstAttribute="top" secondItem="DDF-Da-rEQ" secondAttribute="bottom" constant="29" id="now-aa-fZd"/>
-                            <constraint firstItem="DDF-Da-rEQ" firstAttribute="top" secondItem="iKG-uI-OJO" secondAttribute="bottom" constant="8" id="pU9-Sd-H31"/>
+                            <constraint firstItem="DvZ-0o-F3n" firstAttribute="top" secondItem="r1T-VI-s49" secondAttribute="top" constant="44" id="nwl-NI-hAz"/>
                             <constraint firstAttribute="trailing" secondItem="Ble-MV-zGm" secondAttribute="trailing" id="u9d-RM-wet"/>
+                            <constraint firstAttribute="trailing" secondItem="DvZ-0o-F3n" secondAttribute="trailing" id="xuF-eR-4zh"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

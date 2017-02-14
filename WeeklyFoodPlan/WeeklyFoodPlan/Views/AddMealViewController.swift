@@ -19,9 +19,10 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
         super.viewDidLoad()
         
         selectionEditView.selectionTitles = self.selectionTitles
-        selectionEditView.reloadData()
         
-        tagEditView.tagTitles = ["Best", "Coffee", "Veg", "Apple", "Fit", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+        
+        tagEditView.tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+        
 
         selectionEditView.delegate = self
         tagEditView.delegate = self
@@ -31,8 +32,9 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tagEditView.generate()
+        selectionEditView.reloadData()
+        tagEditView.reloadData()
+        self.view.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {

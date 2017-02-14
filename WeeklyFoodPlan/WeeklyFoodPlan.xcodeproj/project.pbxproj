@@ -21,6 +21,9 @@
 		D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298984E1E4EDEB800AAA1EC /* InputItemView.swift */; };
 		D29898521E504BF400AAA1EC /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898501E504BF400AAA1EC /* SelectionCell.swift */; };
 		D29898531E504BF400AAA1EC /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29898511E504BF400AAA1EC /* SelectionCell.xib */; };
+		D29898561E50C26200AAA1EC /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898541E50C26200AAA1EC /* TagCell.swift */; };
+		D29898571E50C26200AAA1EC /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29898551E50C26200AAA1EC /* TagCell.xib */; };
+		D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898591E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift */; };
 		D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1F31C1E4B67A500E4B3ED /* EditView.swift */; };
 		D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; };
 		D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -101,6 +104,9 @@
 		D298984E1E4EDEB800AAA1EC /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
 		D29898501E504BF400AAA1EC /* SelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
 		D29898511E504BF400AAA1EC /* SelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionCell.xib; sourceTree = "<group>"; };
+		D29898541E50C26200AAA1EC /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		D29898551E50C26200AAA1EC /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		D29898591E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGCollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		D2A1F31C1E4B67A500E4B3ED /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D2C3A3D21E4C348700055924 /* TagEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditView.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 		D20E390F1E03048700349F78 /* WeeklyFoodPlan */ = {
 			isa = PBXGroup;
 			children = (
+				D29898581E53017800AAA1EC /* Vendors */,
 				D26076F41E4B9AE200FB433A /* Utils */,
 				D2D290901E4453F800905D10 /* Models */,
 				D2750BD41E2AC52900048863 /* ViewControllers */,
@@ -231,6 +238,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D29898581E53017800AAA1EC /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				D29898591E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
 		D2A1F31B1E4B65F600E4B3ED /* EditView */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +256,8 @@
 				D298984E1E4EDEB800AAA1EC /* InputItemView.swift */,
 				D29898501E504BF400AAA1EC /* SelectionCell.swift */,
 				D29898511E504BF400AAA1EC /* SelectionCell.xib */,
+				D29898541E50C26200AAA1EC /* TagCell.swift */,
+				D29898551E50C26200AAA1EC /* TagCell.xib */,
 			);
 			path = EditView;
 			sourceTree = "<group>";
@@ -389,6 +406,7 @@
 				D29898531E504BF400AAA1EC /* SelectionCell.xib in Resources */,
 				D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */,
 				D20E39181E03048700349F78 /* Assets.xcassets in Resources */,
+				D29898571E50C26200AAA1EC /* TagCell.xib in Resources */,
 				D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */,
 				D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */,
 				D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */,
@@ -443,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29898561E50C26200AAA1EC /* TagCell.swift in Sources */,
 				D2D290AC1E4453F900905D10 /* Tag.swift in Sources */,
 				D2D290A11E4453F900905D10 /* HomeCook.swift in Sources */,
 				D2D290A61E4453F900905D10 /* RecipeManager.swift in Sources */,
@@ -462,6 +481,7 @@
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
 				D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */,
 				D2D290A91E4453F900905D10 /* Recipe.swift in Sources */,
+				D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */,
 				D2C3A3D31E4C348700055924 /* TagEditView.swift in Sources */,
 				D29898521E504BF400AAA1EC /* SelectionCell.swift in Sources */,
 				D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */,

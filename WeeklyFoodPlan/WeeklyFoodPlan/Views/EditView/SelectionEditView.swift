@@ -52,9 +52,10 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
         flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 5
         flowLayout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
+        
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         self.contentView.addSubview(collectionView)
-        collectionView.register(UINib.init(nibName: "SelectionCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         collectionView.backgroundColor = UIColor.white
         collectionView.allowsMultipleSelection = true
         collectionView.snp.makeConstraints { (make) in
@@ -62,14 +63,11 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
         }
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-
     }
     
     private func resizeContentView() {
         if self.selectionTitles.count > 0 {
             let size = collectionView.collectionViewLayout.collectionViewContentSize
-            print("Collection content Size:", size)
             contentView.snp.makeConstraints { (make) in
                 make.size.equalTo(size)
             }
