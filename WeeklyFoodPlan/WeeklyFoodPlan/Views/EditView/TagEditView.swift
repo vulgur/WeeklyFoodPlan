@@ -10,13 +10,11 @@ import UIKit
 import SnapKit
 
 protocol TagEditViewDelegate {
-    
-    func addTagButtonTapped()
     func didAddTag(title: String)
     func didRemoveTag(title: String)
 }
 
-class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, InputItemViewDelegate {
     
     // MARK: Properties
     private let cellSpacing: CGFloat = 5
@@ -50,10 +48,6 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
         self.headerButton.setBackgroundImage(#imageLiteral(resourceName: "add_button_highlight"), for: .highlighted)
         self.headerButton.addTarget(self, action: #selector(headerButtonTapped), for: .touchUpInside)
         
-//        flowLayout.minimumLineSpacing = 8
-//        flowLayout.minimumInteritemSpacing = 5
-//        flowLayout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
-        
         let flowLayout = DGCollectionViewLeftAlignFlowLayout()
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         self.contentView.addSubview(collectionView)
@@ -86,9 +80,13 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     @objc private func headerButtonTapped() {
-        delegate?.addTagButtonTapped()
+        let inputItemView = InputItemView(style: InputItemView.Style.AddTag)
+        inputItemView.delegate = self
+        if let parentView = self.superview {
+            parentView.addSubview(inputItemView)
+            inputItemView.show()
+        }
     }
-
     
     private func distanceBetween(pointA: CGPoint, pointB: CGPoint) -> Double {
         let distanceX = Double(pointA.x - pointB.x)
@@ -216,5 +214,13 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(5, 5, 5, 5)
+    }
+    
+    // MARK: InputItemViewDelegate
+    func done(item: String, style: InputItemView.Style) {
+        if style == .AddTag {
+            self.tagTitles.append(item)
+            reloadData()
+        }
     }
 }

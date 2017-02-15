@@ -43,11 +43,6 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
     }
     
     // MARK: TagEditViewDelegate
-    func addTagButtonTapped() {
-        let inputItemView = InputItemView(style: InputItemView.Style.AddTag)
-        self.view.addSubview(inputItemView)
-        inputItemView.show()
-    }
     
     func didAddTag(title: String) {
         // TODO: add the tag to list

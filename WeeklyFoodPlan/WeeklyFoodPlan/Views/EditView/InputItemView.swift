@@ -9,9 +9,8 @@
 import UIKit
 
 protocol InputItemViewDelegate {
-    
-    func cancel()
-    func done(item: String)
+
+    func done(item: String, style: InputItemView.Style)
 }
 
 class InputItemView: UIView {
@@ -19,24 +18,27 @@ class InputItemView: UIView {
     enum Style {
         case AddTag
         case AddTip
+        case AddIngredient
     }
     
     private let leftMargin: CGFloat = 20
-    private let topMargin: CGFloat = 100
+    private let topMargin: CGFloat = 80
     private let contentViewHeight: CGFloat = 200
     private let buttonMargin: CGFloat = 20
     private let textFieldVerticalMargin: CGFloat = 30
     private let screenHeight = UIScreen.main.bounds.height
 
-    var backgroundBlurView: UIVisualEffectView
-    var headerImageView: UIImageView
-    var headerLabel: UILabel
-    var contentView: UIView
-    var textField: UITextField
-    var cancelButton: UIButton
-    var doneButton: UIButton
-    var style: Style = .AddTag
-    var delegat: UITextInputDelegate?
+    private var backgroundBlurView: UIVisualEffectView
+    private var headerImageView: UIImageView
+    private var headerLabel: UILabel
+    private var contentView: UIView
+    private var textField: UITextField
+    private var hintTableView: UITableView?
+    private var hintCollectionView: UICollectionView?
+    private var cancelButton: UIButton
+    private var doneButton: UIButton
+    private var style: Style = .AddTag
+    var delegate: InputItemViewDelegate?
     
     init(style: Style) {
         let blurEffect = UIBlurEffect(style: .extraLight)
@@ -50,9 +52,8 @@ class InputItemView: UIView {
         
         let screenRect = UIScreen.main.bounds
         super.init(frame: screenRect)
-        
-        setupSubviews()
         self.style = style
+        setupSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -99,18 +100,19 @@ class InputItemView: UIView {
         textField.backgroundColor = UIColor.lightGray
         textField.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
+            make.height.equalTo(30)
             make.width.equalToSuperview().offset(-buttonMargin * 2)
         }
         
         cancelButton.setBackgroundImage(#imageLiteral(resourceName: "button_cancel"), for: .normal)
-        
+        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         cancelButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-buttonMargin)
             make.left.equalToSuperview().offset(buttonMargin)
         }
         
         doneButton.setBackgroundImage(#imageLiteral(resourceName: "button_done"), for: .normal)
-        
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         doneButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-buttonMargin)
             make.right.equalToSuperview().offset(-buttonMargin)
@@ -141,5 +143,18 @@ class InputItemView: UIView {
         UIView.animate(withDuration: 0.3) { 
             self.frame.origin.y = 0
         }
+    }
+    
+    // MARK: Actions
+    @objc private func cancelButtonTapped() {
+        hide()
+        self.removeFromSuperview()
+    }
+    
+    @objc private func doneButtonTapped() {
+        if let item = textField.text {
+            delegate?.done(item: item, style: self.style)
+        }
+        hide()
     }
 }
