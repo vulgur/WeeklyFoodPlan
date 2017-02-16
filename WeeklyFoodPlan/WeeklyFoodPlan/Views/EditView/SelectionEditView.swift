@@ -66,18 +66,18 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
     }
     
     private func resizeContentView() {
+        let size: CGSize
         if self.selectionTitles.count > 0 {
-            let size = collectionView.collectionViewLayout.collectionViewContentSize
-            contentView.snp.makeConstraints { (make) in
-                make.size.equalTo(size)
-            }
+            size = collectionView.collectionViewLayout.collectionViewContentSize
+
         } else {
-            let size = CGSize(width: self.headerView.frame.width, height: 100)
-            contentView.snp.makeConstraints { (make) in
-                make.size.equalTo(size)
-            }
+            size = CGSize(width: self.headerView.frame.width, height: 100)
         }
-        self.updateConstraints()
+        contentView.snp.remakeConstraints { (make) in
+            make.size.equalTo(size)
+            make.top.equalTo(headerView.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
     }
     
     // MARK: Public methods
@@ -85,6 +85,9 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
         collectionView.reloadData()
         self.layoutIfNeeded()
         resizeContentView()
+        self.layoutIfNeeded()
+        resizeToFit()
+        self.layoutIfNeeded()
     }
     
     // MARK: UICollectionViewDataSource

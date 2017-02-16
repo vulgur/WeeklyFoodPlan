@@ -127,7 +127,7 @@
         <!--添加美食-->
         <scene sceneID="bOp-y2-ano">
             <objects>
-                <viewController id="0Dy-sR-n1w" customClass="AddMealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0Dy-sR-n1w" customClass="AddMealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iKG-uI-OJO"/>
                         <viewControllerLayoutGuide type="bottom" id="ivT-H7-obK"/>
@@ -136,59 +136,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DvZ-0o-F3n">
-                                <rect key="frame" x="0.0" y="44" width="375" height="140"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ca-fg-F6d">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="DDF-Da-rEQ">
-                                        <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DvZ-0o-F3n" userLabel="header">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="DDF-Da-rEQ">
+                                                <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Wbt-eX-Z8f"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ggO-gc-xLv"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-hG-4d1">
+                                                <rect key="frame" x="128" y="60" width="70" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-pi-Oml">
+                                                <rect key="frame" x="315" y="80" width="40" height="40"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.77061631939999997" green="0.77061631939999997" blue="0.77061631939999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Wbt-eX-Z8f"/>
-                                            <constraint firstAttribute="height" constant="100" id="ggO-gc-xLv"/>
+                                            <constraint firstItem="BxU-hG-4d1" firstAttribute="leading" secondItem="DDF-Da-rEQ" secondAttribute="trailing" constant="8" id="BhJ-To-gTx"/>
+                                            <constraint firstItem="oGc-pi-Oml" firstAttribute="bottom" secondItem="DDF-Da-rEQ" secondAttribute="bottom" id="Qtm-K6-tOB"/>
+                                            <constraint firstItem="DDF-Da-rEQ" firstAttribute="centerY" secondItem="DvZ-0o-F3n" secondAttribute="centerY" id="Rm4-Sb-oYD"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="oGc-pi-Oml" secondAttribute="trailing" constant="12" id="f5u-6Q-gXL"/>
+                                            <constraint firstItem="BxU-hG-4d1" firstAttribute="centerY" secondItem="DDF-Da-rEQ" secondAttribute="centerY" id="gva-ge-fMX"/>
+                                            <constraint firstAttribute="height" constant="140" id="tPJ-Du-H0q"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="DDF-Da-rEQ" secondAttribute="leading" constant="-12" id="xQW-ra-5ns"/>
                                         </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-hG-4d1">
-                                        <rect key="frame" x="128" y="60" width="70" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-pi-Oml">
-                                        <rect key="frame" x="315" y="80" width="40" height="40"/>
-                                    </imageView>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="155" width="375" height="206"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="206" placeholder="YES" id="JwC-sN-Ldx"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-KX-RJ4" customClass="TagEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="376" width="375" height="223"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="223" placeholder="YES" id="6CZ-Ec-qus"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="BxU-hG-4d1" firstAttribute="leading" secondItem="DDF-Da-rEQ" secondAttribute="trailing" constant="8" id="BhJ-To-gTx"/>
-                                    <constraint firstItem="oGc-pi-Oml" firstAttribute="bottom" secondItem="DDF-Da-rEQ" secondAttribute="bottom" id="Qtm-K6-tOB"/>
-                                    <constraint firstItem="DDF-Da-rEQ" firstAttribute="centerY" secondItem="DvZ-0o-F3n" secondAttribute="centerY" id="Rm4-Sb-oYD"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="oGc-pi-Oml" secondAttribute="trailing" constant="12" id="f5u-6Q-gXL"/>
-                                    <constraint firstItem="BxU-hG-4d1" firstAttribute="centerY" secondItem="DDF-Da-rEQ" secondAttribute="centerY" id="gva-ge-fMX"/>
-                                    <constraint firstAttribute="height" constant="140" id="tPJ-Du-H0q"/>
-                                    <constraint firstAttribute="leadingMargin" secondItem="DDF-Da-rEQ" secondAttribute="leading" constant="-12" id="xQW-ra-5ns"/>
+                                    <constraint firstItem="DvZ-0o-F3n" firstAttribute="leading" secondItem="8Ca-fg-F6d" secondAttribute="leading" id="66R-S7-NvT"/>
+                                    <constraint firstItem="ZrB-KX-RJ4" firstAttribute="width" secondItem="Ble-MV-zGm" secondAttribute="width" id="6eM-I1-OSj"/>
+                                    <constraint firstItem="DvZ-0o-F3n" firstAttribute="top" secondItem="8Ca-fg-F6d" secondAttribute="top" id="7ci-RO-2sa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ble-MV-zGm" secondAttribute="trailing" id="7xN-C5-aUs"/>
+                                    <constraint firstItem="DvZ-0o-F3n" firstAttribute="centerX" secondItem="8Ca-fg-F6d" secondAttribute="centerX" id="8ux-on-001"/>
+                                    <constraint firstItem="Ble-MV-zGm" firstAttribute="top" secondItem="DvZ-0o-F3n" secondAttribute="bottom" constant="15" id="H5m-o6-B6X"/>
+                                    <constraint firstItem="ZrB-KX-RJ4" firstAttribute="centerX" secondItem="Ble-MV-zGm" secondAttribute="centerX" id="HSA-3T-H1F"/>
+                                    <constraint firstAttribute="trailing" secondItem="DvZ-0o-F3n" secondAttribute="trailing" id="MkG-gn-Dqb"/>
+                                    <constraint firstItem="ZrB-KX-RJ4" firstAttribute="top" secondItem="Ble-MV-zGm" secondAttribute="bottom" constant="15" id="URK-Dr-y4C"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZrB-KX-RJ4" secondAttribute="bottom" id="Xp5-QK-9Cb"/>
+                                    <constraint firstItem="Ble-MV-zGm" firstAttribute="leading" secondItem="8Ca-fg-F6d" secondAttribute="leading" id="iKk-ug-b7P"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-MV-zGm" customClass="SelectionEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="199" width="375" height="186"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-KX-RJ4" customClass="TagEditView" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="400" width="375" height="223"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="ZrB-KX-RJ4" secondAttribute="bottom" id="25F-h9-Jbr"/>
-                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="top" secondItem="r1T-VI-s49" secondAttribute="top" constant="400" id="2hX-oB-8W8"/>
-                            <constraint firstItem="Ble-MV-zGm" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="5kd-aS-aul"/>
-                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="top" secondItem="Ble-MV-zGm" secondAttribute="bottom" constant="15" id="A3w-2Y-5FS"/>
-                            <constraint firstItem="DvZ-0o-F3n" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="LtA-NE-NJS"/>
-                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="width" secondItem="Ble-MV-zGm" secondAttribute="width" id="U7L-NN-AHl"/>
-                            <constraint firstItem="Ble-MV-zGm" firstAttribute="top" secondItem="DvZ-0o-F3n" secondAttribute="bottom" constant="15" id="USb-b4-4FH"/>
-                            <constraint firstItem="ZrB-KX-RJ4" firstAttribute="centerX" secondItem="Ble-MV-zGm" secondAttribute="centerX" id="c5Y-MQ-1ne"/>
-                            <constraint firstItem="DvZ-0o-F3n" firstAttribute="top" secondItem="r1T-VI-s49" secondAttribute="top" constant="44" id="nwl-NI-hAz"/>
-                            <constraint firstAttribute="trailing" secondItem="Ble-MV-zGm" secondAttribute="trailing" id="u9d-RM-wet"/>
-                            <constraint firstAttribute="trailing" secondItem="DvZ-0o-F3n" secondAttribute="trailing" id="xuF-eR-4zh"/>
+                            <constraint firstItem="8Ca-fg-F6d" firstAttribute="top" secondItem="iKG-uI-OJO" secondAttribute="bottom" id="1nL-m2-PSa"/>
+                            <constraint firstItem="8Ca-fg-F6d" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="Zzi-6U-1S7"/>
+                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="8Ca-fg-F6d" secondAttribute="bottom" id="xpN-uA-zmr"/>
+                            <constraint firstAttribute="trailing" secondItem="8Ca-fg-F6d" secondAttribute="trailing" id="zEu-Wh-igj"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -197,6 +214,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="scrollView" destination="8Ca-fg-F6d" id="VUP-kd-n3z"/>
                         <outlet property="selectionEditView" destination="Ble-MV-zGm" id="cGb-dS-bTh"/>
                         <outlet property="tagEditView" destination="ZrB-KX-RJ4" id="jFX-2i-yoA"/>
                     </connections>

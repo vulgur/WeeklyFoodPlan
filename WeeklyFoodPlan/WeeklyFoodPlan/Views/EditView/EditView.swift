@@ -12,7 +12,7 @@ import SnapKit
 class EditView: UIView {
 
     let headerViewHeight: CGFloat = 50
-    let verticalSpacing: CGFloat = 5
+    let verticalSpacing: CGFloat = 0
     
     var headerView: UIView
     var headerLabel: UILabel
@@ -81,12 +81,20 @@ class EditView: UIView {
         
         contentView.backgroundColor = UIColor.yellow
         contentView.snp.makeConstraints { (make) in
-            // leave to the subviews to set height
-//            make.height.equalTo(100)
+//            
+            make.height.equalTo(100)
             make.width.equalToSuperview()
             make.left.equalToSuperview()
             make.top.equalTo(headerView.snp.bottom).offset(verticalSpacing)
         }
     }
 
+    func resizeToFit() {
+        let height = headerViewHeight + verticalSpacing + contentView.bounds.height
+        print("Height:", height)
+        self.snp.makeConstraints { (make) in
+            make.height.equalTo(height)
+        }
+        self.layoutIfNeeded()
+    }
 }

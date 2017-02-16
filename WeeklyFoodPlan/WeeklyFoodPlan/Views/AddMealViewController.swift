@@ -12,6 +12,7 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
 
     @IBOutlet var selectionEditView: SelectionEditView!
     @IBOutlet var tagEditView: TagEditView!
+    @IBOutlet var scrollView: UIScrollView!
     
     var selectionTitles = ["Breakfast", "Lunch", "Dinner", "Night", "Afternoon"]
     
@@ -27,19 +28,31 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
         selectionEditView.delegate = self
         tagEditView.delegate = self
         
-        // Do any additional setup after loading the view.
+        
+        selectionEditView.reloadData()
+        tagEditView.reloadData()
+        
+        resizeScrollViewContentSize()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectionEditView.reloadData()
-        tagEditView.reloadData()
+
         self.view.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Private methods
+    private func resizeScrollViewContentSize() {
+        var unionRect = CGRect.zero
+        for subview in self.view.subviews {
+            unionRect = unionRect.union(subview.frame)
+        }
+        self.scrollView.contentSize = unionRect.size
     }
     
     // MARK: TagEditViewDelegate

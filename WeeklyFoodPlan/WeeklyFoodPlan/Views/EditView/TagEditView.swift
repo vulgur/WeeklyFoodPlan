@@ -65,30 +65,33 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     private func resizeContentView() {
+        let size: CGSize
         if self.tagTitles.count > 0 {
-            let size = collectionView.collectionViewLayout.collectionViewContentSize
-            contentView.snp.makeConstraints { (make) in
-                make.size.equalTo(size)
-            }
+            size = collectionView.collectionViewLayout.collectionViewContentSize
+
         } else {
-            let size = CGSize(width: self.headerView.frame.width, height: 100)
-            contentView.snp.makeConstraints { (make) in
-                make.size.equalTo(size)
-            }
+            size = CGSize(width: self.headerView.frame.width, height: 100)
+            
         }
-        self.updateConstraints()
+        contentView.snp.remakeConstraints { (make) in
+            make.size.equalTo(size)
+            make.top.equalTo(headerView.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
     }
     
     @objc private func headerButtonTapped() {
-        let styles = [InputItemView.Style.AddIngredient, InputItemView.Style.AddTag, InputItemView.Style.AddTip]
-        let randomIndex = Int(arc4random_uniform(UInt32(styles.count)))
-        let style = styles[randomIndex]
+//        let styles = [InputItemView.Style.AddIngredient, InputItemView.Style.AddTag, InputItemView.Style.AddTip]
+//        let randomIndex = Int(arc4random_uniform(UInt32(styles.count)))
+        let style = InputItemView.Style.AddTag
         let inputItemView = InputItemView(style: style)
         inputItemView.delegate = self
-        if let parentView = self.superview {
-            parentView.addSubview(inputItemView)
+        
+        if let keyWindow = UIApplication.shared.keyWindow {
+            keyWindow.addSubview(inputItemView)
             inputItemView.show()
         }
+        
     }
     
     private func distanceBetween(pointA: CGPoint, pointB: CGPoint) -> Double {
@@ -190,6 +193,9 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
         collectionView.reloadData()
         self.layoutIfNeeded()
         resizeContentView()
+        self.layoutIfNeeded()
+        resizeToFit()
+        self.layoutIfNeeded()
     }
     
     // MARK: UICollectionViewDataSource
@@ -223,7 +229,7 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
     func done(item: String, style: InputItemView.Style) {
         if style == .AddTag {
             self.tagTitles.append(item)
-            reloadData()
+            self.reloadData()
         }
     }
 }
