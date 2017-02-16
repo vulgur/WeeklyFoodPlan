@@ -80,7 +80,10 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     @objc private func headerButtonTapped() {
-        let inputItemView = InputItemView(style: InputItemView.Style.AddTag)
+        let styles = [InputItemView.Style.AddIngredient, InputItemView.Style.AddTag, InputItemView.Style.AddTip]
+        let randomIndex = Int(arc4random_uniform(UInt32(styles.count)))
+        let style = styles[randomIndex]
+        let inputItemView = InputItemView(style: style)
         inputItemView.delegate = self
         if let parentView = self.superview {
             parentView.addSubview(inputItemView)

@@ -20,7 +20,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avM-kt-2rm">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,7 +34,7 @@
             </constraints>
             <size key="customSize" width="366" height="44"/>
             <connections>
-                <outlet property="selectionTitle" destination="avM-kt-2rm" id="xSt-fb-0Xo"/>
+                <outlet property="titleLabel" destination="avM-kt-2rm" id="TOR-lb-qhL"/>
             </connections>
             <point key="canvasLocation" x="-15" y="-67"/>
         </collectionViewCell>

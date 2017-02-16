@@ -10,7 +10,8 @@ import UIKit
 
 class SelectionCell: UICollectionViewCell {
 
-    @IBOutlet var selectionTitle: UILabel!
+    
+    @IBOutlet var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

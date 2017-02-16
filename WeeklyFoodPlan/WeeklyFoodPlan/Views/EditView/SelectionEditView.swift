@@ -98,21 +98,22 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SelectionCell
-        cell.selectionTitle.text = self.selectionTitles[indexPath.row]
-        cell.selectionTitle.backgroundColor = cellDeselectedColor
+        cell.titleLabel.text = self.selectionTitles[indexPath.row]
+        cell.titleLabel.backgroundColor = cellDeselectedColor
+        cell.layer.cornerRadius = 5
         return cell
     }
     
     // MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! SelectionCell
-        cell.selectionTitle.backgroundColor = cellSelectedColor
+        cell.titleLabel.backgroundColor = cellSelectedColor
         delegate?.didSelectItem(index: indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! SelectionCell
-        cell.selectionTitle.backgroundColor = cellDeselectedColor
+        cell.titleLabel.backgroundColor = cellDeselectedColor
         delegate?.didDeselectItem(index: indexPath.row)
     }
     // MARK: UICollectionViewDelegateFlowLayout

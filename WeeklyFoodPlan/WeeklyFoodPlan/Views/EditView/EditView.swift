@@ -62,7 +62,6 @@ class EditView: UIView {
             make.left.equalToSuperview()
         }
         
-        headerIconView.backgroundColor = UIColor.red
         headerIconView.snp.makeConstraints { (make) in
             make.height.width.equalTo(40)
             make.centerY.equalToSuperview()

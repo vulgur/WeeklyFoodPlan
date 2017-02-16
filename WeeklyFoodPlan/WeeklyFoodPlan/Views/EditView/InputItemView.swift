@@ -22,17 +22,18 @@ class InputItemView: UIView {
     }
     
     private let leftMargin: CGFloat = 20
-    private let topMargin: CGFloat = 80
-    private let contentViewHeight: CGFloat = 200
+    private let topMargin: CGFloat = 50
     private let buttonMargin: CGFloat = 20
-    private let textFieldVerticalMargin: CGFloat = 30
+    private let textFieldTopMargin: CGFloat = 50
     private let screenHeight = UIScreen.main.bounds.height
+    private let keyboardHeight: CGFloat = 275
 
     private var backgroundBlurView: UIVisualEffectView
     private var headerImageView: UIImageView
     private var headerLabel: UILabel
     private var contentView: UIView
     private var textField: UITextField
+    private var hintView: UIView
     private var hintTableView: UITableView?
     private var hintCollectionView: UICollectionView?
     private var cancelButton: UIButton
@@ -49,6 +50,7 @@ class InputItemView: UIView {
         textField = UITextField()
         cancelButton = UIButton()
         doneButton = UIButton()
+        hintView = UIView()
         
         let screenRect = UIScreen.main.bounds
         super.init(frame: screenRect)
@@ -68,6 +70,7 @@ class InputItemView: UIView {
         contentView.addSubview(textField)
         contentView.addSubview(cancelButton)
         contentView.addSubview(doneButton)
+        contentView.addSubview(hintView)
         self.addSubview(contentView)
         
         
@@ -78,6 +81,7 @@ class InputItemView: UIView {
         backgroundBlurView.addGestureRecognizer(tapGesture)
         
         let contentViewWidth = UIScreen.main.bounds.width - leftMargin * 2
+        let contentViewHeight = screenHeight - keyboardHeight - topMargin
         contentView.backgroundColor = UIColor.white
         contentView.layer.cornerRadius = 6
         contentView.snp.makeConstraints { (make) in
@@ -90,18 +94,30 @@ class InputItemView: UIView {
         headerImageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalTo(contentView.snp.top)
+            make.width.greaterThanOrEqualTo(96)
         }
         
         headerLabel.textAlignment = .center
+        headerLabel.font = UIFont.systemFont(ofSize: 14)
+        headerLabel.textColor = UIColor.white
         headerLabel.snp.makeConstraints { (make) in
-            make.centerWithinMargins.equalTo(0)
+            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 8, 0, 8))
         }
         
         textField.backgroundColor = UIColor.lightGray
         textField.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(textFieldTopMargin)
             make.height.equalTo(30)
             make.width.equalToSuperview().offset(-buttonMargin * 2)
+        }
+        
+        hintView.backgroundColor = UIColor.green
+        hintView.snp.makeConstraints { (make) in
+            make.left.equalTo(cancelButton)
+            make.right.equalTo(doneButton)
+            make.top.equalTo(textField.snp.bottom).offset(20)
+            make.bottom.equalTo(cancelButton.snp.top).offset(-20)
         }
         
         cancelButton.setBackgroundImage(#imageLiteral(resourceName: "button_cancel"), for: .normal)
@@ -121,10 +137,16 @@ class InputItemView: UIView {
         switch self.style {
         case .AddTag:
             headerImageView.image = #imageLiteral(resourceName: "title_tag")
-            headerLabel.text = "TAG"
-        default:
+            headerLabel.text = "tag"
+            textField.placeholder = "type tag"
+        case .AddTip:
             headerImageView.image = #imageLiteral(resourceName: "title_tip")
-            headerLabel.text = "TIP"
+            headerLabel.text = "tip"
+            textField.placeholder = "type tip"
+        case .AddIngredient:
+            headerImageView.image = #imageLiteral(resourceName: "title_ingredient")
+            headerLabel.text = "ingredient"
+            textField.placeholder = "type ingredient"
         }
     }
     
@@ -148,11 +170,15 @@ class InputItemView: UIView {
     // MARK: Actions
     @objc private func cancelButtonTapped() {
         hide()
-        self.removeFromSuperview()
     }
     
     @objc private func doneButtonTapped() {
-        if let item = textField.text {
+        if let text = textField.text {
+            let item = text.trimmedString()
+            if item.isEmpty {
+                hide()
+                return
+            }
             delegate?.done(item: item, style: self.style)
         }
         hide()

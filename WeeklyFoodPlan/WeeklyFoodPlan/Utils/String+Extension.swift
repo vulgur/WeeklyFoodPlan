@@ -21,4 +21,8 @@ extension String {
                                             context: nil)
         return boundingBox.width
     }
+    
+    func trimmedString() -> String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
