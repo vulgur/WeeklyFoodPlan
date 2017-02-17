@@ -81,7 +81,7 @@ class EditView: UIView {
         
         contentView.backgroundColor = UIColor.yellow
         contentView.snp.makeConstraints { (make) in
-//            
+//
             make.height.equalTo(100)
             make.width.equalToSuperview()
             make.left.equalToSuperview()
@@ -91,7 +91,6 @@ class EditView: UIView {
 
     func resizeToFit() {
         let height = headerViewHeight + verticalSpacing + contentView.bounds.height
-        print("Height:", height)
         self.snp.makeConstraints { (make) in
             make.height.equalTo(height)
         }

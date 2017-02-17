@@ -13,21 +13,18 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
     @IBOutlet var selectionEditView: SelectionEditView!
     @IBOutlet var tagEditView: TagEditView!
     @IBOutlet var scrollView: UIScrollView!
-    
-    var selectionTitles = ["Breakfast", "Lunch", "Dinner", "Night", "Afternoon"]
+    var selectedIndex = [Int]()
+    var selectionTitles = ["Breakfast", "Lunch", "Dinner"]
+    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         selectionEditView.selectionTitles = self.selectionTitles
+        tagEditView.tagTitles = self.tagTitles
         
-        
-        tagEditView.tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
-        
-
         selectionEditView.delegate = self
         tagEditView.delegate = self
-        
         
         selectionEditView.reloadData()
         tagEditView.reloadData()
@@ -58,22 +55,24 @@ class AddMealViewController: UIViewController, TagEditViewDelegate, SelectionEdi
     // MARK: TagEditViewDelegate
     
     func didAddTag(title: String) {
-        // TODO: add the tag to list
-        print("Added tag:", title)
+        self.tagTitles.append(title)
     }
     
     func didRemoveTag(title: String) {
-        // TODO: remove the tag from list
-        print("Removed tag:", title)
+        if let index = tagTitles.index(of: title) {
+            tagTitles.remove(at: index)
+        }
     }
     
     // MAKR: SelectionEditViewDelegate
     func didSelectItem(index: Int) {
-        print("Did select index:", index)
+        selectedIndex.append(index)
     }
     
     func didDeselectItem(index: Int) {
-        print("Did deselect index:", index)
+        if let removedItemIndex = selectedIndex.index(of: index) {
+            selectedIndex.remove(at: removedItemIndex)
+        }
     }
     
 }

@@ -78,6 +78,7 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
             make.top.equalTo(headerView.snp.bottom)
             make.centerX.equalToSuperview()
         }
+        self.layoutIfNeeded()
     }
     
     // MARK: Public methods
@@ -85,9 +86,8 @@ class SelectionEditView: EditView, UICollectionViewDelegate, UICollectionViewDat
         collectionView.reloadData()
         self.layoutIfNeeded()
         resizeContentView()
-        self.layoutIfNeeded()
+
         resizeToFit()
-        self.layoutIfNeeded()
     }
     
     // MARK: UICollectionViewDataSource

@@ -78,6 +78,7 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
             make.top.equalTo(headerView.snp.bottom)
             make.centerX.equalToSuperview()
         }
+        self.layoutIfNeeded()
     }
     
     @objc private func headerButtonTapped() {
@@ -115,7 +116,6 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
         let movingLocation = self.collectionView.convert(location, to: self)
         if (gestureRecognizer.state == .began) {
             if let indexPathOfRemovedTag = self.collectionView.indexPathForItem(at: location) {
-                print("drag start")
                 self.indexPathOfRemovedTag = indexPathOfRemovedTag
                 originalTagView = self.collectionView.cellForItem(at: indexPathOfRemovedTag)
                 let tagTitle = tagTitles[indexPathOfRemovedTag.row]
@@ -155,7 +155,6 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
             
             if let originalTagView = self.originalTagView,
                 let draggedTagView = self.draggedTagView {
-                print("drag ended")
                 if distanceBetween(pointA: draggedTagView.center, pointB: originalTagView.center) > 50 {
                     // remove tag and re-generate tag views
                     UIView.animate(withDuration: 0.3, animations: {
@@ -193,9 +192,9 @@ class TagEditView: EditView, UICollectionViewDelegate, UICollectionViewDataSourc
         collectionView.reloadData()
         self.layoutIfNeeded()
         resizeContentView()
-        self.layoutIfNeeded()
+        
         resizeToFit()
-        self.layoutIfNeeded()
+//        self.layoutIfNeeded()
     }
     
     // MARK: UICollectionViewDataSource
