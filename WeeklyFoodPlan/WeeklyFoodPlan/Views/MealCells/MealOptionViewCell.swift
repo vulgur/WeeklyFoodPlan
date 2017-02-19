@@ -1,16 +1,17 @@
 //
-//  TagCell.swift
+//  MealSelectionViewCell.swift
 //  WeeklyFoodPlan
 //
-//  Created by vulgur on 2017/2/13.
+//  Created by vulgur on 2017/2/19.
 //  Copyright © 2017年 MAD. All rights reserved.
 //
 
 import UIKit
 
-class TagCell: UICollectionViewCell {
+class MealOptionViewCell: UICollectionViewCell {
 
-    @IBOutlet var tagLabel: UILabel!
+    
+    @IBOutlet var optionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

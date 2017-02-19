@@ -13,22 +13,23 @@
 		D20E39181E03048700349F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D20E39171E03048700349F78 /* Assets.xcassets */; };
 		D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39191E03048700349F78 /* LaunchScreen.storyboard */; };
 		D20E39261E03048700349F78 /* WeeklyFoodPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */; };
-		D26076F11E4B7F8900FB433A /* SelectionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F01E4B7F8900FB433A /* SelectionEditView.swift */; };
 		D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F51E4B9AF700FB433A /* String+Extension.swift */; };
 		D26076F81E4BA41500FB433A /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F71E4BA41500FB433A /* AddMealViewController.swift */; };
 		D2750BD11E2AC1F800048863 /* TakeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD01E2AC1F800048863 /* TakeOutTests.swift */; };
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
-		D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298984E1E4EDEB800AAA1EC /* InputItemView.swift */; };
-		D29898521E504BF400AAA1EC /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898501E504BF400AAA1EC /* SelectionCell.swift */; };
-		D29898531E504BF400AAA1EC /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29898511E504BF400AAA1EC /* SelectionCell.xib */; };
-		D29898561E50C26200AAA1EC /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898541E50C26200AAA1EC /* TagCell.swift */; };
-		D29898571E50C26200AAA1EC /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29898551E50C26200AAA1EC /* TagCell.xib */; };
+		D290BB331E58CB770015E2AD /* MealHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D290BB311E58CB770015E2AD /* MealHeaderViewCell.swift */; };
+		D290BB341E58CB770015E2AD /* MealHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D290BB321E58CB770015E2AD /* MealHeaderViewCell.xib */; };
+		D290BB371E59473C0015E2AD /* MealSectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D290BB351E59473C0015E2AD /* MealSectionViewCell.swift */; };
+		D290BB381E59473C0015E2AD /* MealSectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D290BB361E59473C0015E2AD /* MealSectionViewCell.xib */; };
+		D290BB3B1E59496B0015E2AD /* MealOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D290BB391E59496B0015E2AD /* MealOptionViewCell.swift */; };
+		D290BB3C1E59496B0015E2AD /* MealOptionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D290BB3A1E59496B0015E2AD /* MealOptionViewCell.xib */; };
+		D290BB3F1E594D990015E2AD /* MealTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D290BB3D1E594D990015E2AD /* MealTagViewCell.swift */; };
+		D290BB401E594D990015E2AD /* MealTagViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D290BB3E1E594D990015E2AD /* MealTagViewCell.xib */; };
+		D290BB431E5985590015E2AD /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D290BB411E5985590015E2AD /* InputItemView.swift */; };
+		D290BB441E5985590015E2AD /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D290BB421E5985590015E2AD /* TagView.swift */; };
 		D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29898591E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift */; };
-		D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1F31C1E4B67A500E4B3ED /* EditView.swift */; };
 		D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; };
 		D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2C3A3D31E4C348700055924 /* TagEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3A3D21E4C348700055924 /* TagEditView.swift */; };
-		D2C3A3D51E4C945500055924 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3A3D41E4C945500055924 /* TagView.swift */; };
 		D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA26A1E1432BC00277BD9 /* nutritions.json */; };
 		D2CFA26D1E18203A00277BD9 /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */; };
 		D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2711E18289300277BD9 /* apple_nutritions.json */; };
@@ -96,21 +97,22 @@
 		D20E39211E03048700349F78 /* WeeklyFoodPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeeklyFoodPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20E39251E03048700349F78 /* WeeklyFoodPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyFoodPlanTests.swift; sourceTree = "<group>"; };
 		D20E39271E03048700349F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D26076F01E4B7F8900FB433A /* SelectionEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionEditView.swift; sourceTree = "<group>"; };
 		D26076F51E4B9AF700FB433A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D26076F71E4BA41500FB433A /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		D2750BD01E2AC1F800048863 /* TakeOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutTests.swift; sourceTree = "<group>"; };
 		D2750BD21E2AC20400048863 /* TagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTests.swift; sourceTree = "<group>"; };
-		D298984E1E4EDEB800AAA1EC /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
-		D29898501E504BF400AAA1EC /* SelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
-		D29898511E504BF400AAA1EC /* SelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionCell.xib; sourceTree = "<group>"; };
-		D29898541E50C26200AAA1EC /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
-		D29898551E50C26200AAA1EC /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		D290BB311E58CB770015E2AD /* MealHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealHeaderViewCell.swift; sourceTree = "<group>"; };
+		D290BB321E58CB770015E2AD /* MealHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealHeaderViewCell.xib; sourceTree = "<group>"; };
+		D290BB351E59473C0015E2AD /* MealSectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealSectionViewCell.swift; sourceTree = "<group>"; };
+		D290BB361E59473C0015E2AD /* MealSectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealSectionViewCell.xib; sourceTree = "<group>"; };
+		D290BB391E59496B0015E2AD /* MealOptionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealOptionViewCell.swift; sourceTree = "<group>"; };
+		D290BB3A1E59496B0015E2AD /* MealOptionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealOptionViewCell.xib; sourceTree = "<group>"; };
+		D290BB3D1E594D990015E2AD /* MealTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTagViewCell.swift; sourceTree = "<group>"; };
+		D290BB3E1E594D990015E2AD /* MealTagViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealTagViewCell.xib; sourceTree = "<group>"; };
+		D290BB411E5985590015E2AD /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
+		D290BB421E5985590015E2AD /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		D29898591E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGCollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
-		D2A1F31C1E4B67A500E4B3ED /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		D2C3A3D21E4C348700055924 /* TagEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagEditView.swift; sourceTree = "<group>"; };
-		D2C3A3D41E4C945500055924 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		D2CFA26A1E1432BC00277BD9 /* nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nutritions.json; sourceTree = "<group>"; };
 		D2CFA26C1E18203A00277BD9 /* IngredientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
 		D2CFA2711E18289300277BD9 /* apple_nutritions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_nutritions.json; sourceTree = "<group>"; };
@@ -238,28 +240,27 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D290BB1C1E56C2990015E2AD /* MealCells */ = {
+			isa = PBXGroup;
+			children = (
+				D290BB311E58CB770015E2AD /* MealHeaderViewCell.swift */,
+				D290BB321E58CB770015E2AD /* MealHeaderViewCell.xib */,
+				D290BB351E59473C0015E2AD /* MealSectionViewCell.swift */,
+				D290BB361E59473C0015E2AD /* MealSectionViewCell.xib */,
+				D290BB391E59496B0015E2AD /* MealOptionViewCell.swift */,
+				D290BB3A1E59496B0015E2AD /* MealOptionViewCell.xib */,
+				D290BB3D1E594D990015E2AD /* MealTagViewCell.swift */,
+				D290BB3E1E594D990015E2AD /* MealTagViewCell.xib */,
+			);
+			path = MealCells;
+			sourceTree = "<group>";
+		};
 		D29898581E53017800AAA1EC /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
 				D29898591E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift */,
 			);
 			path = Vendors;
-			sourceTree = "<group>";
-		};
-		D2A1F31B1E4B65F600E4B3ED /* EditView */ = {
-			isa = PBXGroup;
-			children = (
-				D2A1F31C1E4B67A500E4B3ED /* EditView.swift */,
-				D26076F01E4B7F8900FB433A /* SelectionEditView.swift */,
-				D2C3A3D21E4C348700055924 /* TagEditView.swift */,
-				D2C3A3D41E4C945500055924 /* TagView.swift */,
-				D298984E1E4EDEB800AAA1EC /* InputItemView.swift */,
-				D29898501E504BF400AAA1EC /* SelectionCell.swift */,
-				D29898511E504BF400AAA1EC /* SelectionCell.xib */,
-				D29898541E50C26200AAA1EC /* TagCell.swift */,
-				D29898551E50C26200AAA1EC /* TagCell.xib */,
-			);
-			path = EditView;
 			sourceTree = "<group>";
 		};
 		D2CFA2691E1432BC00277BD9 /* JSONData */ = {
@@ -276,7 +277,9 @@
 		D2CFA27B1E1AB80500277BD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D2A1F31B1E4B65F600E4B3ED /* EditView */,
+				D290BB411E5985590015E2AD /* InputItemView.swift */,
+				D290BB421E5985590015E2AD /* TagView.swift */,
+				D290BB1C1E56C2990015E2AD /* MealCells */,
 				D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */,
 				D2D290AE1E446DF400905D10 /* FreezerViewController.swift */,
 				D2D290B01E44E0C900905D10 /* MealListViewController.swift */,
@@ -403,15 +406,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D29898531E504BF400AAA1EC /* SelectionCell.xib in Resources */,
+				D290BB341E58CB770015E2AD /* MealHeaderViewCell.xib in Resources */,
 				D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */,
 				D20E39181E03048700349F78 /* Assets.xcassets in Resources */,
-				D29898571E50C26200AAA1EC /* TagCell.xib in Resources */,
 				D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */,
 				D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */,
 				D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */,
+				D290BB3C1E59496B0015E2AD /* MealOptionViewCell.xib in Resources */,
 				D20E39161E03048700349F78 /* Main.storyboard in Resources */,
+				D290BB401E594D990015E2AD /* MealTagViewCell.xib in Resources */,
 				D2CFA2741E1828E000277BD9 /* apple_ingredient.json in Resources */,
+				D290BB381E59473C0015E2AD /* MealSectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,32 +466,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D29898561E50C26200AAA1EC /* TagCell.swift in Sources */,
 				D2D290AC1E4453F900905D10 /* Tag.swift in Sources */,
 				D2D290A11E4453F900905D10 /* HomeCook.swift in Sources */,
 				D2D290A61E4453F900905D10 /* RecipeManager.swift in Sources */,
 				D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
-				D26076F11E4B7F8900FB433A /* SelectionEditView.swift in Sources */,
-				D2C3A3D51E4C945500055924 /* TagView.swift in Sources */,
 				D2D290A21E4453F900905D10 /* Ingredient.swift in Sources */,
-				D2A1F31D1E4B67A500E4B3ED /* EditView.swift in Sources */,
+				D290BB3F1E594D990015E2AD /* MealTagViewCell.swift in Sources */,
 				D2D290A71E4453F900905D10 /* Meal.swift in Sources */,
 				D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */,
 				D2D290AD1E4453F900905D10 /* TakeOut.swift in Sources */,
+				D290BB371E59473C0015E2AD /* MealSectionViewCell.swift in Sources */,
+				D290BB441E5985590015E2AD /* TagView.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
 				D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */,
 				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D2D290A01E4453F900905D10 /* EatingOut.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
-				D298984F1E4EDEB800AAA1EC /* InputItemView.swift in Sources */,
 				D2D290A91E4453F900905D10 /* Recipe.swift in Sources */,
 				D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */,
-				D2C3A3D31E4C348700055924 /* TagEditView.swift in Sources */,
-				D29898521E504BF400AAA1EC /* SelectionCell.swift in Sources */,
+				D290BB331E58CB770015E2AD /* MealHeaderViewCell.swift in Sources */,
 				D2D290B11E44E0C900905D10 /* MealListViewController.swift in Sources */,
 				D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */,
 				D2D290AA1E4453F900905D10 /* RecipeSet.swift in Sources */,
+				D290BB431E5985590015E2AD /* InputItemView.swift in Sources */,
+				D290BB3B1E59496B0015E2AD /* MealOptionViewCell.swift in Sources */,
 				D26076F81E4BA41500FB433A /* AddMealViewController.swift in Sources */,
 				D2D290AB1E4453F900905D10 /* RecipeStep.swift in Sources */,
 				D2D290A31E4453F900905D10 /* BaseManager.swift in Sources */,
