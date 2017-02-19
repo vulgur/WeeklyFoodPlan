@@ -15,6 +15,7 @@ class AddMealViewController: UIViewController {
     let mealSectionViewCellIdentifier = "MealSectionViewCell"
     let mealTagViewCellIdentifier = "MealTagViewCell"
     let mealOptionViewCellIdentifier = "MealOptionViewCell"
+    let mealItemViewCellIdentifier = "MealItemViewCell"
     
     let screenWidth = UIScreen.main.bounds.width
     let tagFontSize: CGFloat = 11
@@ -22,26 +23,30 @@ class AddMealViewController: UIViewController {
     let sectionHeight: CGFloat = 40
     let optionHeight: CGFloat = 30
     let tagHeight: CGFloat = 30
+    let itemHeight: CGFloat = 30
     
     let optionSelectedColor = UIColor.green
     let optionDeselectedColor = UIColor.white
     
     var selectedIndex = [Int]()
     var selectionTitles = ["Breakfast", "Lunch", "Dinner"]
-//    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
-    var tagTitles = [String]()
+    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+    var ingredientTitles = ["Potato", "Egg", "Cucumber", "Bread", "Pepper"]
+//    var tagTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.setCollectionViewLayout(DGCollectionViewLeftAlignFlowLayout(), animated: false)
+//        collectionView.setCollectionViewLayout(DGCollectionViewLeftAlignFlowLayout(), animated: false)
         collectionView.register(UINib.init(nibName: mealHeaderViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealHeaderViewCellIdentifier)
         collectionView.register(UINib.init(nibName: mealSectionViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealSectionViewCellIdentifier)
         collectionView.register(UINib.init(nibName: mealTagViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealTagViewCellIdentifier)
         collectionView.register(UINib.init(nibName: mealOptionViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealOptionViewCellIdentifier)
+        collectionView.register(UINib.init(nibName: mealItemViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealItemViewCellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanTag(gestureRecognizer:)))
+        pan.delegate = self
         collectionView.addGestureRecognizer(pan)
         collectionView.allowsMultipleSelection = true
 
@@ -55,31 +60,7 @@ class AddMealViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    // MARK: TagEditViewDelegate
-    
-    func didAddTag(title: String) {
-        self.tagTitles.append(title)
-    }
-    
-    func didRemoveTag(title: String) {
-        if let index = tagTitles.index(of: title) {
-            tagTitles.remove(at: index)
-        }
-    }
-    
-    // MARK: SelectionEditViewDelegate
-    func didSelectItem(index: Int) {
-        selectedIndex.append(index)
-    }
-    
-    func didDeselectItem(index: Int) {
-        if let removedItemIndex = selectedIndex.index(of: index) {
-            selectedIndex.remove(at: removedItemIndex)
-        }
-    }
-    
     // MARK: Private methods
     private var draggedTagView: TagView?
     private var originalTagView: MealTagViewCell?
@@ -91,6 +72,7 @@ class AddMealViewController: UIViewController {
         if (gestureRecognizer.state == .began) {
             guard let indexPath = self.collectionView.indexPathForItem(at: location) else {
                 print("Not in collection view")
+                
                 return
             }
             if indexPath.section != 4 {
@@ -165,6 +147,21 @@ class AddMealViewController: UIViewController {
     }
 }
 
+// MARK: UIGestureRecognizerDelegate
+extension AddMealViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let location = touch.location(in: self.collectionView)
+        if let indexPath = self.collectionView.indexPathForItem(at: location) {
+            if indexPath.section == 4 {
+                return true
+            }
+        }
+        
+        return false
+    }
+}
+
+// MARK: InputItemViewDelegate
 extension AddMealViewController: InputItemViewDelegate {
     func done(item: String, style: InputItemView.Style) {
         switch style {
@@ -181,7 +178,7 @@ extension AddMealViewController: InputItemViewDelegate {
 extension AddMealViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -189,9 +186,10 @@ extension AddMealViewController: UICollectionViewDataSource {
             return self.selectionTitles.count
         } else if section == 4 {
             return self.tagTitles.count
-        } else {
-            return 1
+        } else if section == 6 {
+            return self.ingredientTitles.count
         }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -238,6 +236,12 @@ extension AddMealViewController: UICollectionViewDataSource {
             cell.sectionImageView.image = #imageLiteral(resourceName: "list")
             cell.sectionButton.addTarget(self, action: #selector(addIngredientButtonTapped), for: .touchUpInside)
             cell.sectionButton.isHidden = false
+            return cell
+        case 6:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealItemViewCellIdentifier, for: indexPath) as! MealItemViewCell
+            let title = self.ingredientTitles[indexPath.row]
+            cell.itemLabel.text = title
+            cell.itemImageView.backgroundColor = UIColor.darkGray
             return cell
         default:
             fatalError()
@@ -309,6 +313,8 @@ extension AddMealViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: tagWidth, height: tagHeight)
         case 5:
             return CGSize(width: screenWidth, height: sectionHeight)
+        case 6:
+            return CGSize(width: screenWidth, height: itemHeight)
         default:
             fatalError()
         }
@@ -320,6 +326,9 @@ extension AddMealViewController: UICollectionViewDelegateFlowLayout {
         }
         if section == 4 {
             return UIEdgeInsetsMake(8, 8, 8, 8)
+        }
+        if section == 6 {
+            return UIEdgeInsetsMake(8, 0, 8, 0)
         }
         return UIEdgeInsets.zero
     }
