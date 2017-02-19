@@ -23,12 +23,13 @@ class AddMealViewController: UIViewController {
     let optionHeight: CGFloat = 30
     let tagHeight: CGFloat = 30
     
-    let cellSelectedColor = UIColor.green
-    let cellDeselectedColor = UIColor.yellow
+    let optionSelectedColor = UIColor.green
+    let optionDeselectedColor = UIColor.white
     
     var selectedIndex = [Int]()
     var selectionTitles = ["Breakfast", "Lunch", "Dinner"]
-    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+//    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+    var tagTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class AddMealViewController: UIViewController {
         collectionView.dataSource = self
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanTag(gestureRecognizer:)))
         collectionView.addGestureRecognizer(pan)
+        collectionView.allowsMultipleSelection = true
 
     }
     
@@ -175,6 +177,7 @@ extension AddMealViewController: InputItemViewDelegate {
     }
 }
 
+// MARK: UICollectionViewDataSource
 extension AddMealViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -210,7 +213,10 @@ extension AddMealViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealOptionViewCellIdentifier, for: indexPath) as! MealOptionViewCell
             let title = self.selectionTitles[indexPath.row]
             cell.optionLabel.text = title
-            cell.backgroundColor = UIColor.green
+            cell.backgroundColor = optionDeselectedColor
+            cell.layer.borderColor = optionSelectedColor.cgColor
+            cell.layer.borderWidth = 2
+            cell.layer.cornerRadius = 5
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
@@ -218,6 +224,7 @@ extension AddMealViewController: UICollectionViewDataSource {
             cell.sectionImageView.image = #imageLiteral(resourceName: "hashtag")
             cell.sectionLabel.text = "Tags"
             cell.sectionButton.addTarget(self, action: #selector(addTagButtonTapped), for: .touchUpInside)
+            cell.sectionButton.isHidden = false
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealTagViewCellIdentifier, for: indexPath) as! MealTagViewCell
@@ -230,6 +237,7 @@ extension AddMealViewController: UICollectionViewDataSource {
             cell.sectionLabel.text = "Ingredients"
             cell.sectionImageView.image = #imageLiteral(resourceName: "list")
             cell.sectionButton.addTarget(self, action: #selector(addIngredientButtonTapped), for: .touchUpInside)
+            cell.sectionButton.isHidden = false
             return cell
         default:
             fatalError()
@@ -259,10 +267,24 @@ extension AddMealViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: UICollectionViewDelegate
 extension AddMealViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            let cell = collectionView.cellForItem(at: indexPath) as! MealOptionViewCell
+            cell.optionLabel.backgroundColor = optionSelectedColor
+        }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            let cell = collectionView.cellForItem(at: indexPath) as! MealOptionViewCell
+            cell.optionLabel.backgroundColor = optionDeselectedColor
+        }
+    }
 }
 
+// MARK: UICollectionViewDelegateFlowLayout
 extension AddMealViewController: UICollectionViewDelegateFlowLayout {
     // MARK: Private methods
     private func tagWidthFor(title: String) -> CGFloat {
@@ -290,9 +312,6 @@ extension AddMealViewController: UICollectionViewDelegateFlowLayout {
         default:
             fatalError()
         }
-//        let title = self.tagTitles[indexPath.row]
-//        let cellWidth = tagWidthFor(title: title)
-//        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
