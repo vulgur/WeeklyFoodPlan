@@ -167,10 +167,12 @@ extension AddMealViewController: InputItemViewDelegate {
         switch style {
         case .AddTag:
             self.tagTitles.append(item)
-            self.collectionView.reloadData()
+        case .AddIngredient:
+            self.ingredientTitles.append(item)
         default:
             fatalError()
         }
+        self.collectionView.reloadData()
     }
 }
 
