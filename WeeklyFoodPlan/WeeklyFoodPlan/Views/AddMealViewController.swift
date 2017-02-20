@@ -45,9 +45,12 @@ class AddMealViewController: UIViewController {
         collectionView.register(UINib.init(nibName: mealItemViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealItemViewCellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanTag(gestureRecognizer:)))
-        pan.delegate = self
-        collectionView.addGestureRecognizer(pan)
+        let panTag = UIPanGestureRecognizer(target: self, action: #selector(handlePanTag(gestureRecognizer:)))
+        panTag.delegate = self
+        let panItem = UIPanGestureRecognizer(target: self, action: #selector(handlePanItem(gestureRecognizer:)))
+        panItem.delegate = self
+        collectionView.addGestureRecognizer(panTag)
+        collectionView.addGestureRecognizer(panItem)
         collectionView.allowsMultipleSelection = true
 
     }
@@ -72,7 +75,6 @@ class AddMealViewController: UIViewController {
         if (gestureRecognizer.state == .began) {
             guard let indexPath = self.collectionView.indexPathForItem(at: location) else {
                 print("Not in collection view")
-                
                 return
             }
             if indexPath.section != 4 {
@@ -139,6 +141,42 @@ class AddMealViewController: UIViewController {
             self.originalTagView = nil
         }
     }
+    
+    @objc private func handlePanItem(gestureRecognizer: UIPanGestureRecognizer) {
+        let location = gestureRecognizer.location(in: self.collectionView)
+        if let indexPath = self.collectionView.indexPathForItem(at: location) {
+            if indexPath.section != 6 {
+                return
+            }
+            
+            let ingredientTitle = self.ingredientTitles[indexPath.row]
+            var startX: CGFloat = 0
+            var offsetX: CGFloat = 0
+            if let cell = self.collectionView.cellForItem(at: indexPath) {
+                let cellSize = cell.frame.size
+                switch gestureRecognizer.state {
+                case .began:
+                    startX = location.x
+                case .changed:
+                    offsetX = location.x - startX
+                    cell.frame = CGRect(x: offsetX, y: cell.frame.origin.y, width: cell.frame.width, height: cell.frame.height)
+                case .ended:
+                    offsetX = location.x - startX
+                    if offsetX > 200 {
+                        ingredientTitles.remove(at: indexPath.row)
+                        self.collectionView.deleteItems(at: [indexPath])
+                        self.collectionView.reloadData()
+                    } else {
+                        cell.frame = CGRect(origin: CGPoint(x: 0, y: cell.frame.origin.y), size: cellSize)
+                    }
+                    startX = 0
+                    offsetX = 0
+                default:
+                    return
+                }
+            }
+        }
+    }
 
     private func distanceBetween(pointA: CGPoint, pointB: CGPoint) -> Double {
         let distanceX = Double(pointA.x - pointB.x)
@@ -152,7 +190,7 @@ extension AddMealViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let location = touch.location(in: self.collectionView)
         if let indexPath = self.collectionView.indexPathForItem(at: location) {
-            if indexPath.section == 4 {
+            if indexPath.section == 4 || indexPath.section == 6 {
                 return true
             }
         }
