@@ -45,12 +45,13 @@ class AddMealViewController: UIViewController {
         collectionView.register(UINib.init(nibName: mealItemViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: mealItemViewCellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-        let panTag = UIPanGestureRecognizer(target: self, action: #selector(handlePanTag(gestureRecognizer:)))
-        panTag.delegate = self
-        let panItem = UIPanGestureRecognizer(target: self, action: #selector(handlePanItem(gestureRecognizer:)))
-        panItem.delegate = self
-        collectionView.addGestureRecognizer(panTag)
-        collectionView.addGestureRecognizer(panItem)
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)))
+        pan.delegate = self
+//        let panItem = UIPanGestureRecognizer(target: self, action: #selector(handlePanItem(gestureRecognizer:)))
+//        panItem.delegate = self
+//        collectionView.addGestureRecognizer(panItem)
+        collectionView.addGestureRecognizer(pan)
+        
         collectionView.allowsMultipleSelection = true
 
     }
@@ -68,10 +69,62 @@ class AddMealViewController: UIViewController {
     private var draggedTagView: TagView?
     private var originalTagView: MealTagViewCell?
     private var indexPathOfRemovedTag: IndexPath?
+    private enum Handling {
+        case Tag
+        case Ingredient
+        case Tip
+        case None
+    }
+    private var handling = Handling.None
+    
+    @objc private func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
+        let location = gestureRecognizer.location(in: self.collectionView)
+        switch gestureRecognizer.state {
+        case .began:
+            if let indexPath = self.collectionView.indexPathForItem(at: location) {
+                switch indexPath.section {
+                case 4:
+                    handlePanTag(gestureRecognizer: gestureRecognizer)
+                    handling = .Tag
+                case 6:
+                    handlePanItem(gestureRecognizer: gestureRecognizer)
+                    handling = .Ingredient
+                default:
+                    fatalError()
+                }
+            }
+        case .changed:
+            switch handling {
+            case .Tag:
+                handlePanTag(gestureRecognizer: gestureRecognizer)
+            case .Ingredient:
+                handlePanItem(gestureRecognizer: gestureRecognizer)
+            case .Tip:
+                handlePanItem(gestureRecognizer: gestureRecognizer)
+            case .None:
+                break
+            }
+        case .ended:
+            switch handling {
+            case .Tag:
+                handlePanTag(gestureRecognizer: gestureRecognizer)
+                handling = .None
+            case .Ingredient:
+                handlePanItem(gestureRecognizer: gestureRecognizer)
+                handling = .None
+            case .Tip:
+                handlePanItem(gestureRecognizer: gestureRecognizer)
+                handling = .None
+            case .None: break
+            }
+        default:
+            return
+        }
+    }
     
     @objc private func handlePanTag(gestureRecognizer: UIPanGestureRecognizer) {
         let location  = gestureRecognizer.location(in: self.collectionView)
-
+        
         if (gestureRecognizer.state == .began) {
             guard let indexPath = self.collectionView.indexPathForItem(at: location) else {
                 print("Not in collection view")
