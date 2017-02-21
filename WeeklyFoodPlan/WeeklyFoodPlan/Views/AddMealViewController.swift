@@ -32,6 +32,7 @@ class AddMealViewController: UIViewController {
     var selectionTitles = ["Breakfast", "Lunch", "Dinner"]
     var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
     var ingredientTitles = ["Potato", "Egg", "Cucumber", "Bread", "Pepper"]
+    var tipTitles = [String]()
 //    var tagTitles = [String]()
     
     override func viewDidLoad() {
@@ -84,6 +85,9 @@ class AddMealViewController: UIViewController {
                 case 6:
                     handlePanItem(gestureRecognizer: gestureRecognizer)
                     handling = .Ingredient
+                case 8:
+                    handlePanItem(gestureRecognizer: gestureRecognizer)
+                    handling = .Tip
                 default:
                     fatalError()
                 }
@@ -192,38 +196,72 @@ class AddMealViewController: UIViewController {
     
     private var startX: CGFloat = 0
     private var offsetX: CGFloat = 0
+    
+    private var panningIndexPath: IndexPath?
     @objc private func handlePanItem(gestureRecognizer: UIPanGestureRecognizer) {
         let location = gestureRecognizer.location(in: self.collectionView)
         if let indexPath = self.collectionView.indexPathForItem(at: location) {
             if indexPath.section != 6 {
                 return
             }
-
-            if let cell = self.collectionView.cellForItem(at: indexPath) {
-                let cellSize = cell.frame.size
-                switch gestureRecognizer.state {
-                case .began:
-                    startX = location.x
-                case .changed:
-                    offsetX = location.x - startX
-                    cell.frame = CGRect(origin: CGPoint(x: offsetX, y: cell.frame.origin.y), size: cellSize)
-                case .ended:
-                    if offsetX > 200 {
-                        ingredientTitles.remove(at: indexPath.row)
-                        self.collectionView.deleteItems(at: [indexPath])
-                        self.collectionView.reloadData()
+          
+            switch gestureRecognizer.state {
+            case .began:
+                print("pan began")
+                panningIndexPath = indexPath
+                startX = location.x
+            case .changed:
+                print("pan changed")
+                if let panningIndexPath = panningIndexPath {
+                    if panningIndexPath != indexPath {
+                        if let cell = collectionView.cellForItem(at: panningIndexPath) {
+                            let cellSize = cell.frame.size
+                            UIView.animate(withDuration: 0.2, animations: {
+                                cell.frame = CGRect(origin: CGPoint(x: 0, y: cell.frame.origin.y), size: cellSize)
+                            })
+                        }
                     } else {
-                        UIView.animate(withDuration: 0.2, animations: { 
-                            cell.frame = CGRect(origin: CGPoint(x: 0, y: cell.frame.origin.y), size: cellSize)
-                        })
+                        if let cell = collectionView.cellForItem(at: indexPath) {
+                            let cellSize = cell.frame.size
+                            offsetX = location.x - startX
+                            cell.frame = CGRect(origin: CGPoint(x: offsetX, y: cell.frame.origin.y), size: cellSize)
+                        }
                     }
-                    startX = 0
-                    offsetX = 0
-                default:
-                    return
                 }
+            case .ended:
+                print("pan ended")
+                if let panningIndexPath = panningIndexPath {
+                    if panningIndexPath != indexPath {
+                        if let cell = collectionView.cellForItem(at: panningIndexPath) {
+                            let cellSize = cell.frame.size
+                            UIView.animate(withDuration: 0.2, animations: {
+                                cell.frame = CGRect(origin: CGPoint(x: 0, y: cell.frame.origin.y), size: cellSize)
+                            })
+                        }
+                    } else {
+                        if offsetX > 200 {
+                            ingredientTitles.remove(at: indexPath.row)
+                            self.collectionView.deleteItems(at: [indexPath])
+                            self.collectionView.reloadData()
+                        } else {
+                            if let cell = collectionView.cellForItem(at: indexPath) {
+                                let cellSize = cell.frame.size
+                                UIView.animate(withDuration: 0.2, animations: {
+                                    cell.frame = CGRect(origin: CGPoint(x: 0, y: cell.frame.origin.y), size: cellSize)
+                                })
+                            }
+                        }
+
+                    }
+                }
+                startX = 0
+                offsetX = 0
+                panningIndexPath = nil
+            default:
+                return
             }
         }
+        
     }
 
     private func distanceBetween(pointA: CGPoint, pointB: CGPoint) -> Double {
@@ -238,7 +276,7 @@ extension AddMealViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let location = touch.location(in: self.collectionView)
         if let indexPath = self.collectionView.indexPathForItem(at: location) {
-            if indexPath.section == 4 || indexPath.section == 6 {
+            if indexPath.section == 4 || indexPath.section == 6 || indexPath.section == 8 {
                 return true
             }
         }
@@ -255,8 +293,8 @@ extension AddMealViewController: InputItemViewDelegate {
             self.tagTitles.append(item)
         case .AddIngredient:
             self.ingredientTitles.append(item)
-        default:
-            fatalError()
+        case .AddTip:
+            self.tipTitles.append(item)
         }
         self.collectionView.reloadData()
     }
@@ -266,7 +304,7 @@ extension AddMealViewController: InputItemViewDelegate {
 extension AddMealViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 7
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -276,6 +314,8 @@ extension AddMealViewController: UICollectionViewDataSource {
             return self.tagTitles.count
         } else if section == 6 {
             return self.ingredientTitles.count
+        } else if section == 8 {
+            return self.tipTitles.count
         }
         return 1
     }
@@ -331,6 +371,20 @@ extension AddMealViewController: UICollectionViewDataSource {
             cell.itemLabel.text = title
             cell.itemImageView.backgroundColor = UIColor.darkGray
             return cell
+        case 7:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
+            cell.backgroundColor = UIColor.cyan
+            cell.sectionLabel.text = "Tips"
+            cell.sectionImageView.image = #imageLiteral(resourceName: "tip")
+            cell.sectionButton.isHidden = false
+            cell.sectionButton.addTarget(self, action: #selector(addTipButtonTapped), for: .touchUpInside)
+            return cell
+        case 8:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealItemViewCellIdentifier, for: indexPath) as! MealItemViewCell
+            let title = self.tipTitles[indexPath.row]
+            cell.itemLabel.text = title
+            cell.itemImageView.backgroundColor = UIColor.green
+            return cell
         default:
             fatalError()
         }
@@ -355,6 +409,11 @@ extension AddMealViewController: UICollectionViewDataSource {
         let inputItemView = InputItemView(style: .AddIngredient)
         inputItemView.delegate = self
         
+        show(inputItemView: inputItemView)
+    }
+    @objc private func addTipButtonTapped() {
+        let inputItemView = InputItemView(style: .AddTip)
+        inputItemView.delegate = self
         show(inputItemView: inputItemView)
     }
 }
@@ -403,19 +462,20 @@ extension AddMealViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: screenWidth, height: sectionHeight)
         case 6:
             return CGSize(width: screenWidth, height: itemHeight)
+        case 7:
+            return CGSize(width: screenWidth, height: sectionHeight)
+        case 8:
+            return CGSize(width: screenWidth, height: itemHeight)
         default:
             fatalError()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 2 {
+        if section == 2 || section == 4 {
             return UIEdgeInsetsMake(8, 8, 8, 8)
         }
-        if section == 4 {
-            return UIEdgeInsetsMake(8, 8, 8, 8)
-        }
-        if section == 6 {
+        if section == 6 || section == 8{
             return UIEdgeInsetsMake(8, 0, 8, 0)
         }
         return UIEdgeInsets.zero
