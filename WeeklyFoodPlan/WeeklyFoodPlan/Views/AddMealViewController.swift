@@ -83,10 +83,10 @@ class AddMealViewController: UIViewController {
                     handlePanTag(gestureRecognizer: gestureRecognizer)
                     handling = .Tag
                 case 6:
-                    handlePanItem(gestureRecognizer: gestureRecognizer)
+                    handlePanItem(gestureRecognizer: gestureRecognizer, itemType: .Ingredient)
                     handling = .Ingredient
                 case 8:
-                    handlePanItem(gestureRecognizer: gestureRecognizer)
+                    handlePanItem(gestureRecognizer: gestureRecognizer, itemType: .Tip)
                     handling = .Tip
                 default:
                     fatalError()
@@ -97,9 +97,9 @@ class AddMealViewController: UIViewController {
             case .Tag:
                 handlePanTag(gestureRecognizer: gestureRecognizer)
             case .Ingredient:
-                handlePanItem(gestureRecognizer: gestureRecognizer)
+                handlePanItem(gestureRecognizer: gestureRecognizer, itemType: handling)
             case .Tip:
-                handlePanItem(gestureRecognizer: gestureRecognizer)
+                handlePanItem(gestureRecognizer: gestureRecognizer, itemType: handling)
             case .None:
                 break
             }
@@ -109,10 +109,10 @@ class AddMealViewController: UIViewController {
                 handlePanTag(gestureRecognizer: gestureRecognizer)
                 handling = .None
             case .Ingredient:
-                handlePanItem(gestureRecognizer: gestureRecognizer)
+                handlePanItem(gestureRecognizer: gestureRecognizer, itemType: handling)
                 handling = .None
             case .Tip:
-                handlePanItem(gestureRecognizer: gestureRecognizer)
+                handlePanItem(gestureRecognizer: gestureRecognizer, itemType: handling)
                 handling = .None
             case .None: break
             }
@@ -198,12 +198,13 @@ class AddMealViewController: UIViewController {
     private var offsetX: CGFloat = 0
     
     private var panningIndexPath: IndexPath?
-    @objc private func handlePanItem(gestureRecognizer: UIPanGestureRecognizer) {
+    private func handlePanItem(gestureRecognizer: UIPanGestureRecognizer, itemType: Handling) {
+        
         let location = gestureRecognizer.location(in: self.collectionView)
         if let indexPath = self.collectionView.indexPathForItem(at: location) {
-            if indexPath.section != 6 {
-                return
-            }
+//            if indexPath.section != 6 {
+//                return
+//            }
           
             switch gestureRecognizer.state {
             case .began:
@@ -240,7 +241,15 @@ class AddMealViewController: UIViewController {
                         }
                     } else {
                         if offsetX > 200 {
-                            ingredientTitles.remove(at: indexPath.row)
+                            switch itemType {
+                            case .Ingredient:
+                                self.ingredientTitles.remove(at: indexPath.row)
+                            case .Tip:
+                                self.tipTitles.remove(at: indexPath.row)
+                            default:
+                                fatalError()
+                            }
+        
                             self.collectionView.deleteItems(at: [indexPath])
                             self.collectionView.reloadData()
                         } else {
