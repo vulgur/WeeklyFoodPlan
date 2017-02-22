@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MealTagViewCellDelegate {
+    func didRemoveTag(tag: String)
+}
+
 class MealTagViewCell: UITableViewCell{
 
     @IBOutlet var collectionView: UICollectionView!
@@ -15,6 +19,7 @@ class MealTagViewCell: UITableViewCell{
     let tagFontSize: CGFloat = 11
     let tagHeight: CGFloat = 30
     let cellIdentifier = "MealTagCell"
+    var delegate: MealTagViewCellDelegate?
     var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
     
     override func awakeFromNib() {
@@ -50,42 +55,41 @@ class MealTagViewCell: UITableViewCell{
     
     @objc private func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
         let location  = gestureRecognizer.location(in: self.collectionView)
-        
-        if (gestureRecognizer.state == .began) {
+        switch gestureRecognizer.state {
+        case .began:
             guard let indexPath = self.collectionView.indexPathForItem(at: location) else {
                 print("Not in collection view")
                 return
             }
-
+            
             self.indexPathOfRemovedTag = indexPath
-            if let originalTagView = self.collectionView.cellForItem(at: indexPath) as? MealTagCell {
+            if let originalTagView = self.collectionView.cellForItem(at: indexPath) as? MealTagCell,
+                let parentView = self.superview {
                 self.originalTagView = originalTagView
                 let tagTitle = tagTitles[indexPath.row]
                 draggedTagView = TagView(title: tagTitle)
-                self.collectionView.addSubview(draggedTagView!)
+                parentView.addSubview(draggedTagView!)
                 draggedTagView?.alpha = 0
                 draggedTagView?.snp.makeConstraints({ (make) in
                     make.size.equalTo(originalTagView)
                 })
             }
-            
-        }
-        if (gestureRecognizer.state == .changed) {
+        case .changed:
             if let originalTagView = originalTagView {
                 if originalTagView.alpha > 0 {
                     originalTagView.alpha = 0
                 }
             }
             
-            if let draggedTagView = draggedTagView {
+            if let draggedTagView = draggedTagView,
+                let parentView = self.superview {
                 if draggedTagView.alpha < 1 {
                     draggedTagView.alpha = 1
                 }
-                draggedTagView.center = location
+                let convertedLocation = collectionView.convert(location, to: parentView)
+                draggedTagView.center = convertedLocation
             }
-        }
-        
-        if (gestureRecognizer.state == .ended) {
+        case .ended:
             if let originalTagView = self.originalTagView,
                 let draggedTagView = self.draggedTagView {
                 if distanceBetween(pointA: draggedTagView.center, pointB: originalTagView.center) > 50 {
@@ -110,12 +114,13 @@ class MealTagViewCell: UITableViewCell{
                         originalTagView.alpha = 1
                     })
                 }
-                
             } else {
                 return
             }
             self.draggedTagView = nil
             self.originalTagView = nil
+        default:
+            return
         }
     }
     
