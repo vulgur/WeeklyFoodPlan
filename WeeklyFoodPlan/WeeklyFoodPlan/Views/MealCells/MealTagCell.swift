@@ -1,5 +1,5 @@
 //
-//  MealHeaderViewCell.swift
+//  MealTagViewCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/19.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MealHeaderViewCell: UITableViewCell {
+class MealTagCell: UICollectionViewCell {
 
-    @IBOutlet var headerImageView: UIImageView!
-    @IBOutlet var headerLabel: UILabel!
+
+    @IBOutlet var tagLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -126,7 +126,7 @@
         <!--添加美食-->
         <scene sceneID="bOp-y2-ano">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0Dy-sR-n1w" customClass="AddMealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0Dy-sR-n1w" customClass="MealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iKG-uI-OJO"/>
                         <viewControllerLayoutGuide type="bottom" id="ivT-H7-obK"/>
@@ -135,19 +135,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="day-Yb-hcl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k9i-LM-ILz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewLayout key="collectionViewLayout" id="gq8-Lh-bQk" customClass="DGCollectionViewLeftAlignFlowLayout" customModule="WeeklyFoodPlan" customModuleProvider="target"/>
-                                <cells/>
-                            </collectionView>
+                                <connections>
+                                    <outlet property="dataSource" destination="0Dy-sR-n1w" id="Abf-h9-txe"/>
+                                    <outlet property="delegate" destination="0Dy-sR-n1w" id="l3Q-5F-scf"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="day-Yb-hcl" firstAttribute="top" secondItem="iKG-uI-OJO" secondAttribute="bottom" id="IEN-B4-2Nc"/>
-                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="day-Yb-hcl" secondAttribute="bottom" id="be3-qG-x8K"/>
-                            <constraint firstItem="day-Yb-hcl" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="oz9-PD-A02"/>
-                            <constraint firstAttribute="trailing" secondItem="day-Yb-hcl" secondAttribute="trailing" id="zTz-jc-1en"/>
+                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="k9i-LM-ILz" secondAttribute="bottom" id="DDQ-0e-p5E"/>
+                            <constraint firstItem="k9i-LM-ILz" firstAttribute="top" secondItem="iKG-uI-OJO" secondAttribute="bottom" id="GsD-Mo-9Ai"/>
+                            <constraint firstItem="k9i-LM-ILz" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="P39-DM-32m"/>
+                            <constraint firstAttribute="trailing" secondItem="k9i-LM-ILz" secondAttribute="trailing" id="aXw-Gt-6pD"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -156,7 +158,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="day-Yb-hcl" id="fXC-hw-b6W"/>
+                        <outlet property="tableView" destination="k9i-LM-ILz" id="oKI-Lj-zyi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nJ-vW-6xT" userLabel="First Responder" sceneMemberID="firstResponder"/>

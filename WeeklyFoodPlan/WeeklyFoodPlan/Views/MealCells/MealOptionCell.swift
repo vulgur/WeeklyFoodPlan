@@ -1,17 +1,16 @@
 //
-//  MealHeaderViewCell.swift
+//  MealOptionCell.swift
 //  WeeklyFoodPlan
 //
-//  Created by vulgur on 2017/2/19.
+//  Created by vulgur on 2017/2/22.
 //  Copyright © 2017年 MAD. All rights reserved.
 //
 
 import UIKit
 
-class MealHeaderViewCell: UITableViewCell {
+class MealOptionCell: UICollectionViewCell {
 
-    @IBOutlet var headerImageView: UIImageView!
-    @IBOutlet var headerLabel: UILabel!
+    @IBOutlet var optionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

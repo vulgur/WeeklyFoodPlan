@@ -8,8 +8,14 @@
 
 import UIKit
 
-class MealSectionViewCell: UICollectionViewCell {
+class MealSectionViewCell: UITableViewCell {
 
+    enum ButtonType: Int {
+        case AddTag = 1
+        case AddIngredient = 2
+        case AddTip = 3
+    }
+    
     @IBOutlet var sectionImageView: UIImageView!
     @IBOutlet var sectionLabel: UILabel!
     @IBOutlet var sectionButton: UIButton!
