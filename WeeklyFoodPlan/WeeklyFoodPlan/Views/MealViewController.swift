@@ -17,6 +17,7 @@ class MealViewController: UIViewController {
     let mealOptionViewCellIdentifier = "MealOptionViewCell"
     let mealTagViewCellIdentifier = "MealTagViewCell"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib.init(nibName: mealHeaderViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealHeaderViewCellIdentifier)
@@ -98,7 +99,6 @@ extension MealViewController: UITableViewDataSource {
         default:
             fatalError()
         }
-        
     }
     
     @objc private func sectionButtonTapped(sender: UIButton) {

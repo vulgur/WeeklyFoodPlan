@@ -52,6 +52,7 @@ class MealTagViewCell: UITableViewCell{
     private var draggedTagView: TagView?
     private var originalTagView: MealTagCell?
     private var indexPathOfRemovedTag: IndexPath?
+    private let maxDraggingDistance: Double = 80
     
     @objc private func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
         let location  = gestureRecognizer.location(in: self.collectionView)
@@ -92,7 +93,9 @@ class MealTagViewCell: UITableViewCell{
         case .ended:
             if let originalTagView = self.originalTagView,
                 let draggedTagView = self.draggedTagView {
-                if distanceBetween(pointA: draggedTagView.center, pointB: originalTagView.center) > 50 {
+                
+                let convertedCenter = collectionView.convert(originalTagView.center, to: self.superview)
+                if distanceBetween(pointA: draggedTagView.center, pointB: convertedCenter) > maxDraggingDistance {
                     // remove tag and re-generate tag views
                     UIView.animate(withDuration: 0.3, animations: {
                         draggedTagView.alpha = 0
@@ -108,7 +111,7 @@ class MealTagViewCell: UITableViewCell{
                     })
                 } else {
                     UIView.animate(withDuration: 0.3, animations: {
-                        draggedTagView.center = originalTagView.center
+                        draggedTagView.center = convertedCenter
                     }, completion: { (_) in
                         draggedTagView.removeFromSuperview()
                         originalTagView.alpha = 1
