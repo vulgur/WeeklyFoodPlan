@@ -17,6 +17,7 @@ class MealViewController: UIViewController {
     let mealOptionViewCellIdentifier = "MealOptionViewCell"
     let mealTagViewCellIdentifier = "MealTagViewCell"
     
+    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +86,8 @@ extension MealViewController: UITableViewDataSource {
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealTagViewCellIdentifier, for: indexPath) as! MealTagViewCell
+            cell.delegate = self
+            cell.tagTitles = tagTitles
             cell.collectionView.reloadData()
             return cell
         case 5:
@@ -124,8 +127,26 @@ extension MealViewController: UITableViewDataSource {
 
 }
 
+// MARK: InputItemViewDelegate
 extension MealViewController: InputItemViewDelegate {
     func done(item: String, style: InputItemView.Style) {
-        print("done:", item)
+        switch style {
+        case .AddTag:
+            tagTitles.append(item)
+            tableView.reloadData()
+        default:
+            return
+        }
+    }
+}
+
+// MARK: MealTagViewCellDelegate
+extension MealViewController: MealTagViewCellDelegate {
+    func didRemoveTag(tag: String) {
+        if let index = tagTitles.index(of: tag) {
+            tagTitles.remove(at: index)
+            let indexPath = IndexPath(row: 4, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
     }
 }

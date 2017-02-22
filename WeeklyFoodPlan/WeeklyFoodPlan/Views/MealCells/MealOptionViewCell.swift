@@ -36,7 +36,7 @@ class MealOptionViewCell: UITableViewCell {
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.greatestFiniteMagnitude)
+//        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
         collectionView.layoutIfNeeded()
         
         return collectionView.collectionViewLayout.collectionViewContentSize
