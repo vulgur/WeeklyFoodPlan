@@ -20,7 +20,7 @@ class MealTagViewCell: UITableViewCell{
     let tagHeight: CGFloat = 30
     let cellIdentifier = "MealTagCell"
     var delegate: MealTagViewCellDelegate?
-    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+    var tagTitles = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,7 +42,7 @@ class MealTagViewCell: UITableViewCell{
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
         collectionView.layoutIfNeeded()
         
         return collectionView.collectionViewLayout.collectionViewContentSize
@@ -103,10 +103,18 @@ class MealTagViewCell: UITableViewCell{
                         draggedTagView.removeFromSuperview()
                         originalTagView.removeFromSuperview()
                         if let indexPathOfRemovedTag = self.indexPathOfRemovedTag {
+                            let removedTag = self.tagTitles[indexPathOfRemovedTag.row]
                             self.tagTitles.remove(at: indexPathOfRemovedTag.row)
-                            self.collectionView.deleteItems(at: [indexPathOfRemovedTag])
+                            
+                            self.collectionView.performBatchUpdates({ 
+                                self.collectionView.deleteItems(at: [indexPathOfRemovedTag])
+                            }, completion: { (_) in
+                                self.delegate?.didRemoveTag(tag: removedTag)
+                            })
+                            
                         }
                         self.collectionView.reloadData()
+                        self.layoutIfNeeded()
                         self.indexPathOfRemovedTag = nil
                     })
                 } else {
@@ -147,6 +155,8 @@ extension MealTagViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MealTagCell
         let title = self.tagTitles[indexPath.row]
         cell.tagLabel.text = title
+//        cell.layer.shouldRasterize = true
+//        cell.layer.rasterizationScale = UIScreen.main.scale
         return cell
     }
 }
