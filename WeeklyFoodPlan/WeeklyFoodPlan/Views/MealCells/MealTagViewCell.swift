@@ -29,6 +29,7 @@ class MealTagViewCell: UITableViewCell{
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.isScrollEnabled = false
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)))
         pan.delegate = self

@@ -16,6 +16,7 @@ class MealViewController: UIViewController {
     let mealSectionViewCellIdentifier = "MealSectionViewCell"
     let mealOptionViewCellIdentifier = "MealOptionViewCell"
     let mealTagViewCellIdentifier = "MealTagViewCell"
+    let mealListViewCellIdentifier = "MealListViewCell"
     
     let optionViewRow = 2
     let tagViewRow = 4
@@ -23,6 +24,7 @@ class MealViewController: UIViewController {
     let tipViewRow = 8
     
     var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
+    var ingredientTitles = ["Potato", "Egg", "Cucumber", "Bread", "Pepper"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class MealViewController: UIViewController {
         tableView.register(UINib.init(nibName: mealSectionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealSectionViewCellIdentifier)
         tableView.register(UINib.init(nibName: mealOptionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealOptionViewCellIdentifier)
         tableView.register(UINib.init(nibName: mealTagViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealTagViewCellIdentifier)
+        tableView.register(UINib.init(nibName: mealListViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealListViewCellIdentifier)
+
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         tableView.separatorColor = UIColor.clear
@@ -58,7 +62,7 @@ extension MealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,6 +107,12 @@ extension MealViewController: UITableViewDataSource {
             cell.sectionButton.addTarget(self, action: #selector(sectionButtonTapped(sender:)), for: .touchUpInside)
             cell.sectionButton.isHidden = false
             cell.sectionButton.tag = MealSectionViewCell.ButtonType.AddIngredient.rawValue
+            return cell
+        case 6:
+            let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
+//            cell.delegate = self
+            cell.items = ingredientTitles
+            cell.tableView.reloadData()
             return cell
         default:
             fatalError()

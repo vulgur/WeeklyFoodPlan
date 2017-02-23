@@ -12,12 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MealItemViewCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+        <tableViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" selectionStyle="blue" indentationWidth="10" id="gTV-IL-0wX" customClass="MealListItemCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
-            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
-                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTV-IL-0wX" id="MNK-Ns-39s">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="stW-Y8-RjO">
                         <rect key="frame" x="8" y="10" width="30" height="30"/>
@@ -33,20 +33,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-            </view>
+            </tableViewCellContentView>
             <constraints>
-                <constraint firstItem="6Wn-CX-mrq" firstAttribute="leading" secondItem="stW-Y8-RjO" secondAttribute="trailing" constant="8" id="AZB-cR-SKi"/>
-                <constraint firstItem="stW-Y8-RjO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="H1J-tF-yAH"/>
-                <constraint firstItem="stW-Y8-RjO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="HrC-dw-dRh"/>
-                <constraint firstAttribute="trailing" secondItem="6Wn-CX-mrq" secondAttribute="trailing" constant="8" id="OFZ-0V-xYK"/>
-                <constraint firstItem="6Wn-CX-mrq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="SKz-6T-H6y"/>
+                <constraint firstItem="stW-Y8-RjO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="EG4-lV-237"/>
+                <constraint firstItem="6Wn-CX-mrq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ksd-zE-Tbx"/>
+                <constraint firstAttribute="trailing" secondItem="6Wn-CX-mrq" secondAttribute="trailing" constant="8" id="dsZ-OK-6AK"/>
+                <constraint firstItem="6Wn-CX-mrq" firstAttribute="leading" secondItem="stW-Y8-RjO" secondAttribute="trailing" constant="8" id="iVj-b2-bpM"/>
+                <constraint firstItem="stW-Y8-RjO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="plZ-af-fIj"/>
             </constraints>
-            <size key="customSize" width="321" height="50"/>
             <connections>
-                <outlet property="itemImageView" destination="stW-Y8-RjO" id="Uxg-ko-72i"/>
-                <outlet property="itemLabel" destination="6Wn-CX-mrq" id="Ubi-fB-OCd"/>
+                <outlet property="itemImageView" destination="stW-Y8-RjO" id="Kj1-7n-pD1"/>
+                <outlet property="itemLabel" destination="6Wn-CX-mrq" id="haR-ly-w0L"/>
             </connections>
             <point key="canvasLocation" x="36" y="39"/>
-        </collectionViewCell>
+        </tableViewCell>
     </objects>
 </document>
