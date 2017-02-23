@@ -176,7 +176,7 @@ extension MealViewController: InputItemViewDelegate {
             tipTitles.append(item)
             indexPath = IndexPath(row: tipViewRow, section: 0)
         }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
 
@@ -207,6 +207,8 @@ extension MealViewController: MealListViewCellDelegate {
             }
             indexPath = IndexPath(row: tipViewRow, section: 0)
         }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        let ip = IndexPath(row: tagViewRow, section: 0)
+        tableView.reloadRows(at: [indexPath, ip], with: .none)
     }
 }
