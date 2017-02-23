@@ -22,6 +22,8 @@
 		D23252471E5D56E70065C40A /* MealOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23252451E5D56E70065C40A /* MealOptionCell.xib */; };
 		D232524A1E5ECD530065C40A /* MealListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23252481E5ECD530065C40A /* MealListViewCell.swift */; };
 		D232524B1E5ECD530065C40A /* MealListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23252491E5ECD530065C40A /* MealListViewCell.xib */; };
+		D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; };
+		D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F51E4B9AF700FB433A /* String+Extension.swift */; };
 		D2750BD11E2AC1F800048863 /* TakeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD01E2AC1F800048863 /* TakeOutTests.swift */; };
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
@@ -88,6 +90,7 @@
 				D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */,
 				D2CFA2811E1C025900277BD9 /* Realm.framework in Embed Frameworks */,
 				D2CFA2831E1C025900277BD9 /* RealmSwift.framework in Embed Frameworks */,
+				D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +117,7 @@
 		D23252451E5D56E70065C40A /* MealOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealOptionCell.xib; sourceTree = "<group>"; };
 		D23252481E5ECD530065C40A /* MealListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealListViewCell.swift; sourceTree = "<group>"; };
 		D23252491E5ECD530065C40A /* MealListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealListViewCell.xib; sourceTree = "<group>"; };
+		D232524C1E5F2B2D0065C40A /* SwipyCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipyCell.framework; path = Carthage/Build/iOS/SwipyCell.framework; sourceTree = "<group>"; };
 		D26076F51E4B9AF700FB433A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D26076F71E4BA41500FB433A /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		D2750BD01E2AC1F800048863 /* TakeOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutTests.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */,
 				D2CFA2801E1C025900277BD9 /* Realm.framework in Frameworks */,
 				D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */,
+				D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +240,7 @@
 		D251005D1E0C3296009BAF1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D232524C1E5F2B2D0065C40A /* SwipyCell.framework */,
 				D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */,
 				D2CFA27E1E1C025900277BD9 /* Realm.framework */,
 				D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */,
@@ -264,6 +270,8 @@
 				D290BB321E58CB770015E2AD /* MealHeaderViewCell.xib */,
 				D290BB451E59C6950015E2AD /* MealListItemCell.swift */,
 				D290BB461E59C6950015E2AD /* MealListItemCell.xib */,
+				D23252481E5ECD530065C40A /* MealListViewCell.swift */,
+				D23252491E5ECD530065C40A /* MealListViewCell.xib */,
 				D23252441E5D56E70065C40A /* MealOptionCell.swift */,
 				D23252451E5D56E70065C40A /* MealOptionCell.xib */,
 				D23252401E5D4D690065C40A /* MealOptionViewCell.swift */,
@@ -274,8 +282,6 @@
 				D290BB3E1E594D990015E2AD /* MealTagCell.xib */,
 				D22A68921E5CB0550085725C /* MealTagViewCell.swift */,
 				D22A68931E5CB0550085725C /* MealTagViewCell.xib */,
-				D23252481E5ECD530065C40A /* MealListViewCell.swift */,
-				D23252491E5ECD530065C40A /* MealListViewCell.xib */,
 			);
 			path = MealCells;
 			sourceTree = "<group>";

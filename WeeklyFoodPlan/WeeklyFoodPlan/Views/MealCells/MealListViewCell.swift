@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipyCell
 
 class MealListViewCell: UITableViewCell {
 
@@ -50,6 +51,35 @@ extension MealListViewCell: UITableViewDataSource {
         let title = items[indexPath.row]
         cell.itemLabel.text = title
         cell.itemImageView.backgroundColor = UIColor.green
+        cell.defaultColor = tableView.backgroundView?.backgroundColor
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "cross"))
+        imageView.contentMode = .center
+        cell.delegate = self
+        cell.setSwipeGesture(imageView, color: UIColor.red, mode: SwipyCellMode.exit, state: SwipyCellState.state1) { (cell, state, mode) in
+            self.deleteCell(cell)
+        }
         return cell
+    }
+    
+    private func deleteCell(_ cell: UITableViewCell) {
+    
+        if let indexPath = tableView.indexPath(for: cell) {
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+}
+
+extension MealListViewCell: SwipyCellDelegate {
+    func swipeableTableViewCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
+
+    }
+    
+    func swipeableTableViewCellDidEndSwiping(_ cell: SwipyCell) {
+        
+    }
+    
+    func swipeableTableViewCellDidStartSwiping(_ cell: SwipyCell) {
+        
     }
 }

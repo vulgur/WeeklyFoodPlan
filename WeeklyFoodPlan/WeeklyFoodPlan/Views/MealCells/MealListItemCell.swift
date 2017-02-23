@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipyCell
 
-class MealListItemCell: UITableViewCell {
+class MealListItemCell: SwipyCell {
 
     @IBOutlet var itemImageView: UIImageView!
     @IBOutlet var itemLabel: UILabel!
