@@ -25,6 +25,7 @@ class MealViewController: UIViewController {
     
     var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
     var ingredientTitles = ["Potato", "Egg", "Cucumber", "Bread", "Pepper"]
+    var tipTitles = ["More water", "No powder", "Fry twice"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,7 @@ extension MealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,10 +111,28 @@ extension MealViewController: UITableViewDataSource {
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
-//            cell.delegate = self
+            cell.delegate = self
+            cell.itemType = .Ingredient
             cell.items = ingredientTitles
             cell.tableView.reloadData()
             return cell
+        case 7:
+            let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
+            cell.backgroundColor = UIColor.cyan
+            cell.sectionLabel.text = "Tips"
+            cell.sectionImageView.image = #imageLiteral(resourceName: "tip")
+            cell.sectionButton.addTarget(self, action: #selector(sectionButtonTapped(sender:)), for: .touchUpInside)
+            cell.sectionButton.isHidden = false
+            cell.sectionButton.tag = MealSectionViewCell.ButtonType.AddTip.rawValue
+            return cell
+        case 8:
+            let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
+            cell.delegate = self
+            cell.itemType = .Tip
+            cell.items = tipTitles
+            cell.tableView.reloadData()
+            return cell
+
         default:
             fatalError()
         }
@@ -145,14 +164,19 @@ extension MealViewController: UITableViewDataSource {
 // MARK: InputItemViewDelegate
 extension MealViewController: InputItemViewDelegate {
     func done(item: String, style: InputItemView.Style) {
+        let indexPath: IndexPath
         switch style {
         case .AddTag:
             tagTitles.append(item)
-            let indexPath = IndexPath(row: tagViewRow, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        default:
-            return
+            indexPath = IndexPath(row: tagViewRow, section: 0)
+        case .AddIngredient:
+            ingredientTitles.append(item)
+            indexPath = IndexPath(row: ingredientViewRow, section: 0)
+        case .AddTip:
+            tipTitles.append(item)
+            indexPath = IndexPath(row: tipViewRow, section: 0)
         }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -162,7 +186,27 @@ extension MealViewController: MealTagViewCellDelegate {
         if let index = tagTitles.index(of: tag) {
             tagTitles.remove(at: index)
             let indexPath = IndexPath(row: tagViewRow, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+    }
+}
+
+// MARK: MealListViewCellDelegate
+extension MealViewController: MealListViewCellDelegate {
+    func didRemoveItem(_ item: String, type: MealListViewCell.ItemType) {
+        let indexPath: IndexPath
+        switch type {
+        case .Ingredient:
+            if let index = ingredientTitles.index(of: item) {
+                ingredientTitles.remove(at: index)
+            }
+            indexPath = IndexPath(row: ingredientViewRow, section: 0)
+        case .Tip:
+            if let index = tipTitles.index(of: item) {
+                tipTitles.remove(at: index)
+            }
+            indexPath = IndexPath(row: tipViewRow, section: 0)
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

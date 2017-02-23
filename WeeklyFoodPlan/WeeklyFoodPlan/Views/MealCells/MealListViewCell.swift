@@ -9,6 +9,10 @@
 import UIKit
 import SwipyCell
 
+protocol MealListViewCellDelegate {
+    func didRemoveItem(_ item: String, type: MealListViewCell.ItemType)
+}
+
 class MealListViewCell: UITableViewCell {
 
     enum ItemType {
@@ -18,6 +22,8 @@ class MealListViewCell: UITableViewCell {
     
     let cellIdentifier = "MealListItemCell"
     var items = [String]()
+    var delegate: MealListViewCellDelegate?
+    var itemType: ItemType = .Ingredient
     
     @IBOutlet var tableView: UITableView!
     override func awakeFromNib() {
@@ -64,8 +70,10 @@ extension MealListViewCell: UITableViewDataSource {
     private func deleteCell(_ cell: UITableViewCell) {
     
         if let indexPath = tableView.indexPath(for: cell) {
+            let item = items[indexPath.row]
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            delegate?.didRemoveItem(item, type: self.itemType)
         }
     }
 }
