@@ -23,9 +23,9 @@ class MealViewController: UIViewController {
     let ingredientViewRow = 6
     let tipViewRow = 8
     
-    var tagTitles = ["this is a dynamic answer that should work", "Best", "Veg", " answer that should",  "Apple", "Diet", "Must Every Week", "大块肉", "尖椒土豆丝", "蝙蝠侠大战超人", "家乡捞单呢吗这位您的二位"]
-    var ingredientTitles = ["Potato", "Egg", "Cucumber", "Bread", "Pepper"]
-    var tipTitles = ["More water", "No powder", "Fry twice"]
+    var tagTitles = [String]()
+    var ingredientTitles = [String]()
+    var tipTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,7 +186,7 @@ extension MealViewController: MealTagViewCellDelegate {
         if let index = tagTitles.index(of: tag) {
             tagTitles.remove(at: index)
             let indexPath = IndexPath(row: tagViewRow, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
     }
 }
@@ -210,5 +210,12 @@ extension MealViewController: MealListViewCellDelegate {
         
         let ip = IndexPath(row: tagViewRow, section: 0)
         tableView.reloadRows(at: [indexPath, ip], with: .none)
+    }
+}
+
+// MARK: MealHeaderViewCellDelegate
+extension MealViewController: MealHeaderViewCellDelegate {
+    func didInputName(_ name: String) {
+        print("Meal Name:", name)
     }
 }
