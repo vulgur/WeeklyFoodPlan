@@ -20,6 +20,7 @@ class HomeCook: Object, Meal {
     
     // Custom properties
     var ingredients = List<Ingredient>()
+    var tips = List<Tip>()
     dynamic var cookCount:Int = 0
     
     override static func primaryKey() -> String? {
