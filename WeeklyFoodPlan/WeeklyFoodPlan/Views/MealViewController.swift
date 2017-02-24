@@ -23,9 +23,12 @@ class MealViewController: UIViewController {
     let ingredientViewRow = 6
     let tipViewRow = 8
     
+    // MARK: Meal info
     var tagTitles = [String]()
     var ingredientTitles = [String]()
     var tipTitles = [String]()
+    var isFavored = false
+    var mealName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,7 @@ class MealViewController: UIViewController {
     
 }
 
+// MARK: UITableViewDataSource
 extension MealViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,6 +77,8 @@ extension MealViewController: UITableViewDataSource {
             cell.backgroundColor = UIColor.lightGray
             cell.headerLabel.text = "Big Mac"
             cell.headerImageView.image = #imageLiteral(resourceName: "hamburger")
+            cell.isFavored = isFavored
+            cell.delegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
@@ -217,5 +223,9 @@ extension MealViewController: MealListViewCellDelegate {
 extension MealViewController: MealHeaderViewCellDelegate {
     func didInputName(_ name: String) {
         print("Meal Name:", name)
+    }
+    func toggleFavorButton(_ isFavored: Bool) {
+        self.isFavored = isFavored
+        print("Favored:", self.isFavored)
     }
 }

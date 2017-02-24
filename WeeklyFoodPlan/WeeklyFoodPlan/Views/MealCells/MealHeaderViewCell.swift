@@ -10,13 +10,16 @@ import UIKit
 
 protocol MealHeaderViewCellDelegate {
     func didInputName(_ name: String)
+    func toggleFavorButton(_ isFavored: Bool)
 }
 
 class MealHeaderViewCell: UITableViewCell {
 
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var headerLabel: UILabel!
+    @IBOutlet var favorButton: UIButton!
     
+    var isFavored = false
     var delegate: MealHeaderViewCellDelegate?
     private var headerTextField: UITextField = UITextField()
     
@@ -26,8 +29,25 @@ class MealHeaderViewCell: UITableViewCell {
         let tapLabel = UITapGestureRecognizer(target: self, action: #selector(headerLabelTapped))
         headerLabel.addGestureRecognizer(tapLabel)
         headerLabel.isUserInteractionEnabled = true
+        
+        favorButton.addTarget(self, action: #selector(toggleButton), for: .touchUpInside)
+//        if isFavored {
+//            favorButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+//        } else {
+//            favorButton.setImage(#imageLiteral(resourceName: "unheart"), for: .normal)
+//        }
     }
 
+    @objc private func toggleButton() {
+        isFavored = !isFavored
+        if isFavored {
+            favorButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        } else {
+            favorButton.setImage(#imageLiteral(resourceName: "unheart"), for: .normal)
+        }
+        delegate?.toggleFavorButton(isFavored)
+    }
+    
     @objc private func headerLabelTapped() {
         let frame = headerLabel.frame
         headerLabel.isHidden = true
