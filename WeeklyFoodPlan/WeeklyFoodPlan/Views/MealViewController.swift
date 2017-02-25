@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MealViewController: UIViewController {
 
@@ -72,6 +73,17 @@ class MealViewController: UIViewController {
             headerCell.isFavored = isFavored
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    @IBAction func saveMeal(_ sender: UIBarButtonItem) {
+        let homecook = HomeCook()
+        for title in ingredientTitles {
+            let ingredient = Ingredient()
+            ingredient.name = title
+            homecook.ingredients.append(ingredient)
+        }
+        BaseManager.shared.save(object: homecook)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -236,11 +248,12 @@ extension MealViewController: MealListViewCellDelegate {
 // MARK: MealHeaderViewCellDelegate
 extension MealViewController: MealHeaderViewCellDelegate {
     func didInputName(_ name: String) {
-        print("Meal Name:", name)
+        self.mealName = name
+        updateHeader()
     }
     func didToggleFavorButton(_ isFavored: Bool) {
         self.isFavored = isFavored
-        print("Favored:", self.isFavored)
+        updateHeader()
     }
     func didTapHeaderImageView(_ imageView: UIImageView) {
         let alertController = UIAlertController.init(title: "选择照片", message: nil, preferredStyle: .actionSheet)
@@ -278,7 +291,6 @@ extension MealViewController: MealHeaderViewCellDelegate {
 extension MealViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        print("info:", info)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.mealImage = image
             updateHeader()

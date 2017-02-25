@@ -152,7 +152,13 @@
                             <constraint firstAttribute="trailing" secondItem="hTw-Zn-rBn" secondAttribute="trailing" id="TBH-Hk-Zff"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="添加美食" id="Pnk-gW-R2P"/>
+                    <navigationItem key="navigationItem" title="添加美食" id="Pnk-gW-R2P">
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="2Ak-wH-FMi">
+                            <connections>
+                                <action selector="saveMeal:" destination="dPl-vk-gEt" id="0Xi-x0-Gmp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="hTw-Zn-rBn" id="K71-61-Ead"/>
