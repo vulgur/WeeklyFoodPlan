@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0Dy-sR-n1w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Aa5-Jh-Qfi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -114,56 +114,53 @@
                     <navigationItem key="navigationItem" title="美食清单" id="oFm-QM-T3i">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="obX-27-0Bq">
                             <connections>
-                                <segue destination="0Dy-sR-n1w" kind="show" id="jSG-e1-vYM"/>
+                                <segue destination="dPl-vk-gEt" kind="show" id="Oa7-mi-mWA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvg-Bc-OLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="-151.57421289355324"/>
+            <point key="canvasLocation" x="-791" y="-152"/>
         </scene>
         <!--添加美食-->
-        <scene sceneID="bOp-y2-ano">
+        <scene sceneID="b9e-0e-BOU">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="0Dy-sR-n1w" customClass="MealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dPl-vk-gEt" customClass="MealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iKG-uI-OJO"/>
-                        <viewControllerLayoutGuide type="bottom" id="ivT-H7-obK"/>
+                        <viewControllerLayoutGuide type="top" id="BzZ-dY-RD0"/>
+                        <viewControllerLayoutGuide type="bottom" id="GwE-6w-rYD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r1T-VI-s49">
+                    <view key="view" contentMode="scaleToFill" id="21U-bB-gIz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k9i-LM-ILz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hTw-Zn-rBn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="0Dy-sR-n1w" id="Abf-h9-txe"/>
-                                    <outlet property="delegate" destination="0Dy-sR-n1w" id="l3Q-5F-scf"/>
+                                    <outlet property="dataSource" destination="dPl-vk-gEt" id="wEp-iQ-KCu"/>
+                                    <outlet property="delegate" destination="dPl-vk-gEt" id="IdF-Q0-VMP"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ivT-H7-obK" firstAttribute="top" secondItem="k9i-LM-ILz" secondAttribute="bottom" id="DDQ-0e-p5E"/>
-                            <constraint firstItem="k9i-LM-ILz" firstAttribute="top" secondItem="iKG-uI-OJO" secondAttribute="bottom" id="GsD-Mo-9Ai"/>
-                            <constraint firstItem="k9i-LM-ILz" firstAttribute="leading" secondItem="r1T-VI-s49" secondAttribute="leading" id="P39-DM-32m"/>
-                            <constraint firstAttribute="trailing" secondItem="k9i-LM-ILz" secondAttribute="trailing" id="aXw-Gt-6pD"/>
+                            <constraint firstItem="hTw-Zn-rBn" firstAttribute="top" secondItem="BzZ-dY-RD0" secondAttribute="bottom" id="ATJ-W3-BYM"/>
+                            <constraint firstItem="hTw-Zn-rBn" firstAttribute="leading" secondItem="21U-bB-gIz" secondAttribute="leading" id="Aei-5z-5UY"/>
+                            <constraint firstItem="GwE-6w-rYD" firstAttribute="top" secondItem="hTw-Zn-rBn" secondAttribute="bottom" id="QFH-ci-z1a"/>
+                            <constraint firstAttribute="trailing" secondItem="hTw-Zn-rBn" secondAttribute="trailing" id="TBH-Hk-Zff"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="添加美食" id="Hef-LJ-Slf">
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="Slm-3z-O0D"/>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" title="添加美食" id="Pnk-gW-R2P"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="k9i-LM-ILz" id="oKI-Lj-zyi"/>
+                        <outlet property="tableView" destination="hTw-Zn-rBn" id="K71-61-Ead"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9nJ-vW-6xT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Im-gm-bki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="-151.57421289355324"/>
+            <point key="canvasLocation" x="13.6" y="-151.57421289355324"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="zQa-S3-B4w">
@@ -190,7 +187,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NiG-9n-Eec" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="美食清单" id="mm9-EY-8yE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YJJ-uk-SWa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YJJ-uk-SWa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -43,10 +43,13 @@ class MealTagViewCell: UITableViewCell{
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
-        collectionView.layoutIfNeeded()
-        
-        return collectionView.collectionViewLayout.collectionViewContentSize
+        if tagTitles.count > 0 {
+            collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
+            collectionView.layoutIfNeeded()
+            return collectionView.collectionViewLayout.collectionViewContentSize
+        } else {
+            return CGSize(width: self.bounds.width, height: 50)
+        }
     }
     
     // MARK: Actions

@@ -27,8 +27,13 @@ class MealViewController: UIViewController {
     var tagTitles = [String]()
     var ingredientTitles = [String]()
     var tipTitles = [String]()
+    
     var isFavored = false
     var mealName = ""
+    var mealImage: UIImage?
+    
+    // MARK: Private properties
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,17 +49,29 @@ class MealViewController: UIViewController {
         
         tableView.tableFooterView = UIView()
         
-
+        tableView.reloadData()
+        updateHeader()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func updateHeader() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        if let headerCell = tableView.cellForRow(at: indexPath) as? MealHeaderViewCell{
+            headerCell.headerLabel.text = mealName
+            headerCell.headerImageView.image = mealImage
+            headerCell.isFavored = isFavored
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
 }
@@ -74,10 +91,7 @@ extension MealViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealHeaderViewCellIdentifier, for: indexPath) as! MealHeaderViewCell
-            cell.backgroundColor = UIColor.lightGray
-            cell.headerLabel.text = "Big Mac"
-            cell.headerImageView.image = #imageLiteral(resourceName: "hamburger")
-            cell.isFavored = isFavored
+            cell.backgroundColor = UIColor.white 
             cell.delegate = self
             return cell
         case 1:
@@ -224,8 +238,50 @@ extension MealViewController: MealHeaderViewCellDelegate {
     func didInputName(_ name: String) {
         print("Meal Name:", name)
     }
-    func toggleFavorButton(_ isFavored: Bool) {
+    func didToggleFavorButton(_ isFavored: Bool) {
         self.isFavored = isFavored
         print("Favored:", self.isFavored)
+    }
+    func didTapHeaderImageView(_ imageView: UIImageView) {
+        let alertController = UIAlertController.init(title: "选择照片", message: nil, preferredStyle: .actionSheet)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let action = UIAlertAction.init(title: "拍照", style: .default, handler: { (_) in
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .camera
+                picker.allowsEditing = false
+                self.present(picker, animated: true, completion: nil)
+            })
+            alertController.addAction(action)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let action = UIAlertAction.init(title: "照片", style: .default, handler: { (_) in
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .photoLibrary
+                picker.allowsEditing = false
+                self.present(picker, animated: true, completion: nil)
+            })
+            alertController.addAction(action)
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (_) in
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: UIImagePickerControllerDelegate
+extension MealViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        print("info:", info)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.mealImage = image
+            updateHeader()
+        }
     }
 }

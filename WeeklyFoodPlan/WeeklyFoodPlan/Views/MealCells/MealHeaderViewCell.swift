@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import ImagePicker
 
 protocol MealHeaderViewCellDelegate {
     func didInputName(_ name: String)
-    func toggleFavorButton(_ isFavored: Bool)
+    func didToggleFavorButton(_ isFavored: Bool)
+    func didTapHeaderImageView(_ imageView: UIImageView)
 }
 
 class MealHeaderViewCell: UITableViewCell {
@@ -29,13 +31,17 @@ class MealHeaderViewCell: UITableViewCell {
         let tapLabel = UITapGestureRecognizer(target: self, action: #selector(headerLabelTapped))
         headerLabel.addGestureRecognizer(tapLabel)
         headerLabel.isUserInteractionEnabled = true
+        headerImageView.isUserInteractionEnabled = true
+        
+        let tapImageView = UITapGestureRecognizer(target: self, action: #selector(headerImageViewTapped))
+        headerImageView.addGestureRecognizer(tapImageView)
         
         favorButton.addTarget(self, action: #selector(toggleButton), for: .touchUpInside)
-//        if isFavored {
-//            favorButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
-//        } else {
-//            favorButton.setImage(#imageLiteral(resourceName: "unheart"), for: .normal)
-//        }
+        if isFavored {
+            favorButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        } else {
+            favorButton.setImage(#imageLiteral(resourceName: "unheart"), for: .normal)
+        }
     }
 
     @objc private func toggleButton() {
@@ -45,7 +51,11 @@ class MealHeaderViewCell: UITableViewCell {
         } else {
             favorButton.setImage(#imageLiteral(resourceName: "unheart"), for: .normal)
         }
-        delegate?.toggleFavorButton(isFavored)
+        delegate?.didToggleFavorButton(isFavored)
+    }
+    
+    @objc private func headerImageViewTapped() {
+        delegate?.didTapHeaderImageView(headerImageView)
     }
     
     @objc private func headerLabelTapped() {

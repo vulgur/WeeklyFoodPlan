@@ -25,6 +25,8 @@
 		D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; };
 		D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D23252511E60A3100065C40A /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23252501E60A3100065C40A /* Tip.swift */; };
+		D23252551E61A28B0065C40A /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D23252521E6144F70065C40A /* ImagePicker.framework */; };
+		D23252561E61A28B0065C40A /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D23252521E6144F70065C40A /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26076F51E4B9AF700FB433A /* String+Extension.swift */; };
 		D2750BD11E2AC1F800048863 /* TakeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD01E2AC1F800048863 /* TakeOutTests.swift */; };
 		D2750BD31E2AC20400048863 /* TagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2750BD21E2AC20400048863 /* TagTests.swift */; };
@@ -90,6 +92,7 @@
 			files = (
 				D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */,
 				D2CFA2811E1C025900277BD9 /* Realm.framework in Embed Frameworks */,
+				D23252561E61A28B0065C40A /* ImagePicker.framework in Embed Frameworks */,
 				D2CFA2831E1C025900277BD9 /* RealmSwift.framework in Embed Frameworks */,
 				D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */,
 			);
@@ -120,8 +123,8 @@
 		D23252491E5ECD530065C40A /* MealListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealListViewCell.xib; sourceTree = "<group>"; };
 		D232524C1E5F2B2D0065C40A /* SwipyCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipyCell.framework; path = Carthage/Build/iOS/SwipyCell.framework; sourceTree = "<group>"; };
 		D23252501E60A3100065C40A /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		D23252521E6144F70065C40A /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
 		D26076F51E4B9AF700FB433A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		D26076F71E4BA41500FB433A /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		D2750BD01E2AC1F800048863 /* TakeOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutTests.swift; sourceTree = "<group>"; };
 		D2750BD21E2AC20400048863 /* TagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTests.swift; sourceTree = "<group>"; };
 		D290BB311E58CB770015E2AD /* MealHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealHeaderViewCell.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 			files = (
 				D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */,
 				D2CFA2801E1C025900277BD9 /* Realm.framework in Frameworks */,
+				D23252551E61A28B0065C40A /* ImagePicker.framework in Frameworks */,
 				D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */,
 				D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */,
 			);
@@ -242,6 +246,7 @@
 		D251005D1E0C3296009BAF1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D23252521E6144F70065C40A /* ImagePicker.framework */,
 				D232524C1E5F2B2D0065C40A /* SwipyCell.framework */,
 				D2A1F31E1E4B6A6400E4B3ED /* SnapKit.framework */,
 				D2CFA27E1E1C025900277BD9 /* Realm.framework */,
@@ -316,7 +321,6 @@
 				D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */,
 				D2D290AE1E446DF400905D10 /* FreezerViewController.swift */,
 				D2D290B01E44E0C900905D10 /* MealListViewController.swift */,
-				D26076F71E4BA41500FB433A /* AddMealViewController.swift */,
 				D22A68961E5CB2220085725C /* MealViewController.swift */,
 			);
 			path = Views;
