@@ -77,7 +77,7 @@ class MealViewController: UIViewController {
     
     func updateHeader() {
         let indexPath = IndexPath(row: 0, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     @IBAction func saveMeal(_ sender: UIBarButtonItem) {
@@ -156,7 +156,7 @@ extension MealViewController: UITableViewDataSource {
             cell.delegate = self
             cell.headerLabel.text = mealName ?? MealHeaderViewCell.placeholderText
             cell.headerImageView.image = mealImage
-            cell.isFavored = isFavored
+            cell.setFavorButtonState(isFavored)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
@@ -306,8 +306,9 @@ extension MealViewController: MealHeaderViewCellDelegate {
         self.mealName = name
         updateHeader()
     }
-    func didToggleFavorButton(_ isFavored: Bool) {
-        self.isFavored = isFavored
+    func didToggleFavorButton() {
+        isFavored = !isFavored
+        print("Favored:", self.isFavored)
         updateHeader()
     }
     func didTapHeaderImageView(_ imageView: UIImageView) {

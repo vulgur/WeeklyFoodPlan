@@ -11,7 +11,7 @@ import ImagePicker
 
 protocol MealHeaderViewCellDelegate {
     func didInputName(_ name: String)
-    func didToggleFavorButton(_ isFavored: Bool)
+    func didToggleFavorButton()
     func didTapHeaderImageView(_ imageView: UIImageView)
 }
 
@@ -22,7 +22,6 @@ class MealHeaderViewCell: UITableViewCell {
     @IBOutlet var favorButton: UIButton!
     
     static let placeholderText = "输入美食名称".localized()
-    var isFavored = false
     var delegate: MealHeaderViewCellDelegate?
     private var headerTextField: UITextField = UITextField()
     
@@ -32,12 +31,17 @@ class MealHeaderViewCell: UITableViewCell {
         let tapLabel = UITapGestureRecognizer(target: self, action: #selector(headerLabelTapped))
         headerLabel.addGestureRecognizer(tapLabel)
         headerLabel.isUserInteractionEnabled = true
+        headerLabel.isHidden = false
         headerImageView.isUserInteractionEnabled = true
         
         let tapImageView = UITapGestureRecognizer(target: self, action: #selector(headerImageViewTapped))
         headerImageView.addGestureRecognizer(tapImageView)
         
         favorButton.addTarget(self, action: #selector(toggleButton), for: .touchUpInside)
+        headerTextField.isHidden = true
+    }
+    
+    func setFavorButtonState(_ isFavored: Bool) {
         if isFavored {
             favorButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         } else {
@@ -46,13 +50,7 @@ class MealHeaderViewCell: UITableViewCell {
     }
 
     @objc private func toggleButton() {
-        isFavored = !isFavored
-        if isFavored {
-            favorButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
-        } else {
-            favorButton.setImage(#imageLiteral(resourceName: "unheart"), for: .normal)
-        }
-        delegate?.didToggleFavorButton(isFavored)
+        delegate?.didToggleFavorButton()
     }
     
     @objc private func headerImageViewTapped() {
@@ -62,11 +60,12 @@ class MealHeaderViewCell: UITableViewCell {
     @objc private func headerLabelTapped() {
         let frame = headerLabel.frame
         headerLabel.isHidden = true
-        self.addSubview(headerTextField)
+        self.contentView.addSubview(headerTextField)
         headerTextField.frame = frame
         headerTextField.backgroundColor = UIColor.white
         headerTextField.textAlignment = .center
         headerTextField.delegate = self
+        headerTextField.isHidden = false
         headerTextField.becomeFirstResponder()
     }
 }
@@ -81,6 +80,21 @@ extension MealHeaderViewCell: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("text field should return")
+        headerLabel.isHidden = false
+        if let text = textField.text {
+            if text.isEmpty {
+                headerLabel.text = MealHeaderViewCell.placeholderText
+            } else {
+                headerLabel.text = text
+                delegate?.didInputName(text)
+            }
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("text field did end editing")
         headerLabel.isHidden = false
         if let text = textField.text {
             if text.isEmpty {
@@ -91,6 +105,5 @@ extension MealHeaderViewCell: UITextFieldDelegate {
             }
         }
         textField.removeFromSuperview()
-        return true
     }
 }
