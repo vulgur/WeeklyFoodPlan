@@ -21,6 +21,7 @@ class MealHeaderViewCell: UITableViewCell {
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var favorButton: UIButton!
     
+    static let placeholderText = "输入美食名称".localized()
     var isFavored = false
     var delegate: MealHeaderViewCellDelegate?
     private var headerTextField: UITextField = UITextField()
@@ -72,16 +73,24 @@ class MealHeaderViewCell: UITableViewCell {
 
 extension MealHeaderViewCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = headerLabel.text ?? ""
+        if headerLabel.text == MealHeaderViewCell.placeholderText {
+            textField.text = ""
+        } else {
+            textField.text = headerLabel.text
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        headerLabel.isHidden = false
         if let text = textField.text {
-            headerLabel.text = text
-            headerLabel.isHidden = false
-            textField.removeFromSuperview()
-            delegate?.didInputName(text)
+            if text.isEmpty {
+                headerLabel.text = MealHeaderViewCell.placeholderText
+            } else {
+                headerLabel.text = text
+                delegate?.didInputName(text)
+            }
         }
+        textField.removeFromSuperview()
         return true
     }
 }

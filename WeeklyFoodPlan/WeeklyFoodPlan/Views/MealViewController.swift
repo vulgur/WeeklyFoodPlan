@@ -38,7 +38,7 @@ class MealViewController: UIViewController {
     var tipTitles = [String]()
     
     var isFavored = false
-    var mealName = ""
+    var mealName: String?
     var mealImage: UIImage?
     
     // MARK: Private properties
@@ -57,14 +57,14 @@ class MealViewController: UIViewController {
         tableView.separatorColor = UIColor.clear
         
         tableView.tableFooterView = UIView()
-
+        tableView.reloadData()
+        updateHeader()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
-        updateHeader()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,11 +75,6 @@ class MealViewController: UIViewController {
     
     func updateHeader() {
         let indexPath = IndexPath(row: 0, section: 0)
-        if let headerCell = tableView.cellForRow(at: indexPath) as? MealHeaderViewCell{
-            headerCell.headerLabel.text = mealName
-            headerCell.headerImageView.image = mealImage
-            headerCell.isFavored = isFavored
-        }
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -119,6 +114,9 @@ extension MealViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: mealHeaderViewCellIdentifier, for: indexPath) as! MealHeaderViewCell
             cell.backgroundColor = UIColor.white 
             cell.delegate = self
+            cell.headerLabel.text = mealName ?? MealHeaderViewCell.placeholderText
+            cell.headerImageView.image = mealImage
+            cell.isFavored = isFavored
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
