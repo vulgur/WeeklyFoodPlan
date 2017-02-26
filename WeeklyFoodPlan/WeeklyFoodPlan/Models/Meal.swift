@@ -9,12 +9,19 @@
 import UIKit
 import RealmSwift
 
-enum When: Int {
-    case breakfast = 0
-    case brunch = 1
-    case lunch = 2
-    case dinner = 3
-    case other = 4
+enum When: String {
+    case breakfast = "breakfast"
+    case brunch = "brunch"
+    case lunch = "lunch"
+    case dinner = "dinner"
+    case other = "other"
+}
+
+class WhenObject: Object {
+    dynamic var value = When.other.rawValue
+    override static func primaryKey() -> String? {
+        return "value"
+    }
 }
 
 protocol Meal: Equatable {
@@ -24,18 +31,18 @@ protocol Meal: Equatable {
     var isFavored: Bool { get set }
     var tags: List<Tag> { get set }
     var imagePath: String? { get set }
-    var whenRaw: Int { get set }
-//    var when: When {get set}
-    
+    var whenObjects: List<WhenObject> { get set }
 }
 
 extension Meal{
-    var when: When {
+    var when: [When] {
         get {
-            return When(rawValue: whenRaw)!
-        }
-        set {
-            whenRaw = newValue.rawValue
+            var result = [When]()
+            for obj in whenObjects {
+                let when = When(rawValue: obj.value)
+                result.append(when!)
+            }
+            return result
         }
     }
 }

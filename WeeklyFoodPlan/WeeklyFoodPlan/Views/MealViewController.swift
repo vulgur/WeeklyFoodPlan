@@ -9,6 +9,12 @@
 import UIKit
 import RealmSwift
 
+enum MealType {
+    case HomeCook
+    case EatingOut
+    case TakeOut
+}
+
 class MealViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
@@ -25,6 +31,8 @@ class MealViewController: UIViewController {
     let tipViewRow = 8
     
     // MARK: Meal info
+
+    var mealType = MealType.HomeCook
     var tagTitles = [String]()
     var ingredientTitles = [String]()
     var tipTitles = [String]()
@@ -49,14 +57,14 @@ class MealViewController: UIViewController {
         tableView.separatorColor = UIColor.clear
         
         tableView.tableFooterView = UIView()
-        
-        tableView.reloadData()
-        updateHeader()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        tableView.reloadData()
+        updateHeader()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +90,7 @@ class MealViewController: UIViewController {
             ingredient.name = title
             homecook.ingredients.append(ingredient)
         }
+        
         BaseManager.shared.save(object: homecook)
         self.dismiss(animated: true, completion: nil)
     }
@@ -96,7 +105,12 @@ extension MealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        switch mealType {
+        case .EatingOut, .TakeOut:
+            return 3
+        case .HomeCook:
+            return 9
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

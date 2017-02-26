@@ -14,7 +14,7 @@ class TakeOut: Object, Meal {
     dynamic var name: String = ""
     dynamic var isFavored: Bool = false
     dynamic var imagePath: String?
-    dynamic var whenRaw: Int = When.other.rawValue
+    var whenObjects = List<WhenObject>()
     var tags = List<Tag>()
     
     override static func primaryKey() -> String? {
