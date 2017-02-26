@@ -82,8 +82,18 @@ class MealViewController: UIViewController {
     
     @IBAction func saveMeal(_ sender: UIBarButtonItem) {
         let homecook = HomeCook()
+        guard let mealName = self.mealName else {
+            showAlert(message: "请输入美食名称")
+            return
+        }
+        if mealName.isEmpty {
+            showAlert(message: "请输入美食名称")
+            return
+        }
         
-        for option in whenOptions {
+        homecook.name = mealName
+        
+        for option in whenList {
             let when = WhenObject()
             when.value = option
             homecook.whenObjects.append(when)
@@ -108,9 +118,18 @@ class MealViewController: UIViewController {
         }
         
         BaseManager.shared.save(object: homecook)
-        self.dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
+    // MARK: Private methods
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
+            
+        })
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -243,7 +262,8 @@ extension MealViewController: InputItemViewDelegate {
             tipList.append(item)
             indexPath = IndexPath(row: tipViewRow, section: 0)
         }
-        tableView.reloadRows(at: [indexPath], with: .none)
+        let tagViewIndexPath = IndexPath(row: tagViewRow, section: 0)
+        tableView.reloadRows(at: [indexPath, tagViewIndexPath], with: .none)
     }
 }
 
@@ -339,6 +359,6 @@ extension MealViewController: MealOptionCellDelegate {
         whenList.append(option)
     }
     func didRemoveOption(atIndext index: Int) {
-        tagList.remove(at: index)
+        whenList.remove(at: index)
     }
 }

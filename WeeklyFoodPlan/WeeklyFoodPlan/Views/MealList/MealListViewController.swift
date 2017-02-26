@@ -21,6 +21,10 @@ class MealListViewController: UIViewController {
         tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 80
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         meals = BaseManager.shared.queryAllMeals()
         tableView.reloadData()
     }
