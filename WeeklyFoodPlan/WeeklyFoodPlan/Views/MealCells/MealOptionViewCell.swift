@@ -8,16 +8,22 @@
 
 import UIKit
 
+protocol MealOptionCellDelegate {
+    func didAddOption(_ option: String)
+    func didRemoveOption(atIndext index: Int)
+}
+
 class MealOptionViewCell: UITableViewCell {
 
     let cellIdentifier = "MealOptionCell"
     let optionSelectedColor = UIColor.green
     let optionDeselectedColor = UIColor.white
-    let optionTitles = ["早餐", "午餐", "晚餐"]
+    var optionTitles = ["早餐", "午餐", "晚餐"]
     let cellGap:CGFloat = 8
     let optionHeight: CGFloat = 30
     let maxOptionsInARow = 3
     
+    var delegate: MealOptionCellDelegate?
     @IBOutlet var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -69,11 +75,13 @@ extension MealOptionViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
         cell.optionLabel.backgroundColor = optionSelectedColor
+        delegate?.didAddOption(cell.optionLabel.text!)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
         cell.optionLabel.backgroundColor = optionDeselectedColor
+        delegate?.didRemoveOption(atIndext: indexPath.row)
     }
 }
 

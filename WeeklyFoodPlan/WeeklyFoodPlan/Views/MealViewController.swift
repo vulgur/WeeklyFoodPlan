@@ -29,13 +29,15 @@ class MealViewController: UIViewController {
     let tagViewRow = 4
     let ingredientViewRow = 6
     let tipViewRow = 8
+    let whenOptions = ["Breakfast", "Lunch", "Dinner"]
     
     // MARK: Meal info
 
     var mealType = MealType.HomeCook
-    var tagTitles = [String]()
-    var ingredientTitles = [String]()
-    var tipTitles = [String]()
+    var tagList = [String]()
+    var ingredientList = [String]()
+    var tipList = [String]()
+    var whenList = [String]()
     
     var isFavored = false
     var mealName: String?
@@ -80,10 +82,29 @@ class MealViewController: UIViewController {
     
     @IBAction func saveMeal(_ sender: UIBarButtonItem) {
         let homecook = HomeCook()
-        for title in ingredientTitles {
+        
+        for option in whenOptions {
+            let when = WhenObject()
+            when.value = option
+            homecook.whenObjects.append(when)
+        }
+        
+        for title in ingredientList {
             let ingredient = Ingredient()
             ingredient.name = title
             homecook.ingredients.append(ingredient)
+        }
+        
+        for title in tagList {
+            let tag = Tag()
+            tag.name = title
+            homecook.tags.append(tag)
+        }
+        
+        for title in tipList {
+            let tip = Tip()
+            tip.content = title
+            homecook.tips.append(tip)
         }
         
         BaseManager.shared.save(object: homecook)
@@ -127,6 +148,8 @@ extension MealViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealOptionViewCellIdentifier, for: indexPath) as! MealOptionViewCell
+            cell.optionTitles = whenOptions
+            cell.delegate = self
             cell.collectionView.reloadData()
             return cell
         case 3:
@@ -141,7 +164,7 @@ extension MealViewController: UITableViewDataSource {
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealTagViewCellIdentifier, for: indexPath) as! MealTagViewCell
             cell.delegate = self
-            cell.tagTitles = tagTitles
+            cell.tagList = tagList
             cell.collectionView.reloadData()
             return cell
         case 5:
@@ -157,7 +180,7 @@ extension MealViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
             cell.delegate = self
             cell.itemType = .Ingredient
-            cell.items = ingredientTitles
+            cell.items = ingredientList
             cell.tableView.reloadData()
             return cell
         case 7:
@@ -173,7 +196,7 @@ extension MealViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
             cell.delegate = self
             cell.itemType = .Tip
-            cell.items = tipTitles
+            cell.items = tipList
             cell.tableView.reloadData()
             return cell
 
@@ -211,13 +234,13 @@ extension MealViewController: InputItemViewDelegate {
         let indexPath: IndexPath
         switch style {
         case .AddTag:
-            tagTitles.append(item)
+            tagList.append(item)
             indexPath = IndexPath(row: tagViewRow, section: 0)
         case .AddIngredient:
-            ingredientTitles.append(item)
+            ingredientList.append(item)
             indexPath = IndexPath(row: ingredientViewRow, section: 0)
         case .AddTip:
-            tipTitles.append(item)
+            tipList.append(item)
             indexPath = IndexPath(row: tipViewRow, section: 0)
         }
         tableView.reloadRows(at: [indexPath], with: .none)
@@ -227,8 +250,8 @@ extension MealViewController: InputItemViewDelegate {
 // MARK: MealTagViewCellDelegate
 extension MealViewController: MealTagViewCellDelegate {
     func didRemoveTag(tag: String) {
-        if let index = tagTitles.index(of: tag) {
-            tagTitles.remove(at: index)
+        if let index = tagList.index(of: tag) {
+            tagList.remove(at: index)
             let indexPath = IndexPath(row: tagViewRow, section: 0)
             tableView.reloadRows(at: [indexPath], with: .none)
         }
@@ -241,13 +264,13 @@ extension MealViewController: MealListViewCellDelegate {
         let indexPath: IndexPath
         switch type {
         case .Ingredient:
-            if let index = ingredientTitles.index(of: item) {
-                ingredientTitles.remove(at: index)
+            if let index = ingredientList.index(of: item) {
+                ingredientList.remove(at: index)
             }
             indexPath = IndexPath(row: ingredientViewRow, section: 0)
         case .Tip:
-            if let index = tipTitles.index(of: item) {
-                tipTitles.remove(at: index)
+            if let index = tipList.index(of: item) {
+                tipList.remove(at: index)
             }
             indexPath = IndexPath(row: tipViewRow, section: 0)
         }
@@ -307,5 +330,15 @@ extension MealViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.mealImage = image
             updateHeader()
         }
+    }
+}
+
+// MARK: MealOptionViewDelegate
+extension MealViewController: MealOptionCellDelegate {
+    func didAddOption(_ option: String) {
+        whenList.append(option)
+    }
+    func didRemoveOption(atIndext index: Int) {
+        tagList.remove(at: index)
     }
 }

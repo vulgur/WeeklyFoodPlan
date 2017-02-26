@@ -20,7 +20,7 @@ class MealTagViewCell: UITableViewCell{
     let tagHeight: CGFloat = 30
     let cellIdentifier = "MealTagCell"
     var delegate: MealTagViewCellDelegate?
-    var tagTitles = [String]()
+    var tagList = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +43,7 @@ class MealTagViewCell: UITableViewCell{
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        if tagTitles.count > 0 {
+        if tagList.count > 0 {
             collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
             collectionView.layoutIfNeeded()
             return collectionView.collectionViewLayout.collectionViewContentSize
@@ -71,7 +71,7 @@ class MealTagViewCell: UITableViewCell{
             if let originalTagView = self.collectionView.cellForItem(at: indexPath) as? MealTagCell,
                 let parentView = self.superview {
                 self.originalTagView = originalTagView
-                let tagTitle = tagTitles[indexPath.row]
+                let tagTitle = self.tagList[indexPath.row]
                 draggedTagView = TagView(title: tagTitle)
                 parentView.addSubview(draggedTagView!)
                 draggedTagView?.alpha = 0
@@ -107,8 +107,8 @@ class MealTagViewCell: UITableViewCell{
                         draggedTagView.removeFromSuperview()
                         originalTagView.removeFromSuperview()
                         if let indexPathOfRemovedTag = self.indexPathOfRemovedTag {
-                            let removedTag = self.tagTitles[indexPathOfRemovedTag.row]
-                            self.tagTitles.remove(at: indexPathOfRemovedTag.row)
+                            let removedTag = self.tagList[indexPathOfRemovedTag.row]
+                            self.tagList.remove(at: indexPathOfRemovedTag.row)
                             
                             self.collectionView.performBatchUpdates({ 
                                 self.collectionView.deleteItems(at: [indexPathOfRemovedTag])
@@ -152,12 +152,12 @@ extension MealTagViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.tagTitles.count
+        return self.tagList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MealTagCell
-        let title = self.tagTitles[indexPath.row]
+        let title = self.tagList[indexPath.row]
         cell.tagLabel.text = title
 //        cell.layer.shouldRasterize = true
 //        cell.layer.rasterizationScale = UIScreen.main.scale
@@ -175,7 +175,7 @@ extension MealTagViewCell: UICollectionViewDelegateFlowLayout {
     }
     // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let title = self.tagTitles[indexPath.row]
+        let title = self.tagList[indexPath.row]
         let tagWidth = tagWidthFor(title: title)
         return CGSize(width: tagWidth, height: tagHeight)
     }

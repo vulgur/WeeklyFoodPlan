@@ -24,7 +24,7 @@ class WhenObject: Object {
     }
 }
 
-protocol Meal: Equatable {
+protocol Meal {
 
     var id: String { get }
     var name: String { get set }
