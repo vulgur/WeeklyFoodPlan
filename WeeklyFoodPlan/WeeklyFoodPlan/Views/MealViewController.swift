@@ -57,16 +57,16 @@ class MealViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         tableView.separatorColor = UIColor.clear
-        
         tableView.tableFooterView = UIView()
-        tableView.reloadData()
-        updateHeader()
+
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-
+        tableView.reloadData()
+        updateHeader()
     }
 
     override func didReceiveMemoryWarning() {

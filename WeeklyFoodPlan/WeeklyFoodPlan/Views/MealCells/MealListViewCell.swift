@@ -36,10 +36,14 @@ class MealListViewCell: UITableViewCell {
     }
 
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-//        tableView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
-        tableView.layoutIfNeeded()
-        
-        return tableView.contentSize
+        if items.count > 0 {
+            tableView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
+            tableView.layoutIfNeeded()
+            
+            return tableView.contentSize
+        } else {
+            return CGSize(width: self.bounds.width, height: 50)
+        }
     }
 }
 

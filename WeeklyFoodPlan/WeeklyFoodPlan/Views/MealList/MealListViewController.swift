@@ -17,7 +17,7 @@ class MealListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.view.backgroundColor = UIColor.white
         tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 80
         tableView.tableFooterView = UIView()

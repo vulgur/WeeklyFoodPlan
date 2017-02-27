@@ -33,6 +33,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="stW-Y8-RjO" firstAttribute="top" secondItem="MNK-Ns-39s" secondAttribute="topMargin" constant="2" id="wwf-Bm-wO3"/>
+                </constraints>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="stW-Y8-RjO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="EG4-lV-237"/>
