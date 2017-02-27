@@ -59,20 +59,13 @@
 		D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */; };
 		D2CFA2831E1C025900277BD9 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2CFA2861E1C06C100277BD9 /* NutritionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2851E1C06C100277BD9 /* NutritionTests.swift */; };
-		D2D290A01E4453F900905D10 /* EatingOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290911E4453F800905D10 /* EatingOut.swift */; };
-		D2D290A11E4453F900905D10 /* HomeCook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290921E4453F800905D10 /* HomeCook.swift */; };
+		D2D290A11E4453F900905D10 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290921E4453F800905D10 /* Meal.swift */; };
 		D2D290A21E4453F900905D10 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290931E4453F800905D10 /* Ingredient.swift */; };
 		D2D290A31E4453F900905D10 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290951E4453F900905D10 /* BaseManager.swift */; };
 		D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290961E4453F900905D10 /* IngredientManager.swift */; };
 		D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290971E4453F900905D10 /* NutritionManager.swift */; };
-		D2D290A61E4453F900905D10 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290981E4453F900905D10 /* RecipeManager.swift */; };
-		D2D290A71E4453F900905D10 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290991E4453F900905D10 /* Meal.swift */; };
 		D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909A1E4453F900905D10 /* Nutrition.swift */; };
-		D2D290A91E4453F900905D10 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909B1E4453F900905D10 /* Recipe.swift */; };
-		D2D290AA1E4453F900905D10 /* RecipeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909C1E4453F900905D10 /* RecipeSet.swift */; };
-		D2D290AB1E4453F900905D10 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909D1E4453F900905D10 /* RecipeStep.swift */; };
 		D2D290AC1E4453F900905D10 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909E1E4453F900905D10 /* Tag.swift */; };
-		D2D290AD1E4453F900905D10 /* TakeOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909F1E4453F900905D10 /* TakeOut.swift */; };
 		D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290AE1E446DF400905D10 /* FreezerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,20 +149,13 @@
 		D2CFA27E1E1C025900277BD9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		D2CFA2851E1C06C100277BD9 /* NutritionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTests.swift; sourceTree = "<group>"; };
-		D2D290911E4453F800905D10 /* EatingOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatingOut.swift; sourceTree = "<group>"; };
-		D2D290921E4453F800905D10 /* HomeCook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCook.swift; sourceTree = "<group>"; };
+		D2D290921E4453F800905D10 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		D2D290931E4453F800905D10 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		D2D290951E4453F900905D10 /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		D2D290961E4453F900905D10 /* IngredientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientManager.swift; sourceTree = "<group>"; };
 		D2D290971E4453F900905D10 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionManager.swift; sourceTree = "<group>"; };
-		D2D290981E4453F900905D10 /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
-		D2D290991E4453F900905D10 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		D2D2909A1E4453F900905D10 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
-		D2D2909B1E4453F900905D10 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		D2D2909C1E4453F900905D10 /* RecipeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeSet.swift; sourceTree = "<group>"; };
-		D2D2909D1E4453F900905D10 /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeStep.swift; sourceTree = "<group>"; };
 		D2D2909E1E4453F900905D10 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		D2D2909F1E4453F900905D10 /* TakeOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOut.swift; sourceTree = "<group>"; };
 		D2D290AE1E446DF400905D10 /* FreezerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezerViewController.swift; sourceTree = "<group>"; };
 		D2D290B31E44E4C800905D10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -346,17 +332,11 @@
 		D2D290901E4453F800905D10 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2D290911E4453F800905D10 /* EatingOut.swift */,
-				D2D290921E4453F800905D10 /* HomeCook.swift */,
-				D2D290931E4453F800905D10 /* Ingredient.swift */,
 				D2D290941E4453F900905D10 /* Managers */,
-				D2D290991E4453F900905D10 /* Meal.swift */,
+				D2D290921E4453F800905D10 /* Meal.swift */,
+				D2D290931E4453F800905D10 /* Ingredient.swift */,
 				D2D2909A1E4453F900905D10 /* Nutrition.swift */,
-				D2D2909B1E4453F900905D10 /* Recipe.swift */,
-				D2D2909C1E4453F900905D10 /* RecipeSet.swift */,
-				D2D2909D1E4453F900905D10 /* RecipeStep.swift */,
 				D2D2909E1E4453F900905D10 /* Tag.swift */,
-				D2D2909F1E4453F900905D10 /* TakeOut.swift */,
 				D23252501E60A3100065C40A /* Tip.swift */,
 			);
 			path = Models;
@@ -368,7 +348,6 @@
 				D2D290951E4453F900905D10 /* BaseManager.swift */,
 				D2D290961E4453F900905D10 /* IngredientManager.swift */,
 				D2D290971E4453F900905D10 /* NutritionManager.swift */,
-				D2D290981E4453F900905D10 /* RecipeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -528,17 +507,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2D290AC1E4453F900905D10 /* Tag.swift in Sources */,
-				D2D290A11E4453F900905D10 /* HomeCook.swift in Sources */,
-				D2D290A61E4453F900905D10 /* RecipeManager.swift in Sources */,
+				D2D290A11E4453F900905D10 /* Meal.swift in Sources */,
 				D2C0F7221E62AAA3000C9B3C /* MealListViewController.swift in Sources */,
 				D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */,
 				D20E39131E03048700349F78 /* ViewController.swift in Sources */,
 				D2D290A21E4453F900905D10 /* Ingredient.swift in Sources */,
 				D290BB3F1E594D990015E2AD /* MealTagCell.swift in Sources */,
 				D232524A1E5ECD530065C40A /* MealListViewCell.swift in Sources */,
-				D2D290A71E4453F900905D10 /* Meal.swift in Sources */,
 				D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */,
-				D2D290AD1E4453F900905D10 /* TakeOut.swift in Sources */,
 				D23252421E5D4D690065C40A /* MealOptionViewCell.swift in Sources */,
 				D23252511E60A3100065C40A /* Tip.swift in Sources */,
 				D290BB371E59473C0015E2AD /* MealSectionViewCell.swift in Sources */,
@@ -548,18 +524,14 @@
 				D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */,
 				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D290BB471E59C6950015E2AD /* MealListItemCell.swift in Sources */,
-				D2D290A01E4453F900905D10 /* EatingOut.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
-				D2D290A91E4453F900905D10 /* Recipe.swift in Sources */,
 				D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */,
 				D22A68941E5CB0550085725C /* MealTagViewCell.swift in Sources */,
 				D290BB331E58CB770015E2AD /* MealHeaderViewCell.swift in Sources */,
 				D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */,
-				D2D290AA1E4453F900905D10 /* RecipeSet.swift in Sources */,
 				D2C0F7251E62AAE0000C9B3C /* MealListCell.swift in Sources */,
 				D23252461E5D56E70065C40A /* MealOptionCell.swift in Sources */,
 				D290BB431E5985590015E2AD /* InputItemView.swift in Sources */,
-				D2D290AB1E4453F900905D10 /* RecipeStep.swift in Sources */,
 				D2426C8C1E62C98F00EDA5BC /* Realm+Extension.swift in Sources */,
 				D2D290A31E4453F900905D10 /* BaseManager.swift in Sources */,
 			);

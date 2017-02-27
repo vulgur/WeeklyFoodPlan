@@ -30,13 +30,7 @@ class BaseManager {
     }
     
     func queryAllMeals() -> [Meal] {
-        let homeCooks = realm.objects(HomeCook.self).toArray()
-        let eatingOuts = realm.objects(EatingOut.self).toArray()
-        let takeOuts = realm.objects(TakeOut.self).toArray()
-        var meals = [Meal]()
-        meals += homeCooks as [Meal]
-        meals += eatingOuts as [Meal]
-        meals += takeOuts as [Meal]
+        let meals = realm.objects(Meal.self).toArray()
         return meals
     }
     

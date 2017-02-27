@@ -9,12 +9,6 @@
 import UIKit
 import RealmSwift
 
-enum MealType {
-    case HomeCook
-    case EatingOut
-    case TakeOut
-}
-
 class MealViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
@@ -32,8 +26,7 @@ class MealViewController: UIViewController {
     let whenOptions = ["Breakfast", "Lunch", "Dinner"]
     
     // MARK: Meal info
-
-    var mealType = MealType.HomeCook
+    var meal: Meal?
     var tagList = [String]()
     var ingredientList = [String]()
     var tipList = [String]()
@@ -48,32 +41,98 @@ class MealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib.init(nibName: mealHeaderViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealHeaderViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealSectionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealSectionViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealOptionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealOptionViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealTagViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealTagViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealListViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealListViewCellIdentifier)
-
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 50
-        tableView.separatorColor = UIColor.clear
-        tableView.tableFooterView = UIView()
-
         self.tabBarController?.tabBar.isHidden = true
+        configMeal()
+        configTableView()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tableView.reloadData()
-        updateHeader()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        updateHeader()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    private func configMeal() {
+        if let meal = self.meal {
+            mealName = meal.name
+            isFavored = meal.isFavored
+            for tag in meal.tags {
+                tagList.append(tag.name)
+            }
+            for ingredient in meal.ingredients {
+                ingredientList.append(ingredient.name)
+            }
+            for tip in meal.tips {
+                tipList.append(tip.content)
+            }
+            for when in meal.whenList {
+                whenList.append(when)
+            }
+        }
+    }
     
+    private func configTableView() {
+        tableView.register(UINib.init(nibName: mealHeaderViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealHeaderViewCellIdentifier)
+        tableView.register(UINib.init(nibName: mealSectionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealSectionViewCellIdentifier)
+        tableView.register(UINib.init(nibName: mealOptionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealOptionViewCellIdentifier)
+        tableView.register(UINib.init(nibName: mealTagViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealTagViewCellIdentifier)
+        tableView.register(UINib.init(nibName: mealListViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealListViewCellIdentifier)
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        tableView.separatorColor = UIColor.clear
+        tableView.tableFooterView = UIView()
+    }
+    
+    private func updateTagsFor(meal: Meal) {
+        meal.tags.removeAll()
+        let tags = List<Tag>()
+        for title in tagList {
+            let tag = Tag()
+            tag.name = title
+            tags.append(tag)
+        }
+        meal.tags = tags
+    }
+    
+    private func updateIngredientsFor(meal: Meal) {
+        meal.ingredients.removeAll()
+        let ingredients = List<Ingredient>()
+        for title in ingredientList {
+            let ingredient = Ingredient()
+            ingredient.name = title
+            ingredients.append(ingredient)
+        }
+        meal.ingredients = ingredients
+    }
+    
+    private func updateTipsFor(meal: Meal) {
+        meal.tips.removeAll()
+        let tips = List<Tip>()
+        for title in tipList {
+            let tip = Tip()
+            tip.content = title
+            tips.append(tip)
+        }
+        meal.tips = tips
+    }
+    
+    private func updateOptionsFor(meal: Meal) {
+        meal.whenObjects = List<WhenObject>()
+        for option in whenList {
+            let when = WhenObject()
+            when.value = option
+            meal.whenObjects.append(when)
+        }
+    }
     
     func updateHeader() {
         let indexPath = IndexPath(row: 0, section: 0)
@@ -81,7 +140,7 @@ class MealViewController: UIViewController {
     }
     
     @IBAction func saveMeal(_ sender: UIBarButtonItem) {
-        let homecook = HomeCook()
+        
         guard let mealName = self.mealName else {
             showAlert(message: "请输入美食名称")
             return
@@ -91,33 +150,28 @@ class MealViewController: UIViewController {
             return
         }
         
-        homecook.name = mealName
-        
-        for option in whenList {
-            let when = WhenObject()
-            when.value = option
-            homecook.whenObjects.append(when)
+        if let originalMeal = self.meal {
+            let updatedMeal = Meal()
+            updatedMeal.id = originalMeal.id
+            updatedMeal.name = mealName
+            updateTagsFor(meal: updatedMeal)
+            updateTipsFor(meal: updatedMeal)
+            updateIngredientsFor(meal: updatedMeal)
+            updateOptionsFor(meal: updatedMeal)
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(updatedMeal, update: true)
+            }
+        } else {
+            let newMeal = Meal()
+            newMeal.name = mealName
+            updateTagsFor(meal: newMeal)
+            updateTipsFor(meal: newMeal)
+            updateIngredientsFor(meal: newMeal)
+            updateOptionsFor(meal: newMeal)
+            BaseManager.shared.save(object: newMeal)
         }
-        
-        for title in ingredientList {
-            let ingredient = Ingredient()
-            ingredient.name = title
-            homecook.ingredients.append(ingredient)
-        }
-        
-        for title in tagList {
-            let tag = Tag()
-            tag.name = title
-            homecook.tags.append(tag)
-        }
-        
-        for title in tipList {
-            let tip = Tip()
-            tip.content = title
-            homecook.tips.append(tip)
-        }
-        
-        BaseManager.shared.save(object: homecook)
+ 
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -140,12 +194,15 @@ extension MealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch mealType {
-        case .EatingOut, .TakeOut:
-            return 3
-        case .HomeCook:
-            return 9
+        if let meal = self.meal {
+            switch meal.type {
+            case .eatingOut, .takeOut:
+                return 3
+            case .homeCook:
+                return 9
+            }
         }
+        return 9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -168,6 +225,7 @@ extension MealViewController: UITableViewDataSource {
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: mealOptionViewCellIdentifier, for: indexPath) as! MealOptionViewCell
             cell.optionTitles = whenOptions
+            cell.selectedOptions = whenList
             cell.delegate = self
             cell.collectionView.reloadData()
             return cell
@@ -359,7 +417,9 @@ extension MealViewController: MealOptionCellDelegate {
     func didAddOption(_ option: String) {
         whenList.append(option)
     }
-    func didRemoveOption(atIndext index: Int) {
-        whenList.remove(at: index)
+    func didRemoveOption(_ option: String) {
+        if let index = whenList.index(of: option) {
+            whenList.remove(at: index)
+        }
     }
 }

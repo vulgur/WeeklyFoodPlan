@@ -1,46 +1,69 @@
 //
-//  Meal.swift
+//  HomeCook.swift
 //  WeeklyFoodPlan
 //
-//  Created by vulgur on 2017/1/15.
+//  Created by vulgur on 2017/1/21.
 //  Copyright © 2017年 MAD. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RealmSwift
+
+
 
 enum When: String {
     case breakfast = "breakfast"
     case brunch = "brunch"
     case lunch = "lunch"
     case dinner = "dinner"
-    case other = "other"
 }
 
 class WhenObject: Object {
-    dynamic var value = When.other.rawValue
+    dynamic var value = When.lunch.rawValue
     override static func primaryKey() -> String? {
         return "value"
     }
 }
 
-protocol Meal {
-
-    var id: String { get }
-    var name: String { get set }
-    var isFavored: Bool { get set }
-    var tags: List<Tag> { get set }
-    var imagePath: String? { get set }
-    var whenObjects: List<WhenObject> { get set }
+class Meal: Object {
+    enum MealType: String {
+        case homeCook = "HomeCook"
+        case eatingOut = "EatingOut"
+        case takeOut = "TakeOut"
+    }
+    // Protocol properties
+    dynamic var id = UUID().uuidString
+    dynamic var name: String = ""
+    dynamic var isFavored: Bool = false
+    dynamic var imagePath: String?
+    var whenObjects = List<WhenObject>()
+    var tags = List<Tag>()
+    var ingredients = List<Ingredient>()
+    var tips = List<Tip>()
+    dynamic var cookCount:Int = 0
+    dynamic var typeRawValue = MealType.homeCook.rawValue
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 extension Meal{
-    var when: [When] {
+    var type: MealType {
         get {
-            var result = [When]()
+            if let result = MealType(rawValue: typeRawValue) {
+                return result
+            } else {
+                return MealType.homeCook
+            }
+        }
+    }
+    
+    var whenList: [String] {
+        get {
+            var result = [String]()
             for obj in whenObjects {
-                let when = When(rawValue: obj.value)
-                result.append(when!)
+                result.append(obj.value)
             }
             return result
         }

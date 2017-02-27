@@ -11,12 +11,14 @@ import UIKit
 class MealListViewController: UIViewController {
 
     let cellIdentifier = "MealListCell"
+    let segueIdentifier = "ShowMeal"
     @IBOutlet var tableView: UITableView!
     
     var meals = [Meal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.view.backgroundColor = UIColor.white
         tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 80
@@ -33,17 +35,17 @@ class MealListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == segueIdentifier {
+            if let meal = sender as? Meal,
+                let destinationVC = segue.destination as? MealViewController {
+                destinationVC.meal = meal
+            }
+        }
     }
-    */
 
 }
 
@@ -62,15 +64,14 @@ extension MealListViewController: UITableViewDataSource {
             string + " " + when.value
         }
         cell.mealWhenLabel.text = whenString
-        if meal is HomeCook {
-            cell.mealTypeLabel.text = "HomeCook"
-        } else if meal is EatingOut {
-            cell.mealTypeLabel.text = "EatingOut"
-        } else if meal is TakeOut {
-            cell.mealTypeLabel.text = "TakeOut"
-        } else {
-            cell.mealTypeLabel.text = "Unknown"
-        }
+        cell.mealTypeLabel.text = meal.typeRawValue
         return cell
+    }
+}
+
+extension MealListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let meal = meals[indexPath.row]
+        performSegue(withIdentifier: segueIdentifier, sender: meal)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 protocol MealOptionCellDelegate {
     func didAddOption(_ option: String)
-    func didRemoveOption(atIndext index: Int)
+    func didRemoveOption(_ option: String)
 }
 
 class MealOptionViewCell: UITableViewCell {
@@ -19,6 +19,7 @@ class MealOptionViewCell: UITableViewCell {
     let optionSelectedColor = UIColor.green
     let optionDeselectedColor = UIColor.white
     var optionTitles = ["早餐", "午餐", "晚餐"]
+    var selectedOptions = [String]()
     let cellGap:CGFloat = 8
     let optionHeight: CGFloat = 30
     let maxOptionsInARow = 3
@@ -62,6 +63,11 @@ extension MealOptionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MealOptionCell
         let title = self.optionTitles[indexPath.row]
+        if selectedOptions.contains(title) {
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+            cell.isSelected = true
+            cell.optionLabel.backgroundColor = optionSelectedColor
+        }
         cell.optionLabel.text = title
         cell.backgroundColor = optionDeselectedColor
         cell.layer.borderColor = optionSelectedColor.cgColor
@@ -76,12 +82,15 @@ extension MealOptionViewCell: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
         cell.optionLabel.backgroundColor = optionSelectedColor
         delegate?.didAddOption(cell.optionLabel.text!)
+        print("selected")
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
         cell.optionLabel.backgroundColor = optionDeselectedColor
-        delegate?.didRemoveOption(atIndext: indexPath.row)
+        let removedOption = optionTitles[indexPath.row]
+        delegate?.didRemoveOption(removedOption)
+        print("deselected")
     }
 }
 
