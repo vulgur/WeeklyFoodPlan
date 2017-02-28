@@ -80,7 +80,6 @@ extension MealHeaderViewCell: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("text field should return")
         headerLabel.isHidden = false
         if let text = textField.text {
             if text.isEmpty {
@@ -94,7 +93,6 @@ extension MealHeaderViewCell: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("text field did end editing")
         headerLabel.isHidden = false
         if let text = textField.text {
             if text.isEmpty {

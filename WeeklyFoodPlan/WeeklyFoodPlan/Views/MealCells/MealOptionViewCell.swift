@@ -66,10 +66,12 @@ extension MealOptionViewCell: UICollectionViewDataSource {
         if selectedOptions.contains(title) {
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
             cell.isSelected = true
-            cell.optionLabel.backgroundColor = optionSelectedColor
+            cell.backgroundColor = optionSelectedColor
+        } else {
+            cell.backgroundColor = optionDeselectedColor
         }
         cell.optionLabel.text = title
-        cell.backgroundColor = optionDeselectedColor
+        
         cell.layer.borderColor = optionSelectedColor.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5

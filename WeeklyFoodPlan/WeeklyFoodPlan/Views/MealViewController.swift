@@ -19,6 +19,7 @@ class MealViewController: UIViewController {
     let mealTagViewCellIdentifier = "MealTagViewCell"
     let mealListViewCellIdentifier = "MealListViewCell"
     
+    let headerViewRow = 0
     let optionViewRow = 2
     let tagViewRow = 4
     let ingredientViewRow = 6
@@ -60,6 +61,7 @@ class MealViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     private func configMeal() {
         if let meal = self.meal {
             mealName = meal.name
@@ -90,6 +92,25 @@ class MealViewController: UIViewController {
         tableView.estimatedRowHeight = 50
         tableView.separatorColor = UIColor.clear
         tableView.tableFooterView = UIView()
+    }
+    
+    private func indexPathsOfMealInfo() -> [IndexPath] {
+        let headerViewIndexPath = IndexPath(row: headerViewRow, section: 0)
+        let optionViewIndexPath = IndexPath(row: optionViewRow, section: 0)
+        let tagViewIndexPath = IndexPath(row: tagViewRow, section: 0)
+        let ingredientViewIndePath = IndexPath(row: ingredientViewRow, section: 0)
+        let tipViewIndexPath = IndexPath(row: tipViewRow, section: 0)
+        
+        if let meal = self.meal {
+            switch meal.type {
+            case .eatingOut, .takeOut:
+                return [headerViewIndexPath, optionViewIndexPath, tagViewIndexPath]
+            case .homeCook:
+                return [headerViewIndexPath, optionViewIndexPath,
+                tagViewIndexPath, ingredientViewIndePath, tipViewIndexPath]
+            }
+        }
+        return []
     }
     
     private func listOfTags() -> List<Tag> {
@@ -132,9 +153,8 @@ class MealViewController: UIViewController {
         return list
     }
     
-    func updateHeader() {
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .none)
+    func updateCells() {
+        tableView.reloadRows(at: indexPathsOfMealInfo(), with: .none)
     }
     
     @IBAction func saveMeal(_ sender: UIBarButtonItem) {
@@ -296,20 +316,18 @@ extension MealViewController: UITableViewDataSource {
 // MARK: InputItemViewDelegate
 extension MealViewController: InputItemViewDelegate {
     func done(item: String, style: InputItemView.Style) {
-        let indexPath: IndexPath
         switch style {
         case .AddTag:
             tagList.append(item)
-            indexPath = IndexPath(row: tagViewRow, section: 0)
+            
         case .AddIngredient:
             ingredientList.append(item)
-            indexPath = IndexPath(row: ingredientViewRow, section: 0)
+            
         case .AddTip:
             tipList.append(item)
-            indexPath = IndexPath(row: tipViewRow, section: 0)
+            
         }
-        let tagViewIndexPath = IndexPath(row: tagViewRow, section: 0)
-        tableView.reloadRows(at: [indexPath, tagViewIndexPath], with: .none)
+        updateCells()
     }
 }
 
@@ -318,8 +336,7 @@ extension MealViewController: MealTagViewCellDelegate {
     func didRemoveTag(tag: String) {
         if let index = tagList.index(of: tag) {
             tagList.remove(at: index)
-            let indexPath = IndexPath(row: tagViewRow, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
+            updateCells()
         }
     }
 }
@@ -327,22 +344,17 @@ extension MealViewController: MealTagViewCellDelegate {
 // MARK: MealListViewCellDelegate
 extension MealViewController: MealListViewCellDelegate {
     func didRemoveItem(_ item: String, type: MealListViewCell.ItemType) {
-        let indexPath: IndexPath
         switch type {
         case .Ingredient:
             if let index = ingredientList.index(of: item) {
                 ingredientList.remove(at: index)
             }
-            indexPath = IndexPath(row: ingredientViewRow, section: 0)
         case .Tip:
             if let index = tipList.index(of: item) {
                 tipList.remove(at: index)
             }
-            indexPath = IndexPath(row: tipViewRow, section: 0)
         }
-        
-        let ip = IndexPath(row: tagViewRow, section: 0)
-        tableView.reloadRows(at: [indexPath, ip], with: .none)
+        updateCells()
     }
 }
 
@@ -350,12 +362,11 @@ extension MealViewController: MealListViewCellDelegate {
 extension MealViewController: MealHeaderViewCellDelegate {
     func didInputName(_ name: String) {
         self.mealName = name
-        updateHeader()
+        updateCells()
     }
     func didToggleFavorButton() {
         isFavored = !isFavored
-        print("Favored:", self.isFavored)
-        updateHeader()
+        updateCells()
     }
     func didTapHeaderImageView(_ imageView: UIImageView) {
         let alertController = UIAlertController.init(title: "选择照片", message: nil, preferredStyle: .actionSheet)
@@ -395,7 +406,7 @@ extension MealViewController: UIImagePickerControllerDelegate, UINavigationContr
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.mealImage = image
-            updateHeader()
+            updateCells()
         }
     }
 }
