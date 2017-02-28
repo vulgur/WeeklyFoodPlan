@@ -43,6 +43,7 @@ class MealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         configMeal()
         configTableView()
         tableView.reloadData()
@@ -171,6 +172,7 @@ class MealViewController: UIViewController {
         let mealToSave = Meal()
         if let originalMeal = self.meal {
             mealToSave.id = originalMeal.id
+            mealToSave.typeRawValue = originalMeal.typeRawValue
         }
         mealToSave.name = mealName
         mealToSave.isFavored = isFavored
@@ -205,7 +207,7 @@ extension MealViewController: UITableViewDataSource {
         if let meal = self.meal {
             switch meal.type {
             case .eatingOut, .takeOut:
-                return 3
+                return 5
             case .homeCook:
                 return 9
             }

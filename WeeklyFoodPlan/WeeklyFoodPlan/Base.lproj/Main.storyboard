@@ -131,7 +131,7 @@
                     <navigationItem key="navigationItem" title="美食清单" id="oFm-QM-T3i">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="obX-27-0Bq">
                             <connections>
-                                <segue destination="dPl-vk-gEt" kind="show" id="Oa7-mi-mWA"/>
+                                <action selector="showMealTypeOptions:" destination="c4Y-Ra-jYN" id="7xP-69-iv9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -143,10 +143,90 @@
             </objects>
             <point key="canvasLocation" x="-796" y="-152"/>
         </scene>
+        <!--Meal Type View Controller-->
+        <scene sceneID="wdg-xe-JBN">
+            <objects>
+                <viewController storyboardIdentifier="MealTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tdh-Dm-iZr" customClass="MealTypeViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fGU-Yo-MkO"/>
+                        <viewControllerLayoutGuide type="bottom" id="btO-eM-eBE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lgi-J1-HwI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLV-85-IYd">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PCP-Ks-qWI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4M-fD-OOp">
+                                            <rect key="frame" x="80.5" y="213.5" width="215" height="60"/>
+                                            <color key="backgroundColor" red="0.40529326153761047" green="0.8560272824805828" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="HomeCook"/>
+                                            <connections>
+                                                <action selector="addHomeCook:" destination="Tdh-Dm-iZr" eventType="touchUpInside" id="49s-1t-Ats"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tif-m6-ecm">
+                                            <rect key="frame" x="80" y="303.5" width="215" height="60"/>
+                                            <color key="backgroundColor" red="1" green="0.78042452914856197" blue="0.28712645395500103" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="LIa-oX-o9y"/>
+                                            </constraints>
+                                            <state key="normal" title="TakeOut"/>
+                                            <connections>
+                                                <action selector="addTakeOut:" destination="Tdh-Dm-iZr" eventType="touchUpInside" id="7Uj-r1-JRo"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QT-nG-pI8">
+                                            <rect key="frame" x="79.5" y="393.5" width="215" height="60"/>
+                                            <color key="backgroundColor" red="0.49879988866376335" green="1" blue="0.20093509281810173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="gPu-Ks-HTn"/>
+                                            </constraints>
+                                            <state key="normal" title="EatingOut"/>
+                                            <connections>
+                                                <action selector="addEatingOut:" destination="Tdh-Dm-iZr" eventType="touchUpInside" id="YRb-46-blb"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="I4M-fD-OOp" firstAttribute="height" secondItem="Tif-m6-ecm" secondAttribute="height" id="0ek-AR-qM4"/>
+                                        <constraint firstItem="Tif-m6-ecm" firstAttribute="top" secondItem="I4M-fD-OOp" secondAttribute="bottom" constant="30" id="185-fC-XEe"/>
+                                        <constraint firstItem="Tif-m6-ecm" firstAttribute="leading" secondItem="PCP-Ks-qWI" secondAttribute="leading" constant="80" id="6ta-Kb-cOH"/>
+                                        <constraint firstItem="I4M-fD-OOp" firstAttribute="width" secondItem="Tif-m6-ecm" secondAttribute="width" id="KSs-pA-fhh"/>
+                                        <constraint firstItem="Tif-m6-ecm" firstAttribute="centerY" secondItem="PCP-Ks-qWI" secondAttribute="centerY" id="Pn8-W2-lMT"/>
+                                        <constraint firstItem="Tif-m6-ecm" firstAttribute="centerX" secondItem="PCP-Ks-qWI" secondAttribute="centerX" id="QcF-8y-qbe"/>
+                                        <constraint firstItem="I4M-fD-OOp" firstAttribute="centerX" secondItem="PCP-Ks-qWI" secondAttribute="centerX" id="VNH-NA-MOh"/>
+                                        <constraint firstItem="2QT-nG-pI8" firstAttribute="height" secondItem="Tif-m6-ecm" secondAttribute="height" id="b1V-Xi-dLd"/>
+                                        <constraint firstItem="2QT-nG-pI8" firstAttribute="centerX" secondItem="PCP-Ks-qWI" secondAttribute="centerX" id="i0Q-av-kvO"/>
+                                        <constraint firstItem="2QT-nG-pI8" firstAttribute="width" secondItem="Tif-m6-ecm" secondAttribute="width" id="oBq-TT-YA2"/>
+                                        <constraint firstItem="2QT-nG-pI8" firstAttribute="top" secondItem="Tif-m6-ecm" secondAttribute="bottom" constant="30" id="rMq-wg-Q7C"/>
+                                        <constraint firstAttribute="trailing" secondItem="Tif-m6-ecm" secondAttribute="trailing" constant="80" id="z4z-Y1-Yfc"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="gLV-85-IYd" firstAttribute="width" secondItem="lgi-J1-HwI" secondAttribute="width" id="70X-jj-5nm"/>
+                            <constraint firstItem="gLV-85-IYd" firstAttribute="centerX" secondItem="lgi-J1-HwI" secondAttribute="centerX" id="8sE-eY-ckU"/>
+                            <constraint firstItem="gLV-85-IYd" firstAttribute="centerY" secondItem="lgi-J1-HwI" secondAttribute="centerY" id="hN0-VD-Ngk"/>
+                            <constraint firstItem="gLV-85-IYd" firstAttribute="height" secondItem="lgi-J1-HwI" secondAttribute="height" id="m55-mj-kHq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2pe-QV-2xP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="-456"/>
+        </scene>
         <!--添加美食-->
         <scene sceneID="b9e-0e-BOU">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dPl-vk-gEt" customClass="MealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MealViewController" storyboardIdentifier="MealViewController" automaticallyAdjustsScrollViewInsets="NO" id="dPl-vk-gEt" customClass="MealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BzZ-dY-RD0"/>
                         <viewControllerLayoutGuide type="bottom" id="GwE-6w-rYD"/>
@@ -201,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Im-gm-bki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13.6" y="-151.57421289355324"/>
+            <point key="canvasLocation" x="350" y="261"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="zQa-S3-B4w">
@@ -261,7 +341,4 @@
             <point key="canvasLocation" x="-1759" y="-1624"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="94W-9j-rDp"/>
-    </inferredMetricsTieBreakers>
 </document>

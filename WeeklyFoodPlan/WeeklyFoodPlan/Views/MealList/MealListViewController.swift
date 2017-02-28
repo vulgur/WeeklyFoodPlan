@@ -19,6 +19,7 @@ class MealListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.view.backgroundColor = UIColor.white
         tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 80
@@ -47,6 +48,14 @@ class MealListViewController: UIViewController {
         }
     }
 
+    @IBAction func showMealTypeOptions(_ sender: UIBarButtonItem) {
+        let mealTypeVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealTypeViewController") as! MealTypeViewController
+        self.addChildViewController(mealTypeVC)
+        self.view.addSubview(mealTypeVC.view)
+        mealTypeVC.view.frame = self.view.frame
+        mealTypeVC.didMove(toParentViewController: self)
+        
+    }
 }
 
 extension MealListViewController: UITableViewDataSource {
