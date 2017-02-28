@@ -65,6 +65,12 @@ extension MealListViewController: UITableViewDataSource {
         }
         cell.mealWhenLabel.text = whenString
         cell.mealTypeLabel.text = meal.typeRawValue
+        if meal.isFavored {
+            cell.mealFavorImageView.isHidden = false
+            cell.mealFavorImageView.image = #imageLiteral(resourceName: "heart")
+        } else {
+            cell.mealFavorImageView.isHidden = true
+        }
         return cell
     }
 }

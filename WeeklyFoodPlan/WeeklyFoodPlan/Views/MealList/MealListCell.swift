@@ -14,6 +14,7 @@ class MealListCell: UITableViewCell {
     @IBOutlet var mealNameLabel: UILabel!
     @IBOutlet var mealTypeLabel: UILabel!
     @IBOutlet var mealWhenLabel: UILabel!
+    @IBOutlet var mealFavorImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
