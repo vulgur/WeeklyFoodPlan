@@ -16,10 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="180"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTV-IL-0wX" id="3zO-Xa-dC8">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="180"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="179"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGf-HP-5of">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGf-HP-5of">
                         <rect key="frame" x="150" y="8" width="100" height="100"/>
                         <color key="backgroundColor" red="0.76616270951460508" green="1" blue="0.34263214434140765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
