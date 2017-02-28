@@ -82,7 +82,6 @@ extension MealOptionViewCell: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
         cell.optionLabel.backgroundColor = optionSelectedColor
         delegate?.didAddOption(cell.optionLabel.text!)
-        print("selected")
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -90,7 +89,6 @@ extension MealOptionViewCell: UICollectionViewDelegate {
         cell.optionLabel.backgroundColor = optionDeselectedColor
         let removedOption = optionTitles[indexPath.row]
         delegate?.didRemoveOption(removedOption)
-        print("deselected")
     }
 }
 

@@ -92,46 +92,44 @@ class MealViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    private func updateTagsFor(meal: Meal) {
-        meal.tags.removeAll()
+    private func listOfTags() -> List<Tag> {
         let tags = List<Tag>()
         for title in tagList {
             let tag = Tag()
             tag.name = title
             tags.append(tag)
         }
-        meal.tags = tags
+        return tags
     }
     
-    private func updateIngredientsFor(meal: Meal) {
-        meal.ingredients.removeAll()
+    private func listOfIngredients() -> List<Ingredient> {
         let ingredients = List<Ingredient>()
         for title in ingredientList {
             let ingredient = Ingredient()
             ingredient.name = title
             ingredients.append(ingredient)
         }
-        meal.ingredients = ingredients
+        return ingredients
     }
     
-    private func updateTipsFor(meal: Meal) {
-        meal.tips.removeAll()
+    private func listOfTips() -> List<Tip> {
         let tips = List<Tip>()
         for title in tipList {
             let tip = Tip()
             tip.content = title
             tips.append(tip)
         }
-        meal.tips = tips
+        return tips
     }
     
-    private func updateOptionsFor(meal: Meal) {
-        meal.whenObjects = List<WhenObject>()
+    private func listOfWhenObjects() -> List<WhenObject> {
+        let list = List<WhenObject>()
         for option in whenList {
             let when = WhenObject()
             when.value = option
-            meal.whenObjects.append(when)
+            list.append(when)
         }
+        return list
     }
     
     func updateHeader() {
@@ -150,27 +148,17 @@ class MealViewController: UIViewController {
             return
         }
         
+        let mealToSave = Meal()
         if let originalMeal = self.meal {
-            let updatedMeal = Meal()
-            updatedMeal.id = originalMeal.id
-            updatedMeal.name = mealName
-            updateTagsFor(meal: updatedMeal)
-            updateTipsFor(meal: updatedMeal)
-            updateIngredientsFor(meal: updatedMeal)
-            updateOptionsFor(meal: updatedMeal)
-            let realm = try! Realm()
-            try! realm.write {
-                realm.add(updatedMeal, update: true)
-            }
-        } else {
-            let newMeal = Meal()
-            newMeal.name = mealName
-            updateTagsFor(meal: newMeal)
-            updateTipsFor(meal: newMeal)
-            updateIngredientsFor(meal: newMeal)
-            updateOptionsFor(meal: newMeal)
-            BaseManager.shared.save(object: newMeal)
+            mealToSave.id = originalMeal.id
         }
+        mealToSave.name = mealName
+        mealToSave.isFavored = isFavored
+        mealToSave.whenObjects = listOfWhenObjects()
+        mealToSave.tags = listOfTags()
+        mealToSave.ingredients = listOfIngredients()
+        mealToSave.tips = listOfTips()
+        BaseManager.shared.save(object: mealToSave)
  
         _ = navigationController?.popViewController(animated: true)
     }
