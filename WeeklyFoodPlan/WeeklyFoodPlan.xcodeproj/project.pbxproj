@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D204F3E71E65E923008EFDA7 /* MealTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D204F3E51E65E923008EFDA7 /* MealTypeViewController.swift */; };
 		D20E39111E03048700349F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39101E03048700349F78 /* AppDelegate.swift */; };
 		D20E39131E03048700349F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39121E03048700349F78 /* ViewController.swift */; };
 		D20E39161E03048700349F78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39141E03048700349F78 /* Main.storyboard */; };
@@ -99,7 +98,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D204F3E51E65E923008EFDA7 /* MealTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTypeViewController.swift; sourceTree = "<group>"; };
 		D20E390D1E03048700349F78 /* WeeklyFoodPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeeklyFoodPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20E39101E03048700349F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D20E39121E03048700349F78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 				D2C0F7211E62AAA3000C9B3C /* MealListViewController.swift */,
 				D2C0F7231E62AAE0000C9B3C /* MealListCell.swift */,
 				D2C0F7241E62AAE0000C9B3C /* MealListCell.xib */,
-				D204F3E51E65E923008EFDA7 /* MealTypeViewController.swift */,
 			);
 			path = MealList;
 			sourceTree = "<group>";
@@ -535,7 +532,6 @@
 				D2C0F7251E62AAE0000C9B3C /* MealListCell.swift in Sources */,
 				D23252461E5D56E70065C40A /* MealOptionCell.swift in Sources */,
 				D290BB431E5985590015E2AD /* InputItemView.swift in Sources */,
-				D204F3E71E65E923008EFDA7 /* MealTypeViewController.swift in Sources */,
 				D2426C8C1E62C98F00EDA5BC /* Realm+Extension.swift in Sources */,
 				D2D290A31E4453F900905D10 /* BaseManager.swift in Sources */,
 			);

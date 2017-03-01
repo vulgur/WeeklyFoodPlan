@@ -221,7 +221,12 @@ extension MealViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: mealHeaderViewCellIdentifier, for: indexPath) as! MealHeaderViewCell
             cell.backgroundColor = UIColor.white 
             cell.delegate = self
-            cell.headerLabel.text = mealName ?? MealHeaderViewCell.placeholderText
+            if mealName == nil || (mealName?.isEmpty)! {
+                cell.headerLabel.text = MealHeaderViewCell.placeholderText
+            } else {
+                cell.headerLabel.text = mealName
+            }
+            
             cell.headerImageView.image = mealImage
             cell.setFavorButtonState(isFavored)
             return cell
