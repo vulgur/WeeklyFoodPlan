@@ -20,7 +20,7 @@ class BaseManager {
                 realm.add(object, update: true)
             }
         } catch let error as NSError {
-            print("Error in saving", error)
+            print("Error in saving: ", error)
         }
     }
     
@@ -37,6 +37,16 @@ class BaseManager {
     func deleteAll() {
         try! realm.write {
             realm.deleteAll()
+        }
+    }
+    
+    func delete<T: Object>(object: T) {
+        do {
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch let error as NSError {
+            print("Error in deleting: ", error)
         }
     }
 }

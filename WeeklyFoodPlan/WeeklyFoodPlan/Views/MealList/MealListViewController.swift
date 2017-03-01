@@ -56,25 +56,28 @@ class MealListViewController: UIViewController {
         let alertController = UIAlertController(title: "Choose meal type", message: nil, preferredStyle: .alert)
         let homeCookAction = UIAlertAction(title: "HomeCook", style: .default) { [unowned self] (action) in
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealViewController") as! MealViewController
-            let meal = Meal()
-            meal.typeRawValue = Meal.MealType.homeCook.rawValue
-            vc.meal = meal
+            vc.mealType = .homeCook
+//            let meal = Meal()
+//            meal.typeRawValue = Meal.MealType.homeCook.rawValue
+//            vc.meal = meal
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let takeOutAction = UIAlertAction(title: "TakeOut", style: .default) { [unowned self] (action) in
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealViewController") as! MealViewController
-            let meal = Meal()
-            meal.typeRawValue = Meal.MealType.takeOut.rawValue
-            vc.meal = meal
+            vc.mealType = .takeOut
+//            let meal = Meal()
+//            meal.typeRawValue = Meal.MealType.takeOut.rawValue
+//            vc.meal = meal
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let eatingOutAction = UIAlertAction(title: "EatingOut", style: .default) { [unowned self] (action) in
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealViewController") as! MealViewController
-            let meal = Meal()
-            meal.typeRawValue = Meal.MealType.eatingOut.rawValue
-            vc.meal = meal
+            vc.mealType = .eatingOut
+//            let meal = Meal()
+//            meal.typeRawValue = Meal.MealType.eatingOut.rawValue
+//            vc.meal = meal
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }

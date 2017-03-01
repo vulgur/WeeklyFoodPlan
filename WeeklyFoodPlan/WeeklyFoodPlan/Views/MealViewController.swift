@@ -12,7 +12,7 @@ import RealmSwift
 class MealViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var deleteButton: UIButton!
     let mealHeaderViewCellIdentifier = "MealHeaderViewCell"
     let mealSectionViewCellIdentifier = "MealSectionViewCell"
     let mealOptionViewCellIdentifier = "MealOptionViewCell"
@@ -28,6 +28,7 @@ class MealViewController: UIViewController {
     
     // MARK: Meal info
     var meal: Meal?
+    var mealType  = Meal.MealType.homeCook
     var tagList = [String]()
     var ingredientList = [String]()
     var tipList = [String]()
@@ -45,7 +46,7 @@ class MealViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.isNavigationBarHidden = false
         configMeal()
-        configTableView()
+        configSubviews()
         tableView.reloadData()
     }
     
@@ -82,7 +83,8 @@ class MealViewController: UIViewController {
         }
     }
     
-    private func configTableView() {
+    private func configSubviews() {
+        // table view
         tableView.register(UINib.init(nibName: mealHeaderViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealHeaderViewCellIdentifier)
         tableView.register(UINib.init(nibName: mealSectionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealSectionViewCellIdentifier)
         tableView.register(UINib.init(nibName: mealOptionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealOptionViewCellIdentifier)
@@ -93,6 +95,13 @@ class MealViewController: UIViewController {
         tableView.estimatedRowHeight = 50
         tableView.separatorColor = UIColor.clear
         tableView.tableFooterView = UIView()
+        
+        // delete button
+        if meal == nil {
+            deleteButton.isHidden = true
+        } else {
+            deleteButton.isHidden = false
+        }
     }
     
     private func indexPathsOfMealInfo() -> [IndexPath] {
@@ -102,16 +111,14 @@ class MealViewController: UIViewController {
         let ingredientViewIndePath = IndexPath(row: ingredientViewRow, section: 0)
         let tipViewIndexPath = IndexPath(row: tipViewRow, section: 0)
         
-        if let meal = self.meal {
-            switch meal.type {
-            case .eatingOut, .takeOut:
-                return [headerViewIndexPath, optionViewIndexPath, tagViewIndexPath]
-            case .homeCook:
-                return [headerViewIndexPath, optionViewIndexPath,
-                tagViewIndexPath, ingredientViewIndePath, tipViewIndexPath]
-            }
+        
+        switch mealType {
+        case .eatingOut, .takeOut:
+            return [headerViewIndexPath, optionViewIndexPath, tagViewIndexPath]
+        case .homeCook:
+            return [headerViewIndexPath, optionViewIndexPath,
+            tagViewIndexPath, ingredientViewIndePath, tipViewIndexPath]
         }
-        return []
     }
     
     private func listOfTags() -> List<Tag> {
@@ -173,6 +180,8 @@ class MealViewController: UIViewController {
         if let originalMeal = self.meal {
             mealToSave.id = originalMeal.id
             mealToSave.typeRawValue = originalMeal.typeRawValue
+        } else {
+            mealToSave.typeRawValue = mealType.rawValue
         }
         mealToSave.name = mealName
         mealToSave.isFavored = isFavored
@@ -183,6 +192,24 @@ class MealViewController: UIViewController {
         BaseManager.shared.save(object: mealToSave)
  
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func deleteMealButtonTapped(_ sender: UIButton) {
+        let message = "确定要删除吗？".localized()
+        let deleteTitle = "删除".localized()
+        let cancelTitle = "取消".localized()
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: deleteTitle, style: .destructive) { [unowned self] (action) in
+            if let meal = self.meal {
+                BaseManager.shared.delete(object: meal)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+
     }
     
     // MARK: Private methods
@@ -204,15 +231,12 @@ extension MealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let meal = self.meal {
-            switch meal.type {
-            case .eatingOut, .takeOut:
-                return 5
-            case .homeCook:
-                return 9
-            }
+        switch mealType {
+        case .eatingOut, .takeOut:
+            return 5
+        case .homeCook:
+            return 9
         }
-        return 9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
