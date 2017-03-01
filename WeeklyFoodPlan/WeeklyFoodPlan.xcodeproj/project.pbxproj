@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20B52291E672A0B0088628A /* MealDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B52281E672A0B0088628A /* MealDataImporter.swift */; };
 		D20E39111E03048700349F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39101E03048700349F78 /* AppDelegate.swift */; };
 		D20E39131E03048700349F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E39121E03048700349F78 /* ViewController.swift */; };
 		D20E39161E03048700349F78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E39141E03048700349F78 /* Main.storyboard */; };
@@ -98,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D20B52281E672A0B0088628A /* MealDataImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealDataImporter.swift; sourceTree = "<group>"; };
 		D20E390D1E03048700349F78 /* WeeklyFoodPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeeklyFoodPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20E39101E03048700349F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D20E39121E03048700349F78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			children = (
 				D26076F51E4B9AF700FB433A /* String+Extension.swift */,
 				D2426C8B1E62C98F00EDA5BC /* Realm+Extension.swift */,
+				D20B52281E672A0B0088628A /* MealDataImporter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
 				D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */,
 				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
+				D20B52291E672A0B0088628A /* MealDataImporter.swift in Sources */,
 				D290BB471E59C6950015E2AD /* MealListItemCell.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
 				D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */,

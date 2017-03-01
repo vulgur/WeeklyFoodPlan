@@ -9,23 +9,22 @@
 import Foundation
 import RealmSwift
 
-
-
-enum When: String {
-    case breakfast = "breakfast"
-    case brunch = "brunch"
-    case lunch = "lunch"
-    case dinner = "dinner"
-}
-
 class WhenObject: Object {
-    dynamic var value = When.lunch.rawValue
+    dynamic var value = Meal.When.lunch.rawValue
     override static func primaryKey() -> String? {
         return "value"
     }
 }
 
 class Meal: Object {
+    
+    enum When: String {
+        case breakfast = "breakfast"
+        case brunch = "brunch"
+        case lunch = "lunch"
+        case dinner = "dinner"
+    }
+    
     enum MealType: String {
         case homeCook = "HomeCook"
         case eatingOut = "EatingOut"

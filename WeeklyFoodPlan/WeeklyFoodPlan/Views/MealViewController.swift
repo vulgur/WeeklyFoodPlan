@@ -202,7 +202,7 @@ class MealViewController: UIViewController {
         let deleteAction = UIAlertAction(title: deleteTitle, style: .destructive) { [unowned self] (action) in
             if let meal = self.meal {
                 BaseManager.shared.delete(object: meal)
-                self.navigationController?.popViewController(animated: true)
+                _ = self.navigationController?.popViewController(animated: true)
             }
         }
         let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: nil)
