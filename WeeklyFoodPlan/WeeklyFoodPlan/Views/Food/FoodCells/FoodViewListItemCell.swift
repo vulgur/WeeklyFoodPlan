@@ -9,7 +9,7 @@
 import UIKit
 import SwipyCell
 
-class MealListItemCell: SwipyCell {
+class FoodViewListItemCell: SwipyCell {
 
     @IBOutlet var itemImageView: UIImageView!
     @IBOutlet var itemLabel: UILabel!

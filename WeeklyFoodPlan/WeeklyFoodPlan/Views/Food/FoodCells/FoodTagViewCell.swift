@@ -1,5 +1,5 @@
 //
-//  MealTagViewCell.swift
+//  FoodTagViewCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/22.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol MealTagViewCellDelegate {
+protocol FoodTagViewCellDelegate {
     func didRemoveTag(tag: String)
 }
 
-class MealTagViewCell: UITableViewCell{
+class FoodTagViewCell: UITableViewCell{
 
     @IBOutlet var collectionView: UICollectionView!
     
     let tagFontSize: CGFloat = 11
     let tagHeight: CGFloat = 30
-    let cellIdentifier = "MealTagCell"
-    var delegate: MealTagViewCellDelegate?
+    let cellIdentifier = "FoodTagCell"
+    var delegate: FoodTagViewCellDelegate?
     var tagList = [String]()
     
     override func awakeFromNib() {
@@ -54,7 +54,7 @@ class MealTagViewCell: UITableViewCell{
     
     // MARK: Actions
     private var draggedTagView: TagView?
-    private var originalTagView: MealTagCell?
+    private var originalTagView: FoodTagCell?
     private var indexPathOfRemovedTag: IndexPath?
     private let maxDraggingDistance: Double = 80
     
@@ -68,7 +68,7 @@ class MealTagViewCell: UITableViewCell{
             }
             
             self.indexPathOfRemovedTag = indexPath
-            if let originalTagView = self.collectionView.cellForItem(at: indexPath) as? MealTagCell,
+            if let originalTagView = self.collectionView.cellForItem(at: indexPath) as? FoodTagCell,
                 let parentView = self.superview {
                 self.originalTagView = originalTagView
                 let tagTitle = self.tagList[indexPath.row]
@@ -146,7 +146,7 @@ class MealTagViewCell: UITableViewCell{
     }
 }
 
-extension MealTagViewCell: UICollectionViewDataSource {
+extension FoodTagViewCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -156,7 +156,7 @@ extension MealTagViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MealTagCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! FoodTagCell
         let title = self.tagList[indexPath.row]
         cell.tagLabel.text = title
 //        cell.layer.shouldRasterize = true
@@ -165,7 +165,7 @@ extension MealTagViewCell: UICollectionViewDataSource {
     }
 }
 
-extension MealTagViewCell: UICollectionViewDelegateFlowLayout {
+extension FoodTagViewCell: UICollectionViewDelegateFlowLayout {
 
     // MARK: Private methods
     private func tagWidthFor(title: String) -> CGFloat {

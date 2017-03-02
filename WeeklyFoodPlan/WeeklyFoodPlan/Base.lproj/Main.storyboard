@@ -89,7 +89,7 @@
         <!--美食清单-->
         <scene sceneID="gMZ-Tr-UPF">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="c4Y-Ra-jYN" customClass="MealListViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="c4Y-Ra-jYN" customClass="FoodListViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wiD-RP-cEp"/>
                         <viewControllerLayoutGuide type="bottom" id="XCx-of-tnv"/>
@@ -102,15 +102,15 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dey-Ge-fEC" customClass="MealListCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dey-Ge-fEC" customClass="FoodListCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dey-Ge-fEC" id="kEV-kc-LKT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="dPl-vk-gEt" kind="show" identifier="ShowMeal" id="94W-9j-rDp"/>
+                                            <segue destination="dPl-vk-gEt" kind="show" identifier="ShowFood" id="94W-9j-rDp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,7 +131,7 @@
                     <navigationItem key="navigationItem" title="美食清单" id="oFm-QM-T3i">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="obX-27-0Bq">
                             <connections>
-                                <action selector="showMealTypeOptions:" destination="c4Y-Ra-jYN" id="7xP-69-iv9"/>
+                                <action selector="showFoodTypeOptions:" destination="c4Y-Ra-jYN" id="7xP-69-iv9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -146,7 +146,7 @@
         <!--添加美食-->
         <scene sceneID="b9e-0e-BOU">
             <objects>
-                <viewController restorationIdentifier="MealViewController" storyboardIdentifier="MealViewController" automaticallyAdjustsScrollViewInsets="NO" id="dPl-vk-gEt" customClass="MealViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FoodViewController" storyboardIdentifier="FoodViewController" automaticallyAdjustsScrollViewInsets="NO" id="dPl-vk-gEt" customClass="FoodViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BzZ-dY-RD0"/>
                         <viewControllerLayoutGuide type="bottom" id="GwE-6w-rYD"/>
@@ -174,7 +174,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteMealButtonTapped:" destination="dPl-vk-gEt" eventType="touchUpInside" id="dZ7-3x-Wq6"/>
+                                    <action selector="deleteFoodButtonTapped:" destination="dPl-vk-gEt" eventType="touchUpInside" id="dZ7-3x-Wq6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -192,7 +192,7 @@
                     <navigationItem key="navigationItem" title="添加美食" id="Pnk-gW-R2P">
                         <barButtonItem key="rightBarButtonItem" title="完成" id="2Ak-wH-FMi">
                             <connections>
-                                <action selector="saveMeal:" destination="dPl-vk-gEt" id="0Xi-x0-Gmp"/>
+                                <action selector="saveFood:" destination="dPl-vk-gEt" id="0Xi-x0-Gmp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

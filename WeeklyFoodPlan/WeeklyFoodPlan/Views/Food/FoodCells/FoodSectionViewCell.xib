@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" selectionStyle="blue" indentationWidth="10" id="gTV-IL-0wX" customClass="MealSectionViewCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+        <tableViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" selectionStyle="blue" indentationWidth="10" id="gTV-IL-0wX" customClass="FoodSectionViewCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="356" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTV-IL-0wX" id="aPF-Or-0LQ">
-                <rect key="frame" x="0.0" y="0.0" width="356" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="356" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOH-vh-a3a">

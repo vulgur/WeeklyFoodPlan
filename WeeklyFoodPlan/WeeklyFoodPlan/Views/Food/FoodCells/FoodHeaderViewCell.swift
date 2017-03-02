@@ -1,5 +1,5 @@
 //
-//  MealHeaderViewCell.swift
+//  FoodHeaderViewCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/19.
@@ -9,20 +9,20 @@
 import UIKit
 import ImagePicker
 
-protocol MealHeaderViewCellDelegate {
+protocol FoodHeaderViewCellDelegate {
     func didInputName(_ name: String)
     func didToggleFavorButton()
     func didTapHeaderImageView(_ imageView: UIImageView)
 }
 
-class MealHeaderViewCell: UITableViewCell {
+class FoodHeaderViewCell: UITableViewCell {
 
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var favorButton: UIButton!
     
     static let placeholderText = "输入美食名称".localized()
-    var delegate: MealHeaderViewCellDelegate?
+    var delegate: FoodHeaderViewCellDelegate?
     private var headerTextField: UITextField = UITextField()
     
     override func awakeFromNib() {
@@ -70,9 +70,9 @@ class MealHeaderViewCell: UITableViewCell {
     }
 }
 
-extension MealHeaderViewCell: UITextFieldDelegate {
+extension FoodHeaderViewCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if headerLabel.text == MealHeaderViewCell.placeholderText {
+        if headerLabel.text == FoodHeaderViewCell.placeholderText {
             textField.text = ""
         } else {
             textField.text = headerLabel.text
@@ -83,7 +83,7 @@ extension MealHeaderViewCell: UITextFieldDelegate {
         headerLabel.isHidden = false
         if let text = textField.text {
             if text.isEmpty {
-                headerLabel.text = MealHeaderViewCell.placeholderText
+                headerLabel.text = FoodHeaderViewCell.placeholderText
             } else {
                 headerLabel.text = text
                 delegate?.didInputName(text)
@@ -96,7 +96,7 @@ extension MealHeaderViewCell: UITextFieldDelegate {
         headerLabel.isHidden = false
         if let text = textField.text {
             if text.isEmpty {
-                headerLabel.text = MealHeaderViewCell.placeholderText
+                headerLabel.text = FoodHeaderViewCell.placeholderText
             } else {
                 headerLabel.text = text
                 delegate?.didInputName(text)

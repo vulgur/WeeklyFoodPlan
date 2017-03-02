@@ -1,5 +1,5 @@
 //
-//  MealViewController.swift
+//  FoodViewController.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/22.
@@ -9,15 +9,15 @@
 import UIKit
 import RealmSwift
 
-class MealViewController: UIViewController {
+class FoodViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var deleteButton: UIButton!
-    let mealHeaderViewCellIdentifier = "MealHeaderViewCell"
-    let mealSectionViewCellIdentifier = "MealSectionViewCell"
-    let mealOptionViewCellIdentifier = "MealOptionViewCell"
-    let mealTagViewCellIdentifier = "MealTagViewCell"
-    let mealListViewCellIdentifier = "MealListViewCell"
+    let foodHeaderViewCellIdentifier = "FoodHeaderViewCell"
+    let foodSectionViewCellIdentifier = "FoodSectionViewCell"
+    let foodOptionViewCellIdentifier = "FoodOptionViewCell"
+    let foodTagViewCellIdentifier = "FoodTagViewCell"
+    let foodListViewCellIdentifier = "FoodViewListViewCell"
     
     let headerViewRow = 0
     let optionViewRow = 2
@@ -26,17 +26,17 @@ class MealViewController: UIViewController {
     let tipViewRow = 8
     let whenOptions = ["Breakfast", "Lunch", "Dinner"]
     
-    // MARK: Meal info
-    var meal: Meal?
-    var mealType  = Meal.MealType.homeCook
+    // MARK: Food info
+    var food: Food?
+    var foodType  = Food.FoodType.homeCook
     var tagList = [String]()
     var ingredientList = [String]()
     var tipList = [String]()
     var whenList = [String]()
     
     var isFavored = false
-    var mealName: String?
-    var mealImage: UIImage?
+    var foodName: String?
+    var foodImage: UIImage?
     
     // MARK: Private properties
     
@@ -45,7 +45,7 @@ class MealViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.isNavigationBarHidden = false
-        configMeal()
+        configFood()
         configSubviews()
         tableView.reloadData()
     }
@@ -64,20 +64,20 @@ class MealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func configMeal() {
-        if let meal = self.meal {
-            mealName = meal.name
-            isFavored = meal.isFavored
-            for tag in meal.tags {
+    private func configFood() {
+        if let food = self.food {
+            foodName = food.name
+            isFavored = food.isFavored
+            for tag in food.tags {
                 tagList.append(tag.name)
             }
-            for ingredient in meal.ingredients {
+            for ingredient in food.ingredients {
                 ingredientList.append(ingredient.name)
             }
-            for tip in meal.tips {
+            for tip in food.tips {
                 tipList.append(tip.content)
             }
-            for when in meal.whenList {
+            for when in food.whenList {
                 whenList.append(when)
             }
         }
@@ -85,11 +85,11 @@ class MealViewController: UIViewController {
     
     private func configSubviews() {
         // table view
-        tableView.register(UINib.init(nibName: mealHeaderViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealHeaderViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealSectionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealSectionViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealOptionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealOptionViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealTagViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealTagViewCellIdentifier)
-        tableView.register(UINib.init(nibName: mealListViewCellIdentifier, bundle: nil), forCellReuseIdentifier: mealListViewCellIdentifier)
+        tableView.register(UINib.init(nibName: foodHeaderViewCellIdentifier, bundle: nil), forCellReuseIdentifier: foodHeaderViewCellIdentifier)
+        tableView.register(UINib.init(nibName: foodSectionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: foodSectionViewCellIdentifier)
+        tableView.register(UINib.init(nibName: foodOptionViewCellIdentifier, bundle: nil), forCellReuseIdentifier: foodOptionViewCellIdentifier)
+        tableView.register(UINib.init(nibName: foodTagViewCellIdentifier, bundle: nil), forCellReuseIdentifier: foodTagViewCellIdentifier)
+        tableView.register(UINib.init(nibName: foodListViewCellIdentifier, bundle: nil), forCellReuseIdentifier: foodListViewCellIdentifier)
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
@@ -97,14 +97,14 @@ class MealViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         // delete button
-        if meal == nil {
+        if food == nil {
             deleteButton.isHidden = true
         } else {
             deleteButton.isHidden = false
         }
     }
     
-    private func indexPathsOfMealInfo() -> [IndexPath] {
+    private func indexPathsOfFoodInfo() -> [IndexPath] {
         let headerViewIndexPath = IndexPath(row: headerViewRow, section: 0)
         let optionViewIndexPath = IndexPath(row: optionViewRow, section: 0)
         let tagViewIndexPath = IndexPath(row: tagViewRow, section: 0)
@@ -112,7 +112,7 @@ class MealViewController: UIViewController {
         let tipViewIndexPath = IndexPath(row: tipViewRow, section: 0)
         
         
-        switch mealType {
+        switch foodType {
         case .eatingOut, .takeOut:
             return [headerViewIndexPath, optionViewIndexPath, tagViewIndexPath]
         case .homeCook:
@@ -162,46 +162,46 @@ class MealViewController: UIViewController {
     }
     
     func updateCells() {
-        tableView.reloadRows(at: indexPathsOfMealInfo(), with: .none)
+        tableView.reloadRows(at: indexPathsOfFoodInfo(), with: .none)
     }
     
-    @IBAction func saveMeal(_ sender: UIBarButtonItem) {
+    @IBAction func saveFood(_ sender: UIBarButtonItem) {
         
-        guard let mealName = self.mealName else {
+        guard let foodName = self.foodName else {
             showAlert(message: "请输入美食名称")
             return
         }
-        if mealName.isEmpty {
+        if foodName.isEmpty {
             showAlert(message: "请输入美食名称")
             return
         }
         
-        let mealToSave = Meal()
-        if let originalMeal = self.meal {
-            mealToSave.id = originalMeal.id
-            mealToSave.typeRawValue = originalMeal.typeRawValue
+        let foodToSave = Food()
+        if let originalFood = self.food {
+            foodToSave.id = originalFood.id
+            foodToSave.typeRawValue = originalFood.typeRawValue
         } else {
-            mealToSave.typeRawValue = mealType.rawValue
+            foodToSave.typeRawValue = foodType.rawValue
         }
-        mealToSave.name = mealName
-        mealToSave.isFavored = isFavored
-        mealToSave.whenObjects = listOfWhenObjects()
-        mealToSave.tags = listOfTags()
-        mealToSave.ingredients = listOfIngredients()
-        mealToSave.tips = listOfTips()
-        BaseManager.shared.save(object: mealToSave)
+        foodToSave.name = foodName
+        foodToSave.isFavored = isFavored
+        foodToSave.whenObjects = listOfWhenObjects()
+        foodToSave.tags = listOfTags()
+        foodToSave.ingredients = listOfIngredients()
+        foodToSave.tips = listOfTips()
+        BaseManager.shared.save(object: foodToSave)
  
         _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func deleteMealButtonTapped(_ sender: UIButton) {
+    @IBAction func deleteFoodButtonTapped(_ sender: UIButton) {
         let message = "确定要删除吗？".localized()
         let deleteTitle = "删除".localized()
         let cancelTitle = "取消".localized()
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: deleteTitle, style: .destructive) { [unowned self] (action) in
-            if let meal = self.meal {
-                BaseManager.shared.delete(object: meal)
+            if let food = self.food {
+                BaseManager.shared.delete(object: food)
                 _ = self.navigationController?.popViewController(animated: true)
             }
         }
@@ -224,14 +224,14 @@ class MealViewController: UIViewController {
 }
 
 // MARK: UITableViewDataSource
-extension MealViewController: UITableViewDataSource {
+extension FoodViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch mealType {
+        switch foodType {
         case .eatingOut, .takeOut:
             return 5
         case .homeCook:
@@ -242,74 +242,74 @@ extension MealViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealHeaderViewCellIdentifier, for: indexPath) as! MealHeaderViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodHeaderViewCellIdentifier, for: indexPath) as! FoodHeaderViewCell
             cell.backgroundColor = UIColor.white 
             cell.delegate = self
-            if mealName == nil || (mealName?.isEmpty)! {
-                cell.headerLabel.text = MealHeaderViewCell.placeholderText
+            if foodName == nil || (foodName?.isEmpty)! {
+                cell.headerLabel.text = FoodHeaderViewCell.placeholderText
             } else {
-                cell.headerLabel.text = mealName
+                cell.headerLabel.text = foodName
             }
             
-            cell.headerImageView.image = mealImage
+            cell.headerImageView.image = foodImage
             cell.setFavorButtonState(isFavored)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodSectionViewCellIdentifier, for: indexPath) as! FoodSectionViewCell
             cell.backgroundColor = UIColor.cyan
             cell.sectionImageView.image = #imageLiteral(resourceName: "clock")
             cell.sectionLabel.text = "When do you want to enjoy?"
             cell.sectionButton.isHidden = true
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealOptionViewCellIdentifier, for: indexPath) as! MealOptionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodOptionViewCellIdentifier, for: indexPath) as! FoodOptionViewCell
             cell.optionTitles = whenOptions
             cell.selectedOptions = whenList
             cell.delegate = self
             cell.collectionView.reloadData()
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodSectionViewCellIdentifier, for: indexPath) as! FoodSectionViewCell
             cell.backgroundColor = UIColor.cyan
             cell.sectionImageView.image = #imageLiteral(resourceName: "hashtag")
             cell.sectionLabel.text = "Tags"
             cell.sectionButton.addTarget(self, action: #selector(sectionButtonTapped(sender:)), for: .touchUpInside)
             cell.sectionButton.isHidden = false
-            cell.sectionButton.tag = MealSectionViewCell.ButtonType.AddTag.rawValue
+            cell.sectionButton.tag = FoodSectionViewCell.ButtonType.AddTag.rawValue
             return cell
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealTagViewCellIdentifier, for: indexPath) as! MealTagViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodTagViewCellIdentifier, for: indexPath) as! FoodTagViewCell
             cell.delegate = self
             cell.tagList = tagList
             cell.collectionView.reloadData()
             return cell
         case 5:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodSectionViewCellIdentifier, for: indexPath) as! FoodSectionViewCell
             cell.backgroundColor = UIColor.cyan
             cell.sectionLabel.text = "Ingredients"
             cell.sectionImageView.image = #imageLiteral(resourceName: "list")
             cell.sectionButton.addTarget(self, action: #selector(sectionButtonTapped(sender:)), for: .touchUpInside)
             cell.sectionButton.isHidden = false
-            cell.sectionButton.tag = MealSectionViewCell.ButtonType.AddIngredient.rawValue
+            cell.sectionButton.tag = FoodSectionViewCell.ButtonType.AddIngredient.rawValue
             return cell
         case 6:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodListViewCellIdentifier, for: indexPath) as! FoodViewListViewCell
             cell.delegate = self
             cell.itemType = .Ingredient
             cell.items = ingredientList
             cell.tableView.reloadData()
             return cell
         case 7:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealSectionViewCellIdentifier, for: indexPath) as! MealSectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodSectionViewCellIdentifier, for: indexPath) as! FoodSectionViewCell
             cell.backgroundColor = UIColor.cyan
             cell.sectionLabel.text = "Tips"
             cell.sectionImageView.image = #imageLiteral(resourceName: "tip")
             cell.sectionButton.addTarget(self, action: #selector(sectionButtonTapped(sender:)), for: .touchUpInside)
             cell.sectionButton.isHidden = false
-            cell.sectionButton.tag = MealSectionViewCell.ButtonType.AddTip.rawValue
+            cell.sectionButton.tag = FoodSectionViewCell.ButtonType.AddTip.rawValue
             return cell
         case 8:
-            let cell = tableView.dequeueReusableCell(withIdentifier: mealListViewCellIdentifier, for: indexPath) as! MealListViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: foodListViewCellIdentifier, for: indexPath) as! FoodViewListViewCell
             cell.delegate = self
             cell.itemType = .Tip
             cell.items = tipList
@@ -322,7 +322,7 @@ extension MealViewController: UITableViewDataSource {
     }
     
     @objc private func sectionButtonTapped(sender: UIButton) {
-        if let buttonType = MealSectionViewCell.ButtonType(rawValue: sender.tag) {
+        if let buttonType = FoodSectionViewCell.ButtonType(rawValue: sender.tag) {
             var style: InputItemView.Style
             switch buttonType {
             case .AddTag:
@@ -345,7 +345,7 @@ extension MealViewController: UITableViewDataSource {
 }
 
 // MARK: InputItemViewDelegate
-extension MealViewController: InputItemViewDelegate {
+extension FoodViewController: InputItemViewDelegate {
     func done(item: String, style: InputItemView.Style) {
         switch style {
         case .AddTag:
@@ -362,8 +362,8 @@ extension MealViewController: InputItemViewDelegate {
     }
 }
 
-// MARK: MealTagViewCellDelegate
-extension MealViewController: MealTagViewCellDelegate {
+// MARK: FoodTagViewCellDelegate
+extension FoodViewController: FoodTagViewCellDelegate {
     func didRemoveTag(tag: String) {
         if let index = tagList.index(of: tag) {
             tagList.remove(at: index)
@@ -372,9 +372,9 @@ extension MealViewController: MealTagViewCellDelegate {
     }
 }
 
-// MARK: MealListViewCellDelegate
-extension MealViewController: MealListViewCellDelegate {
-    func didRemoveItem(_ item: String, type: MealListViewCell.ItemType) {
+// MARK: FoodViewListViewCellDelegate
+extension FoodViewController: FoodViewListViewCellDelegate {
+    func didRemoveItem(_ item: String, type: FoodViewListViewCell.ItemType) {
         switch type {
         case .Ingredient:
             if let index = ingredientList.index(of: item) {
@@ -389,10 +389,10 @@ extension MealViewController: MealListViewCellDelegate {
     }
 }
 
-// MARK: MealHeaderViewCellDelegate
-extension MealViewController: MealHeaderViewCellDelegate {
+// MARK: FoodHeaderViewCellDelegate
+extension FoodViewController: FoodHeaderViewCellDelegate {
     func didInputName(_ name: String) {
-        self.mealName = name
+        self.foodName = name
         updateCells()
     }
     func didToggleFavorButton() {
@@ -432,18 +432,18 @@ extension MealViewController: MealHeaderViewCellDelegate {
 }
 
 // MARK: UIImagePickerControllerDelegate
-extension MealViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension FoodViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.mealImage = image
+            self.foodImage = image
             updateCells()
         }
     }
 }
 
-// MARK: MealOptionViewDelegate
-extension MealViewController: MealOptionCellDelegate {
+// MARK: FoodOptionViewDelegate
+extension FoodViewController: FoodOptionCellDelegate {
     func didAddOption(_ option: String) {
         whenList.append(option)
     }

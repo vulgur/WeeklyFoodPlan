@@ -29,9 +29,9 @@ class BaseManager {
         return results.count
     }
     
-    func queryAllMeals() -> [Meal] {
-        let meals = realm.objects(Meal.self).toArray()
-        return meals
+    func queryAllFoods() -> [Food] {
+        let foods = realm.objects(Food.self).toArray()
+        return foods
     }
     
     func deleteAll() {
