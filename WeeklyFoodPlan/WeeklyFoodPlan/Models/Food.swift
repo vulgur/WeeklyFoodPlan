@@ -30,7 +30,7 @@ class Food: Object {
         case eatingOut = "EatingOut"
         case takeOut = "TakeOut"
     }
-    // Protocol properties
+    
     dynamic var id = UUID().uuidString
     dynamic var name: String = ""
     dynamic var isFavored: Bool = false
