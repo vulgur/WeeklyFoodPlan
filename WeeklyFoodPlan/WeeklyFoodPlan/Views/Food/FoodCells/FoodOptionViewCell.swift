@@ -1,5 +1,5 @@
 //
-//  MealOptionViewCell.swift
+//  FoodOptionViewCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/22.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol MealOptionCellDelegate {
+protocol FoodOptionCellDelegate {
     func didAddOption(_ option: String)
     func didRemoveOption(_ option: String)
 }
 
-class MealOptionViewCell: UITableViewCell {
+class FoodOptionViewCell: UITableViewCell {
 
-    let cellIdentifier = "MealOptionCell"
+    let cellIdentifier = "FoodOptionCell"
     let optionSelectedColor = UIColor.green
     let optionDeselectedColor = UIColor.white
     var optionTitles = ["早餐", "午餐", "晚餐"]
@@ -24,7 +24,7 @@ class MealOptionViewCell: UITableViewCell {
     let optionHeight: CGFloat = 30
     let maxOptionsInARow = 3
     
-    var delegate: MealOptionCellDelegate?
+    var delegate: FoodOptionCellDelegate?
     @IBOutlet var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -51,7 +51,7 @@ class MealOptionViewCell: UITableViewCell {
 
 }
 
-extension MealOptionViewCell: UICollectionViewDataSource {
+extension FoodOptionViewCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -61,7 +61,7 @@ extension MealOptionViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MealOptionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! FoodOptionCell
         let title = self.optionTitles[indexPath.row]
         if selectedOptions.contains(title) {
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
@@ -79,22 +79,22 @@ extension MealOptionViewCell: UICollectionViewDataSource {
     }
 }
 
-extension MealOptionViewCell: UICollectionViewDelegate {
+extension FoodOptionViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
+        let cell = collectionView.cellForItem(at: indexPath) as! FoodOptionCell
         cell.optionLabel.backgroundColor = optionSelectedColor
         delegate?.didAddOption(cell.optionLabel.text!)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! MealOptionCell
+        let cell = collectionView.cellForItem(at: indexPath) as! FoodOptionCell
         cell.optionLabel.backgroundColor = optionDeselectedColor
         let removedOption = optionTitles[indexPath.row]
         delegate?.didRemoveOption(removedOption)
     }
 }
 
-extension MealOptionViewCell: UICollectionViewDelegateFlowLayout {
+extension FoodOptionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         let count = CGFloat(maxOptionsInARow)

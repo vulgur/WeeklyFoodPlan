@@ -1,5 +1,5 @@
 //
-//  MealListViewCell.swift
+//  FoodViewListViewCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/23.
@@ -9,20 +9,20 @@
 import UIKit
 import SwipyCell
 
-protocol MealListViewCellDelegate {
-    func didRemoveItem(_ item: String, type: MealListViewCell.ItemType)
+protocol FoodViewListViewCellDelegate {
+    func didRemoveItem(_ item: String, type: FoodViewListViewCell.ItemType)
 }
 
-class MealListViewCell: UITableViewCell {
+class FoodViewListViewCell: UITableViewCell {
 
     enum ItemType {
         case Ingredient
         case Tip
     }
     
-    let cellIdentifier = "MealListItemCell"
+    let cellIdentifier = "FoodViewListItemCell"
     var items = [String]()
-    var delegate: MealListViewCellDelegate?
+    var delegate: FoodViewListViewCellDelegate?
     var itemType: ItemType = .Ingredient
     
     @IBOutlet var tableView: UITableView!
@@ -47,7 +47,7 @@ class MealListViewCell: UITableViewCell {
     }
 }
 
-extension MealListViewCell: UITableViewDataSource {
+extension FoodViewListViewCell: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -57,7 +57,7 @@ extension MealListViewCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealListItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FoodViewListItemCell
         let title = items[indexPath.row]
         cell.itemLabel.text = title
         cell.itemImageView.backgroundColor = UIColor.green
@@ -82,7 +82,7 @@ extension MealListViewCell: UITableViewDataSource {
     }
 }
 
-extension MealListViewCell: SwipyCellDelegate {
+extension FoodViewListViewCell: SwipyCellDelegate {
     func swipeableTableViewCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
 
     }

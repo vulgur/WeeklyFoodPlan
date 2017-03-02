@@ -1,5 +1,5 @@
 //
-//  MealListItemCell.swift
+//  FoodViewListItemCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/26.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MealListCell: UITableViewCell {
+class FoodListCell: UITableViewCell {
 
-    @IBOutlet var mealImageView: UIImageView!
-    @IBOutlet var mealNameLabel: UILabel!
-    @IBOutlet var mealTypeLabel: UILabel!
-    @IBOutlet var mealWhenLabel: UILabel!
-    @IBOutlet var mealFavorImageView: UIImageView!
+    @IBOutlet var foodImageView: UIImageView!
+    @IBOutlet var foodNameLabel: UILabel!
+    @IBOutlet var foodTypeLabel: UILabel!
+    @IBOutlet var foodWhenLabel: UILabel!
+    @IBOutlet var foodFavorImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

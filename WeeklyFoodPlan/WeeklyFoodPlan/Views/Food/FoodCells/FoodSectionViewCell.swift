@@ -1,5 +1,5 @@
 //
-//  MealSectionViewCell.swift
+//  FoodSectionViewCell.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealSectionViewCell: UITableViewCell {
+class FoodSectionViewCell: UITableViewCell {
 
     enum ButtonType: Int {
         case AddTag = 1

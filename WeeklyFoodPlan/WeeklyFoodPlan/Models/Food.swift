@@ -10,13 +10,13 @@ import Foundation
 import RealmSwift
 
 class WhenObject: Object {
-    dynamic var value = Meal.When.lunch.rawValue
+    dynamic var value = Food.When.lunch.rawValue
     override static func primaryKey() -> String? {
         return "value"
     }
 }
 
-class Meal: Object {
+class Food: Object {
     
     enum When: String {
         case breakfast = "Breakfast"
@@ -25,7 +25,7 @@ class Meal: Object {
         case dinner = "Dinner"
     }
     
-    enum MealType: String {
+    enum FoodType: String {
         case homeCook = "HomeCook"
         case eatingOut = "EatingOut"
         case takeOut = "TakeOut"
@@ -40,20 +40,20 @@ class Meal: Object {
     var ingredients = List<Ingredient>()
     var tips = List<Tip>()
     dynamic var cookCount:Int = 0
-    dynamic var typeRawValue = MealType.homeCook.rawValue
+    dynamic var typeRawValue = FoodType.homeCook.rawValue
     
     override static func primaryKey() -> String? {
         return "id"
     }
 }
 
-extension Meal{
-    var type: MealType {
+extension Food{
+    var type: FoodType {
         get {
-            if let result = MealType(rawValue: typeRawValue) {
+            if let result = FoodType(rawValue: typeRawValue) {
                 return result
             } else {
-                return MealType.homeCook
+                return FoodType.homeCook
             }
         }
     }

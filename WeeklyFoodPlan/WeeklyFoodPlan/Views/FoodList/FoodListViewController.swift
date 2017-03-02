@@ -1,5 +1,5 @@
 //
-//  MealListViewController.swift
+//  FoodListViewController.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/2/4.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MealListViewController: UIViewController {
+class FoodListViewController: UIViewController {
 
-    let cellIdentifier = "MealListCell"
-    let segueIdentifier = "ShowMeal"
+    let cellIdentifier = "FoodListCell"
+    let segueIdentifier = "ShowFood"
     @IBOutlet var tableView: UITableView!
     
-    var meals = [Meal]()
+    var foods = [Food]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class MealListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        meals = BaseManager.shared.queryAllMeals()
+        foods = BaseManager.shared.queryAllFoods()
         tableView.reloadData()
     }
 
@@ -41,43 +41,43 @@ class MealListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == segueIdentifier {
-            if let meal = sender as? Meal,
-                let destinationVC = segue.destination as? MealViewController {
-                destinationVC.meal = meal
+            if let food = sender as? Food,
+                let destinationVC = segue.destination as? FoodViewController {
+                destinationVC.food = food
             }
         }
     }
 
-    @IBAction func showMealTypeOptions(_ sender: UIBarButtonItem) {
+    @IBAction func showFoodTypeOptions(_ sender: UIBarButtonItem) {
         let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.view.frame
         
-        let alertController = UIAlertController(title: "Choose meal type", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Choose food type", message: nil, preferredStyle: .alert)
         let homeCookAction = UIAlertAction(title: "HomeCook", style: .default) { [unowned self] (action) in
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealViewController") as! MealViewController
-            vc.mealType = .homeCook
-//            let meal = Meal()
-//            meal.typeRawValue = Meal.MealType.homeCook.rawValue
-//            vc.meal = meal
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
+            vc.foodType = .homeCook
+//            let food = Food()
+//            food.typeRawValue = Food.FoodType.homeCook.rawValue
+//            vc.food = food
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let takeOutAction = UIAlertAction(title: "TakeOut", style: .default) { [unowned self] (action) in
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealViewController") as! MealViewController
-            vc.mealType = .takeOut
-//            let meal = Meal()
-//            meal.typeRawValue = Meal.MealType.takeOut.rawValue
-//            vc.meal = meal
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
+            vc.foodType = .takeOut
+//            let food = Food()
+//            food.typeRawValue = Food.FoodType.takeOut.rawValue
+//            vc.food = food
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let eatingOutAction = UIAlertAction(title: "EatingOut", style: .default) { [unowned self] (action) in
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealViewController") as! MealViewController
-            vc.mealType = .eatingOut
-//            let meal = Meal()
-//            meal.typeRawValue = Meal.MealType.eatingOut.rawValue
-//            vc.meal = meal
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
+            vc.foodType = .eatingOut
+//            let food = Food()
+//            food.typeRawValue = Food.FoodType.eatingOut.rawValue
+//            vc.food = food
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -96,35 +96,35 @@ class MealListViewController: UIViewController {
     }
 }
 
-extension MealListViewController: UITableViewDataSource {
+extension FoodListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return foods.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealListCell
-        let meal = meals[indexPath.row]
-        cell.mealNameLabel.text = meal.name
-        let whenString = meal.whenObjects.reduce("") { (string, when) -> String in
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FoodListCell
+        let food = foods[indexPath.row]
+        cell.foodNameLabel.text = food.name
+        let whenString = food.whenObjects.reduce("") { (string, when) -> String in
             string + " " + when.value
         }
-        cell.mealWhenLabel.text = whenString
-        cell.mealTypeLabel.text = meal.typeRawValue
-        if meal.isFavored {
-            cell.mealFavorImageView.isHidden = false
-            cell.mealFavorImageView.image = #imageLiteral(resourceName: "heart")
+        cell.foodWhenLabel.text = whenString
+        cell.foodTypeLabel.text = food.typeRawValue
+        if food.isFavored {
+            cell.foodFavorImageView.isHidden = false
+            cell.foodFavorImageView.image = #imageLiteral(resourceName: "heart")
         } else {
-            cell.mealFavorImageView.isHidden = true
+            cell.foodFavorImageView.isHidden = true
         }
         return cell
     }
 }
 
-extension MealListViewController: UITableViewDelegate {
+extension FoodListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let meal = meals[indexPath.row]
-        performSegue(withIdentifier: segueIdentifier, sender: meal)
+        let food = foods[indexPath.row]
+        performSegue(withIdentifier: segueIdentifier, sender: food)
     }
 }
