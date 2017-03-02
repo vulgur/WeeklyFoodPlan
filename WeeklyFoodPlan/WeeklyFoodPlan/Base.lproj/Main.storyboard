@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Aa5-Jh-Qfi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CbU-gV-6gW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rte-o3-6iy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -27,21 +32,36 @@
         <!--美食计划-->
         <scene sceneID="2Pr-qK-5Eh">
             <objects>
-                <viewController id="cOW-1t-uPg" customClass="WeeklyFoodListViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cOW-1t-uPg" customClass="PlanMealListViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n4j-5U-WC4"/>
                         <viewControllerLayoutGuide type="bottom" id="Ci7-jU-anf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="35I-5P-voe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AVw-ku-i4q">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="AVw-ku-i4q" secondAttribute="trailing" constant="-16" id="NwL-Xy-m09"/>
+                            <constraint firstItem="AVw-ku-i4q" firstAttribute="top" secondItem="n4j-5U-WC4" secondAttribute="bottom" id="Scj-Ex-T5b"/>
+                            <constraint firstItem="Ci7-jU-anf" firstAttribute="top" secondItem="AVw-ku-i4q" secondAttribute="bottom" id="r1U-oI-rbr"/>
+                            <constraint firstItem="AVw-ku-i4q" firstAttribute="leading" secondItem="35I-5P-voe" secondAttribute="leadingMargin" constant="-16" id="z4C-9Q-jPo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="美食计划" id="JyF-p0-FGT"/>
+                    <connections>
+                        <outlet property="tableView" destination="AVw-ku-i4q" id="OU6-T7-G2l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7j-LT-1AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="-1624"/>
+            <point key="canvasLocation" x="-820" y="-1624.1379310344828"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">
@@ -52,7 +72,7 @@
                         <viewControllerLayoutGuide type="bottom" id="M2c-29-PBt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pWJ-ej-DQN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -91,19 +111,18 @@
                         <viewControllerLayoutGuide type="bottom" id="XCx-of-tnv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bm8-4e-xBX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5PY-Fx-GIT">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dey-Ge-fEC" customClass="MealListCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dey-Ge-fEC" id="kEV-kc-LKT">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -149,11 +168,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GwE-6w-rYD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="21U-bB-gIz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hTw-Zn-rBn">
-                                <rect key="frame" x="0.0" y="64" width="600" height="468"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dPl-vk-gEt" id="wEp-iQ-KCu"/>
@@ -161,7 +180,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1J-Xg-DhU">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.28235294119999998" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ObQ-wA-KC1"/>

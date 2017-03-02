@@ -21,8 +21,8 @@ class Meal: Object {
 
 class DoneFoodInMeal: Object {
     dynamic var id = UUID().uuidString
-    dynamic var meal = Meal()
-    dynamic var food = Food()
+    dynamic var meal: Meal?
+    dynamic var food: Food?
     dynamic var isDone = false
     
     override static func primaryKey() -> String? {

@@ -31,7 +31,7 @@
 		D2CFA2741E1828E000277BD9 /* apple_ingredient.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2731E1828E000277BD9 /* apple_ingredient.json */; };
 		D2CFA2781E196D5D00277BD9 /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */; };
 		D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA2791E196F2400277BD9 /* kfc_recipe.json */; };
-		D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */; };
+		D2CFA27D1E1AB85D00277BD9 /* PlanMealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA27C1E1AB85D00277BD9 /* PlanMealListViewController.swift */; };
 		D2CFA2801E1C025900277BD9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27E1E1C025900277BD9 /* Realm.framework */; };
 		D2CFA2811E1C025900277BD9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27E1E1C025900277BD9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2CFA2821E1C025900277BD9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */; };
@@ -72,6 +72,7 @@
 		D2F6E76C1E68878E002F32A5 /* PlanFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E76A1E68878E002F32A5 /* PlanFoodCell.swift */; };
 		D2F6E76D1E68878E002F32A5 /* PlanFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F6E76B1E68878E002F32A5 /* PlanFoodCell.xib */; };
 		D2F6E76F1E68881D002F32A5 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E76E1E68881D002F32A5 /* Meal.swift */; };
+		D2F6E7711E688EDC002F32A5 /* DailyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +129,7 @@
 		D2CFA2731E1828E000277BD9 /* apple_ingredient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple_ingredient.json; sourceTree = "<group>"; };
 		D2CFA2771E196D5D00277BD9 /* RecipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
 		D2CFA2791E196F2400277BD9 /* kfc_recipe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kfc_recipe.json; sourceTree = "<group>"; };
-		D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyFoodListViewController.swift; sourceTree = "<group>"; };
+		D2CFA27C1E1AB85D00277BD9 /* PlanMealListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanMealListViewController.swift; sourceTree = "<group>"; };
 		D2CFA27E1E1C025900277BD9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		D2CFA27F1E1C025900277BD9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		D2CFA2851E1C06C100277BD9 /* NutritionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTests.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 		D2F6E76A1E68878E002F32A5 /* PlanFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanFoodCell.swift; sourceTree = "<group>"; };
 		D2F6E76B1E68878E002F32A5 /* PlanFoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanFoodCell.xib; sourceTree = "<group>"; };
 		D2F6E76E1E68881D002F32A5 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPlan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,7 +293,7 @@
 				D2F6E73B1E68600B002F32A5 /* FoodList */,
 				D2F6E7171E685F77002F32A5 /* Food */,
 				D2F6E7121E685E21002F32A5 /* Common */,
-				D2CFA27C1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift */,
+				D2CFA27C1E1AB85D00277BD9 /* PlanMealListViewController.swift */,
 				D2D290AE1E446DF400905D10 /* FreezerViewController.swift */,
 			);
 			path = Views;
@@ -307,6 +309,7 @@
 				D2D2909E1E4453F900905D10 /* Tag.swift */,
 				D23252501E60A3100065C40A /* Tip.swift */,
 				D2F6E76E1E68881D002F32A5 /* Meal.swift */,
+				D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				D2F6E75D1E686011002F32A5 /* FoodSectionViewCell.swift in Sources */,
 				D2D290A21E4453F900905D10 /* Ingredient.swift in Sources */,
 				D2F6E76F1E68881D002F32A5 /* Meal.swift in Sources */,
+				D2F6E7711E688EDC002F32A5 /* DailyPlan.swift in Sources */,
 				D2F6E7411E68600B002F32A5 /* FoodListViewController.swift in Sources */,
 				D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */,
 				D23252511E60A3100065C40A /* Tip.swift in Sources */,
@@ -561,7 +565,7 @@
 				D20B52291E672A0B0088628A /* FoodDataImporter.swift in Sources */,
 				D2F6E7681E6886AB002F32A5 /* PlanMealCell.swift in Sources */,
 				D2F6E75F1E686011002F32A5 /* FoodTagCell.swift in Sources */,
-				D2CFA27D1E1AB85D00277BD9 /* WeeklyFoodListViewController.swift in Sources */,
+				D2CFA27D1E1AB85D00277BD9 /* PlanMealListViewController.swift in Sources */,
 				D2F6E7641E68612D002F32A5 /* Food.swift in Sources */,
 				D298985A1E53018B00AAA1EC /* DGCollectionViewLeftAlignFlowLayout.swift in Sources */,
 				D2D290A41E4453F900905D10 /* IngredientManager.swift in Sources */,
