@@ -19,10 +19,10 @@ class WhenObject: Object {
 class Meal: Object {
     
     enum When: String {
-        case breakfast = "breakfast"
-        case brunch = "brunch"
-        case lunch = "lunch"
-        case dinner = "dinner"
+        case breakfast = "Breakfast"
+        case brunch = "Brunch"
+        case lunch = "Lunch"
+        case dinner = "Dinner"
     }
     
     enum MealType: String {
