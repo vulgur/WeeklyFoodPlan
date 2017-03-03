@@ -57,6 +57,8 @@ extension PlanMealCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: planFoodCellIdentifier, for: indexPath) as! PlanFoodCell
         let food = meal.foods[indexPath.row]
         cell.foodNameLabel.text = food.name
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 2
         return cell
     }
 }
