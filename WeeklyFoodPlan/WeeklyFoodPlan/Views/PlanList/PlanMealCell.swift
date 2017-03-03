@@ -12,6 +12,7 @@ class PlanMealCell: UITableViewCell {
 
     @IBOutlet var mealLabel: UILabel!
     @IBOutlet var mealCollectionView: UICollectionView!
+<<<<<<< HEAD
     
     let planFoodCellIdentifier = "PlanFoodCell"
     let cellFontSize: CGFloat = 12
@@ -25,6 +26,11 @@ class PlanMealCell: UITableViewCell {
         mealCollectionView.dataSource = self
         mealCollectionView.delegate = self
         mealCollectionView.isScrollEnabled = false
+=======
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+>>>>>>> bb9746015e82457bab1343df9ee96f1bf8ac82eb
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,6 +39,7 @@ class PlanMealCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+<<<<<<< HEAD
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
         if meal.foods.count > 0 {
             mealCollectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
@@ -82,4 +89,6 @@ extension PlanMealCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
     }
+=======
+>>>>>>> bb9746015e82457bab1343df9ee96f1bf8ac82eb
 }
