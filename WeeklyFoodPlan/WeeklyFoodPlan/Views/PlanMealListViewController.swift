@@ -10,23 +10,20 @@ import UIKit
 import RealmSwift
 
 class PlanMealListViewController: UIViewController {
-
-    @IBOutlet var tableView: UITableView!
     
-    let cellIdentifier = "PlanMealCell"
-    
+    @IBOutlet var collectionView: UICollectionView!
+    let cellIdentifier = "PlanCell"
     var plans = [DailyPlan]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        generateFakeData()
+        self.automaticallyAdjustsScrollViewInsets = false
         
-        tableView.dataSource = self
-        tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        generateFakeData()
+        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,36 +34,57 @@ class PlanMealListViewController: UIViewController {
     private func generateFakeData() {
         plans.append(PlanManager.shared.fakePlan())
         plans.append(PlanManager.shared.fakePlan())
-        plans.append(PlanManager.shared.fakePlan())
-        plans.append(PlanManager.shared.fakePlan())
-        plans.append(PlanManager.shared.fakePlan())
+//        plans.append(PlanManager.shared.fakePlan())
+//        plans.append(PlanManager.shared.fakePlan())
+//        plans.append(PlanManager.shared.fakePlan())
     }
     
 }
 
-extension PlanMealListViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension PlanMealListViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return plans.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let plan = plans[section]
-        return plan.meals.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PlanMealCell
-        let meal = plans[indexPath.section].meals[indexPath.row]
-        cell.mealLabel.text = meal.name
-        cell.meal = meal
-        cell.mealCollectionView.reloadData()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PlanCell
+        cell.plan = plans[indexPath.section]
+        cell.tableView.reloadData()
         return cell
     }
 }
 
-extension PlanMealListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let plan = plans[section]
-        return plan.date.description
+extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        if let cell = collectionView.cellForItem(at: indexPath) as? PlanCell {
+//            let headerHeight = cell.tableView.sectionHeaderHeight
+//            let footerHeight = cell.tableView.sectionFooterHeight
+//            return CGSize(width: self.view.bounds.width, height: self.view.bounds.height - headerHeight - footerHeight)
+//        } else {
+//            return CGSize.zero
+//        }
+        let headerHeight: CGFloat = navigationController!.navigationBar.bounds.height + UIApplication.shared.statusBarFrame.height
+        let footerHeight: CGFloat = tabBarController!.tabBar.bounds.height
+        print("tab bar Height:", footerHeight)
+        print("nav bar height:", headerHeight)
+        return CGSize(width: self.view.bounds.width, height: self.view.bounds.height - headerHeight - footerHeight)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
 }
+

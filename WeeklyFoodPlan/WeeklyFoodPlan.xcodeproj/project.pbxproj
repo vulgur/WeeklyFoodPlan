@@ -74,6 +74,8 @@
 		D2F6E76F1E68881D002F32A5 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E76E1E68881D002F32A5 /* Meal.swift */; };
 		D2F6E7711E688EDC002F32A5 /* DailyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */; };
 		D2F6E7731E690A7F002F32A5 /* PlanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7721E690A7F002F32A5 /* PlanManager.swift */; };
+		D2F6E7761E69121A002F32A5 /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7741E69121A002F32A5 /* PlanCell.swift */; };
+		D2F6E7771E69121A002F32A5 /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F6E7751E69121A002F32A5 /* PlanCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		D2F6E76E1E68881D002F32A5 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPlan.swift; sourceTree = "<group>"; };
 		D2F6E7721E690A7F002F32A5 /* PlanManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanManager.swift; sourceTree = "<group>"; };
+		D2F6E7741E69121A002F32A5 /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
+		D2F6E7751E69121A002F32A5 /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +389,8 @@
 				D2F6E7671E6886AB002F32A5 /* PlanMealCell.xib */,
 				D2F6E76A1E68878E002F32A5 /* PlanFoodCell.swift */,
 				D2F6E76B1E68878E002F32A5 /* PlanFoodCell.xib */,
+				D2F6E7741E69121A002F32A5 /* PlanCell.swift */,
+				D2F6E7751E69121A002F32A5 /* PlanCell.xib */,
 			);
 			path = PlanList;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				D2F6E7561E686011002F32A5 /* FoodViewListItemCell.xib in Resources */,
 				D2F6E75E1E686011002F32A5 /* FoodSectionViewCell.xib in Resources */,
 				D20E39181E03048700349F78 /* Assets.xcassets in Resources */,
+				D2F6E7771E69121A002F32A5 /* PlanCell.xib in Resources */,
 				D2CFA2721E18289300277BD9 /* apple_nutritions.json in Resources */,
 				D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */,
 				D2F6E7601E686011002F32A5 /* FoodTagCell.xib in Resources */,
@@ -547,6 +554,7 @@
 			files = (
 				D2F6E7591E686011002F32A5 /* FoodOptionCell.swift in Sources */,
 				D2D290AC1E4453F900905D10 /* Tag.swift in Sources */,
+				D2F6E7761E69121A002F32A5 /* PlanCell.swift in Sources */,
 				D2F6E7161E685E21002F32A5 /* TagView.swift in Sources */,
 				D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */,
 				D2F6E73A1E685F77002F32A5 /* FoodViewController.swift in Sources */,

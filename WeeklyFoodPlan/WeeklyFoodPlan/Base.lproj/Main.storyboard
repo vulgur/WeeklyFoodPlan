@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,22 +40,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AVw-ku-i4q">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-Qp-G0u">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="esf-25-NCV">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="AVw-ku-i4q" secondAttribute="trailing" constant="-16" id="NwL-Xy-m09"/>
-                            <constraint firstItem="AVw-ku-i4q" firstAttribute="top" secondItem="n4j-5U-WC4" secondAttribute="bottom" id="Scj-Ex-T5b"/>
-                            <constraint firstItem="Ci7-jU-anf" firstAttribute="top" secondItem="AVw-ku-i4q" secondAttribute="bottom" id="r1U-oI-rbr"/>
-                            <constraint firstItem="AVw-ku-i4q" firstAttribute="leading" secondItem="35I-5P-voe" secondAttribute="leadingMargin" constant="-16" id="z4C-9Q-jPo"/>
+                            <constraint firstItem="Ci7-jU-anf" firstAttribute="top" secondItem="LbG-Qp-G0u" secondAttribute="bottom" id="6qk-nS-uvn"/>
+                            <constraint firstAttribute="trailing" secondItem="LbG-Qp-G0u" secondAttribute="trailing" id="Bo0-SJ-KdO"/>
+                            <constraint firstItem="LbG-Qp-G0u" firstAttribute="leading" secondItem="35I-5P-voe" secondAttribute="leading" id="K9Y-fm-q0k"/>
+                            <constraint firstItem="LbG-Qp-G0u" firstAttribute="top" secondItem="n4j-5U-WC4" secondAttribute="bottom" id="xnx-3m-SKR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="美食计划" id="JyF-p0-FGT"/>
                     <connections>
-                        <outlet property="tableView" destination="AVw-ku-i4q" id="OU6-T7-G2l"/>
+                        <outlet property="collectionView" destination="LbG-Qp-G0u" id="YSC-x4-EZq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7j-LT-1AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,7 +91,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="CpO-fu-dYr">
             <objects>
-                <tabBarController id="Aa5-Jh-Qfi" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Aa5-Jh-Qfi" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="p6f-GK-gUN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -117,19 +123,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5PY-Fx-GIT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dey-Ge-fEC" customClass="MealListCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dey-Ge-fEC" id="kEV-kc-LKT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="dPl-vk-gEt" kind="show" identifier="ShowFood" id="94W-9j-rDp"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="c4Y-Ra-jYN" id="w85-K6-dIl"/>
                                     <outlet property="delegate" destination="c4Y-Ra-jYN" id="Y8T-Uf-XR5"/>
