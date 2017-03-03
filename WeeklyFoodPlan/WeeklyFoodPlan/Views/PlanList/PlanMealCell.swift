@@ -12,6 +12,7 @@ class PlanMealCell: UITableViewCell {
 
     @IBOutlet var mealLabel: UILabel!
     @IBOutlet var mealCollectionView: UICollectionView!
+
     
     let planFoodCellIdentifier = "PlanFoodCell"
     let cellFontSize: CGFloat = 12
