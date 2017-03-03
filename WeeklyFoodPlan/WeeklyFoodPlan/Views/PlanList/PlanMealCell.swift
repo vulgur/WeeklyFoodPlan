@@ -12,7 +12,6 @@ class PlanMealCell: UITableViewCell {
 
     @IBOutlet var mealLabel: UILabel!
     @IBOutlet var mealCollectionView: UICollectionView!
-
     
     let planFoodCellIdentifier = "PlanFoodCell"
     let cellFontSize: CGFloat = 12
@@ -33,7 +32,7 @@ class PlanMealCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
         if meal.foods.count > 0 {
             mealCollectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
