@@ -1,5 +1,5 @@
 //
-//  PlanManager.swift
+//  DailyPlanManager.swift
 //  WeeklyFoodPlan
 //
 //  Created by vulgur on 2017/3/3.
@@ -9,8 +9,8 @@
 import Foundation
 import RealmSwift
 
-class PlanManager {
-    static let shared = PlanManager()
+class DailyPlanManager {
+    static let shared = DailyPlanManager()
     let realm = try! Realm()
     
     func fakePlan() -> DailyPlan {

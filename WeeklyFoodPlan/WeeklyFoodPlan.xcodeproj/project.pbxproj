@@ -73,7 +73,7 @@
 		D2F6E76D1E68878E002F32A5 /* PlanFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F6E76B1E68878E002F32A5 /* PlanFoodCell.xib */; };
 		D2F6E76F1E68881D002F32A5 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E76E1E68881D002F32A5 /* Meal.swift */; };
 		D2F6E7711E688EDC002F32A5 /* DailyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */; };
-		D2F6E7731E690A7F002F32A5 /* PlanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7721E690A7F002F32A5 /* PlanManager.swift */; };
+		D2F6E7731E690A7F002F32A5 /* DailyPlanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7721E690A7F002F32A5 /* DailyPlanManager.swift */; };
 		D2F6E7761E69121A002F32A5 /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7741E69121A002F32A5 /* PlanCell.swift */; };
 		D2F6E7771E69121A002F32A5 /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F6E7751E69121A002F32A5 /* PlanCell.xib */; };
 /* End PBXBuildFile section */
@@ -173,7 +173,7 @@
 		D2F6E76B1E68878E002F32A5 /* PlanFoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanFoodCell.xib; sourceTree = "<group>"; };
 		D2F6E76E1E68881D002F32A5 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		D2F6E7701E688EDC002F32A5 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPlan.swift; sourceTree = "<group>"; };
-		D2F6E7721E690A7F002F32A5 /* PlanManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanManager.swift; sourceTree = "<group>"; };
+		D2F6E7721E690A7F002F32A5 /* DailyPlanManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPlanManager.swift; sourceTree = "<group>"; };
 		D2F6E7741E69121A002F32A5 /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		D2F6E7751E69121A002F32A5 /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -326,7 +326,7 @@
 				D2D290951E4453F900905D10 /* BaseManager.swift */,
 				D2D290961E4453F900905D10 /* IngredientManager.swift */,
 				D2D290971E4453F900905D10 /* NutritionManager.swift */,
-				D2F6E7721E690A7F002F32A5 /* PlanManager.swift */,
+				D2F6E7721E690A7F002F32A5 /* DailyPlanManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -575,7 +575,7 @@
 				D2F6E7531E686011002F32A5 /* FoodHeaderViewCell.swift in Sources */,
 				D20B52291E672A0B0088628A /* FoodDataImporter.swift in Sources */,
 				D2F6E7681E6886AB002F32A5 /* PlanMealCell.swift in Sources */,
-				D2F6E7731E690A7F002F32A5 /* PlanManager.swift in Sources */,
+				D2F6E7731E690A7F002F32A5 /* DailyPlanManager.swift in Sources */,
 				D2F6E75F1E686011002F32A5 /* FoodTagCell.swift in Sources */,
 				D2CFA27D1E1AB85D00277BD9 /* PlanMealListViewController.swift in Sources */,
 				D2F6E7641E68612D002F32A5 /* Food.swift in Sources */,
