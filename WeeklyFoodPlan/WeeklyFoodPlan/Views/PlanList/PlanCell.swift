@@ -26,15 +26,6 @@ class PlanCell: UICollectionViewCell {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-//        if plan.meals.count > 0 {
-//            tableView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
-//            tableView.layoutIfNeeded()
-//            return tableView.contentSize
-//        } else {
-//            return CGSize(width: self.bounds.width, height: 50)
-//        }
-//    }
 }
 
 extension PlanCell: UITableViewDataSource {
@@ -58,6 +49,6 @@ extension PlanCell: UITableViewDataSource {
 
 extension PlanCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return plan.date.description
+        return plan.date.dateAndWeekday()
     }
 }

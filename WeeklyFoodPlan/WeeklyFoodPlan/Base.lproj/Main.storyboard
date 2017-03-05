@@ -60,14 +60,20 @@
                             <constraint firstItem="LbG-Qp-G0u" firstAttribute="top" secondItem="n4j-5U-WC4" secondAttribute="bottom" id="xnx-3m-SKR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="美食计划" id="JyF-p0-FGT"/>
+                    <navigationItem key="navigationItem" title="美食计划" id="JyF-p0-FGT">
+                        <barButtonItem key="rightBarButtonItem" title="Make a plan" id="c0d-Ci-hr4">
+                            <connections>
+                                <action selector="barButtonTappedWithSender:" destination="cOW-1t-uPg" id="cHB-fb-PFs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="LbG-Qp-G0u" id="YSC-x4-EZq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7j-LT-1AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="-1624.1379310344828"/>
+            <point key="canvasLocation" x="-666" y="-1624"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">

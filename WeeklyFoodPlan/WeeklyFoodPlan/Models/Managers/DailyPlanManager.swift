@@ -23,31 +23,35 @@ class DailyPlanManager {
         let dinnerObject = realm.objects(WhenObject.self).first { (when) -> Bool in
             when.value == Food.When.dinner.rawValue
         }
+        
         let breakfastResults = realm.objects(Food.self).filter("%@ IN whenObjects", breakfastObject!)
         let lunchResults = realm.objects(Food.self).filter("%@ IN whenObjects", lunchObject!)
         let dinnerResults = realm.objects(Food.self).filter("%@ IN whenObjects", dinnerObject!)
         
         let plan = DailyPlan()
         plan.date = Date()
-        
+    
         let breakfastMeal = Meal()
         breakfastMeal.name = Food.When.breakfast.rawValue
+        let randomBreakfastList = breakfastResults.shuffled()
         for i in 0..<10 {
-            let breakfast = breakfastResults[i]
+            let breakfast = randomBreakfastList[i]
             breakfastMeal.foods.append(breakfast)
         }
         
         let lunchMeal = Meal()
         lunchMeal.name = Food.When.lunch.rawValue
+        let randomLunchList = lunchResults.shuffled()
         for i in 0..<10 {
-            let lunch = lunchResults[i]
+            let lunch = randomLunchList[i]
             lunchMeal.foods.append(lunch)
         }
         
         let dinnerMeal = Meal()
         dinnerMeal.name = Food.When.dinner.rawValue
+        let randomDinnerList = dinnerResults.shuffled()
         for i in 0..<10 {
-            let dinner = dinnerResults[i]
+            let dinner = randomDinnerList[i]
             dinnerMeal.foods.append(dinner)
         }
         

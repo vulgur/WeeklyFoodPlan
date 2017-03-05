@@ -56,6 +56,12 @@ extension PlanMealListViewController: UICollectionViewDataSource {
         cell.tableView.reloadData()
         return cell
     }
+    
+    @IBAction func barButtonTapped(sender: UIBarButtonItem) {
+        let newPlans = WeeklyPlanManager.shared.fakePlan()
+        plans = newPlans
+        collectionView.reloadData()
+    }
 }
 
 extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
@@ -69,17 +75,8 @@ extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if let cell = collectionView.cellForItem(at: indexPath) as? PlanCell {
-//            let headerHeight = cell.tableView.sectionHeaderHeight
-//            let footerHeight = cell.tableView.sectionFooterHeight
-//            return CGSize(width: self.view.bounds.width, height: self.view.bounds.height - headerHeight - footerHeight)
-//        } else {
-//            return CGSize.zero
-//        }
         let headerHeight: CGFloat = navigationController!.navigationBar.bounds.height + UIApplication.shared.statusBarFrame.height
         let footerHeight: CGFloat = tabBarController!.tabBar.bounds.height
-        print("tab bar Height:", footerHeight)
-        print("nav bar height:", headerHeight)
         return CGSize(width: self.view.bounds.width, height: self.view.bounds.height - headerHeight - footerHeight)
     }
 
