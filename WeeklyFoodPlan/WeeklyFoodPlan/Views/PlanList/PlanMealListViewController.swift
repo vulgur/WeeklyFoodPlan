@@ -33,7 +33,7 @@ class PlanMealListViewController: UIViewController {
     
     private func generateFakeData() {
         plans.append(DailyPlanManager.shared.fakePlan())
-        plans.append(DailyPlanManager.shared.fakePlan())
+//        plans.append(DailyPlanManager.shared.fakePlan())
 //        plans.append(DailyPlanManager.shared.fakePlan())
 //        plans.append(DailyPlanManager.shared.fakePlan())
 //        plans.append(DailyPlanManager.shared.fakePlan())

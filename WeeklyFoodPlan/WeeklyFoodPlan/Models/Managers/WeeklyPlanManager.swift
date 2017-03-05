@@ -11,50 +11,42 @@ import RealmSwift
 import SwiftDate
 
 class WeeklyPlanManager {
-    enum FirstWeekday {
-        case saturday
-        case sunday
-        case monday
-    }
+
     
     static let shared = WeeklyPlanManager()
     
     let realm = try! Realm()
-    let firstWeekdayKey = "FirstWeekdayIsMonday"
-    var firstWeekdayIsSunday = true
+    let firstWeekDayKey = "FirstWeekday"
+    var firstWeekDay = WeekDay.sunday
     
+    private func regionOf(firstWeekDay: WeekDay) -> Region {
+        let tz = TimeZone.autoupdatingCurrent
+        let loc = Locale.autoupdatingCurrent
+        var cal = Calendar.autoupdatingCurrent
+        cal.firstWeekday = firstWeekDay.rawValue
+        
+        let region = Region(tz: tz, cal: cal, loc: loc)
+        return region
+    }
+
     func fakePlan() -> [DailyPlan] {
-        
-        if let _ = UserDefaults.standard.string(forKey: firstWeekdayKey) {
-            self.firstWeekdayIsSunday = false
+        let value = UserDefaults.standard.integer(forKey: firstWeekDayKey)
+        // random the value for test
+//        let value = Int(arc4random_uniform(UInt32(7))) + 1
+        if value != 0 {
+            firstWeekDay = WeekDay(rawValue: value)!
         } else {
-            self.firstWeekdayIsSunday = true
+            firstWeekDay = WeekDay(rawValue: Calendar.autoupdatingCurrent.firstWeekday)!
+            UserDefaults.standard.set(firstWeekDay.rawValue, forKey: firstWeekDayKey)
         }
-        
-        let now = Date()
+
+        let today = DateInRegion(absoluteDate: Date(), in: regionOf(firstWeekDay: firstWeekDay))
         
         var nextStartDay: DateInRegion
         var nextEndDay: DateInRegion
 
-        if now.isInWeekend {
-            // make plan for next week
-            if firstWeekdayIsSunday {
-                let nextSunday = now.next(day: .sunday)!
-                nextStartDay = DateInRegion(absoluteDate: nextSunday)
-                nextEndDay = DateInRegion(absoluteDate: nextSunday.next(day: .saturday)!)
-            } else {
-                nextStartDay = DateInRegion(absoluteDate: now.next(day: .monday)!)
-                nextEndDay = now.nextWeekend!.endDate
-            }
-        } else {
-            // make plan for this week
-            nextStartDay = DateInRegion(absoluteDate: now + 1.day)
-            if firstWeekdayIsSunday {
-                nextEndDay = now.nextWeekend!.startDate
-            } else {
-                nextEndDay = now.nextWeekend!.endDate
-            }
-        }
+        nextStartDay = today + 1.day
+        nextEndDay = nextStartDay.endWeek
         
         var components = DateComponents()
         components.day = 1
