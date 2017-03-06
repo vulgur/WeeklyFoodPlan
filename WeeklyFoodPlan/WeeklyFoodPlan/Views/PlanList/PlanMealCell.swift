@@ -20,8 +20,7 @@ class PlanMealCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        mealCollectionView.register(UINib.init(nibName: planFoodCellIdentifier, bundle: nil), forCellWithReuseIdentifier: planFoodCellIdentifier)
+        
         mealCollectionView.dataSource = self
         mealCollectionView.delegate = self
         mealCollectionView.isScrollEnabled = false
@@ -43,9 +42,6 @@ class PlanMealCell: UITableViewCell {
         }
     }
     
-    @IBAction func editButtonTapped(_ sender: UIButton) {
-        print("Edit Button Tapped")
-    }
 }
 
 extension PlanMealCell: UICollectionViewDataSource {
@@ -60,9 +56,9 @@ extension PlanMealCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: planFoodCellIdentifier, for: indexPath) as! PlanFoodCell
         let food = meal.foods[indexPath.row]
-        cell.foodNameLabel.text = food.name
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 2
+        cell.foodNameLabel.text = food.name
         return cell
     }
 }
@@ -82,7 +78,7 @@ extension PlanMealCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(8, 0, 8, 0)
+        return UIEdgeInsetsMake(8, 8, 8, 8)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

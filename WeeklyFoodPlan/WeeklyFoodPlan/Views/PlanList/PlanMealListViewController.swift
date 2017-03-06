@@ -62,6 +62,14 @@ extension PlanMealListViewController: UICollectionViewDataSource {
         plans = newPlans
         collectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMeals",
+            let button = sender as? UIButton{
+            let destinationVC = segue.destination as! MealViewController
+            destinationVC.dailyPlan = plans[button.tag]
+        }
+    }
 }
 
 extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {

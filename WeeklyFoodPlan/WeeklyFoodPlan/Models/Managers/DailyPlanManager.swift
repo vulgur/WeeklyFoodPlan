@@ -42,7 +42,7 @@ class DailyPlanManager {
         let lunchMeal = Meal()
         lunchMeal.name = Food.When.lunch.rawValue
         let randomLunchList = lunchResults.shuffled()
-        for i in 0..<10 {
+        for i in 0..<5 {
             let lunch = randomLunchList[i]
             lunchMeal.foods.append(lunch)
         }
@@ -50,7 +50,7 @@ class DailyPlanManager {
         let dinnerMeal = Meal()
         dinnerMeal.name = Food.When.dinner.rawValue
         let randomDinnerList = dinnerResults.shuffled()
-        for i in 0..<10 {
+        for i in 0..<3 {
             let dinner = randomDinnerList[i]
             dinnerMeal.foods.append(dinner)
         }

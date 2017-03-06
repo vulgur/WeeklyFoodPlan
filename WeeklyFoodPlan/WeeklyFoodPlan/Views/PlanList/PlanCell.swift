@@ -20,9 +20,8 @@ class PlanCell: UICollectionViewCell {
         // Initialization code
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 60
+        tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
@@ -48,7 +47,13 @@ extension PlanCell: UITableViewDataSource {
 }
 
 extension PlanCell: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return plan.date.dateAndWeekday()
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanHeaderCell") as! PlanHeaderCell
+        cell.dateLabel.text = plan.date.dateAndWeekday()
+        cell.editButton.tag = section
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
     }
 }
