@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,12 +45,112 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="esf-25-NCV">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="374" height="554"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanCell" id="kwW-we-HHt" customClass="PlanCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="554"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="554"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-Ta-AKp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="554"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <prototypes>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanMealCell" rowHeight="118" id="2Ww-cg-tsT" customClass="PlanMealCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="28" width="374" height="118"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ww-cg-tsT" id="kdg-5Z-tYP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="117"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-hy-TfU">
+                                                                        <rect key="frame" x="8" y="8" width="48" height="21"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzZ-fx-ymi">
+                                                                        <rect key="frame" x="336" y="8" width="30" height="30"/>
+                                                                        <state key="normal" title="Edit"/>
+                                                                        <connections>
+                                                                            <action selector="editButtonTapped:" destination="2Ww-cg-tsT" eventType="touchUpInside" id="DXZ-9B-4lA"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-9g-fn0">
+                                                                        <rect key="frame" x="8" y="37" width="358" height="72"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gtI-TW-r5V">
+                                                                            <size key="itemSize" width="99" height="50"/>
+                                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        </collectionViewFlowLayout>
+                                                                        <cells>
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanFoodCell" id="vcp-l9-EIw" customClass="PlanFoodCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="50"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="50"/>
+                                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1x-4h-brr">
+                                                                                            <rect key="frame" x="8" y="8" width="83" height="34"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                </view>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="R1x-4h-brr" firstAttribute="leading" secondItem="vcp-l9-EIw" secondAttribute="leadingMargin" id="5dT-F8-80j"/>
+                                                                                    <constraint firstItem="R1x-4h-brr" firstAttribute="top" secondItem="vcp-l9-EIw" secondAttribute="topMargin" id="K8f-vd-y6E"/>
+                                                                                    <constraint firstAttribute="bottomMargin" secondItem="R1x-4h-brr" secondAttribute="bottom" id="YlC-L0-KJI"/>
+                                                                                    <constraint firstAttribute="trailingMargin" secondItem="R1x-4h-brr" secondAttribute="trailing" id="nhX-2s-EfC"/>
+                                                                                </constraints>
+                                                                                <connections>
+                                                                                    <outlet property="foodNameLabel" destination="R1x-4h-brr" id="4fc-J3-J4A"/>
+                                                                                </connections>
+                                                                            </collectionViewCell>
+                                                                        </cells>
+                                                                    </collectionView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="0qI-9g-fn0" secondAttribute="trailing" id="8Za-O0-Z1u"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="vzZ-fx-ymi" secondAttribute="trailing" id="9Yy-Yd-tZa"/>
+                                                                    <constraint firstAttribute="leadingMargin" secondItem="0qI-9g-fn0" secondAttribute="leading" id="LOo-bS-qEC"/>
+                                                                    <constraint firstAttribute="leadingMargin" secondItem="BTH-hy-TfU" secondAttribute="leading" id="YzE-Aq-gnN"/>
+                                                                    <constraint firstAttribute="topMargin" secondItem="BTH-hy-TfU" secondAttribute="top" id="eFo-Qv-9gm"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="0qI-9g-fn0" secondAttribute="bottom" id="ked-8y-qgx"/>
+                                                                    <constraint firstAttribute="topMargin" secondItem="vzZ-fx-ymi" secondAttribute="top" id="xyz-NE-Mfe"/>
+                                                                    <constraint firstItem="0qI-9g-fn0" firstAttribute="top" secondItem="BTH-hy-TfU" secondAttribute="bottom" constant="8" id="ycT-Ql-smK"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="mealCollectionView" destination="0qI-9g-fn0" id="z37-ce-0zJ"/>
+                                                                <outlet property="mealLabel" destination="BTH-hy-TfU" id="KPP-9f-Ufe"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                </tableView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="aQP-Ta-AKp" firstAttribute="top" secondItem="kwW-we-HHt" secondAttribute="topMargin" constant="-8" id="AJb-jb-ZDP"/>
+                                            <constraint firstItem="aQP-Ta-AKp" firstAttribute="leading" secondItem="kwW-we-HHt" secondAttribute="leadingMargin" constant="-8" id="Ong-Oq-hx2"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="aQP-Ta-AKp" secondAttribute="trailing" constant="-8" id="RxT-Hh-205"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="aQP-Ta-AKp" secondAttribute="bottom" constant="-8" id="ec4-cW-0Zo"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tableView" destination="aQP-Ta-AKp" id="mqo-jp-r71"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7j-LT-1AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-666" y="-1624"/>
+            <point key="canvasLocation" x="-815.20000000000005" y="-1624.1379310344828"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">

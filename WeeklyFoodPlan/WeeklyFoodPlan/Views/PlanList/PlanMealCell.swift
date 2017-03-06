@@ -21,7 +21,7 @@ class PlanMealCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mealCollectionView.register(UINib.init(nibName: planFoodCellIdentifier, bundle: nil), forCellWithReuseIdentifier: planFoodCellIdentifier)
+//        mealCollectionView.register(UINib.init(nibName: planFoodCellIdentifier, bundle: nil), forCellWithReuseIdentifier: planFoodCellIdentifier)
         mealCollectionView.dataSource = self
         mealCollectionView.delegate = self
         mealCollectionView.isScrollEnabled = false
@@ -41,6 +41,10 @@ class PlanMealCell: UITableViewCell {
         } else {
             return CGSize(width: self.bounds.width, height: 50)
         }
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        print("Edit Button Tapped")
     }
 }
 
