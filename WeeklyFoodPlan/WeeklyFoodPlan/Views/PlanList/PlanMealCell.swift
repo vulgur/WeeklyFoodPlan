@@ -20,7 +20,7 @@ class PlanMealCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         mealCollectionView.dataSource = self
         mealCollectionView.delegate = self
         mealCollectionView.isScrollEnabled = false
@@ -33,15 +33,14 @@ class PlanMealCell: UITableViewCell {
     }
 
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        if meal.foods.count > 0 {
-            mealCollectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
-            mealCollectionView.layoutIfNeeded()
-            return mealCollectionView.collectionViewLayout.collectionViewContentSize
-        } else {
-            return CGSize(width: self.bounds.width, height: 50)
-        }
+        var totalSize = CGSize.zero
+        mealCollectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: CGFloat.leastNormalMagnitude)
+        mealCollectionView.layoutIfNeeded()
+        totalSize.height = mealLabel.bounds.height + mealCollectionView.collectionViewLayout.collectionViewContentSize.height + 8*3
+        totalSize.width = self.bounds.width
+//        return mealCollectionView.collectionViewLayout.collectionViewContentSize
+        return totalSize
     }
-    
 }
 
 extension PlanMealCell: UICollectionViewDataSource {
@@ -78,7 +77,7 @@ extension PlanMealCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(8, 8, 8, 8)
+        return UIEdgeInsetsMake(8, 0, 8, 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

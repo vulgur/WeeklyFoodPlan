@@ -159,14 +159,30 @@ extension FoodTagViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! FoodTagCell
         let title = self.tagList[indexPath.row]
         cell.tagLabel.text = title
-//        cell.layer.shouldRasterize = true
-//        cell.layer.rasterizationScale = UIScreen.main.scale
         return cell
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension FoodTagViewCell: UICollectionViewDelegateFlowLayout {
-
+    private func cellWidthFor(title: String) -> CGFloat {
+        let font = UIFont.systemFont(ofSize: tagFontSize)
+        let tagWidth = title.widthWithConstrainedHeight(height: tagHeight, font: font) + 30
+        return tagWidth
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let title = tagList[indexPath.row]
+        let tagWidth = cellWidthFor(title: title)
+        return CGSize(width: tagWidth, height: tagHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(8, 8, 8, 8)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
 
 }
