@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoodListCell: UITableViewCell {
+class FoodItemCell: UITableViewCell {
 
     @IBOutlet var foodImageView: UIImageView!
     @IBOutlet var foodNameLabel: UILabel!

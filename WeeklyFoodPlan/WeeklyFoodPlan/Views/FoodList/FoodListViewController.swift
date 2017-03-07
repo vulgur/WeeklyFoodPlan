@@ -10,7 +10,7 @@ import UIKit
 
 class FoodListViewController: UIViewController {
 
-    let cellIdentifier = "FoodListCell"
+    let cellIdentifier = "FoodItemCell"
     let segueIdentifier = "ShowFood"
     @IBOutlet var tableView: UITableView!
     
@@ -21,7 +21,9 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.view.backgroundColor = UIColor.white
-        tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 80
         tableView.tableFooterView = UIView()
     }
@@ -39,10 +41,11 @@ class FoodListViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == segueIdentifier {
-            if let food = sender as? Food,
-                let destinationVC = segue.destination as? FoodViewController {
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell) {
+                let food = foods[indexPath.row]
+                let destinationVC = segue.destination as! FoodViewController
                 destinationVC.food = food
             }
         }
@@ -57,27 +60,18 @@ class FoodListViewController: UIViewController {
         let homeCookAction = UIAlertAction(title: "HomeCook", style: .default) { [unowned self] (action) in
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
             vc.foodType = .homeCook
-//            let food = Food()
-//            food.typeRawValue = Food.FoodType.homeCook.rawValue
-//            vc.food = food
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let takeOutAction = UIAlertAction(title: "TakeOut", style: .default) { [unowned self] (action) in
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
             vc.foodType = .takeOut
-//            let food = Food()
-//            food.typeRawValue = Food.FoodType.takeOut.rawValue
-//            vc.food = food
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         let eatingOutAction = UIAlertAction(title: "EatingOut", style: .default) { [unowned self] (action) in
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
             vc.foodType = .eatingOut
-//            let food = Food()
-//            food.typeRawValue = Food.FoodType.eatingOut.rawValue
-//            vc.food = food
             blurView.removeFromSuperview()
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -88,8 +82,6 @@ class FoodListViewController: UIViewController {
         alertController.addAction(takeOutAction)
         alertController.addAction(eatingOutAction)
         alertController.addAction(cancelAction)
-        
-
         
         self.view.addSubview(blurView)
         self.present(alertController, animated: true, completion: nil)
@@ -104,7 +96,7 @@ extension FoodListViewController: UITableViewDataSource {
         return foods.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FoodListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FoodItemCell
         let food = foods[indexPath.row]
         cell.foodNameLabel.text = food.name
         let whenString = food.whenObjects.reduce("") { (string, when) -> String in
@@ -123,8 +115,8 @@ extension FoodListViewController: UITableViewDataSource {
 }
 
 extension FoodListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let food = foods[indexPath.row]
-        performSegue(withIdentifier: segueIdentifier, sender: food)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let food = foods[indexPath.row]
+//        performSegue(withIdentifier: segueIdentifier, sender: food)
+//    }
 }

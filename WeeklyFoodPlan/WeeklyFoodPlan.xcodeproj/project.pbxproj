@@ -51,8 +51,7 @@
 		D2F6E7151E685E21002F32A5 /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7131E685E21002F32A5 /* InputItemView.swift */; };
 		D2F6E7161E685E21002F32A5 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7141E685E21002F32A5 /* TagView.swift */; };
 		D2F6E73A1E685F77002F32A5 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7291E685F77002F32A5 /* FoodViewController.swift */; };
-		D2F6E73F1E68600B002F32A5 /* FoodListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E73C1E68600B002F32A5 /* FoodListCell.swift */; };
-		D2F6E7401E68600B002F32A5 /* FoodListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F6E73D1E68600B002F32A5 /* FoodListCell.xib */; };
+		D2F6E73F1E68600B002F32A5 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E73C1E68600B002F32A5 /* FoodItemCell.swift */; };
 		D2F6E7411E68600B002F32A5 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E73E1E68600B002F32A5 /* FoodListViewController.swift */; };
 		D2F6E7531E686011002F32A5 /* FoodHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7431E686011002F32A5 /* FoodHeaderViewCell.swift */; };
 		D2F6E7541E686011002F32A5 /* FoodHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F6E7441E686011002F32A5 /* FoodHeaderViewCell.xib */; };
@@ -160,8 +159,7 @@
 		D2F6E7131E685E21002F32A5 /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
 		D2F6E7141E685E21002F32A5 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		D2F6E7291E685F77002F32A5 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
-		D2F6E73C1E68600B002F32A5 /* FoodListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListCell.swift; sourceTree = "<group>"; };
-		D2F6E73D1E68600B002F32A5 /* FoodListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodListCell.xib; sourceTree = "<group>"; };
+		D2F6E73C1E68600B002F32A5 /* FoodItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		D2F6E73E1E68600B002F32A5 /* FoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		D2F6E7431E686011002F32A5 /* FoodHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodHeaderViewCell.swift; sourceTree = "<group>"; };
 		D2F6E7441E686011002F32A5 /* FoodHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodHeaderViewCell.xib; sourceTree = "<group>"; };
@@ -385,8 +383,7 @@
 		D2F6E73B1E68600B002F32A5 /* FoodList */ = {
 			isa = PBXGroup;
 			children = (
-				D2F6E73C1E68600B002F32A5 /* FoodListCell.swift */,
-				D2F6E73D1E68600B002F32A5 /* FoodListCell.xib */,
+				D2F6E73C1E68600B002F32A5 /* FoodItemCell.swift */,
 				D2F6E73E1E68600B002F32A5 /* FoodListViewController.swift */,
 			);
 			path = FoodList;
@@ -527,7 +524,6 @@
 				D2CFA27A1E196F2400277BD9 /* kfc_recipe.json in Resources */,
 				D2F6E7601E686011002F32A5 /* FoodTagCell.xib in Resources */,
 				D2CFA26B1E1432BC00277BD9 /* nutritions.json in Resources */,
-				D2F6E7401E68600B002F32A5 /* FoodListCell.xib in Resources */,
 				D2F6E75C1E686011002F32A5 /* FoodOptionViewCell.xib in Resources */,
 				D20E39161E03048700349F78 /* Main.storyboard in Resources */,
 				D2F6E7581E686011002F32A5 /* FoodViewListViewCell.xib in Resources */,
@@ -598,7 +594,7 @@
 				D23252511E60A3100065C40A /* Tip.swift in Sources */,
 				D2F6E7611E686011002F32A5 /* FoodTagViewCell.swift in Sources */,
 				D2F6E7151E685E21002F32A5 /* InputItemView.swift in Sources */,
-				D2F6E73F1E68600B002F32A5 /* FoodListCell.swift in Sources */,
+				D2F6E73F1E68600B002F32A5 /* FoodItemCell.swift in Sources */,
 				D217B4AD1E6DCF890092966C /* MealHeaderCell.swift in Sources */,
 				D2FB033D1E6C04C000634661 /* Date+Extension.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,

@@ -21,7 +21,7 @@ class PlanCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
