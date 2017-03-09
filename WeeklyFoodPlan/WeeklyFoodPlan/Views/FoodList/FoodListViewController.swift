@@ -18,7 +18,7 @@ class FoodListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = false
+        
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.view.backgroundColor = UIColor.white
         
@@ -30,6 +30,7 @@ class FoodListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         foods = BaseManager.shared.queryAllFoods()
         tableView.reloadData()
     }

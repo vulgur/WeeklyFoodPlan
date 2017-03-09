@@ -92,7 +92,7 @@ class FoodViewController: UIViewController {
         tableView.register(UINib.init(nibName: foodListViewCellIdentifier, bundle: nil), forCellReuseIdentifier: foodListViewCellIdentifier)
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 40
         tableView.separatorColor = UIColor.clear
         tableView.tableFooterView = UIView()
         

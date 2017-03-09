@@ -32,6 +32,7 @@ class FoodViewListViewCell: UITableViewCell {
         tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.dataSource = self
         tableView.isScrollEnabled = false
+        tableView.rowHeight = 44
         tableView.tableFooterView = UIView()
     }
 
