@@ -17,11 +17,20 @@ class PlanMealListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
-        
+     
         collectionView.dataSource = self
         collectionView.delegate = self
-        generateFakeData()
+        generateFakeData()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.automaticallyAdjustsScrollViewInsets = false
+        navigationItem.title = "美食计划".localized()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         collectionView.reloadData()
     }
 
@@ -88,6 +97,7 @@ extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
         let headerHeight: CGFloat = navigationController!.navigationBar.bounds.height + UIApplication.shared.statusBarFrame.height
         let footerHeight: CGFloat = tabBarController!.tabBar.bounds.height
         return CGSize(width: self.view.bounds.width, height: self.view.bounds.height - headerHeight - footerHeight)
+//        return self.view.bounds.size
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
