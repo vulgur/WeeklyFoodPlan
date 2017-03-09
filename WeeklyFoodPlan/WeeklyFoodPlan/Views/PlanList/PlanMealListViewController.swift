@@ -21,7 +21,6 @@ class PlanMealListViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-//        collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         generateFakeData()
         collectionView.reloadData()
     }
@@ -64,6 +63,9 @@ extension PlanMealListViewController: UICollectionViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
         if segue.identifier == "ShowMeals",
             let button = sender as? UIButton{
             let destinationVC = segue.destination as! MealViewController

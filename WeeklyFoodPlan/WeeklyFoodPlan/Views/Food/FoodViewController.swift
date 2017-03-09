@@ -48,6 +48,13 @@ class FoodViewController: UIViewController {
         configFood()
         configSubviews()
         tableView.reloadData()
+        
+        if food != nil {
+            navigationItem.title = "修改美食".localized()
+        } else {
+            navigationItem.title = "新增美食".localized()
+        }
+        navigationController?.navigationBar.backItem?.title = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {

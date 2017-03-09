@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7j-LT-1AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-796" y="-1624.1379310344828"/>
+            <point key="canvasLocation" x="-816" y="-1625"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="sZY-wz-N7x">
@@ -275,6 +275,7 @@
                                         <connections>
                                             <outlet property="foodImageView" destination="8OS-j5-ufb" id="icI-vd-pqd"/>
                                             <outlet property="foodNameLabel" destination="Ago-WI-Jmj" id="ozX-Jq-kDR"/>
+                                            <segue destination="dPl-vk-gEt" kind="show" identifier="ShowFood" id="mTv-FV-q9t"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -373,8 +374,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqV-FX-3Q8">
-                                                    <rect key="frame" x="56" y="24" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqV-FX-3Q8">
+                                                    <rect key="frame" x="56" y="30.5" width="31" height="14.5"/>
                                                     <color key="backgroundColor" red="0.51076603014035959" green="1" blue="0.63911822833953691" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -387,8 +388,8 @@
                                                         <constraint firstAttribute="height" constant="30" id="j2q-92-loQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-4G-tOS">
-                                                    <rect key="frame" x="106" y="24" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-4G-tOS">
+                                                    <rect key="frame" x="95" y="30.5" width="31" height="14.5"/>
                                                     <color key="backgroundColor" red="1" green="0.79703502540341808" blue="0.1851695489969678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -446,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvg-Bc-OLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519.20000000000005" y="-152.47376311844079"/>
+            <point key="canvasLocation" x="-815" y="-152"/>
         </scene>
         <!--添加美食-->
         <scene sceneID="b9e-0e-BOU">
@@ -461,7 +462,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hTw-Zn-rBn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dPl-vk-gEt" id="wEp-iQ-KCu"/>
@@ -488,7 +489,7 @@
                             <constraint firstItem="hTw-Zn-rBn" firstAttribute="top" secondItem="BzZ-dY-RD0" secondAttribute="bottom" id="ATJ-W3-BYM"/>
                             <constraint firstItem="hTw-Zn-rBn" firstAttribute="leading" secondItem="21U-bB-gIz" secondAttribute="leading" id="Aei-5z-5UY"/>
                             <constraint firstItem="GwE-6w-rYD" firstAttribute="top" secondItem="D1J-Xg-DhU" secondAttribute="bottom" id="BQI-IP-tQs"/>
-                            <constraint firstItem="D1J-Xg-DhU" firstAttribute="top" secondItem="hTw-Zn-rBn" secondAttribute="bottom" constant="8" id="BoR-gf-Njv"/>
+                            <constraint firstItem="D1J-Xg-DhU" firstAttribute="top" secondItem="hTw-Zn-rBn" secondAttribute="bottom" id="BoR-gf-Njv"/>
                             <constraint firstAttribute="trailing" secondItem="hTw-Zn-rBn" secondAttribute="trailing" id="TBH-Hk-Zff"/>
                             <constraint firstAttribute="trailing" secondItem="D1J-Xg-DhU" secondAttribute="trailing" id="X8g-4y-H7J"/>
                             <constraint firstItem="D1J-Xg-DhU" firstAttribute="leading" secondItem="21U-bB-gIz" secondAttribute="leading" id="zQ0-nJ-T0f"/>
@@ -510,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Im-gm-bki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="-152"/>
+            <point key="canvasLocation" x="73" y="-152"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="zQa-S3-B4w">
@@ -570,4 +571,7 @@
             <point key="canvasLocation" x="-1759" y="-1624"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="S93-4f-2hM"/>
+    </inferredMetricsTieBreakers>
 </document>
