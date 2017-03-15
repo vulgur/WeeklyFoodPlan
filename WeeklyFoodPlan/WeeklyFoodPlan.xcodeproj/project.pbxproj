@@ -48,6 +48,7 @@
 		D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909A1E4453F900905D10 /* Nutrition.swift */; };
 		D2D290AC1E4453F900905D10 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909E1E4453F900905D10 /* Tag.swift */; };
 		D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290AE1E446DF400905D10 /* FreezerViewController.swift */; };
+		D2E70D131E799A6900896C4B /* FoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D121E799A6900896C4B /* FoodManager.swift */; };
 		D2F6E7151E685E21002F32A5 /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7131E685E21002F32A5 /* InputItemView.swift */; };
 		D2F6E7161E685E21002F32A5 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7141E685E21002F32A5 /* TagView.swift */; };
 		D2F6E73A1E685F77002F32A5 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7291E685F77002F32A5 /* FoodViewController.swift */; };
@@ -156,6 +157,7 @@
 		D2D2909E1E4453F900905D10 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		D2D290AE1E446DF400905D10 /* FreezerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezerViewController.swift; sourceTree = "<group>"; };
 		D2D290B31E44E4C800905D10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D2E70D121E799A6900896C4B /* FoodManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodManager.swift; sourceTree = "<group>"; };
 		D2F6E7131E685E21002F32A5 /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
 		D2F6E7141E685E21002F32A5 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		D2F6E7291E685F77002F32A5 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				D2D290971E4453F900905D10 /* NutritionManager.swift */,
 				D2F6E7721E690A7F002F32A5 /* DailyPlanManager.swift */,
 				D2FB03351E6BF36200634661 /* WeeklyPlanManager.swift */,
+				D2E70D121E799A6900896C4B /* FoodManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				D2F6E7411E68600B002F32A5 /* FoodListViewController.swift in Sources */,
 				D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */,
 				D23252511E60A3100065C40A /* Tip.swift in Sources */,
+				D2E70D131E799A6900896C4B /* FoodManager.swift in Sources */,
 				D2F6E7611E686011002F32A5 /* FoodTagViewCell.swift in Sources */,
 				D2F6E7151E685E21002F32A5 /* InputItemView.swift in Sources */,
 				D2F6E73F1E68600B002F32A5 /* FoodItemCell.swift in Sources */,

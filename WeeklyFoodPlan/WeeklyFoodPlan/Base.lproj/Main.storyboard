@@ -227,19 +227,32 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6H-Ot-Im0">
                                                     <rect key="frame" x="345" y="11" width="22" height="22"/>
+                                                    <connections>
+                                                        <action selector="addFoodButtonTapped:" destination="Rxj-mc-d2j" eventType="touchUpInside" id="4XS-UL-azO"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDL-bV-jTW">
+                                                    <rect key="frame" x="295" y="7" width="30" height="30"/>
+                                                    <state key="normal" title="Pick"/>
+                                                    <connections>
+                                                        <action selector="pickFoodButtonTapped:" destination="Rxj-mc-d2j" eventType="touchUpInside" id="5xt-AR-9dj"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="uDL-bV-jTW" firstAttribute="centerY" secondItem="y6H-Ot-Im0" secondAttribute="centerY" id="FBv-fJ-o99"/>
                                                 <constraint firstItem="Bw2-Om-n54" firstAttribute="centerY" secondItem="nOB-h2-tWh" secondAttribute="centerY" id="FC6-ai-4SU"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="Bw2-Om-n54" secondAttribute="leading" id="JxT-DM-Nxo"/>
                                                 <constraint firstItem="y6H-Ot-Im0" firstAttribute="centerY" secondItem="nOB-h2-tWh" secondAttribute="centerY" id="VpK-lS-F6j"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="y6H-Ot-Im0" secondAttribute="trailing" id="nXp-X3-aZY"/>
+                                                <constraint firstItem="y6H-Ot-Im0" firstAttribute="leading" secondItem="uDL-bV-jTW" secondAttribute="trailing" constant="20" id="qRb-g3-Qtn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addFoodButton" destination="y6H-Ot-Im0" id="rI5-T4-4bc"/>
                                             <outlet property="mealNameLabel" destination="Bw2-Om-n54" id="xBu-fG-b4L"/>
+                                            <outlet property="pickFoodButton" destination="uDL-bV-jTW" id="vLF-WY-tpu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MealItemCell" rowHeight="60" id="IoR-Fs-iKn" customClass="MealItemCell" customModule="WeeklyFoodPlan" customModuleProvider="target">

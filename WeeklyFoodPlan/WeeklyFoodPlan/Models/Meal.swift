@@ -11,7 +11,7 @@ import RealmSwift
 
 class Meal: Object {
     dynamic var id = UUID().uuidString
-    dynamic var name: String = ""
+    dynamic var name: String = "" // correspond to Food.When.value
     var foods = List<Food>()
     
     override static func primaryKey() -> String? {

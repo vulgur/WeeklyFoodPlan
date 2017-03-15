@@ -31,7 +31,7 @@ class BaseManager {
     
     func queryAllFoods() -> [Food] {
         let foods = realm.objects(Food.self).toArray()
-        return foods
+        return foods.reversed()
     }
     
     func deleteAll() {

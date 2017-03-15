@@ -8,11 +8,21 @@
 
 import UIKit
 
+protocol MealHeaderCellDelegate {
+    func addFoodButtonTapped(section: Int)
+    func pickFoodButtonTapped(section: Int)
+}
+
 class MealHeaderCell: UITableViewCell {
 
-    
     @IBOutlet var mealNameLabel: UILabel!
     @IBOutlet var addFoodButton: UIButton!
+    @IBOutlet var pickFoodButton: UIButton!
+    
+    var section: Int?
+    
+    var delegate: MealHeaderCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,4 +34,14 @@ class MealHeaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func addFoodButtonTapped(_ sender: UIButton) {
+        if let section = section {
+            delegate?.addFoodButtonTapped(section: section)
+        }
+    }
+    @IBAction func pickFoodButtonTapped(_ sender: UIButton) {
+        if let section = section {
+            delegate?.pickFoodButtonTapped(section: section)
+        }
+    }
 }
