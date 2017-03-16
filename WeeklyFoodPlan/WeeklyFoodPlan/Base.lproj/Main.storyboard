@@ -229,6 +229,7 @@
                                                     <rect key="frame" x="345" y="11" width="22" height="22"/>
                                                     <connections>
                                                         <action selector="addFoodButtonTapped:" destination="Rxj-mc-d2j" eventType="touchUpInside" id="4XS-UL-azO"/>
+                                                        <segue destination="ckF-Vs-et3" kind="show" identifier="SearchFoods" id="tQE-VG-J6D"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDL-bV-jTW">
@@ -309,6 +310,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMC-kE-ZsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="-1624.1379310344828"/>
+        </scene>
+        <!--搜索美食-->
+        <scene sceneID="ASF-Px-W38">
+            <objects>
+                <viewController id="ckF-Vs-et3" customClass="FoodSearchViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cse-Kn-YeR"/>
+                        <viewControllerLayoutGuide type="bottom" id="kyo-IN-ugy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EXQ-1r-WZM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-Mb-MQO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="atq-UR-CDt">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodSearchCell" rowHeight="50" id="YhI-iP-xbU" customClass="FoodSearchCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YhI-iP-xbU" id="m0Z-r6-Syh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-cy-4pD">
+                                                    <rect key="frame" x="8" y="5" width="40" height="40"/>
+                                                    <color key="backgroundColor" red="0.78897198953678804" green="1" blue="0.45598007603231439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="3Jc-CW-kj2"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Vfk-Ar-Md3"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5d-1A-IG5">
+                                                    <rect key="frame" x="56" y="15" width="311" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="U5d-1A-IG5" secondAttribute="trailing" id="8Gc-Qi-9ob"/>
+                                                <constraint firstItem="U5d-1A-IG5" firstAttribute="leading" secondItem="Wha-cy-4pD" secondAttribute="trailing" constant="8" id="COL-O3-9OE"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Wha-cy-4pD" secondAttribute="leading" id="E3g-t8-QnL"/>
+                                                <constraint firstItem="Wha-cy-4pD" firstAttribute="centerY" secondItem="m0Z-r6-Syh" secondAttribute="centerY" id="TwQ-1f-Qe8"/>
+                                                <constraint firstItem="U5d-1A-IG5" firstAttribute="centerY" secondItem="m0Z-r6-Syh" secondAttribute="centerY" id="uc9-zj-BC0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="foodImageView" destination="Wha-cy-4pD" id="J4x-LO-q0A"/>
+                                            <outlet property="foodLabel" destination="U5d-1A-IG5" id="Z81-N1-NPR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="atq-UR-CDt" secondAttribute="trailing" id="1Xh-bj-iGh"/>
+                            <constraint firstItem="atq-UR-CDt" firstAttribute="leading" secondItem="EXQ-1r-WZM" secondAttribute="leading" id="49D-sD-Cig"/>
+                            <constraint firstItem="kAK-Mb-MQO" firstAttribute="leading" secondItem="EXQ-1r-WZM" secondAttribute="leading" id="4s3-wg-WBF"/>
+                            <constraint firstItem="atq-UR-CDt" firstAttribute="top" secondItem="kAK-Mb-MQO" secondAttribute="bottom" id="do9-Rc-0Pk"/>
+                            <constraint firstAttribute="trailing" secondItem="kAK-Mb-MQO" secondAttribute="trailing" id="gt0-tC-elA"/>
+                            <constraint firstItem="kAK-Mb-MQO" firstAttribute="top" secondItem="Cse-Kn-YeR" secondAttribute="bottom" id="oGD-D7-i8T"/>
+                            <constraint firstItem="kyo-IN-ugy" firstAttribute="top" secondItem="atq-UR-CDt" secondAttribute="bottom" id="sBp-2d-lIr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="搜索美食" id="79K-ux-c6x">
+                        <barButtonItem key="rightBarButtonItem" title="取消" id="s7Z-Ms-geU"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="kAK-Mb-MQO" id="QL4-0s-pSl"/>
+                        <outlet property="tableView" destination="atq-UR-CDt" id="Wde-wE-v0J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="il3-CZ-vYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="-1625"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">

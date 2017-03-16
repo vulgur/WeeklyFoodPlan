@@ -19,8 +19,6 @@ class MealHeaderCell: UITableViewCell {
     @IBOutlet var addFoodButton: UIButton!
     @IBOutlet var pickFoodButton: UIButton!
     
-    var section: Int?
-    
     var delegate: MealHeaderCellDelegate?
     
     override func awakeFromNib() {
@@ -35,13 +33,12 @@ class MealHeaderCell: UITableViewCell {
     }
 
     @IBAction func addFoodButtonTapped(_ sender: UIButton) {
-        if let section = section {
-            delegate?.addFoodButtonTapped(section: section)
-        }
+        let section = addFoodButton.tag
+        delegate?.addFoodButtonTapped(section: section)
+    
     }
     @IBAction func pickFoodButtonTapped(_ sender: UIButton) {
-        if let section = section {
-            delegate?.pickFoodButtonTapped(section: section)
-        }
+        let section = pickFoodButton.tag
+        delegate?.pickFoodButtonTapped(section: section)
     }
 }

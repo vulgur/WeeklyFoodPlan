@@ -21,4 +21,12 @@ class FoodManager {
         let randomIndex = Int(arc4random_uniform(UInt32(results.count)))
         return results[randomIndex]
     }
+    
+    func allFoods(of when: Food.When) -> [Food] {
+        let whenObject = realm.objects(WhenObject.self).first { (w) -> Bool in
+            w.value == when.rawValue
+        }
+        let results = realm.objects(Food.self).filter("%@ IN whenObjects", whenObject!)
+        return results.toArray()
+    }
 }

@@ -40,14 +40,11 @@ class MealViewController: UIViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        if segue.identifier == "ShowFood" {
-            if let destinationVC = segue.destination as? FoodViewController,
-                let cell = sender as? UITableViewCell,
-                let indexPath = tableView.indexPath(for: cell) {
-                let meal = dailyPlan.meals[indexPath.section]
-                let food = meal.foods[indexPath.row]
-                destinationVC.food = food
-            }
+        if segue.identifier == "SearchFoods",
+            let button = sender as? UIButton {
+            let destinationVC = segue.destination as! FoodSearchViewController
+            let when = Food.When(rawValue: dailyPlan.meals[button.tag].name)
+            destinationVC.when = when
         }
     }
 
@@ -93,7 +90,9 @@ extension MealViewController: UITableViewDelegate {
         let meal = dailyPlan.meals[section]
         let cell = tableView.dequeueReusableCell(withIdentifier: mealHeaderCellIdentifier) as! MealHeaderCell
         cell.mealNameLabel.text = meal.name
-        cell.section = section
+//        cell.section = section
+        cell.addFoodButton.tag = section
+        cell.pickFoodButton.tag = section
         cell.delegate = self
         let sectionView = UIView(frame: cell.frame)
         sectionView.addSubview(cell)
@@ -103,7 +102,7 @@ extension MealViewController: UITableViewDelegate {
 
 extension MealViewController: MealHeaderCellDelegate {
     func addFoodButtonTapped(section: Int) {
-        // TODO
+//        performSegue(withIdentifier: "SearchFoods", sender: section)
     }
     
     func pickFoodButtonTapped(section: Int) {

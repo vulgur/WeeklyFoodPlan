@@ -49,6 +49,8 @@
 		D2D290AC1E4453F900905D10 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909E1E4453F900905D10 /* Tag.swift */; };
 		D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290AE1E446DF400905D10 /* FreezerViewController.swift */; };
 		D2E70D131E799A6900896C4B /* FoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D121E799A6900896C4B /* FoodManager.swift */; };
+		D2E70D161E7ADB3C00896C4B /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D151E7ADB3C00896C4B /* FoodSearchViewController.swift */; };
+		D2E70D181E7AE3CF00896C4B /* FoodSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D171E7AE3CF00896C4B /* FoodSearchCell.swift */; };
 		D2F6E7151E685E21002F32A5 /* InputItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7131E685E21002F32A5 /* InputItemView.swift */; };
 		D2F6E7161E685E21002F32A5 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7141E685E21002F32A5 /* TagView.swift */; };
 		D2F6E73A1E685F77002F32A5 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6E7291E685F77002F32A5 /* FoodViewController.swift */; };
@@ -158,6 +160,8 @@
 		D2D290AE1E446DF400905D10 /* FreezerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezerViewController.swift; sourceTree = "<group>"; };
 		D2D290B31E44E4C800905D10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2E70D121E799A6900896C4B /* FoodManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodManager.swift; sourceTree = "<group>"; };
+		D2E70D151E7ADB3C00896C4B /* FoodSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchViewController.swift; sourceTree = "<group>"; };
+		D2E70D171E7AE3CF00896C4B /* FoodSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchCell.swift; sourceTree = "<group>"; };
 		D2F6E7131E685E21002F32A5 /* InputItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItemView.swift; sourceTree = "<group>"; };
 		D2F6E7141E685E21002F32A5 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		D2F6E7291E685F77002F32A5 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 		D2CFA27B1E1AB80500277BD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2E70D141E7ADB2400896C4B /* FoodSearch */,
 				D217B4A51E6D13750092966C /* Meal */,
 				D2F6E7651E688679002F32A5 /* PlanList */,
 				D2F6E73B1E68600B002F32A5 /* FoodList */,
@@ -363,6 +368,15 @@
 				D2E70D121E799A6900896C4B /* FoodManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D2E70D141E7ADB2400896C4B /* FoodSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D2E70D151E7ADB3C00896C4B /* FoodSearchViewController.swift */,
+				D2E70D171E7AE3CF00896C4B /* FoodSearchCell.swift */,
+			);
+			path = FoodSearch;
 			sourceTree = "<group>";
 		};
 		D2F6E7121E685E21002F32A5 /* Common */ = {
@@ -611,6 +625,7 @@
 				D2F6E7681E6886AB002F32A5 /* PlanMealCell.swift in Sources */,
 				D2F6E7731E690A7F002F32A5 /* DailyPlanManager.swift in Sources */,
 				D2F6E77B1E6BE862002F32A5 /* PlanMealListViewController.swift in Sources */,
+				D2E70D181E7AE3CF00896C4B /* FoodSearchCell.swift in Sources */,
 				D217B4AB1E6DCF7C0092966C /* MealItemCell.swift in Sources */,
 				D2F6E75F1E686011002F32A5 /* FoodTagCell.swift in Sources */,
 				D2F6E7641E68612D002F32A5 /* Food.swift in Sources */,
@@ -621,6 +636,7 @@
 				D2F6E76C1E68878E002F32A5 /* PlanFoodCell.swift in Sources */,
 				D217B4A41E6C24F90092966C /* Collection+Extension.swift in Sources */,
 				D2426C8C1E62C98F00EDA5BC /* Realm+Extension.swift in Sources */,
+				D2E70D161E7ADB3C00896C4B /* FoodSearchViewController.swift in Sources */,
 				D2D290A31E4453F900905D10 /* BaseManager.swift in Sources */,
 				D2F6E7791E6BE569002F32A5 /* WeelyPlanFilter.swift in Sources */,
 				D2F6E7571E686011002F32A5 /* FoodViewListViewCell.swift in Sources */,
