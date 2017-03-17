@@ -44,10 +44,10 @@ class MealViewController: UIViewController {
             let button = sender as? UIButton {
             let destinationVC = segue.destination as! FoodSearchViewController
             let when = Food.When(rawValue: dailyPlan.meals[button.tag].name)
+            destinationVC.delegate = self
             destinationVC.when = when
         }
     }
-
 }
 
 extension MealViewController: UITableViewDataSource {
@@ -124,5 +124,17 @@ extension MealViewController: SwipyCellDelegate {
     }
     func swipeableTableViewCellDidStartSwiping(_ cell: SwipyCell) {
     
+    }
+}
+
+extension MealViewController: FoodSearchViewControllerDelegate {
+    func didChoose(food: Food, when: Food.When) {
+        for meal in dailyPlan.meals {
+            if meal.name == when.rawValue {
+                meal.foods.append(food)
+                let indexPath = IndexPath(row: meal.foods.count-1, section: dailyPlan.meals.index(of: meal)!)
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+        }
     }
 }

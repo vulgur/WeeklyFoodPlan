@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FoodSearchViewControllerDelegate {
+    func didChoose(food: Food, when: Food.When)
+}
+
 class FoodSearchViewController: UIViewController {
 
     @IBOutlet var searchBar: UISearchBar!
@@ -15,6 +19,7 @@ class FoodSearchViewController: UIViewController {
     
     let cellIdentifier = "FoodSearchCell"
     
+    var delegate: FoodSearchViewControllerDelegate?
     var when: Food.When?
     var searchResults = [Food]()
     
@@ -43,18 +48,6 @@ class FoodSearchViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension FoodSearchViewController: UITableViewDataSource {
@@ -76,6 +69,7 @@ extension FoodSearchViewController: UITableViewDataSource {
 extension FoodSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = searchResults[indexPath.row]
-        print("Select: ", food.name)
+        delegate?.didChoose(food: food, when: when!)
+        navigationController?.popViewController(animated: true)
     }
 }
