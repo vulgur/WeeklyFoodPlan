@@ -29,6 +29,12 @@ class WeeklyPlanManager {
         return region
     }
 
+    func nextWeeklyPlan() -> [DailyPlan] {
+        let now = Date()
+        let results = realm.objects(DailyPlan.self).filter("date > %@", now)
+        return results.toArray()
+    }
+
     func fakePlan() -> [DailyPlan] {
         let value = UserDefaults.standard.integer(forKey: firstWeekDayKey)
         // random the value for test

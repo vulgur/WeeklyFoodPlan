@@ -24,6 +24,18 @@ class BaseManager {
         }
     }
     
+    func save<T: Object>(objects: [T]) {
+        for obj in objects {
+            do {
+                try realm.write {
+                    realm.add(obj, update: true)
+                }
+            } catch let error as NSError {
+                print("Error in saving: ", error)
+            }
+        }
+    }
+    
     func queryTotalCount<T: Object>(ofType: T.Type) -> Int {
         let results = realm.objects(T.self)
         return results.count
@@ -44,6 +56,28 @@ class BaseManager {
         do {
             try realm.write {
                 realm.delete(object)
+            }
+        } catch let error as NSError {
+            print("Error in deleting: ", error)
+        }
+    }
+    
+    func delete<T: Object>(objects: [T]) {
+        for obj in objects {
+            do {
+                try realm.write {
+                    realm.delete(obj)
+                }
+            } catch let error as NSError {
+                print("Error in deleting: ", error)
+            }
+        }
+    }
+    
+    func transaction(closure: ()->()) {
+        do {
+            try realm.write {
+                closure()
             }
         } catch let error as NSError {
             print("Error in deleting: ", error)

@@ -30,6 +30,11 @@ class MealViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.title = dailyPlan.date.dateAndWeekday()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        BaseManager.shared.save(object: dailyPlan)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,8 +79,9 @@ extension MealViewController: UITableViewDataSource {
     private func deleteFood(_ cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             let meal = dailyPlan.meals[indexPath.section]
-//            let food = meal.foods[indexPath.row]
-            meal.foods.remove(objectAtIndex: indexPath.row)
+            BaseManager.shared.transaction {
+                meal.foods.remove(objectAtIndex: indexPath.row)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -109,7 +115,9 @@ extension MealViewController: MealHeaderCellDelegate {
         let meal = dailyPlan.meals[section]
         let when = Food.When(rawValue: meal.name)
         let food = FoodManager.shared.randomFood(of: when!)
-        meal.foods.append(food)
+        BaseManager.shared.transaction {
+            meal.foods.append(food)
+        }
         let indexPath = IndexPath(row: meal.foods.count-1, section: section)
         tableView.insertRows(at: [indexPath], with: .fade)
     }
@@ -131,7 +139,9 @@ extension MealViewController: FoodSearchViewControllerDelegate {
     func didChoose(food: Food, when: Food.When) {
         for meal in dailyPlan.meals {
             if meal.name == when.rawValue {
-                meal.foods.append(food)
+                BaseManager.shared.transaction {
+                    meal.foods.append(food)
+                }
                 let indexPath = IndexPath(row: meal.foods.count-1, section: dailyPlan.meals.index(of: meal)!)
                 tableView.insertRows(at: [indexPath], with: .fade)
             }

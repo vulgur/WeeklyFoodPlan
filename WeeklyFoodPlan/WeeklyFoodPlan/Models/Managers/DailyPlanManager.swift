@@ -34,7 +34,7 @@ class DailyPlanManager {
         let breakfastMeal = Meal()
         breakfastMeal.name = Food.When.breakfast.rawValue
         let randomBreakfastList = breakfastResults.shuffled()
-        for i in 0..<10 {
+        for i in 0..<3 {
             let breakfast = randomBreakfastList[i]
             breakfastMeal.foods.append(breakfast)
         }
