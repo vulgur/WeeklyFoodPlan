@@ -575,7 +575,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 			);
 			name = Carthage;
 			outputPaths = (

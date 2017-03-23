@@ -12,6 +12,7 @@ class PlanHeaderCell: UITableViewCell {
 
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var editButton: UIButton!
+    @IBOutlet var pickButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

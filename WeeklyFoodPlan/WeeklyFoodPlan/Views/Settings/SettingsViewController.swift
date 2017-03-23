@@ -10,7 +10,6 @@ import UIKit
 import SwiftDate
 
 class SettingsViewController: UITableViewController {
-    let firstWeekdayKey = "First Weekday"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +33,16 @@ class SettingsViewController: UITableViewController {
         case 0:
             let alertController = UIAlertController(title: nil, message: "Choose the first week day", preferredStyle: .actionSheet)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let mondayAction = UIAlertAction(title: "Monday", style: .default, handler: { [unowned self] (action) in
-                UserDefaults.init().set(WeekDay.monday.rawValue, forKey: self.firstWeekdayKey)
+            let mondayAction = UIAlertAction(title: "Monday", style: .default, handler: { (action) in
+                UserDefaults.init().set(WeekDay.monday.rawValue, forKey: WeeklyPlanManager.firstWeekdayKey)
                 cell.detailTextLabel?.text = "Monday"
             })
-            let sundayAction = UIAlertAction(title: "Sunday", style: .default, handler: { [unowned self](action) in
-                UserDefaults.init().set(WeekDay.sunday.rawValue, forKey: self.firstWeekdayKey)
+            let sundayAction = UIAlertAction(title: "Sunday", style: .default, handler: { (action) in
+                UserDefaults.init().set(WeekDay.sunday.rawValue, forKey: WeeklyPlanManager.firstWeekdayKey)
                 cell.detailTextLabel?.text = "Sunday"
             })
-            let saturdayAction = UIAlertAction(title: "Saturday", style: .default, handler: { [unowned self](action) in
-                UserDefaults.init().set(WeekDay.saturday.rawValue, forKey: self.firstWeekdayKey)
+            let saturdayAction = UIAlertAction(title: "Saturday", style: .default, handler: { (action) in
+                UserDefaults.init().set(WeekDay.saturday.rawValue, forKey: WeeklyPlanManager.firstWeekdayKey)
                 cell.detailTextLabel?.text = "Saturday"
             })
             alertController.addAction(mondayAction)

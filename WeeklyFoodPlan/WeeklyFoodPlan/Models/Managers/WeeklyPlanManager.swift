@@ -12,11 +12,10 @@ import SwiftDate
 
 class WeeklyPlanManager {
 
-    
     static let shared = WeeklyPlanManager()
     
     let realm = try! Realm()
-    let firstWeekDayKey = "FirstWeekday"
+    static let firstWeekdayKey = "FirstWeekday"
     var firstWeekDay = WeekDay.sunday
     
     private func regionOf(firstWeekDay: WeekDay) -> Region {
@@ -36,14 +35,14 @@ class WeeklyPlanManager {
     }
 
     func fakePlan() -> [DailyPlan] {
-        let value = UserDefaults.standard.integer(forKey: firstWeekDayKey)
+        let value = UserDefaults.standard.integer(forKey: WeeklyPlanManager.firstWeekdayKey)
         // random the value for test
 //        let value = Int(arc4random_uniform(UInt32(7))) + 1
         if value != 0 {
             firstWeekDay = WeekDay(rawValue: value)!
         } else {
             firstWeekDay = WeekDay(rawValue: Calendar.autoupdatingCurrent.firstWeekday)!
-            UserDefaults.standard.set(firstWeekDay.rawValue, forKey: firstWeekDayKey)
+            UserDefaults.standard.set(firstWeekDay.rawValue, forKey: WeeklyPlanManager.firstWeekdayKey)
         }
 
         let today = DateInRegion(absoluteDate: Date(), in: regionOf(firstWeekDay: firstWeekDay))

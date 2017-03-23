@@ -1,4 +1,4 @@
-github "hyperoslo/ImagePicker" "2.0.0"
 github "SnapKit/SnapKit" "3.2.0"
+github "hyperoslo/ImagePicker" "2.0.0"
 github "malcommac/SwiftDate" "4.0.13"
 github "moritzsternemann/SwipyCell" "2.0.4"

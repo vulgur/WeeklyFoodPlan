@@ -70,6 +70,6 @@ extension FoodSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = searchResults[indexPath.row]
         delegate?.didChoose(food: food, when: when!)
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
