@@ -56,13 +56,33 @@ class WeeklyPlanManager {
         var components = DateComponents()
         components.day = 1
         let days = Date.dates(between: nextStartDay.absoluteDate, and: nextEndDay.absoluteDate - 1.day, increment: components)
-        
+
         var plans = [DailyPlan]()
         for day in days {
             let dailyPlan = DailyPlanManager.shared.fakePlan()
             dailyPlan.date = day
             plans.append(dailyPlan)
         }
+        // if before night, make meals for today
+        if let todayPlan = todayPlan() {
+            plans.insert(todayPlan, at: 0)
+        }
+        
         return plans
+    }
+    
+    private func todayPlan() -> DailyPlan? {
+        let plan = DailyPlanManager.shared.fakePlan()
+        let now = Date()
+        if now.hour > 8 {
+            plan.meals.remove(objectAtIndex: 0)
+        }
+        if now.hour > 12 {
+            plan.meals.remove(objectAtIndex: 0)
+        }
+        if now.hour > 18 {
+            return nil
+        }
+        return plan
     }
 }
