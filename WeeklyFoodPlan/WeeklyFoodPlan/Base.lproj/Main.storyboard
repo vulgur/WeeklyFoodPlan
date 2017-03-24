@@ -39,56 +39,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="554"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NA7-ca-ovW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLG-9b-M0f">
+                                                            <rect key="frame" x="324" y="7" width="30" height="30"/>
+                                                            <state key="normal" title="Edit"/>
+                                                            <connections>
+                                                                <segue destination="Uae-v7-nSS" kind="show" identifier="ShowMeals" id="y57-Nk-OP8"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tN-xx-JSu">
+                                                            <rect key="frame" x="286" y="7" width="30" height="30"/>
+                                                            <state key="normal" title="Pick"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-MW-CG9">
+                                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.7584813031114741" green="1" blue="0.77019883883696916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8tN-xx-JSu" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="4Vc-bQ-5JV"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="WLG-9b-M0f" secondAttribute="trailing" constant="12" id="L2X-60-601"/>
+                                                        <constraint firstItem="5N3-MW-CG9" firstAttribute="leading" secondItem="NA7-ca-ovW" secondAttribute="leading" constant="8" id="PaP-Z7-bTM"/>
+                                                        <constraint firstAttribute="height" constant="44" id="SIZ-vO-qGG"/>
+                                                        <constraint firstItem="WLG-9b-M0f" firstAttribute="leading" secondItem="8tN-xx-JSu" secondAttribute="trailing" constant="8" id="TGZ-9T-2yn"/>
+                                                        <constraint firstItem="5N3-MW-CG9" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="TfI-z1-Gnd"/>
+                                                        <constraint firstItem="WLG-9b-M0f" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="knf-qr-UtS"/>
+                                                    </constraints>
+                                                </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-Ta-AKp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="554"/>
+                                                    <rect key="frame" x="0.0" y="49" width="374" height="505"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanHeaderCell" rowHeight="54" id="2Ww-cg-tsT" customClass="PlanHeaderCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="28" width="374" height="54"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ww-cg-tsT" id="kdg-5Z-tYP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="54"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH7-sI-nId">
-                                                                        <rect key="frame" x="8" y="16" width="42" height="21"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2G-Sc-Zax">
-                                                                        <rect key="frame" x="336" y="11" width="30" height="30"/>
-                                                                        <state key="normal" title="Edit"/>
-                                                                        <connections>
-                                                                            <segue destination="Uae-v7-nSS" kind="show" identifier="ShowMeals" id="9PO-it-0Ag"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJA-gb-SaM">
-                                                                        <rect key="frame" x="290" y="11" width="30" height="30"/>
-                                                                        <state key="normal" title="Pick"/>
-                                                                    </button>
-                                                                </subviews>
-                                                                <color key="backgroundColor" red="0.76616270949999998" green="1" blue="0.3426321443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="leadingMargin" secondItem="SH7-sI-nId" secondAttribute="leading" id="J3p-rm-3JK"/>
-                                                                    <constraint firstItem="SH7-sI-nId" firstAttribute="centerY" secondItem="kdg-5Z-tYP" secondAttribute="centerY" id="Kas-rE-NPA"/>
-                                                                    <constraint firstItem="oJA-gb-SaM" firstAttribute="centerY" secondItem="j2G-Sc-Zax" secondAttribute="centerY" id="OIG-o1-u16"/>
-                                                                    <constraint firstItem="j2G-Sc-Zax" firstAttribute="centerY" secondItem="kdg-5Z-tYP" secondAttribute="centerY" id="Q4O-gq-6HC"/>
-                                                                    <constraint firstItem="j2G-Sc-Zax" firstAttribute="leading" secondItem="oJA-gb-SaM" secondAttribute="trailing" constant="16" id="URO-Yx-N1G"/>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="j2G-Sc-Zax" secondAttribute="trailing" id="WkO-xu-cll"/>
-                                                                </constraints>
-                                                            </tableViewCellContentView>
-                                                            <connections>
-                                                                <outlet property="dateLabel" destination="SH7-sI-nId" id="DKZ-Ia-Vc0"/>
-                                                                <outlet property="editButton" destination="j2G-Sc-Zax" id="Pff-Wf-B3X"/>
-                                                                <outlet property="pickButton" destination="oJA-gb-SaM" id="gjW-Ab-Zua"/>
-                                                            </connections>
-                                                        </tableViewCell>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanMealCell" id="rr7-Yg-FtA" customClass="PlanMealCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="82" width="374" height="118"/>
+                                                            <rect key="frame" x="0.0" y="28" width="374" height="118"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rr7-Yg-FtA" id="ejK-eO-bBq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="117"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zls-o2-xxy">
@@ -150,11 +141,17 @@
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="aQP-Ta-AKp" secondAttribute="trailing" id="7yc-0K-ud8"/>
+                                            <constraint firstItem="NA7-ca-ovW" firstAttribute="top" secondItem="kwW-we-HHt" secondAttribute="top" id="K73-hH-hh4"/>
+                                            <constraint firstItem="aQP-Ta-AKp" firstAttribute="top" secondItem="NA7-ca-ovW" secondAttribute="bottom" constant="5" id="Lva-r0-lbv"/>
+                                            <constraint firstItem="NA7-ca-ovW" firstAttribute="leading" secondItem="kwW-we-HHt" secondAttribute="leading" id="QE0-6f-eeG"/>
                                             <constraint firstItem="aQP-Ta-AKp" firstAttribute="leading" secondItem="kwW-we-HHt" secondAttribute="leading" id="bv5-kD-B63"/>
                                             <constraint firstAttribute="bottom" secondItem="aQP-Ta-AKp" secondAttribute="bottom" id="hET-Ki-eVy"/>
-                                            <constraint firstItem="aQP-Ta-AKp" firstAttribute="top" secondItem="kwW-we-HHt" secondAttribute="top" id="vLZ-4T-LuG"/>
+                                            <constraint firstAttribute="trailing" secondItem="NA7-ca-ovW" secondAttribute="trailing" id="xaL-Fd-BrD"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="dateLabel" destination="5N3-MW-CG9" id="XXq-3y-qgj"/>
+                                            <outlet property="editButton" destination="WLG-9b-M0f" id="3VO-yI-Jn6"/>
+                                            <outlet property="pickButton" destination="8tN-xx-JSu" id="gGG-qR-wj8"/>
                                             <outlet property="tableView" destination="aQP-Ta-AKp" id="mqo-jp-r71"/>
                                         </connections>
                                     </collectionViewCell>
@@ -182,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7j-LT-1AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="-1625"/>
+            <point key="canvasLocation" x="-816.79999999999995" y="-1625.0374812593705"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="sZY-wz-N7x">

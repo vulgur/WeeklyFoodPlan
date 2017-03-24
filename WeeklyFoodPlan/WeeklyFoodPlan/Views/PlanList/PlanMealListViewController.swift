@@ -52,28 +52,10 @@ class PlanMealListViewController: UIViewController {
 //        plans.append(DailyPlanManager.shared.fakePlan())
     }
     
-}
-
-extension PlanMealListViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return plans.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PlanCell
-        cell.plan = plans[indexPath.section]
-        cell.tableView.reloadData()
-        return cell
-    }
-    
     @IBAction func barButtonTapped(sender: UIBarButtonItem) {
         let oldPlans = plans
         BaseManager.shared.delete(objects: oldPlans)
-        let newPlans = WeeklyPlanManager.shared.fakePlan()
+        let newPlans = WeeklyPlanManager.shared.fakeWeeklyPlan()
         plans = newPlans
         BaseManager.shared.save(objects: plans)
         collectionView.reloadData()
@@ -88,6 +70,47 @@ extension PlanMealListViewController: UICollectionViewDataSource {
             let destinationVC = segue.destination as! MealViewController
             destinationVC.dailyPlan = plans[button.tag]
         }
+    }
+}
+
+extension PlanMealListViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return plans.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PlanCell
+        let plan = plans[indexPath.section]
+        cell.plan = plan
+        cell.dateLabel.text = plan.date.dateAndWeekday()
+        cell.editButton.tag = indexPath.section
+        cell.pickButton.tag = indexPath.section
+        cell.pickButton.addTarget(self, action: #selector(pickNewPlan(sender:)), for: .touchUpInside)
+        cell.tableView.reloadData()
+        return cell
+    }
+    
+
+    @objc private func pickNewPlan(sender: UIButton) {
+        let section = sender.tag
+        let plan = plans[section]
+        for meal in plan.meals {
+            BaseManager.shared.transaction {
+                meal.foods.removeAll()
+                let when = Food.When(rawValue: meal.name)
+                for _ in 0..<defaultNumbersOfFoodInAMeal {
+                    let food = FoodManager.shared.randomFood(of: when!)
+                    meal.foods.append(food)
+                }
+
+            }
+            
+        }
+        collectionView.reloadItems(at: [IndexPath(row: 0, section: section)])
     }
 }
 

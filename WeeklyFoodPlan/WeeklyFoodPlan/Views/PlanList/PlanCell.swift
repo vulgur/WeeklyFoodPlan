@@ -11,6 +11,10 @@ import UIKit
 class PlanCell: UICollectionViewCell {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var pickButton: UIButton!
+    @IBOutlet var editButton: UIButton!
+    
     let cellIdentifier = "PlanMealCell"
     
     var plan = DailyPlan()
@@ -47,21 +51,5 @@ extension PlanCell: UITableViewDataSource {
 }
 
 extension PlanCell: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanHeaderCell") as! PlanHeaderCell
-        cell.dateLabel.text = plan.date.dateAndWeekday()
-        cell.editButton.tag = section
-        cell.pickButton.tag = section
-        cell.pickButton.addTarget(self, action: #selector(pickPlan(sender:)), for: .touchUpInside)
-        return cell
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    @objc private func pickPlan(sender: UIButton) {
-        let newPlan = DailyPlanManager.shared.fakePlan()
-        plan.meals = newPlan.meals
-        tableView.reloadData()
-    }
+
 }

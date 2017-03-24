@@ -18,6 +18,7 @@
 		D217B4A91E6DBF820092966C /* PlanHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217B4A81E6DBF820092966C /* PlanHeaderCell.swift */; };
 		D217B4AB1E6DCF7C0092966C /* MealItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217B4AA1E6DCF7C0092966C /* MealItemCell.swift */; };
 		D217B4AD1E6DCF890092966C /* MealHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217B4AC1E6DCF890092966C /* MealHeaderCell.swift */; };
+		D22499AD1E8541E000826F2D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22499AC1E8541E000826F2D /* Constants.swift */; };
 		D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; };
 		D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D23252511E60A3100065C40A /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23252501E60A3100065C40A /* Tip.swift */; };
@@ -134,6 +135,7 @@
 		D217B4A81E6DBF820092966C /* PlanHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanHeaderCell.swift; sourceTree = "<group>"; };
 		D217B4AA1E6DCF7C0092966C /* MealItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealItemCell.swift; sourceTree = "<group>"; };
 		D217B4AC1E6DCF890092966C /* MealHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealHeaderCell.swift; sourceTree = "<group>"; };
+		D22499AC1E8541E000826F2D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D232524C1E5F2B2D0065C40A /* SwipyCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipyCell.framework; path = Carthage/Build/iOS/SwipyCell.framework; sourceTree = "<group>"; };
 		D23252501E60A3100065C40A /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		D23252521E6144F70065C40A /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				D20B52281E672A0B0088628A /* FoodDataImporter.swift */,
 				D2FB033C1E6C04C000634661 /* Date+Extension.swift */,
 				D217B4A31E6C24F90092966C /* Collection+Extension.swift */,
+				D22499AC1E8541E000826F2D /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				D2FB033D1E6C04C000634661 /* Date+Extension.swift in Sources */,
 				D20E39111E03048700349F78 /* AppDelegate.swift in Sources */,
 				D2F6E7551E686011002F32A5 /* FoodViewListItemCell.swift in Sources */,
+				D22499AD1E8541E000826F2D /* Constants.swift in Sources */,
 				D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */,
 				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D2F6E7531E686011002F32A5 /* FoodHeaderViewCell.swift in Sources */,

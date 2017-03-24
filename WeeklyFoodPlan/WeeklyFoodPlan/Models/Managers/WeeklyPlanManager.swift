@@ -34,7 +34,7 @@ class WeeklyPlanManager {
         return results.toArray()
     }
 
-    func fakePlan() -> [DailyPlan] {
+    func fakeWeeklyPlan() -> [DailyPlan] {
         let value = UserDefaults.standard.integer(forKey: WeeklyPlanManager.firstWeekdayKey)
         // random the value for test
 //        let value = Int(arc4random_uniform(UInt32(7))) + 1
