@@ -53,6 +53,9 @@ class WeeklyPlanManager {
         nextStartDay = today + 1.day
         nextEndDay = nextStartDay.endWeek
         
+        if nextStartDay.day == nextEndDay.day { // same day, sunday
+            nextEndDay = nextEndDay + 7.day
+        }
         var components = DateComponents()
         components.day = 1
         let days = Date.dates(between: nextStartDay.absoluteDate, and: nextEndDay.absoluteDate - 1.day, increment: components)
