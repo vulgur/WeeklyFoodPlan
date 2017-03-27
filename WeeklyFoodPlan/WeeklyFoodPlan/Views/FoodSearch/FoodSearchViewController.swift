@@ -28,12 +28,12 @@ class FoodSearchViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchFoods()
+        searchFoodsByWhenObject()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,9 +42,10 @@ class FoodSearchViewController: UIViewController {
     }
     
     
-    private func searchFoods() {
+    private func searchFoodsByWhenObject() {
         if let when = when {
             searchResults = FoodManager.shared.allFoods(of: when)
+            searchBar.resignFirstResponder()
             tableView.reloadData()
         }
     }
@@ -71,5 +72,14 @@ extension FoodSearchViewController: UITableViewDelegate {
         let food = searchResults[indexPath.row]
         delegate?.didChoose(food: food, when: when!)
         _ = navigationController?.popViewController(animated: true)
+    }
+}
+
+extension FoodSearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let keyword = searchBar.text {
+            searchResults = FoodManager.shared.allFoods(of: keyword)
+            tableView.reloadData()
+        }
     }
 }

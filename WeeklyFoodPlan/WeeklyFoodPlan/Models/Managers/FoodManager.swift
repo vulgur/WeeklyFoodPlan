@@ -29,4 +29,18 @@ class FoodManager {
         let results = realm.objects(Food.self).filter("%@ IN whenObjects", whenObject!)
         return results.toArray()
     }
+    
+    func allFoods(of keyword: String) -> [Food] {
+        // by name
+        let nameResults = realm.objects(Food.self).filter("name CONTAINS %@", keyword).toArray()
+        // by tag
+        let tag = realm.objects(Tag.self).first { (t) -> Bool in
+            t.name.contains(keyword)
+        }
+        let tagResults = realm.objects(Food.self).filter("%@ IN tags", tag!).toArray()
+        var result = Set<Food>()
+        result = result.union(nameResults)
+        result = result.union(tagResults)
+        return Array(result)
+    }
 }
