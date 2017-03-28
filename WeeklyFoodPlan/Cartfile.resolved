@@ -1,4 +1,5 @@
 github "SnapKit/SnapKit" "3.2.0"
-github "hyperoslo/ImagePicker" "2.0.0"
+github "hyperoslo/ImagePicker" "2.1.0"
 github "malcommac/SwiftDate" "4.0.13"
 github "moritzsternemann/SwipyCell" "2.0.4"
+github "realm/realm-cocoa" "v2.4.4"

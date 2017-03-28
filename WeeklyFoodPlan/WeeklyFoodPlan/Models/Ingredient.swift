@@ -10,13 +10,13 @@ import UIKit
 import RealmSwift
 
 class Ingredient: Object {
-    dynamic var id = UUID().uuidString
+//    dynamic var id = UUID().uuidString
     dynamic var name: String = ""
     let nutritions = List<Nutrition>()
     dynamic var imagePath: String?
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "name"
     }
     
 }

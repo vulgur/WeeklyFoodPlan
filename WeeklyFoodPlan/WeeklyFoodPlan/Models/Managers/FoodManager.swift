@@ -31,16 +31,27 @@ class FoodManager {
     }
     
     func allFoods(of keyword: String) -> [Food] {
+        var result = Set<Food>()
+
         // by name
         let nameResults = realm.objects(Food.self).filter("name CONTAINS %@", keyword).toArray()
-        // by tag
-        let tag = realm.objects(Tag.self).first { (t) -> Bool in
-            t.name.contains(keyword)
-        }
-        let tagResults = realm.objects(Food.self).filter("%@ IN tags", tag!).toArray()
-        var result = Set<Food>()
         result = result.union(nameResults)
-        result = result.union(tagResults)
+        // by tag
+        if let tag = realm.objects(Tag.self).first(where: { (t) -> Bool in
+            t.name.contains(keyword)
+        }) {
+            let tagResults = realm.objects(Food.self).filter("%@ IN tags", tag).toArray()
+            result = result.union(tagResults)
+        }
+        
+        // by ingredient
+        if let ingredient = realm.objects(Ingredient.self).first(where: { (i) -> Bool in
+            i.name.contains(keyword)
+        }) {
+            let ingredentResults = realm.objects(Food.self).filter("%@ IN ingredients", ingredient).toArray()
+            result = result.union(ingredentResults)
+        }
+        
         return Array(result)
     }
 }
