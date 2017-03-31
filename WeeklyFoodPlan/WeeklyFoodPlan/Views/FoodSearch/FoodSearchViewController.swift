@@ -49,6 +49,17 @@ class FoodSearchViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowFoodPreview" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let food = searchResults[indexPath.row]
+                let destVC = segue.destination as! FoodPreviewViewController
+                destVC.food = food
+            }
+        }
+    }
 }
 
 extension FoodSearchViewController: UITableViewDataSource {
@@ -70,8 +81,13 @@ extension FoodSearchViewController: UITableViewDataSource {
 extension FoodSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = searchResults[indexPath.row]
-        delegate?.didChoose(food: food, when: when!)
-        _ = navigationController?.popViewController(animated: true)
+        if let when = self.when { // from daily plan
+            delegate?.didChoose(food: food, when: when)
+            _ = navigationController?.popViewController(animated: true)
+        } else { // from search
+            // TODO
+        }
+        
     }
 }
 
