@@ -45,6 +45,12 @@ class Food: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    func addNeedIngredientCount() {
+        for i in self.ingredients {
+            i.neededCount += 1
+        }
+    }
 }
 
 extension Food{

@@ -12,6 +12,9 @@ import RealmSwift
 class Ingredient: Object {
 //    dynamic var id = UUID().uuidString
     dynamic var name: String = ""
+    dynamic var neededCount = 0
+    dynamic var remainedCount = 0
+    dynamic var freshDays = 0
     let nutritions = List<Nutrition>()
     dynamic var imagePath: String?
     

@@ -116,6 +116,7 @@ extension MealViewController: MealHeaderCellDelegate {
         let when = Food.When(rawValue: meal.name)
         let food = FoodManager.shared.randomFood(of: when!)
         BaseManager.shared.transaction {
+            food.addNeedIngredientCount()
             meal.foods.append(food)
         }
         let indexPath = IndexPath(row: meal.foods.count-1, section: section)
@@ -140,6 +141,7 @@ extension MealViewController: FoodSearchViewControllerDelegate {
         for meal in dailyPlan.meals {
             if meal.name == when.rawValue {
                 BaseManager.shared.transaction {
+                    food.addNeedIngredientCount()
                     meal.foods.append(food)
                 }
                 let indexPath = IndexPath(row: meal.foods.count-1, section: dailyPlan.meals.index(of: meal)!)
