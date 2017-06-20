@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Aa5-Jh-Qfi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Aa5-Jh-Qfi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -350,7 +350,6 @@
                                         <connections>
                                             <outlet property="foodImageView" destination="Wha-cy-4pD" id="J4x-LO-q0A"/>
                                             <outlet property="foodLabel" destination="U5d-1A-IG5" id="Z81-N1-NPR"/>
-                                            <segue destination="NqW-2d-9a4" kind="show" identifier="ShowFoodPreview" id="F65-rs-VVI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -377,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="il3-CZ-vYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108" y="-1414"/>
+            <point key="canvasLocation" x="1074" y="-1345"/>
         </scene>
         <!--Food Detail-->
         <scene sceneID="fXE-Ap-YQc">
@@ -440,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dm2-O4-2bG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933.5999999999999" y="-1417.2413793103449"/>
+            <point key="canvasLocation" x="1990" y="-1602"/>
         </scene>
         <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">
@@ -807,6 +806,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L9p-iH-wYU"/>
+        <segue reference="tQE-VG-J6D"/>
     </inferredMetricsTieBreakers>
 </document>

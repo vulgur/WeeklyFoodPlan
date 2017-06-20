@@ -86,6 +86,7 @@ extension FoodSearchViewController: UITableViewDelegate {
             _ = navigationController?.popViewController(animated: true)
         } else { // from search
             // TODO
+            performSegue(withIdentifier: "ShowFoodPreview", sender: tableView.cellForRow(at: indexPath))
         }
         
     }
