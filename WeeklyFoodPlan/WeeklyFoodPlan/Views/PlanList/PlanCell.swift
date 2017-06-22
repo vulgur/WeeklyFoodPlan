@@ -18,6 +18,10 @@ class PlanCell: UICollectionViewCell {
     
     let cellIdentifier = "PlanMealCell"
     
+    var isLocked: Bool {
+        return !self.pickButton.isEnabled
+    }
+    
     var plan = DailyPlan()
     
     override func awakeFromNib() {
@@ -36,6 +40,16 @@ class PlanCell: UICollectionViewCell {
         editButton.isEnabled = !editButton.isEnabled
         let title = pickButton.isEnabled ? "Lock": "Unlock"
         sender.setTitle(title, for: .normal)
+        
+        let cells = tableView.visibleCells
+        cells.forEach({ (cell) in
+            if self.isLocked {
+                (cell as! PlanMealCell).lockImageView.isHidden = false
+            } else {
+                (cell as! PlanMealCell).lockImageView.isHidden = true
+            }
+        })
+        
     }
     
 }
@@ -52,6 +66,7 @@ extension PlanCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PlanMealCell
         let meal = plan.meals[indexPath.row]
+        cell.lockImageView.isHidden = !self.isLocked
         cell.mealLabel.text = meal.name
         cell.meal = meal
         cell.mealCollectionView.reloadData()

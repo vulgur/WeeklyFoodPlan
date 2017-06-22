@@ -10,6 +10,7 @@ import UIKit
 
 class PlanMealCell: UITableViewCell {
 
+    @IBOutlet var lockImageView: UIImageView!
     @IBOutlet var mealLabel: UILabel!
     @IBOutlet var mealCollectionView: UICollectionView!
     

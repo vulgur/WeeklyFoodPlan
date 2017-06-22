@@ -130,17 +130,27 @@
                                                                             </collectionViewCell>
                                                                         </cells>
                                                                     </collectionView>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="CrG-t8-2Ha">
+                                                                        <rect key="frame" x="338" y="8" width="20" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="20" id="6G3-J8-PiA"/>
+                                                                            <constraint firstAttribute="height" constant="20" id="H3Y-Hh-ZO7"/>
+                                                                        </constraints>
+                                                                    </imageView>
                                                                 </subviews>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="CrG-t8-2Ha" secondAttribute="trailing" constant="8" id="2lO-yQ-lPn"/>
                                                                     <constraint firstAttribute="leadingMargin" secondItem="eJr-eY-zj4" secondAttribute="leading" id="DzB-oG-yi7"/>
                                                                     <constraint firstAttribute="leadingMargin" secondItem="Zls-o2-xxy" secondAttribute="leading" id="Elj-xk-2Cg"/>
                                                                     <constraint firstAttribute="topMargin" secondItem="Zls-o2-xxy" secondAttribute="top" id="ado-ym-SGF"/>
                                                                     <constraint firstAttribute="bottomMargin" secondItem="eJr-eY-zj4" secondAttribute="bottom" id="mIz-PW-8UP"/>
                                                                     <constraint firstItem="eJr-eY-zj4" firstAttribute="top" secondItem="Zls-o2-xxy" secondAttribute="bottom" constant="8" id="sOu-SE-4ci"/>
+                                                                    <constraint firstItem="CrG-t8-2Ha" firstAttribute="top" secondItem="Zls-o2-xxy" secondAttribute="top" id="uiz-it-80D"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="eJr-eY-zj4" secondAttribute="trailing" id="wWf-FM-QWi"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="lockImageView" destination="CrG-t8-2Ha" id="ZOK-LK-KkQ"/>
                                                                 <outlet property="mealCollectionView" destination="eJr-eY-zj4" id="Qul-Gi-iO4"/>
                                                                 <outlet property="mealLabel" destination="Zls-o2-xxy" id="vO0-O9-M1f"/>
                                                             </connections>
@@ -815,6 +825,9 @@
             <point key="canvasLocation" x="-1759.2" y="561.76911544227892"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lock" width="40" height="40"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tQE-VG-J6D"/>
     </inferredMetricsTieBreakers>
