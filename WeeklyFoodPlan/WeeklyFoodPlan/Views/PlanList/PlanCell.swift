@@ -9,8 +9,7 @@
 import UIKit
 
 protocol PlanCellDelegate {
-    func lockButtonTapped(section: Int)
-    func unlockButtonTapped(section: Int)
+
     func editButtonTapped(section: Int)
     func pickButtonTapped(section: Int)
 }

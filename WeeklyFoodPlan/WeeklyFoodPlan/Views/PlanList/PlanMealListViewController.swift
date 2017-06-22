@@ -14,7 +14,7 @@ class PlanMealListViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     let cellIdentifier = "PlanCell"
     var plans = [DailyPlan]()
-    var lockedPlanIndex = [Int]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +60,6 @@ class PlanMealListViewController: UIViewController {
         let newPlans = WeeklyPlanManager.shared.fakeWeeklyPlan()
         plans = newPlans
 
-        for index in lockedPlanIndex {
-            let lockedPlan = oldPlans[index]
-            let plan = DailyPlan(plan: lockedPlan)
-            
-            plans[index] = plan
-        }
 
         BaseManager.shared.delete(objects: oldPlans)
         BaseManager.shared.save(objects: plans)
@@ -131,20 +125,7 @@ extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
 
 extension PlanMealListViewController: PlanCellDelegate {
     
-    func lockButtonTapped(section: Int) {
-        if !lockedPlanIndex.contains(section) {
-            lockedPlanIndex.append(section)
-        }
-        print("after lock:", lockedPlanIndex)
-    }
-    
-    func unlockButtonTapped(section: Int) {
-        if let index = lockedPlanIndex.index(of: section) {
-            lockedPlanIndex.remove(at: index)
-            print("after unlock:", lockedPlanIndex)
-        }
-    }
-    
+  
     func pickButtonTapped(section: Int) {
         let plan = plans[section]
         for meal in plan.meals {

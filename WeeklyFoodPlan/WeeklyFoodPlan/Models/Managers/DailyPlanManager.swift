@@ -34,7 +34,7 @@ class DailyPlanManager {
         let breakfastMeal = Meal()
         breakfastMeal.name = Food.When.breakfast.rawValue
         let randomBreakfastList = breakfastResults.shuffled()
-        for i in 0..<3 {
+        for i in 0..<2 {
             let breakfast = randomBreakfastList[i]
             BaseManager.shared.transaction {
                 breakfast.addNeedIngredientCount()
@@ -45,7 +45,7 @@ class DailyPlanManager {
         let lunchMeal = Meal()
         lunchMeal.name = Food.When.lunch.rawValue
         let randomLunchList = lunchResults.shuffled()
-        for i in 0..<5 {
+        for i in 0..<2 {
             let lunch = randomLunchList[i]
             BaseManager.shared.transaction {
                 lunch.addNeedIngredientCount()
@@ -56,7 +56,7 @@ class DailyPlanManager {
         let dinnerMeal = Meal()
         dinnerMeal.name = Food.When.dinner.rawValue
         let randomDinnerList = dinnerResults.shuffled()
-        for i in 0..<3 {
+        for i in 0..<2 {
             let dinner = randomDinnerList[i]
             BaseManager.shared.transaction {
                 dinner.addNeedIngredientCount()

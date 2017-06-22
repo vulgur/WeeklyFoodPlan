@@ -125,29 +125,17 @@
                                                                             </collectionViewCell>
                                                                         </cells>
                                                                     </collectionView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTT-75-3dV">
-                                                                        <rect key="frame" x="327" y="8" width="39" height="34"/>
-                                                                        <state key="normal" title="Lock">
-                                                                            <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="toggleLock:" destination="rr7-Yg-FtA" eventType="touchUpInside" id="B7m-Ek-c1g"/>
-                                                                        </connections>
-                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="xTT-75-3dV" secondAttribute="trailing" id="By1-og-Ag0"/>
                                                                     <constraint firstAttribute="leadingMargin" secondItem="eJr-eY-zj4" secondAttribute="leading" id="DzB-oG-yi7"/>
                                                                     <constraint firstAttribute="leadingMargin" secondItem="Zls-o2-xxy" secondAttribute="leading" id="Elj-xk-2Cg"/>
                                                                     <constraint firstAttribute="topMargin" secondItem="Zls-o2-xxy" secondAttribute="top" id="ado-ym-SGF"/>
-                                                                    <constraint firstAttribute="topMargin" secondItem="xTT-75-3dV" secondAttribute="top" id="jmi-fl-LVq"/>
                                                                     <constraint firstAttribute="bottomMargin" secondItem="eJr-eY-zj4" secondAttribute="bottom" id="mIz-PW-8UP"/>
                                                                     <constraint firstItem="eJr-eY-zj4" firstAttribute="top" secondItem="Zls-o2-xxy" secondAttribute="bottom" constant="8" id="sOu-SE-4ci"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="eJr-eY-zj4" secondAttribute="trailing" id="wWf-FM-QWi"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
-                                                                <outlet property="lockButton" destination="xTT-75-3dV" id="s2Y-jY-BqF"/>
                                                                 <outlet property="mealCollectionView" destination="eJr-eY-zj4" id="Qul-Gi-iO4"/>
                                                                 <outlet property="mealLabel" destination="Zls-o2-xxy" id="vO0-O9-M1f"/>
                                                             </connections>

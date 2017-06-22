@@ -11,7 +11,6 @@ import UIKit
 class PlanMealCell: UITableViewCell {
 
     
-    @IBOutlet var lockButton: UIButton!
     @IBOutlet var mealLabel: UILabel!
     @IBOutlet var mealCollectionView: UICollectionView!
     
@@ -47,29 +46,8 @@ class PlanMealCell: UITableViewCell {
     func config(with meal: Meal) {
         self.mealLabel.text = meal.name
         self.meal = meal
-        if meal.isLocked {
-            lockButton.setTitle("Unlock", for: .normal)
-            lockButton.setTitleColor(UIColor.green, for: .normal)
-        } else {
-            lockButton.setTitle("Lock", for: .normal)
-            lockButton.setTitleColor(UIColor.init(colorLiteralRed: 1, green: 0, blue: 0, alpha: 0.5), for: .normal)
-        }
     }
-    
-    @IBAction func toggleLock(_ sender: UIButton) {
-        BaseManager.shared.transaction {
-            meal.isLocked = !meal.isLocked
-        }
-        
-        if meal.isLocked {
-            sender.setTitle("Unlock", for: .normal)
-            sender.setTitleColor(UIColor.green, for: .normal)
-        } else {
-            sender.setTitle("Lock", for: .normal)
-            sender.setTitleColor(UIColor.init(colorLiteralRed: 1, green: 0, blue: 0, alpha: 0.5), for: .normal)
-        }
-        
-    }
+   
 }
 
 extension PlanMealCell: UICollectionViewDataSource {
