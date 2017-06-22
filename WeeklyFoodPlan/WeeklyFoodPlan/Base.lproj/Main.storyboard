@@ -60,16 +60,25 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y70-VT-QZq">
+                                                            <rect key="frame" x="245" y="7" width="33" height="30"/>
+                                                            <state key="normal" title="Lock"/>
+                                                            <connections>
+                                                                <action selector="lockButtonTapped:" destination="kwW-we-HHt" eventType="touchUpInside" id="Rjb-XG-cXn"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.7584813031114741" green="1" blue="0.77019883883696916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="8tN-xx-JSu" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="4Vc-bQ-5JV"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="WLG-9b-M0f" secondAttribute="trailing" constant="12" id="L2X-60-601"/>
                                                         <constraint firstItem="5N3-MW-CG9" firstAttribute="leading" secondItem="NA7-ca-ovW" secondAttribute="leading" constant="8" id="PaP-Z7-bTM"/>
+                                                        <constraint firstItem="y70-VT-QZq" firstAttribute="centerY" secondItem="8tN-xx-JSu" secondAttribute="centerY" id="Qr4-1s-RvF"/>
                                                         <constraint firstAttribute="height" constant="44" id="SIZ-vO-qGG"/>
                                                         <constraint firstItem="WLG-9b-M0f" firstAttribute="leading" secondItem="8tN-xx-JSu" secondAttribute="trailing" constant="8" id="TGZ-9T-2yn"/>
                                                         <constraint firstItem="5N3-MW-CG9" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="TfI-z1-Gnd"/>
                                                         <constraint firstItem="WLG-9b-M0f" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="knf-qr-UtS"/>
+                                                        <constraint firstItem="8tN-xx-JSu" firstAttribute="leading" secondItem="y70-VT-QZq" secondAttribute="trailing" constant="8" id="yRm-qB-a6U"/>
                                                     </constraints>
                                                 </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-Ta-AKp">
@@ -152,6 +161,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="5N3-MW-CG9" id="XXq-3y-qgj"/>
                                             <outlet property="editButton" destination="WLG-9b-M0f" id="3VO-yI-Jn6"/>
+                                            <outlet property="lockButton" destination="y70-VT-QZq" id="NLf-yq-zaW"/>
                                             <outlet property="pickButton" destination="8tN-xx-JSu" id="gGG-qR-wj8"/>
                                             <outlet property="tableView" destination="aQP-Ta-AKp" id="mqo-jp-r71"/>
                                         </connections>

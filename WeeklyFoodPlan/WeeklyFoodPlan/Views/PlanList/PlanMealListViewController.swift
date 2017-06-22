@@ -74,6 +74,7 @@ class PlanMealListViewController: UIViewController {
 }
 
 extension PlanMealListViewController: UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return plans.count
     }

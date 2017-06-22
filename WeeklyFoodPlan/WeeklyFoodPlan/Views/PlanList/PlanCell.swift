@@ -14,6 +14,7 @@ class PlanCell: UICollectionViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var pickButton: UIButton!
     @IBOutlet var editButton: UIButton!
+    @IBOutlet var lockButton: UIButton!
     
     let cellIdentifier = "PlanMealCell"
     
@@ -29,6 +30,14 @@ class PlanCell: UICollectionViewCell {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
+    
+    @IBAction func lockButtonTapped(_ sender: UIButton) {
+        pickButton.isEnabled = !pickButton.isEnabled
+        editButton.isEnabled = !editButton.isEnabled
+        let title = pickButton.isEnabled ? "Lock": "Unlock"
+        sender.setTitle(title, for: .normal)
+    }
+    
 }
 
 extension PlanCell: UITableViewDataSource {
