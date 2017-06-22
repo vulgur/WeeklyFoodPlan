@@ -225,19 +225,29 @@
                                                         <action selector="pickFoodButtonTapped:" destination="Rxj-mc-d2j" eventType="touchUpInside" id="5xt-AR-9dj"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPt-YO-M8l">
+                                                    <rect key="frame" x="254" y="7" width="33" height="30"/>
+                                                    <state key="normal" title="Lock"/>
+                                                    <connections>
+                                                        <action selector="lockMealButtonTapped:" destination="Rxj-mc-d2j" eventType="touchUpInside" id="Kfy-fx-sU2"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="uDL-bV-jTW" firstAttribute="leading" secondItem="JPt-YO-M8l" secondAttribute="trailing" constant="8" id="Dbr-A4-W3t"/>
                                                 <constraint firstItem="uDL-bV-jTW" firstAttribute="centerY" secondItem="y6H-Ot-Im0" secondAttribute="centerY" id="FBv-fJ-o99"/>
                                                 <constraint firstItem="Bw2-Om-n54" firstAttribute="centerY" secondItem="nOB-h2-tWh" secondAttribute="centerY" id="FC6-ai-4SU"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="Bw2-Om-n54" secondAttribute="leading" id="JxT-DM-Nxo"/>
                                                 <constraint firstItem="y6H-Ot-Im0" firstAttribute="centerY" secondItem="nOB-h2-tWh" secondAttribute="centerY" id="VpK-lS-F6j"/>
+                                                <constraint firstItem="JPt-YO-M8l" firstAttribute="centerY" secondItem="uDL-bV-jTW" secondAttribute="centerY" id="l1c-EW-2OK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="y6H-Ot-Im0" secondAttribute="trailing" id="nXp-X3-aZY"/>
                                                 <constraint firstItem="y6H-Ot-Im0" firstAttribute="leading" secondItem="uDL-bV-jTW" secondAttribute="trailing" constant="20" id="qRb-g3-Qtn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addFoodButton" destination="y6H-Ot-Im0" id="rI5-T4-4bc"/>
+                                            <outlet property="lockMealButton" destination="JPt-YO-M8l" id="sRz-J6-bbZ"/>
                                             <outlet property="mealNameLabel" destination="Bw2-Om-n54" id="xBu-fG-b4L"/>
                                             <outlet property="pickFoodButton" destination="uDL-bV-jTW" id="vLF-WY-tpu"/>
                                         </connections>

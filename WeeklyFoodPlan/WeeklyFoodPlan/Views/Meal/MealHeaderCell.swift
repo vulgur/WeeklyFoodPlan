@@ -11,6 +11,7 @@ import UIKit
 protocol MealHeaderCellDelegate {
     func addFoodButtonTapped(section: Int)
     func pickFoodButtonTapped(section: Int)
+    func lockMealButtonTapped(section: Int)
 }
 
 class MealHeaderCell: UITableViewCell {
@@ -18,8 +19,10 @@ class MealHeaderCell: UITableViewCell {
     @IBOutlet var mealNameLabel: UILabel!
     @IBOutlet var addFoodButton: UIButton!
     @IBOutlet var pickFoodButton: UIButton!
+    @IBOutlet var lockMealButton: UIButton!
     
     var delegate: MealHeaderCellDelegate?
+    var section: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,12 +36,13 @@ class MealHeaderCell: UITableViewCell {
     }
 
     @IBAction func addFoodButtonTapped(_ sender: UIButton) {
-        let section = addFoodButton.tag
         delegate?.addFoodButtonTapped(section: section)
     
     }
     @IBAction func pickFoodButtonTapped(_ sender: UIButton) {
-        let section = pickFoodButton.tag
         delegate?.pickFoodButtonTapped(section: section)
+    }
+    @IBAction func lockMealButtonTapped(_ sender: UIButton) {
+        delegate?.lockMealButtonTapped(section: section)
     }
 }

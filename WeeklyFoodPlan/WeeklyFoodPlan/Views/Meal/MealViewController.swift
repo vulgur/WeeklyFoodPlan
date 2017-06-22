@@ -96,9 +96,7 @@ extension MealViewController: UITableViewDelegate {
         let meal = dailyPlan.meals[section]
         let cell = tableView.dequeueReusableCell(withIdentifier: mealHeaderCellIdentifier) as! MealHeaderCell
         cell.mealNameLabel.text = meal.name
-//        cell.section = section
-        cell.addFoodButton.tag = section
-        cell.pickFoodButton.tag = section
+        cell.section = section
         cell.delegate = self
         let sectionView = UIView(frame: cell.frame)
         sectionView.addSubview(cell)
@@ -121,6 +119,11 @@ extension MealViewController: MealHeaderCellDelegate {
         }
         let indexPath = IndexPath(row: meal.foods.count-1, section: section)
         tableView.insertRows(at: [indexPath], with: .fade)
+    }
+    
+    func lockMealButtonTapped(section: Int) {
+        let meal = dailyPlan.meals[section]
+        print("Lock tapped")
     }
 }
 
