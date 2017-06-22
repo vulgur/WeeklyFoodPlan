@@ -11,7 +11,6 @@ import UIKit
 protocol MealHeaderCellDelegate {
     func addFoodButtonTapped(section: Int)
     func pickFoodButtonTapped(section: Int)
-    func lockMealButtonTapped(section: Int)
 }
 
 class MealHeaderCell: UITableViewCell {
@@ -19,7 +18,7 @@ class MealHeaderCell: UITableViewCell {
     @IBOutlet var mealNameLabel: UILabel!
     @IBOutlet var addFoodButton: UIButton!
     @IBOutlet var pickFoodButton: UIButton!
-    @IBOutlet var lockMealButton: UIButton!
+    
     
     var delegate: MealHeaderCellDelegate?
     var section: Int = 0
@@ -42,7 +41,5 @@ class MealHeaderCell: UITableViewCell {
     @IBAction func pickFoodButtonTapped(_ sender: UIButton) {
         delegate?.pickFoodButtonTapped(section: section)
     }
-    @IBAction func lockMealButtonTapped(_ sender: UIButton) {
-        delegate?.lockMealButtonTapped(section: section)
-    }
+
 }

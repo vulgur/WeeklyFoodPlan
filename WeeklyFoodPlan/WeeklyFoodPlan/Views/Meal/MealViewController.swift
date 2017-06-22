@@ -120,11 +120,6 @@ extension MealViewController: MealHeaderCellDelegate {
         let indexPath = IndexPath(row: meal.foods.count-1, section: section)
         tableView.insertRows(at: [indexPath], with: .fade)
     }
-    
-    func lockMealButtonTapped(section: Int) {
-        let meal = dailyPlan.meals[section]
-        print("Lock tapped")
-    }
 }
 
 extension MealViewController: SwipyCellDelegate {
