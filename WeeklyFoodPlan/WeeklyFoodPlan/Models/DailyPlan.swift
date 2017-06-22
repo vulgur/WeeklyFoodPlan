@@ -18,4 +18,10 @@ class DailyPlan: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    convenience init(plan: DailyPlan) {
+        self.init()
+        self.date = plan.date
+        self.meals.append(contentsOf: plan.meals)
+    }
 }

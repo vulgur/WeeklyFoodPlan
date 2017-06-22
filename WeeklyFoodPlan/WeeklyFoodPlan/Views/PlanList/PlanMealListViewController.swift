@@ -14,6 +14,7 @@ class PlanMealListViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     let cellIdentifier = "PlanCell"
     var plans = [DailyPlan]()
+    var lockedPlanIndex = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +54,20 @@ class PlanMealListViewController: UIViewController {
     }
     
     @IBAction func barButtonTapped(sender: UIBarButtonItem) {
-        let oldPlans = plans
-        BaseManager.shared.delete(objects: oldPlans)
+        var oldPlans = plans
+
+        
         let newPlans = WeeklyPlanManager.shared.fakeWeeklyPlan()
         plans = newPlans
+
+        for index in lockedPlanIndex {
+            let lockedPlan = oldPlans[index]
+            let plan = DailyPlan(plan: lockedPlan)
+            
+            plans[index] = plan
+        }
+
+        BaseManager.shared.delete(objects: oldPlans)
         BaseManager.shared.save(objects: plans)
         collectionView.reloadData()
     }
@@ -88,31 +99,12 @@ extension PlanMealListViewController: UICollectionViewDataSource {
         let plan = plans[indexPath.section]
         cell.plan = plan
         cell.dateLabel.text = plan.date.dateAndWeekday()
-        cell.editButton.tag = indexPath.section
-        cell.pickButton.tag = indexPath.section
-        cell.pickButton.addTarget(self, action: #selector(pickNewPlan(sender:)), for: .touchUpInside)
+        cell.section = indexPath.section
+        cell.delegate = self
         cell.tableView.reloadData()
         return cell
     }
-    
 
-    @objc private func pickNewPlan(sender: UIButton) {
-        let section = sender.tag
-        let plan = plans[section]
-        for meal in plan.meals {
-            BaseManager.shared.transaction {
-                meal.foods.removeAll()
-                let when = Food.When(rawValue: meal.name)
-                for _ in 0..<defaultNumbersOfFoodInAMeal {
-                    let food = FoodManager.shared.randomFood(of: when!)
-                    meal.foods.append(food)
-                }
-
-            }
-            
-        }
-        collectionView.reloadItems(at: [IndexPath(row: 0, section: section)])
-    }
 }
 
 extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
@@ -137,3 +129,41 @@ extension PlanMealListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension PlanMealListViewController: PlanCellDelegate {
+    
+    func lockButtonTapped(section: Int) {
+        if !lockedPlanIndex.contains(section) {
+            lockedPlanIndex.append(section)
+        }
+        print("after lock:", lockedPlanIndex)
+    }
+    
+    func unlockButtonTapped(section: Int) {
+        if let index = lockedPlanIndex.index(of: section) {
+            lockedPlanIndex.remove(at: index)
+            print("after unlock:", lockedPlanIndex)
+        }
+    }
+    
+    func pickButtonTapped(section: Int) {
+        let plan = plans[section]
+        for meal in plan.meals {
+            BaseManager.shared.transaction {
+                meal.foods.removeAll()
+                let when = Food.When(rawValue: meal.name)
+                for _ in 0..<defaultNumbersOfFoodInAMeal {
+                    let food = FoodManager.shared.randomFood(of: when!)
+                    meal.foods.append(food)
+                }
+                
+            }
+            
+        }
+        collectionView.reloadItems(at: [IndexPath(row: 0, section: section)])
+
+    }
+    
+    func editButtonTapped(section: Int) {
+        // nothing
+    }
+}

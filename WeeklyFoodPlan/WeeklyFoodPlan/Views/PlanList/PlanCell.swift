@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol PlanCellDelegate {
+    func lockButtonTapped(section: Int)
+    func unlockButtonTapped(section: Int)
+    func editButtonTapped(section: Int)
+    func pickButtonTapped(section: Int)
+}
+
 class PlanCell: UICollectionViewCell {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var pickButton: UIButton!
     @IBOutlet var editButton: UIButton!
-    @IBOutlet var lockButton: UIButton!
+    
     
     let cellIdentifier = "PlanMealCell"
     
@@ -22,7 +29,9 @@ class PlanCell: UICollectionViewCell {
         return !self.pickButton.isEnabled
     }
     
+    var section:Int = 0
     var plan = DailyPlan()
+    var delegate: PlanCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,21 +44,12 @@ class PlanCell: UICollectionViewCell {
     }
 
     
-    @IBAction func lockButtonTapped(_ sender: UIButton) {
-        pickButton.isEnabled = !pickButton.isEnabled
-        editButton.isEnabled = !editButton.isEnabled
-        let title = pickButton.isEnabled ? "Lock": "Unlock"
-        sender.setTitle(title, for: .normal)
-        
-        let cells = tableView.visibleCells
-        cells.forEach({ (cell) in
-            if self.isLocked {
-                (cell as! PlanMealCell).lockImageView.isHidden = false
-            } else {
-                (cell as! PlanMealCell).lockImageView.isHidden = true
-            }
-        })
-        
+    @IBAction func pickButtonTapped(_ sender: UIButton) {
+        delegate?.pickButtonTapped(section: section)
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        delegate?.editButtonTapped(section: section)
     }
     
 }
@@ -66,9 +66,8 @@ extension PlanCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PlanMealCell
         let meal = plan.meals[indexPath.row]
-        cell.lockImageView.isHidden = !self.isLocked
-        cell.mealLabel.text = meal.name
-        cell.meal = meal
+        cell.config(with: meal)
+
         cell.mealCollectionView.reloadData()
         return cell
     }

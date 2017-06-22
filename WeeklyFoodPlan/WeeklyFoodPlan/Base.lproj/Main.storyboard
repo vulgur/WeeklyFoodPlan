@@ -47,12 +47,16 @@
                                                             <rect key="frame" x="324" y="7" width="30" height="30"/>
                                                             <state key="normal" title="Edit"/>
                                                             <connections>
+                                                                <action selector="editButtonTapped:" destination="kwW-we-HHt" eventType="touchUpInside" id="ZDO-Uy-ZQ3"/>
                                                                 <segue destination="Uae-v7-nSS" kind="show" identifier="ShowMeals" id="y57-Nk-OP8"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tN-xx-JSu">
                                                             <rect key="frame" x="286" y="7" width="30" height="30"/>
                                                             <state key="normal" title="Pick"/>
+                                                            <connections>
+                                                                <action selector="pickButtonTapped:" destination="kwW-we-HHt" eventType="touchUpInside" id="n7W-Op-QLq"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-MW-CG9">
                                                             <rect key="frame" x="8" y="11" width="42" height="21"/>
@@ -60,25 +64,16 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y70-VT-QZq">
-                                                            <rect key="frame" x="245" y="7" width="33" height="30"/>
-                                                            <state key="normal" title="Lock"/>
-                                                            <connections>
-                                                                <action selector="lockButtonTapped:" destination="kwW-we-HHt" eventType="touchUpInside" id="Rjb-XG-cXn"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.7584813031114741" green="1" blue="0.77019883883696916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="8tN-xx-JSu" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="4Vc-bQ-5JV"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="WLG-9b-M0f" secondAttribute="trailing" constant="12" id="L2X-60-601"/>
                                                         <constraint firstItem="5N3-MW-CG9" firstAttribute="leading" secondItem="NA7-ca-ovW" secondAttribute="leading" constant="8" id="PaP-Z7-bTM"/>
-                                                        <constraint firstItem="y70-VT-QZq" firstAttribute="centerY" secondItem="8tN-xx-JSu" secondAttribute="centerY" id="Qr4-1s-RvF"/>
                                                         <constraint firstAttribute="height" constant="44" id="SIZ-vO-qGG"/>
                                                         <constraint firstItem="WLG-9b-M0f" firstAttribute="leading" secondItem="8tN-xx-JSu" secondAttribute="trailing" constant="8" id="TGZ-9T-2yn"/>
                                                         <constraint firstItem="5N3-MW-CG9" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="TfI-z1-Gnd"/>
                                                         <constraint firstItem="WLG-9b-M0f" firstAttribute="centerY" secondItem="NA7-ca-ovW" secondAttribute="centerY" id="knf-qr-UtS"/>
-                                                        <constraint firstItem="8tN-xx-JSu" firstAttribute="leading" secondItem="y70-VT-QZq" secondAttribute="trailing" constant="8" id="yRm-qB-a6U"/>
                                                     </constraints>
                                                 </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-Ta-AKp">
@@ -130,27 +125,29 @@
                                                                             </collectionViewCell>
                                                                         </cells>
                                                                     </collectionView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="CrG-t8-2Ha">
-                                                                        <rect key="frame" x="338" y="8" width="20" height="20"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="20" id="6G3-J8-PiA"/>
-                                                                            <constraint firstAttribute="height" constant="20" id="H3Y-Hh-ZO7"/>
-                                                                        </constraints>
-                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTT-75-3dV">
+                                                                        <rect key="frame" x="327" y="8" width="39" height="34"/>
+                                                                        <state key="normal" title="Lock">
+                                                                            <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="toggleLock:" destination="rr7-Yg-FtA" eventType="touchUpInside" id="B7m-Ek-c1g"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="CrG-t8-2Ha" secondAttribute="trailing" constant="8" id="2lO-yQ-lPn"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="xTT-75-3dV" secondAttribute="trailing" id="By1-og-Ag0"/>
                                                                     <constraint firstAttribute="leadingMargin" secondItem="eJr-eY-zj4" secondAttribute="leading" id="DzB-oG-yi7"/>
                                                                     <constraint firstAttribute="leadingMargin" secondItem="Zls-o2-xxy" secondAttribute="leading" id="Elj-xk-2Cg"/>
                                                                     <constraint firstAttribute="topMargin" secondItem="Zls-o2-xxy" secondAttribute="top" id="ado-ym-SGF"/>
+                                                                    <constraint firstAttribute="topMargin" secondItem="xTT-75-3dV" secondAttribute="top" id="jmi-fl-LVq"/>
                                                                     <constraint firstAttribute="bottomMargin" secondItem="eJr-eY-zj4" secondAttribute="bottom" id="mIz-PW-8UP"/>
                                                                     <constraint firstItem="eJr-eY-zj4" firstAttribute="top" secondItem="Zls-o2-xxy" secondAttribute="bottom" constant="8" id="sOu-SE-4ci"/>
-                                                                    <constraint firstItem="CrG-t8-2Ha" firstAttribute="top" secondItem="Zls-o2-xxy" secondAttribute="top" id="uiz-it-80D"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="eJr-eY-zj4" secondAttribute="trailing" id="wWf-FM-QWi"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
-                                                                <outlet property="lockImageView" destination="CrG-t8-2Ha" id="ZOK-LK-KkQ"/>
+                                                                <outlet property="lockButton" destination="xTT-75-3dV" id="s2Y-jY-BqF"/>
                                                                 <outlet property="mealCollectionView" destination="eJr-eY-zj4" id="Qul-Gi-iO4"/>
                                                                 <outlet property="mealLabel" destination="Zls-o2-xxy" id="vO0-O9-M1f"/>
                                                             </connections>
@@ -171,7 +168,6 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="5N3-MW-CG9" id="XXq-3y-qgj"/>
                                             <outlet property="editButton" destination="WLG-9b-M0f" id="3VO-yI-Jn6"/>
-                                            <outlet property="lockButton" destination="y70-VT-QZq" id="NLf-yq-zaW"/>
                                             <outlet property="pickButton" destination="8tN-xx-JSu" id="gGG-qR-wj8"/>
                                             <outlet property="tableView" destination="aQP-Ta-AKp" id="mqo-jp-r71"/>
                                         </connections>
@@ -825,9 +821,6 @@
             <point key="canvasLocation" x="-1759.2" y="561.76911544227892"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="lock" width="40" height="40"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tQE-VG-J6D"/>
     </inferredMetricsTieBreakers>
