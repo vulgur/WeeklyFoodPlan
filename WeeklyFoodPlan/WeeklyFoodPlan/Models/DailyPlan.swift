@@ -24,4 +24,12 @@ class DailyPlan: Object {
         self.date = plan.date
         self.meals.append(contentsOf: plan.meals)
     }
+    
+    func reduceIngredients() {
+        for meal in self.meals {
+            for food in meal.foods {
+                food.reduceNeedIngredientCount()
+            }
+        }
+    }
 }

@@ -46,6 +46,11 @@ class BaseManager {
         return foods.reversed()
     }
     
+    func queryAllNeededIngredients() -> [Ingredient] {
+        let ingres = realm.objects(Ingredient.self).filter("neededCount > 0").toArray()
+        return ingres
+    }
+    
     func deleteAll() {
         try! realm.write {
             realm.deleteAll()

@@ -22,7 +22,6 @@ class PlanMealListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         loadPlans()
-//        generateFakeData()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,11 +30,7 @@ class PlanMealListViewController: UIViewController {
         navigationItem.title = "美食计划".localized()
         collectionView.reloadData()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        collectionView.reloadData()
-//    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,17 +40,16 @@ class PlanMealListViewController: UIViewController {
     private func loadPlans() {
         plans = WeeklyPlanManager.shared.nextWeeklyPlan()
     }
-    private func generateFakeData() {
-        plans.append(DailyPlanManager.shared.fakePlan())
-//        plans.append(DailyPlanManager.shared.fakePlan())
-//        plans.append(DailyPlanManager.shared.fakePlan())
-//        plans.append(DailyPlanManager.shared.fakePlan())
-//        plans.append(DailyPlanManager.shared.fakePlan())
-    }
+
     
     @IBAction func barButtonTapped(sender: UIBarButtonItem) {
-        var oldPlans = plans
-
+        let oldPlans = plans
+        for plan in oldPlans {
+            BaseManager.shared.transaction {
+                plan.reduceIngredients()
+            }
+        }
+        
         
         let newPlans = WeeklyPlanManager.shared.fakeWeeklyPlan()
         plans = newPlans

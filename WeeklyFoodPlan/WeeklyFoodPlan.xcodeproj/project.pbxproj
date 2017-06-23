@@ -19,6 +19,8 @@
 		D217B4AB1E6DCF7C0092966C /* MealItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217B4AA1E6DCF7C0092966C /* MealItemCell.swift */; };
 		D217B4AD1E6DCF890092966C /* MealHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217B4AC1E6DCF890092966C /* MealHeaderCell.swift */; };
 		D22499AD1E8541E000826F2D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22499AC1E8541E000826F2D /* Constants.swift */; };
+		D227EE671EFD072D00A74226 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227EE661EFD072D00A74226 /* FridgeViewController.swift */; };
+		D227EE691EFD074300A74226 /* FridgeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227EE681EFD074300A74226 /* FridgeItemCell.swift */; };
 		D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; };
 		D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D232524C1E5F2B2D0065C40A /* SwipyCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D23252511E60A3100065C40A /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23252501E60A3100065C40A /* Tip.swift */; };
@@ -48,7 +50,6 @@
 		D2D290A51E4453F900905D10 /* NutritionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290971E4453F900905D10 /* NutritionManager.swift */; };
 		D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909A1E4453F900905D10 /* Nutrition.swift */; };
 		D2D290AC1E4453F900905D10 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909E1E4453F900905D10 /* Tag.swift */; };
-		D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D290AE1E446DF400905D10 /* FreezerViewController.swift */; };
 		D2DD33F11E8E234C0072C81A /* FoodPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DD33F01E8E234C0072C81A /* FoodPreviewViewController.swift */; };
 		D2E70D131E799A6900896C4B /* FoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D121E799A6900896C4B /* FoodManager.swift */; };
 		D2E70D161E7ADB3C00896C4B /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D151E7ADB3C00896C4B /* FoodSearchViewController.swift */; };
@@ -137,6 +138,8 @@
 		D217B4AA1E6DCF7C0092966C /* MealItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealItemCell.swift; sourceTree = "<group>"; };
 		D217B4AC1E6DCF890092966C /* MealHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealHeaderCell.swift; sourceTree = "<group>"; };
 		D22499AC1E8541E000826F2D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D227EE661EFD072D00A74226 /* FridgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
+		D227EE681EFD074300A74226 /* FridgeItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FridgeItemCell.swift; sourceTree = "<group>"; };
 		D232524C1E5F2B2D0065C40A /* SwipyCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipyCell.framework; path = Carthage/Build/iOS/SwipyCell.framework; sourceTree = "<group>"; };
 		D23252501E60A3100065C40A /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		D23252521E6144F70065C40A /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
@@ -161,7 +164,6 @@
 		D2D290971E4453F900905D10 /* NutritionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionManager.swift; sourceTree = "<group>"; };
 		D2D2909A1E4453F900905D10 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		D2D2909E1E4453F900905D10 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		D2D290AE1E446DF400905D10 /* FreezerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezerViewController.swift; sourceTree = "<group>"; };
 		D2D290B31E44E4C800905D10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2DD33F01E8E234C0072C81A /* FoodPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodPreviewViewController.swift; sourceTree = "<group>"; };
 		D2E70D121E799A6900896C4B /* FoodManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodManager.swift; sourceTree = "<group>"; };
@@ -288,6 +290,15 @@
 			path = Meal;
 			sourceTree = "<group>";
 		};
+		D227EE651EFD06C700A74226 /* Fridge */ = {
+			isa = PBXGroup;
+			children = (
+				D227EE661EFD072D00A74226 /* FridgeViewController.swift */,
+				D227EE681EFD074300A74226 /* FridgeItemCell.swift */,
+			);
+			path = Fridge;
+			sourceTree = "<group>";
+		};
 		D251005D1E0C3296009BAF1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +347,7 @@
 		D2CFA27B1E1AB80500277BD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D227EE651EFD06C700A74226 /* Fridge */,
 				D2E70D191E82BEB900896C4B /* Settings */,
 				D2E70D141E7ADB2400896C4B /* FoodSearch */,
 				D217B4A51E6D13750092966C /* Meal */,
@@ -343,7 +355,6 @@
 				D2F6E73B1E68600B002F32A5 /* FoodList */,
 				D2F6E7171E685F77002F32A5 /* Food */,
 				D2F6E7121E685E21002F32A5 /* Common */,
-				D2D290AE1E446DF400905D10 /* FreezerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -612,6 +623,7 @@
 				D23252511E60A3100065C40A /* Tip.swift in Sources */,
 				D2E70D131E799A6900896C4B /* FoodManager.swift in Sources */,
 				D2F6E7611E686011002F32A5 /* FoodTagViewCell.swift in Sources */,
+				D227EE691EFD074300A74226 /* FridgeItemCell.swift in Sources */,
 				D2F6E7151E685E21002F32A5 /* InputItemView.swift in Sources */,
 				D2F6E73F1E68600B002F32A5 /* FoodItemCell.swift in Sources */,
 				D217B4AD1E6DCF890092966C /* MealHeaderCell.swift in Sources */,
@@ -621,7 +633,6 @@
 				D22499AD1E8541E000826F2D /* Constants.swift in Sources */,
 				D26076F61E4B9AF700FB433A /* String+Extension.swift in Sources */,
 				D2DD33F11E8E234C0072C81A /* FoodPreviewViewController.swift in Sources */,
-				D2D290AF1E446DF400905D10 /* FreezerViewController.swift in Sources */,
 				D2F6E7531E686011002F32A5 /* FoodHeaderViewCell.swift in Sources */,
 				D2E70D1B1E82BECC00896C4B /* SettingsViewController.swift in Sources */,
 				D20B52291E672A0B0088628A /* FoodDataImporter.swift in Sources */,
@@ -630,6 +641,7 @@
 				D2F6E7731E690A7F002F32A5 /* DailyPlanManager.swift in Sources */,
 				D2F6E77B1E6BE862002F32A5 /* PlanMealListViewController.swift in Sources */,
 				D2E70D181E7AE3CF00896C4B /* FoodSearchCell.swift in Sources */,
+				D227EE671EFD072D00A74226 /* FridgeViewController.swift in Sources */,
 				D217B4AB1E6DCF7C0092966C /* MealItemCell.swift in Sources */,
 				D2F6E75F1E686011002F32A5 /* FoodTagCell.swift in Sources */,
 				D2F6E7641E68612D002F32A5 /* Food.swift in Sources */,

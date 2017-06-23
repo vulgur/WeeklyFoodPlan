@@ -51,6 +51,12 @@ class Food: Object {
             i.neededCount += 1
         }
     }
+    
+    func reduceNeedIngredientCount() {
+        for i in self.ingredients {
+            i.neededCount -= 1
+        }
+    }
 }
 
 extension Food{

@@ -318,7 +318,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="atq-UR-CDt">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodSearchCell" rowHeight="50" id="YhI-iP-xbU" customClass="FoodSearchCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
@@ -395,26 +395,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSU-gZ-pjF">
-                                <rect key="frame" x="16" y="84" width="343" height="36"/>
+                                <rect key="frame" x="16" y="40" width="343" height="36"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cZ-rL-3GW">
-                                <rect key="frame" x="16" y="150" width="42" height="21"/>
+                                <rect key="frame" x="16" y="106" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3L-Lu-zJl">
-                                <rect key="frame" x="16" y="201" width="34" height="21"/>
+                                <rect key="frame" x="16" y="157" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-ks-lcG">
-                                <rect key="frame" x="16" y="252" width="86" height="21"/>
+                                <rect key="frame" x="16" y="208" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -448,7 +448,7 @@
         <!--我的冰箱-->
         <scene sceneID="W7R-oL-YJT">
             <objects>
-                <viewController id="VKh-Pz-GdO" customClass="FreezerViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="VKh-Pz-GdO" customClass="FridgeViewController" customModule="WeeklyFoodPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lvD-Yc-Gq3"/>
                         <viewControllerLayoutGuide type="bottom" id="M2c-29-PBt"/>
@@ -456,13 +456,86 @@
                     <view key="view" contentMode="scaleToFill" id="pWJ-ej-DQN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Awl-to-KBT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FridgeItemCell" id="DAJ-DZ-y5Q" customClass="FridgeItemCell" customModule="WeeklyFoodPlan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAJ-DZ-y5Q" id="Ly5-dY-zFm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-dA-TPp">
+                                                    <rect key="frame" x="8" y="11.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4U-su-eOx">
+                                                    <rect key="frame" x="281" y="11.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HXq-Nr-Ch4">
+                                                    <rect key="frame" x="325" y="11" width="42" height="20.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ngq-Jm-OqD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XW-eH-IEW">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="RJk-dA-TPp" secondAttribute="leading" id="C7K-Pv-C8n"/>
+                                                <constraint firstItem="HXq-Nr-Ch4" firstAttribute="centerY" secondItem="Ly5-dY-zFm" secondAttribute="centerY" id="UUh-RR-lg1"/>
+                                                <constraint firstItem="6XW-eH-IEW" firstAttribute="leading" secondItem="D4U-su-eOx" secondAttribute="trailing" constant="2" id="VKA-Gm-bFe"/>
+                                                <constraint firstItem="6XW-eH-IEW" firstAttribute="centerY" secondItem="Ly5-dY-zFm" secondAttribute="centerY" id="gMj-vY-maH"/>
+                                                <constraint firstItem="RJk-dA-TPp" firstAttribute="centerY" secondItem="Ly5-dY-zFm" secondAttribute="centerY" id="nb9-7w-eJa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6XW-eH-IEW" secondAttribute="trailing" id="tzr-PB-p5K"/>
+                                                <constraint firstItem="D4U-su-eOx" firstAttribute="centerY" secondItem="6XW-eH-IEW" secondAttribute="centerY" id="vqr-6Y-oSI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemNameLabel" destination="RJk-dA-TPp" id="TQA-jr-89k"/>
+                                            <outlet property="neededCountLabel" destination="6XW-eH-IEW" id="Q7L-je-8cC"/>
+                                            <outlet property="remainedCountLabel" destination="D4U-su-eOx" id="umO-ly-XeQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="VKh-Pz-GdO" id="PLi-Qm-niS"/>
+                                    <outlet property="delegate" destination="VKh-Pz-GdO" id="EfD-gf-G0K"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Awl-to-KBT" firstAttribute="leading" secondItem="pWJ-ej-DQN" secondAttribute="leading" id="1Qw-RQ-IvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Awl-to-KBT" secondAttribute="trailing" id="QGM-fU-fnk"/>
+                            <constraint firstItem="M2c-29-PBt" firstAttribute="top" secondItem="Awl-to-KBT" secondAttribute="bottom" id="cE7-Mi-bvW"/>
+                            <constraint firstItem="Awl-to-KBT" firstAttribute="top" secondItem="lvD-Yc-Gq3" secondAttribute="bottom" id="n3x-RI-oYU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="我的冰箱" id="aV3-TX-xAm"/>
+                    <connections>
+                        <outlet property="tableView" destination="Awl-to-KBT" id="BGc-DX-2D2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Dc-0u-pTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-818" y="-183"/>
+            <point key="canvasLocation" x="-818.39999999999998" y="-183.05847076461771"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CpO-fu-dYr">
