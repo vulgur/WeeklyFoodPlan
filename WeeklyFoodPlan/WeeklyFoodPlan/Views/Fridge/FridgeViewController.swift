@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipyCell
 
 class FridgeViewController: UIViewController {
 
@@ -68,6 +69,26 @@ extension FridgeViewController: UITableViewDataSource {
         } else {
             cell.remainedCountLabel.textColor = UIColor.red
         }
+        
+        cell.addSwipeTrigger(forState: .state(0, .right), withMode: .toggle, swipeView: UIView(), swipeColor: UIColor.green) { [unowned self](cell, state, mode) in
+            BaseManager.shared.transaction {
+                item.remainedCount = item.neededCount
+                self.tableView.reloadData()
+            }
+        }
         return cell
+    }
+}
+
+extension FridgeViewController: SwipyCellDelegate {
+    
+    func swipyCellDidStartSwiping(_ cell: SwipyCell) {
+        
+    }
+    func swipyCellDidFinishSwiping(_ cell: SwipyCell) {
+        
+    }
+    func swipyCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
+        
     }
 }

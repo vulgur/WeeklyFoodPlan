@@ -70,7 +70,7 @@ extension MealViewController: UITableViewDataSource {
         cell.foodNameLabel.text = food.name
         let deleteImageView = UIImageView(image: #imageLiteral(resourceName: "cross"))
         deleteImageView.contentMode = .center
-        cell.setSwipeGesture(deleteImageView, color: .red, mode: .exit, state: .state1) { [unowned self] (cell, state, mode) in
+        cell.addSwipeTrigger(forState: .state(1, .right), withMode: .exit, swipeView: deleteImageView, swipeColor: UIColor.red) { [unowned self](cell, state, mode) in
             self.deleteFood(cell)
         }
         return cell
@@ -123,14 +123,14 @@ extension MealViewController: MealHeaderCellDelegate {
 }
 
 extension MealViewController: SwipyCellDelegate {
-    func swipeableTableViewCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
+    func swipyCellDidStartSwiping(_ cell: SwipyCell) {
         
     }
-    func swipeableTableViewCellDidEndSwiping(_ cell: SwipyCell) {
+    func swipyCellDidFinishSwiping(_ cell: SwipyCell) {
         
     }
-    func swipeableTableViewCellDidStartSwiping(_ cell: SwipyCell) {
-    
+    func swipyCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
+        
     }
 }
 

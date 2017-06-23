@@ -66,7 +66,7 @@ extension FoodViewListViewCell: UITableViewDataSource {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "cross"))
         imageView.contentMode = .center
         cell.delegate = self
-        cell.setSwipeGesture(imageView, color: UIColor.red, mode: SwipyCellMode.exit, state: SwipyCellState.state1) { (cell, state, mode) in
+        cell.addSwipeTrigger(forState: .state(1, .right), withMode: .exit, swipeView: imageView, swipeColor: UIColor.red) { [unowned self] (cell, state, mode) in
             self.deleteCell(cell)
         }
         return cell
@@ -84,15 +84,13 @@ extension FoodViewListViewCell: UITableViewDataSource {
 }
 
 extension FoodViewListViewCell: SwipyCellDelegate {
-    func swipeableTableViewCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
-
-    }
-    
-    func swipeableTableViewCellDidEndSwiping(_ cell: SwipyCell) {
+    func swipyCellDidStartSwiping(_ cell: SwipyCell) {
         
     }
-    
-    func swipeableTableViewCellDidStartSwiping(_ cell: SwipyCell) {
+    func swipyCellDidFinishSwiping(_ cell: SwipyCell) {
+        
+    }
+    func swipyCell(_ cell: SwipyCell, didSwipeWithPercentage percentage: CGFloat) {
         
     }
 }

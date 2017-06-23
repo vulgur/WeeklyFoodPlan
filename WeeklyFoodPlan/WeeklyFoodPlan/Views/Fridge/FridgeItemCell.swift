@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipyCell
 
-class FridgeItemCell: UITableViewCell {
+class FridgeItemCell: SwipyCell {
 
     @IBOutlet var itemNameLabel: UILabel!
     @IBOutlet var neededCountLabel: UILabel!
