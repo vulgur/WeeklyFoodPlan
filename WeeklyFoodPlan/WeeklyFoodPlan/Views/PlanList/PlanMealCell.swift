@@ -56,16 +56,15 @@ extension PlanMealCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return meal.foods.count
+        return meal.mealFoods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: planFoodCellIdentifier, for: indexPath) as! PlanFoodCell
-        let food = meal.foods[indexPath.row]
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 2
-        cell.foodNameLabel.text = food.name
+        let food = meal.mealFoods[indexPath.row]
+
         cell.delegate = self
+        cell.config(by: food)
         return cell
     }
 }
@@ -79,8 +78,8 @@ extension PlanMealCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let title = meal.foods[indexPath.row].name
-        let cellWidth = cellWidthFor(title: title)
+        let title = meal.mealFoods[indexPath.row].food?.name
+        let cellWidth = cellWidthFor(title: title!)
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -102,17 +101,18 @@ extension PlanMealCell: UICollectionViewDelegateFlowLayout {
 extension PlanMealCell: PlanFoodCellDelegate {
     func didToggle(cell: PlanFoodCell, isDone: Bool) {
         if let indexPath = mealCollectionView.indexPath(for: cell) {
-            let food = meal.foods[indexPath.row]
+            let food = meal.mealFoods[indexPath.row]
             updateIngredients(of: food, isDone: isDone)
         }
     }
     
-    private func updateIngredients(of food: Food, isDone: Bool) {
+    private func updateIngredients(of mealFood: MealFood, isDone: Bool) {
         BaseManager.shared.transaction {
+            mealFood.isDone = isDone
             if isDone {
-                food.consumeIngredients()
+                mealFood.food?.consumeIngredients()
             } else {
-                food.restoreIngredients()
+                mealFood.food?.restoreIngredients()
             }
         }
     }

@@ -35,6 +35,7 @@ class Food: Object {
     dynamic var name: String = ""
     dynamic var isFavored: Bool = false
     dynamic var imagePath: String?
+    
     var whenObjects = List<WhenObject>()
     var tags = List<Tag>()
     var ingredients = List<Ingredient>()

@@ -61,16 +61,16 @@ extension MealViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let meal = dailyPlan.meals[section]
-        return meal.foods.count
+        return meal.mealFoods.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: mealItemCellIdentifier, for: indexPath) as! MealItemCell
         let meal = dailyPlan.meals[indexPath.section]
-        let food = meal.foods[indexPath.row]
-        cell.foodNameLabel.text = food.name
+        let mealFood = meal.mealFoods[indexPath.row]
+        cell.foodNameLabel.text = mealFood.food?.name
         let deleteImageView = UIImageView(image: #imageLiteral(resourceName: "cross"))
         deleteImageView.contentMode = .center
-        cell.addSwipeTrigger(forState: .state(1, .right), withMode: .exit, swipeView: deleteImageView, swipeColor: UIColor.red) { [unowned self](cell, state, mode) in
+        cell.addSwipeTrigger(forState: .state(0, .left), withMode: .exit, swipeView: deleteImageView, swipeColor: UIColor.red) { [unowned self](cell, state, mode) in
             self.deleteFood(cell)
         }
         return cell
@@ -80,7 +80,7 @@ extension MealViewController: UITableViewDataSource {
         if let indexPath = tableView.indexPath(for: cell) {
             let meal = dailyPlan.meals[indexPath.section]
             BaseManager.shared.transaction {
-                meal.foods.remove(objectAtIndex: indexPath.row)
+                meal.mealFoods.remove(objectAtIndex: indexPath.row)
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -98,6 +98,7 @@ extension MealViewController: UITableViewDelegate {
         cell.mealNameLabel.text = meal.name
         cell.section = section
         cell.delegate = self
+        cell.addFoodButton.tag = section
         let sectionView = UIView(frame: cell.frame)
         sectionView.addSubview(cell)
         return sectionView
@@ -112,12 +113,12 @@ extension MealViewController: MealHeaderCellDelegate {
     func pickFoodButtonTapped(section: Int) {
         let meal = dailyPlan.meals[section]
         let when = Food.When(rawValue: meal.name)
-        let food = FoodManager.shared.randomFood(of: when!)
+        let mealFood = FoodManager.shared.randomMealFood(of: when!)
         BaseManager.shared.transaction {
-            food.addNeedIngredientCount()
-            meal.foods.append(food)
+            mealFood.food?.addNeedIngredientCount()
+            meal.mealFoods.append(mealFood)
         }
-        let indexPath = IndexPath(row: meal.foods.count-1, section: section)
+        let indexPath = IndexPath(row: meal.mealFoods.count-1, section: section)
         tableView.insertRows(at: [indexPath], with: .fade)
     }
 }
@@ -140,9 +141,10 @@ extension MealViewController: FoodSearchViewControllerDelegate {
             if meal.name == when.rawValue {
                 BaseManager.shared.transaction {
                     food.addNeedIngredientCount()
-                    meal.foods.append(food)
+                    let mealFood = MealFood(food: food)
+                    meal.mealFoods.append(mealFood)
                 }
-                let indexPath = IndexPath(row: meal.foods.count-1, section: dailyPlan.meals.index(of: meal)!)
+                let indexPath = IndexPath(row: meal.mealFoods.count-1, section: dailyPlan.meals.index(of: meal)!)
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
         }

@@ -13,18 +13,26 @@ class Meal: Object {
     dynamic var id = UUID().uuidString
     dynamic var name: String = "" // correspond to Food.When.value
     dynamic var isLocked: Bool = false
-    var foods = List<Food>()
+    var mealFoods = List<MealFood>()
     
     override static func primaryKey() -> String? {
         return "id"
     }
 }
 
-class DoneFoodInMeal: Object {
+class MealFood: Object {
     dynamic var id = UUID().uuidString
-    dynamic var meal: Meal?
+//    dynamic var meal: Meal?
     dynamic var food: Food?
     dynamic var isDone = false
+    
+    
+    convenience init(food: Food) {
+        self.init()
+        self.food = food
+        self.isDone = false
+    }
+
     
     override static func primaryKey() -> String? {
         return "id"

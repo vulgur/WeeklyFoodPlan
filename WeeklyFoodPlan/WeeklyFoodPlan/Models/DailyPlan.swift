@@ -27,8 +27,8 @@ class DailyPlan: Object {
     
     func reduceIngredients() {
         for meal in self.meals {
-            for food in meal.foods {
-                food.reduceNeedIngredientCount()
+            for mealFood in meal.mealFoods {
+                mealFood.food?.reduceNeedIngredientCount()
             }
         }
     }

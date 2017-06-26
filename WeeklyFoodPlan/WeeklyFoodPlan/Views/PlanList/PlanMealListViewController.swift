@@ -124,11 +124,11 @@ extension PlanMealListViewController: PlanCellDelegate {
         let plan = plans[section]
         for meal in plan.meals {
             BaseManager.shared.transaction {
-                meal.foods.removeAll()
+                meal.mealFoods.removeAll()
                 let when = Food.When(rawValue: meal.name)
                 for _ in 0..<defaultNumbersOfFoodInAMeal {
-                    let food = FoodManager.shared.randomFood(of: when!)
-                    meal.foods.append(food)
+                    let mealFood = FoodManager.shared.randomMealFood(of: when!)
+                    meal.mealFoods.append(mealFood)
                 }
                 
             }

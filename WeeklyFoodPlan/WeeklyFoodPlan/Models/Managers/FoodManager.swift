@@ -22,6 +22,12 @@ class FoodManager {
         return results[randomIndex]
     }
     
+    func randomMealFood(of when: Food.When) -> MealFood {
+        let food = randomFood(of: when)
+        let mealFood = MealFood(food: food)
+        return mealFood
+    }
+    
     func allFoods(of when: Food.When) -> [Food] {
         let whenObject = realm.objects(WhenObject.self).first { (w) -> Bool in
             w.value == when.rawValue
