@@ -57,6 +57,20 @@ class Food: Object {
             i.neededCount -= 1
         }
     }
+    
+    func consumeIngredients() {
+        for i in self.ingredients {
+            i.remainedCount -= 1
+            i.neededCount -= 1
+        }
+    }
+    
+    func restoreIngredients() {
+        for i in self.ingredients {
+            i.remainedCount += 1
+            i.neededCount += 1
+        }
+    }
 }
 
 extension Food{

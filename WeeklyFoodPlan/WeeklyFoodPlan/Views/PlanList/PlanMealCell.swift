@@ -65,6 +65,7 @@ extension PlanMealCell: UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 2
         cell.foodNameLabel.text = food.name
+        cell.delegate = self
         return cell
     }
 }
@@ -89,5 +90,30 @@ extension PlanMealCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? PlanFoodCell {
+            cell.toggle()
+        }
+    }
+}
+
+extension PlanMealCell: PlanFoodCellDelegate {
+    func didToggle(cell: PlanFoodCell, isDone: Bool) {
+        if let indexPath = mealCollectionView.indexPath(for: cell) {
+            let food = meal.foods[indexPath.row]
+            updateIngredients(of: food, isDone: isDone)
+        }
+    }
+    
+    private func updateIngredients(of food: Food, isDone: Bool) {
+        BaseManager.shared.transaction {
+            if isDone {
+                food.consumeIngredients()
+            } else {
+                food.restoreIngredients()
+            }
+        }
     }
 }
