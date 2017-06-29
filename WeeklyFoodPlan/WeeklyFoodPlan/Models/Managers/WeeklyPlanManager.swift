@@ -58,7 +58,7 @@ class WeeklyPlanManager {
         }
         var components = DateComponents()
         components.day = 1
-        let days = Date.dates(between: nextStartDay.absoluteDate, and: nextEndDay.absoluteDate - 1.day, increment: components)
+        let days = Date.dates(between: nextStartDay.absoluteDate, and: nextEndDay.absoluteDate, increment: components)
 
         var plans = [DailyPlan]()
         for day in days {
