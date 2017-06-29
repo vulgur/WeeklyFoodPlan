@@ -3,3 +3,4 @@ github "moritzsternemann/SwipyCell" >= 3.1
 github "hyperoslo/ImagePicker"
 github "malcommac/SwiftDate" ~> 4.0
 github "realm/realm-cocoa"
+github "SwiftyJSON/SwiftyJSON"

@@ -1,0 +1,9 @@
+{
+    "name": "Hamburger",
+    "type": "TakeOut",
+    "tags": [
+             "fries", "chicken", "burger"
+             ],
+    "ingredients": [
+            "egg", "pepper", "califlower"]
+}

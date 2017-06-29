@@ -51,6 +51,9 @@
 		D2D290A81E4453F900905D10 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909A1E4453F900905D10 /* Nutrition.swift */; };
 		D2D290AC1E4453F900905D10 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2909E1E4453F900905D10 /* Tag.swift */; };
 		D2DD33F11E8E234C0072C81A /* FoodPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DD33F01E8E234C0072C81A /* FoodPreviewViewController.swift */; };
+		D2E5A7601F0403D000F5CF37 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = D2E5A75F1F0403D000F5CF37 /* test.json */; };
+		D2E5A7621F04EA1E00F5CF37 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E5A7611F04EA1E00F5CF37 /* SwiftyJSON.framework */; };
+		D2E5A7631F04EA1E00F5CF37 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2E5A7611F04EA1E00F5CF37 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2E70D131E799A6900896C4B /* FoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D121E799A6900896C4B /* FoodManager.swift */; };
 		D2E70D161E7ADB3C00896C4B /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D151E7ADB3C00896C4B /* FoodSearchViewController.swift */; };
 		D2E70D181E7AE3CF00896C4B /* FoodSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E70D171E7AE3CF00896C4B /* FoodSearchCell.swift */; };
@@ -113,6 +116,7 @@
 				D2A1F3201E4B6A6500E4B3ED /* SnapKit.framework in Embed Frameworks */,
 				D288944F1E8A48A7004909EF /* RealmSwift.framework in Embed Frameworks */,
 				D23252561E61A28B0065C40A /* ImagePicker.framework in Embed Frameworks */,
+				D2E5A7631F04EA1E00F5CF37 /* SwiftyJSON.framework in Embed Frameworks */,
 				D2FB033B1E6BFBC900634661 /* SwiftDate.framework in Embed Frameworks */,
 				D232524E1E5F2B2D0065C40A /* SwipyCell.framework in Embed Frameworks */,
 			);
@@ -166,6 +170,8 @@
 		D2D2909E1E4453F900905D10 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		D2D290B31E44E4C800905D10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2DD33F01E8E234C0072C81A /* FoodPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodPreviewViewController.swift; sourceTree = "<group>"; };
+		D2E5A75F1F0403D000F5CF37 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		D2E5A7611F04EA1E00F5CF37 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		D2E70D121E799A6900896C4B /* FoodManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodManager.swift; sourceTree = "<group>"; };
 		D2E70D151E7ADB3C00896C4B /* FoodSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchViewController.swift; sourceTree = "<group>"; };
 		D2E70D171E7AE3CF00896C4B /* FoodSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchCell.swift; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 				D2A1F31F1E4B6A6400E4B3ED /* SnapKit.framework in Frameworks */,
 				D288944E1E8A48A7004909EF /* RealmSwift.framework in Frameworks */,
 				D23252551E61A28B0065C40A /* ImagePicker.framework in Frameworks */,
+				D2E5A7621F04EA1E00F5CF37 /* SwiftyJSON.framework in Frameworks */,
 				D2FB033A1E6BFBC900634661 /* SwiftDate.framework in Frameworks */,
 				D232524D1E5F2B2D0065C40A /* SwipyCell.framework in Frameworks */,
 			);
@@ -233,6 +240,7 @@
 		D20E39041E03048700349F78 = {
 			isa = PBXGroup;
 			children = (
+				D2E5A7611F04EA1E00F5CF37 /* SwiftyJSON.framework */,
 				D251005D1E0C3296009BAF1B /* Frameworks */,
 				D20E390F1E03048700349F78 /* WeeklyFoodPlan */,
 				D20E39241E03048700349F78 /* WeeklyFoodPlanTests */,
@@ -340,6 +348,7 @@
 				D2CFA2711E18289300277BD9 /* apple_nutritions.json */,
 				D2CFA2731E1828E000277BD9 /* apple_ingredient.json */,
 				D2CFA2791E196F2400277BD9 /* kfc_recipe.json */,
+				D2E5A75F1F0403D000F5CF37 /* test.json */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -558,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2F6E75A1E686011002F32A5 /* FoodOptionCell.xib in Resources */,
+				D2E5A7601F0403D000F5CF37 /* test.json in Resources */,
 				D20E391B1E03048700349F78 /* LaunchScreen.storyboard in Resources */,
 				D2F6E7541E686011002F32A5 /* FoodHeaderViewCell.xib in Resources */,
 				D2F6E7621E686011002F32A5 /* FoodTagViewCell.xib in Resources */,

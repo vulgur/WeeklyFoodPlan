@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FoodDataImporter.importFoods()
             UserDefaults.init().set(true, forKey: importKey)
         }
+        FoodDataImporter.importJSONData()
         return true
     }
 

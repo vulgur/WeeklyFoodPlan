@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 
 class FoodDataImporter {
@@ -38,5 +39,42 @@ class FoodDataImporter {
             }
             BaseManager.shared.save(object: food)
         }
+    }
+    
+    class func importJSONData() {
+        
+        let path = Bundle.main.path(forResource: "test", ofType: "json")
+        let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path!))
+        let json = JSON(data: jsonData)
+        let food = foodFrom(json: json)
+        BaseManager.shared.save(object: food)
+        print(food)
+    }
+    
+    private class func foodFrom(json: JSON) -> Food {
+        let food = Food()
+        food.name = json["name"].stringValue
+        food.typeRawValue = json["type"].stringValue
+        for when in json["when"].arrayValue {
+            let whenObject = WhenObject()
+            whenObject.value = when.stringValue
+            food.whenObjects.append(whenObject)
+        }
+        for tag in json["tags"].arrayValue {
+            let t = Tag()
+            t.name = tag.stringValue
+            food.tags.append(t)
+        }
+        for ingre in json["ingredients"].arrayValue {
+            let ingredient = Ingredient()
+            ingredient.name = ingre.stringValue
+            food.ingredients.append(ingredient)
+        }
+        for tip in json["tips"].arrayValue {
+            let t = Tip()
+            t.content = tip.stringValue
+            food.tips.append(t)
+        }
+        return food
     }
 }
