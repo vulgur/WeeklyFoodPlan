@@ -1,9 +1,629 @@
-{
-    "name": "Hamburger",
-    "type": "TakeOut",
-    "tags": [
-             "fries", "chicken", "burger"
-             ],
-    "ingredients": [
-            "egg", "pepper", "califlower"]
-}
+[
+    {
+        "name": "蒜蓉油麦菜",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "拿手",
+            "快手菜"
+        ],
+        "ingredients": [
+            "大蒜",
+            "油麦菜",
+            "花椒"
+        ]
+    },
+    {
+        "name": "玉子烧",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "日式"
+        ],
+        "ingredients": [
+            "鸡蛋",
+            "高汤"
+        ]
+    },
+    {
+        "name": "炸鲜蘑",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "拿手"
+        ],
+        "ingredients": [
+            "鲜蘑",
+            "鸡蛋",
+            "淀粉",
+            "面粉"
+        ]
+    },
+    {
+        "name": "糖醋藕片",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "藕",
+            "白糖",
+            "陈醋"
+        ]
+    },
+    {
+        "name": "番茄炒蛋",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "西红柿",
+            "鸡蛋"
+        ]
+    },
+    {
+        "name": "尖椒土豆丝",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "土豆",
+            "尖椒",
+            "大蒜"
+        ]
+    },
+    {
+        "name": "烧豆角",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "豆角",
+            "大蒜"
+        ]
+    },
+    {
+        "name": "孜然羊肉",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "羊肉",
+            "芝麻",
+            "孜然"
+        ]
+    },
+    {
+        "name": "可乐鸡翅",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "高热量"
+        ],
+        "ingredients": [
+            "鸡翅",
+            "可乐"
+        ]
+    },
+    {
+        "name": "什锦鸡肉咖喱",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "日式"
+        ],
+        "ingredients": [
+            "咖喱",
+            "鸡胸肉",
+            "青豆",
+            "土豆",
+            "胡萝卜"
+        ]
+    },
+    {
+        "name": "日式炸猪排",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "日式"
+        ],
+        "ingredients": [
+            "猪肉",
+            "面粉",
+            "面包糠",
+            "鸡蛋"
+        ]
+    },
+    {
+        "name": "肥牛西兰花",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "拿手"
+        ],
+        "ingredients": [
+            "淀粉",
+            "肥牛",
+            "西兰花",
+            "大蒜",
+            "胡萝卜"
+        ]
+    },
+    {
+        "name": "照烧鸡",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "日式"
+        ],
+        "ingredients": [
+            "鸡腿肉",
+            "糖",
+            "清酒",
+            "日式酱油"
+        ]
+    },
+    {
+        "name": "油焖大虾",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "最爱"
+        ],
+        "ingredients": [
+            "大虾",
+            "番茄酱",
+            "糖"
+        ]
+    },
+    {
+        "name": "日式炸鸡翅",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "日式"
+        ],
+        "ingredients": [
+            "鸡翅",
+            "Mirin",
+            "日式酱油",
+            "蜂蜜",
+            "大蒜",
+            "黑胡椒",
+            "淀粉",
+            "芝麻"
+        ]
+    },
+    {
+        "name": "虾仁滑蛋",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "虾仁",
+            "鸡蛋",
+            "淀粉",
+            "蚝油",
+            "糖",
+            "酱油"
+        ]
+    },
+    {
+        "name": "日式拌黄瓜",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "日式",
+            "小菜"
+        ],
+        "ingredients": [
+            "黄瓜",
+            "盐",
+            "日式酱油",
+            "糖",
+            "Mirin",
+            "芝麻"
+        ]
+    },
+    {
+        "name": "芝麻酱豇豆",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [
+            "小菜"
+        ],
+        "ingredients": [
+            "芝麻酱",
+            "豇豆",
+            "大蒜",
+            "醋",
+            "酱油"
+        ]
+    },
+    {
+        "name": "酱油炒面",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": [
+            "上海青",
+            "面条",
+            "大蒜",
+            "鸡蛋",
+            "酱油"
+        ]
+    },
+    {
+        "name": "味增汤",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "日式",
+            "汤"
+        ],
+        "ingredients": [
+            "味增",
+            "豆腐"
+        ]
+    },
+    {
+        "name": "冬瓜虾仁汤",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "汤"
+        ],
+        "ingredients": [
+            "冬瓜",
+            "虾仁",
+            "胡椒粉"
+        ]
+    },
+    {
+        "name": "紫菜蛋花汤",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "汤"
+        ],
+        "ingredients": [
+            "紫菜",
+            "鸡蛋"
+        ]
+    },
+    {
+        "name": "意大利面",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "面条",
+            "主食"
+        ],
+        "ingredients": [
+            "意大利面"
+        ]
+    },
+    {
+        "name": "馄饨",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": [
+            "馄饨"
+        ]
+    },
+    {
+        "name": "饺子",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": [
+            "饺子"
+        ]
+    },
+    {
+        "name": "三明治",
+        "type": "HomeCook",
+        "when": [
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": [
+            "面包片",
+            "鸡蛋",
+            "生菜",
+            "芝士"
+        ]
+    },
+    {
+        "name": "腊肠焖饭",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": [
+            "腊肠",
+            "大米"
+        ]
+    },
+    {
+        "name": "豆腐脑",
+        "type": "TakeOut",
+        "when": [
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": []
+    },
+    {
+        "name": "油条",
+        "type": "TakeOut",
+        "when": [
+            "Lunch",
+            "Breakfast"
+        ],
+        "tags": [
+            "主食"
+        ],
+        "ingredients": []
+    },
+    {
+        "name": "炸酱面",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "面条",
+            "主食"
+        ],
+        "ingredients": [
+            "面条",
+            "豆瓣酱",
+            "黄瓜",
+            "胡萝卜"
+        ]
+    },
+    {
+        "name": "鸡丝面",
+        "type": "HomeCook",
+        "when": [
+            "Lunch",
+            "Dinner",
+            "Breakfast"
+        ],
+        "tags": [
+            "主食",
+            "面条"
+        ],
+        "ingredients": [
+            "面条",
+            "鸡胸肉",
+            "花生"
+        ]
+    },
+    {
+        "name": "鸡蛋羹",
+        "type": "HomeCook",
+        "when": [
+            "Breakfast"
+        ],
+        "tags": [
+            "快手菜"
+        ],
+        "ingredients": [
+            "鸡蛋",
+            "香油",
+            "酱油"
+        ]
+    },
+    {
+        "name": "KFC",
+        "type": "TakeOut",
+        "when": [
+            "Lunch",
+            "Dinner"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "永和大王",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "斗牛家",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "麦当劳",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "开封灌汤包",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "阿三生煎",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "叫了只鸡",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "肉夹馍",
+        "type": "TakeOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "寿司",
+        "type": "EatingOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    },
+    {
+        "name": "米兰西点",
+        "type": "EatingOut",
+        "when": [
+            "Dinner",
+            "Lunch"
+        ],
+        "tags": [],
+        "ingredients": []
+    }
+]

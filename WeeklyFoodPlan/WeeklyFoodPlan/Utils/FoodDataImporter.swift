@@ -46,9 +46,11 @@ class FoodDataImporter {
         let path = Bundle.main.path(forResource: "test", ofType: "json")
         let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path!))
         let json = JSON(data: jsonData)
-        let food = foodFrom(json: json)
-        BaseManager.shared.save(object: food)
-        print(food)
+        for foodJSON in json.arrayValue {
+            let food = foodFrom(json: foodJSON)
+            print(food)
+            BaseManager.shared.save(object: food)
+        }
     }
     
     private class func foodFrom(json: JSON) -> Food {
